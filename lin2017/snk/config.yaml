@@ -1,5 +1,0 @@
-config_default: /home/springer/zhoux379/git/snk/config.yaml
-dirw: /scratch.global/zhoux379/maize.expression/lin2017
-samplelist: 01.reads.tsv
-species: maize
-stranded: 'no'
