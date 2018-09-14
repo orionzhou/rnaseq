@@ -19,6 +19,7 @@ require(pheatmap)
 options(stringsAsFactors = FALSE)
 
 dirp = '~/projects/maize.expression'
+dirc = '/scratch.global/zhoux379/maize.expression'
 studies = c(
     'li2013',
     'hirsch2014',

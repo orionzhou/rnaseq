@@ -1,54 +1,8 @@
 #{{{
 source("me.fun.r")
 studies
-read_sra_run <- function(fi) {
-    #{{{
-    ti0 = read_csv(fi)
-    ti = ti0 %>% select(Run, spots, spots_with_mates, avgLength, 
-                        LibraryName, LibraryLayout, SampleName, 
-                        BioSample, Sample, Experiment) %>%
-        mutate(paired = ifelse(spots_with_mates/spots >= .5, T, F)) %>%
-        print(width = Inf)
-    ti %>% count(LibraryLayout, paired) %>% print(n=5)
-    ti
-    #}}}
-}
-sra_fill_replicate <- function(th) {
-    #{{{
-    cmap = c()
-    for (i in 1:nrow(th)) {
-        tis = th$Tissue[i]; gt = th$Genotype[i]; trt = th$Treatment[i]
-        key = sprintf("%s-%s-%s", tis, gt, trt)
-        if (key %in% names(cmap))
-            cmap[key] = cmap[key] + 1
-        else
-            cmap[key] = 1
-        th$Replicate[i] = cmap[key]
-    }
-    th %>% count(Replicate) %>% print(n=10)
-    th
-    #}}}
-}
-create_cache_dir <- function(study, dirp) {
-    #{{{
-    dircp = "/scratch.global/zhoux379/maize.expression"
-    dirw = file.path(dirp, study)
-    dirc = file.path(dircp, study)
-    cmd = sprintf("mkdir -p %s", dirc)
-    system(cmd)
-    if(file.exists(file.path(dirw, 'cache'))) system(sprintf("rm %s/cache", dirw))
-    cmd = sprintf("ln -sf %s/ %s/cache", dirc, dirw)
-    system(cmd)
-    fread = file.path(dirw, 'data/01.reads.tsv')
-    stopifnot(file.exists(fread))
-    cmd = sprintf("ln -sf %s %s/01.reads.tsv", fread, dirc)
-    system(cmd)
-    cmd = sprintf("mkdir -p %s/data/raw", dirw)
-    system(cmd)
-    cmd = sprintf("ln -sf %s/data/raw/ %s/data", dirw, dirc)
-    system(cmd)
-    #}}}
-}
+source("sra.R")
+source("snk.R")
 #}}}
 
 #{{{ li2013
@@ -317,24 +271,5 @@ ti = read_sra_run(fi)
 #}}}
 
 #{{{
-#}}}
-
-#{{{ hapmap3
-dirw = '~/projects/hapmap3/data'
-fi = file.path(dirw, "SraRunInfo.csv")
-ti = read_sra_run(fi)
-
-th = ti %>% 
-    separate("SampleName", c('pre', 'Genotype'), sep = "_", fill = 'left') %>%
-    transmute(SampleID = Run, 
-              Tissue = '', 
-              Genotype = Genotype, 
-              Treatment = '',
-              Replicate = '',
-              paired = paired)
-th = sra_fill_replicate(th)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
 #}}}
 
