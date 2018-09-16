@@ -12,7 +12,7 @@ me17a	eRD-GWAS	Lin2017	27 inbreds	5 tissues	20-30M
 me18a	dysregulation	Kremling2018	255 lines	7 tissues	2-6M	3' RNA-Seq
 me18b	SPE	Baldauf2018	7 inbreds + 6 hybrids	3 root stages	20M * 3-4 reps	
 me18c	sorghum pacbio	Wang2018	B73 and sorghum	11 tissues		
-me99a	biomass	Kaeppler2018	78 inbreds	?	25M	
+me99a	biomass	Kaeppler	78 inbreds	?	25M	
 me99b	B73&Mo17 atlas	Briggs	B73, Mo17 and BxM		20-30M	
 me99c	biomAP		35 inbreds + 96 hybrids	5	20-40M	
 me99d	stress response	Enders				3' RNA-Seq

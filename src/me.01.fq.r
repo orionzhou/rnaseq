@@ -1,12 +1,12 @@
 #{{{
 source("me.fun.r")
-studies
 source("sra.R")
 source("snk.R")
+tl
 #}}}
 
-#{{{ li2013
-study = 'li2013'
+#{{{ me13a - li2013
+study = 'me13a'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -25,14 +25,52 @@ th = th %>% transmute(SampleID = Run,
     arrange(SampleID)
 th = sra_fill_replicate(th)
 th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
 #}}}
 
-#{{{ hirsch2014
-study = 'hirsch2014'
+#{{{ me13b - liu2013
+study = 'me13b'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+th = ti %>% separate("SampleName", c("pre", "Treatment"), sep = "_", fill = "left")
+th %>% count(paired)
+th %>% count(Treatment)
+th = th %>% transmute(SampleID = Run,
+                      Tissue = 'Leaf',
+                      Genotype = 'B73',
+                      Treatment = Treatment,
+                      Replicate = '',
+                      paired = paired) %>% 
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+th %>% count(Replicate)
+#}}}
+
+#{{{ me15b - yu2015
+study = 'me15b'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+fm = file.path(dirw, "sra_result.csv")
+tm = read_csv(fm)
+tm = tm %>% separate(`Experiment Title`, c("pre", "Treatment"), sep = " at ") %>%
+    transmute(Experiment = `Experiment Accession`, Treatment = Treatment)
+
+th = ti %>% inner_join(tm, by = 'Experiment') %>% 
+    transmute(SampleID = Run, 
+              Tissue = "Leaf",
+              Genotype = 'B73',
+              Treatment = Treatment, 
+              Replicate = 1,
+              paired = paired) %>%
+    filter(paired) %>%
+    arrange(SampleID)
+#}}}
+
+#{{{ me14a - hirsch2014
+study = 'me14a'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -53,13 +91,99 @@ th = ti %>% inner_join(tm, by = 'BioSample') %>%
     arrange(SampleID)
 
 th = sra_fill_replicate(th)
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
 #}}}
 
-#{{{ walley2016
-study = 'walley2016'
+#{{{ me14b - li2014 endosperm
+study = 'me14b'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+fm = file.path(dirw, "sra_result.csv")
+tm = read_csv(fm)
+tm = tm %>% mutate(Experiment = `Experiment Accession`) %>%
+    separate(`Experiment Title`, c("pre", "Treatment"), sep = " B73 ") %>%
+    select(Experiment, Treatment) %>%
+    separate(Treatment, c("Treatment", "suf"), sep = "DAP; ") %>%
+    select(-suf) %>%
+    mutate(Treatment = ifelse(Treatment %in% c("0a", "0b"), "0", Treatment)) %>%
+    mutate(Treatment = as.integer(Treatment)) 
+
+th = ti %>% inner_join(tm, by = 'Experiment') %>% 
+    transmute(SampleID = Run, 
+              Tissue = "Endosperm",
+              Genotype = 'B73',
+              Treatment = Treatment, 
+              Replicate = '',
+              paired = paired) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+th
+#}}}
+
+#{{{ me15a - leiboff2015
+study = 'me15a'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+th = ti %>% transmute(SampleID = Run,
+                      Tissue = 'SAM',
+                      Genotype = SampleName,
+                      Treatment = '',
+                      Replicate = '',
+                      paired = paired) %>% 
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+th %>% count(Replicate)
+#}}}
+
+#{{{ me16a - jin2016
+study = 'me16a'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+th = ti %>% transmute(SampleID = Run,
+                      Tissue = 'kernel',
+                      Genotype = SampleName,
+                      Treatment = '',
+                      Replicate = '',
+                      paired = paired) %>% 
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+th %>% count(Replicate)
+#}}}
+
+#{{{ me16b - stelpflug2016
+study = 'me16b'
+dirw = file.path(dirp, study, 'data') 
+fi = file.path(dirw, "SraRunInfo.csv")
+ti = read_sra_run(fi)
+
+fx = file.path(dirw, "sra_result.csv")
+tx = read_csv(fx) %>% transmute(Experiment = `Experiment Accession`,
+                                exp.title = `Experiment Title`)
+
+th = ti %>% inner_join(tx, by = 'Experiment') %>%
+    mutate(exp.title = str_replace(exp.title, '_GH_', '_')) %>%
+    separate(exp.title, c('pre', 'str1'), sep = ", B73 ") %>%
+    separate(str1, c('tis.age.rep', 'suf'), sep = " RNA-Seq") %>%
+    separate(tis.age.rep, c('age','tis','rep'), sep = "_") 
+th %>% count(tis)
+th %>% count(age)
+th %>% count(rep)
+th = th %>% transmute(SampleID = Run,
+                      Tissue = sprintf("%s_%s", tis, age),
+                      Genotype = 'B73',
+                      Treatment = '',
+                      Replicate = rep,
+                      paired = paired) %>%
+    arrange(SampleID)
+#}}}
+
+#{{{ me16c - walley2016
+study = 'me16c'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -78,35 +202,45 @@ th = ti %>% left_join(tm, by = 'BioSample') %>%
     arrange(SampleID)
 th = sra_fill_replicate(th)
 th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
 #}}}
 
-#{{{ leiboff2015
-study = 'leiboff2015'
+#{{{ me17a - lin2017
+study = 'me17a'
 dirw = file.path(dirp, study, 'data') 
-fi = file.path(dirw, "SraRunInfo.csv")
-ti = read_sra_run(fi)
 
-th = ti %>% transmute(SampleID = Run,
-                      Tissue = 'SAM',
-                      Genotype = SampleName,
-                      Treatment = '',
-                      Replicate = '',
-                      paired = paired) %>% 
+fi1 = file.path(dirw, "SraRunInfo1.csv")
+ti1 = read_sra_run(fi1)
+th1 = ti1 %>% 
+    mutate(LibraryName = ifelse(LibraryName=='Mo18W', 'Mo18W-root', LibraryName)) %>%
+    separate(LibraryName, c('gt','tissue'), sep = "-") %>%
+    mutate(tissue = ifelse(tissue == 'fieldear', 'ear', tissue)) %>%
+    transmute(SampleID = Run,
+              Tissue = tissue,
+              Genotype = gt,
+              Treatment = '',
+              Replicate = '',
+              paired = paired) %>% 
     arrange(SampleID)
-th = sra_fill_replicate(th)
-th %>% count(Replicate)
+th1 %>% count(Tissue)
 
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
+fi2 = file.path(dirw, "SraRunInfo2.csv")
+ti2 = read_sra_run(fi2)
+th2 = ti2 %>% 
+    transmute(SampleID = Run,
+              Tissue = 'SAM',
+              Genotype = LibraryName,
+              Treatment = '',
+              Replicate = '',
+              paired = paired) %>% 
+    arrange(SampleID)
+th2 %>% count(Genotype)
+
+th = sra_fill_replicate(rbind(th1,th2))
+th %>% count(Replicate)
 #}}}
 
-#{{{ kremling2018
-study = 'kremling2018'
+#{{{ me18a - kremling2018
+study = 'me18a'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -143,105 +277,10 @@ th = th4 %>% mutate(Treatment = '', Replicate = '') %>%
 th %>% count(Tissue)
 th = sra_fill_replicate(th)
 th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
 #}}}
 
-#{{{ jin2016
-study = 'jin2016'
-dirw = file.path(dirp, study, 'data') 
-fi = file.path(dirw, "SraRunInfo.csv")
-ti = read_sra_run(fi)
-
-th = ti %>% transmute(SampleID = Run,
-                      Tissue = 'kernel',
-                      Genotype = SampleName,
-                      Treatment = '',
-                      Replicate = '',
-                      paired = paired) %>% 
-    arrange(SampleID)
-th = sra_fill_replicate(th)
-th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
-#}}}
-
-#{{{ lin2017
-study = 'lin2017'
-dirw = file.path(dirp, study, 'data') 
-
-fi1 = file.path(dirw, "SraRunInfo1.csv")
-ti1 = read_sra_run(fi1)
-th1 = ti1 %>% 
-    mutate(LibraryName = ifelse(LibraryName=='Mo18W', 'Mo18W-root', LibraryName)) %>%
-    separate(LibraryName, c('gt','tissue'), sep = "-") %>%
-    mutate(tissue = ifelse(tissue == 'fieldear', 'ear', tissue)) %>%
-    transmute(SampleID = Run,
-              Tissue = tissue,
-              Genotype = gt,
-              Treatment = '',
-              Replicate = '',
-              paired = paired) %>% 
-    arrange(SampleID)
-th1 %>% count(Tissue)
-
-fi2 = file.path(dirw, "SraRunInfo2.csv")
-ti2 = read_sra_run(fi2)
-th2 = ti2 %>% 
-    transmute(SampleID = Run,
-              Tissue = 'SAM',
-              Genotype = LibraryName,
-              Treatment = '',
-              Replicate = '',
-              paired = paired) %>% 
-    arrange(SampleID)
-th2 %>% count(Genotype)
-
-th = sra_fill_replicate(rbind(th1,th2))
-th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
-#}}}
-
-#{{{ stelpflug2016
-study = 'stelpflug2016'
-dirw = file.path(dirp, study, 'data') 
-fi = file.path(dirw, "SraRunInfo.csv")
-ti = read_sra_run(fi)
-
-fx = file.path(dirw, "sra_result.csv")
-tx = read_csv(fx) %>% transmute(Experiment = `Experiment Accession`,
-                                exp.title = `Experiment Title`)
-
-th = ti %>% inner_join(tx, by = 'Experiment') %>%
-    mutate(exp.title = str_replace(exp.title, '_GH_', '_')) %>%
-    separate(exp.title, c('pre', 'str1'), sep = ", B73 ") %>%
-    separate(str1, c('tis.age.rep', 'suf'), sep = " RNA-Seq") %>%
-    separate(tis.age.rep, c('age','tis','rep'), sep = "_") 
-th %>% count(tis)
-th %>% count(age)
-th %>% count(rep)
-th = th %>% transmute(SampleID = Run,
-                      Tissue = sprintf("%s_%s", tis, age),
-                      Genotype = 'B73',
-                      Treatment = '',
-                      Replicate = rep,
-                      paired = paired) %>%
-    arrange(SampleID)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
-#}}}
-
-#{{{ baldauf2018
-study = 'baldauf2018'
+#{{{ me18b - baldauf2018
+study = 'me18b'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -257,14 +296,10 @@ th = ti %>%
               paired = paired) %>% 
     arrange(SampleID)
 th %>% count(Replicate)
-
-fo = file.path(dirw, "01.reads.tsv")
-write_tsv(th, fo)
-create_cache_dir(study, dirp)
 #}}}
 
-#{{{ kaeppler2018
-study = 'kaeppler2018'
+#{{{ me99a - kaeppler
+study = 'me99a'
 dirw = file.path(dirp, study, 'data') 
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
@@ -273,3 +308,6 @@ ti = read_sra_run(fi)
 #{{{
 #}}}
 
+fo = file.path(dirw, "01.reads.tsv")
+write_tsv(th, fo)
+create_cache_dir(study, dirp, dirc)

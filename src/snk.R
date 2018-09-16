@@ -2,7 +2,7 @@ create_cache_dir <- function(study, dirp, dirc) {
     #{{{
     dirw = file.path(dirp, study)
     dirc1 = file.path(dirc, study)
-    cmd = sprintf("mkdir -p %s", dirc)
+    cmd = sprintf("mkdir -p %s", dirc1)
     system(cmd)
     if(file.exists(file.path(dirw, 'cache'))) system(sprintf("rm %s/cache", dirw))
     cmd = sprintf("ln -sf %s/ %s/cache", dirc1, dirw)

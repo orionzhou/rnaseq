@@ -1,6 +1,6 @@
 #{{{
 source("me.fun.r")
-studies
+tl
 #fi = '~/data/genome/B73/v32/t5.gtb'
 #gids = read_tsv(fi) %>% distinct(par) %>% pull(par)
 fi = file.path('~/data/genome/B73', "v37/t2.tsv")
@@ -12,8 +12,8 @@ t_gs = read_tsv(fi, col_types = 'ccccciic') %>%
     summarise(size = max(size))
 #}}}
 
-#{{{ li2013
-study = 'li2013'
+#{{{ me13a - li2013
+study = 'me13a'
 dirw = file.path(dirp, study, 'data')
 diri = file.path(dirp, study, 'data/raw/multiqc_data')
 fh = file.path(dirw, '01.reads.tsv')

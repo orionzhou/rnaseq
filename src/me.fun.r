@@ -18,20 +18,10 @@ require(scales)
 require(pheatmap)
 options(stringsAsFactors = FALSE)
 
-dirp = '~/projects/maize.expression'
+dirp = '~/projects/maize.expression/data'
 dirc = '/scratch.global/zhoux379/maize.expression'
-studies = c(
-    'li2013',
-    'hirsch2014',
-    'leiboff2015',
-    'stelpflug2016',
-    'walley2016',
-    'jin2016', 
-    'lin2017',
-    'baldauf2018',
-    'kremling2018',
-    'kaeppler2018'
-)
+fl = file.path(dirp, '01.cfg.tsv')
+tl = read_tsv(fl)
 #}}}
 
 readcount_norm <- function(t_rc, t_gs) {
