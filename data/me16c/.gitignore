@@ -1,0 +1,63 @@
+# Project directories
+cache/*
+data/*
+logs/*
+test
+analysis/41.qc/10.norm.RData
+
+# app temp files
+.snakemake/*
+*.snakemake
+*Rhistory
+*Rplots.pdf
+*.swp
+
+# Large data files
+*.gff
+*.bed
+*.fasta
+*.fas
+*.bam
+*.gff3
+*.fastq
+*.sam
+*.o*
+*.e*
+*.vcf
+*.storable
+
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+*.log
+*.sql
+*.sqlite
+*=
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon
+Icon?
+ehthumbs.db
+Thumbs.db
