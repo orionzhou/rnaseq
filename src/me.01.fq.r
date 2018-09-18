@@ -33,7 +33,9 @@ dirw = file.path(dirp, study, 'data')
 fi = file.path(dirw, "SraRunInfo.csv")
 ti = read_sra_run(fi)
 
-th = ti %>% separate("SampleName", c("pre", "Treatment"), sep = "_", fill = "left")
+th = ti %>% 
+    separate("SampleName", c("pre", "Treatment"), sep = "_", fill = "left") %>%
+    mutate(Treatment = ifelse(is.na(pre), Treatment, sprintf("E%s", Treatment))) 
 th %>% count(paired)
 th %>% count(Treatment)
 th = th %>% transmute(SampleID = Run,
