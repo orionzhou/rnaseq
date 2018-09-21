@@ -173,3 +173,58 @@ read_multiqc_featurecounts <- function(fi) {
     to
     #}}}
 }
+
+merge_me_datasets <- function(sids, t_cfg, dird, group = 'Tissue') {
+    #{{{
+    th = tibble(); t_rc = tibble()
+    for (sid1 in sids) {
+        study1 = t_cfg %>% filter(sid == !!sid1) %>% pull(author)
+        diri = file.path(dird, sid1, 'data')
+        fh1 = file.path(diri, '01.reads.tsv')
+        fh2 = file.path(diri, '02.reads.corrected.tsv')
+        fh = ifelse(file.exists(fh2), fh2, fh1) 
+        th1 = read_tsv(fh) 
+        if(group == 'Tissue') {
+            th1 = th1 %>% mutate(Tissue = sprintf("%s_%s", study1, Tissue))
+        } else if(group == 'Genotype') {
+            th1 = th1 %>% mutate(Genotype = sprintf("%s_%s", study1, Genotype))
+        } else if(group == 'Treatment') {
+            th1 = th1 %>% mutate(Treatment = sprintf("%s_%s", study1, Treatment))
+        } else {
+            stop("unsupported group")
+        }
+        th = rbind(th, th1)
+        fi = file.path(diri, 'raw/featurecounts.tsv')
+        t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', th1$SampleID)))
+        stopifnot(ncol(t_rc1) == nrow(th1) + 1)
+        if(nrow(t_rc) == 0)
+            t_rc = t_rc1
+        else {
+            t_rc = t_rc %>% inner_join(t_rc1, by = 'gid')
+        }
+    }
+    list(th = th, t_rc = t_rc)
+    #}}}
+}
+
+create_cache_dir <- function(sid, dird, dirc) {
+    #{{{
+    dirw = file.path(dird, sid)
+    dirc1 = file.path(dirc, sid)
+    cmd = sprintf("mkdir -p %s", dirc1)
+    system(cmd)
+    if(file.exists(file.path(dirw, 'cache'))) system(sprintf("rm %s/cache", dirw))
+    cmd = sprintf("ln -sf %s/ %s/cache", dirc1, dirw)
+    system(cmd)
+    fread = sprintf('%s/05_read_list/%s.tsv', dird, sid)
+    stopifnot(file.exists(fread))
+    cmd = sprintf("ln -sf %s %s/01.reads.tsv", fread, dirc1)
+    system(cmd)
+    cmd = sprintf("mkdir -p %s/raw", dirw)
+    system(cmd)
+    cmd = sprintf("ln -sf %s/raw/ %s/data", dirw, dirc1)
+    system(cmd)
+    #}}}
+}
+
+

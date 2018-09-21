@@ -1,4 +1,4 @@
-read_sra_run <- function(fi) {
+read_sra_run <- function(fi, fi2) {
     #{{{
     ti0 = read_csv(fi)
     ti = ti0 %>% select(Run, spots, spots_with_mates, avgLength, 
@@ -7,6 +7,12 @@ read_sra_run <- function(fi) {
         mutate(paired = ifelse(spots_with_mates/spots >= .5, T, F)) %>%
         print(width = Inf)
     ti %>% count(LibraryLayout, paired) %>% print(n=5)
+    if(file.exists(fi2)) {
+        ti2 = read_csv(fi2) %>%
+            transmute(Experiment = `Experiment Accession`, 
+                      Title = `Experiment Title`)
+        ti = ti %>% left_join(ti2, by = 'Experiment') %>% select(-Experiment)
+    }
     ti
     #}}}
 }

@@ -1,8 +1,6 @@
 #{{{
 source("me.fun.r")
 t_cfg
-#fi = '~/data/genome/B73/v32/t5.gtb'
-#gids = read_tsv(fi) %>% distinct(par) %>% pull(par)
 fi = file.path('~/data/genome/B73', "v37/t2.tsv")
 t_gs = read_tsv(fi, col_types = 'ccccciic') %>% 
     filter(etype == 'exon') %>% 
@@ -2114,6 +2112,8 @@ th = read_tsv(fh)
 gts = c("B73", "Mo17", "B73xMo17")
 tissues = sort(unique(th$Tissue))
 th = th %>% filter(Genotype %in% gts, ! SampleID %in% c('BR207', 'BR230', "BR235"))
+fh = file.path(dirw, "02.reads.corrected.tsv")
+#write_tsv(th, fh)
 
 #{{{ trim - number read pairs
 fi = file.path(diri, "multiqc_trimmomatic.txt")
@@ -2239,16 +2239,10 @@ ggsave(p1, filename = fp, width = 6, height = 6)
 #}}}
 
 #{{{ collect featurecounts data & normalize
-fi = file.path(diri, '../featurecounts.txt')
-ti = read_tsv(fi, skip = 1)
-cnames = colnames(ti)[-c(1:6)]
-res = strsplit(cnames, split = ":")
-sids = sapply(res, "[", 2)
-tcw = ti[,-c(2:6)]
-colnames(tcw) = c('gid', sids)
-t_rc = tcw[,c('gid', th$SampleID)]
+fi = file.path(diri, '../featurecounts.tsv')
+ti = read_tsv(fi)
 
-tm = t_rc %>% gather(SampleID, ReadCount, -gid)
+tm = t_rc %>% gather(SampleID, ReadCount, -gid) # not filtered for SampleID
 res = readcount_norm(tm, t_gs)
 tl = res$tl; tm = res$tm
 
@@ -2715,6 +2709,274 @@ ggsave(p1, filename = fp, width = 6, height = 6)
 #}}}
 #}}}
 
+# combined datasets
+#{{{ mec01: stelpflug2016 + walley2016
+sid = 'mec01'
+dirw = file.path(dird, sid, 'data')
+t_cfg %>% filter(sid == !!sid)
+sids = str_split(t_cfg %>% filter(sid == !!sid) %>% pull(author), "[\\+]")[[1]] 
+sids
+
+#{{{ collect featurecounts data & normalize
+res = merge_me_datasets(sids, t_cfg, dird, group = 'Tissue')
+th = res$th; t_rc = res$t_rc
+dim(th); dim(t_rc)
+
+tm = t_rc %>% gather(SampleID, ReadCount, -gid)
+res = readcount_norm(tm, t_gs)
+tl = res$tl; tm = res$tm
+
+fh = file.path(dirw, '01.reads.tsv')
+write_tsv(th, fh)
+fo = file.path(dirw, '20.rc.norm.rda')
+save(tl, tm, file = fo)
+#}}}
+
+#{{{ read data for hclust and pca
+fi = file.path(dirw, '20.rc.norm.rda')
+x = load(fi)
+x
+
+tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
+t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+e = tw %>% filter(gid %in% gids) %>% select(-gid)
+dim(e)
+#}}}
+
+#{{{ hclust tree
+cor_opt = "pearson"
+hc_opt = "ward.D"
+e.c.dist <- as.dist(1-cor(e, method = cor_opt))
+e.c.hc <- hclust(e.c.dist, method = hc_opt)
+hc = e.c.hc
+tree = as.phylo(e.c.hc)
+
+tp = tl %>% inner_join(th, by = 'SampleID') %>%
+    mutate(taxa = SampleID,
+           Rep = as.character(Replicate),
+           lab = sprintf("%s %s %s", SampleID, Genotype, Replicate)) %>%
+    select(taxa, everything())
+p1 = ggtree(tree) + 
+    scale_x_continuous(expand = c(0,0), limits=c(-.2,12)) +
+    scale_y_discrete(expand = c(.02,0)) +
+    theme_tree2()
+p1 = p1 %<+% tp + 
+    #geom_tiplab(aes(label = lab), size = 2, offset = 0.04) + 
+    geom_text(aes(label = Tissue), size = 2, nudge_x = .1, hjust = 0) +
+    geom_text(aes(label = Rep), size = 2, nudge_x = 4, hjust = 0)
+fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
+ggsave(p1, filename = fo, width = 8, height = 12)
+#}}}
+
+#{{{ PCA
+pca <- prcomp(asinh(e), center = F, scale. = F)
+x = pca['rotation'][[1]]
+y = summary(pca)$importance
+y[,1:5]
+
+xlab = sprintf("PC1 (%.01f%%)", y[2,1]*100)
+ylab = sprintf("PC2 (%.01f%%)", y[2,2]*100)
+cols6 = pal_d3()(6)
+shapes7 = c(15:18, 7,8,9)
+tp = as_tibble(x[,1:5]) %>%
+    add_column(SampleID = rownames(x)) %>%
+    left_join(th, by = 'SampleID')
+tps = tp %>% distinct(Tissue) %>%
+    mutate(colors = rep(cols6, each = 7)[1:length(tissues)],
+           shapes = rep(shapes7, 6)[1:length(tissues)])
+p1 = ggplot(tp) +
+    #geom_point(aes(x = PC1, y = PC2, shape = Tissue, color = Tissue, group = Tissue), size = 2) +
+    geom_point(aes(x = PC1, y = PC2), color = 'red', size = 2) +
+    geom_text_repel(aes(x = PC1, y = PC2, label = Tissue), size = 2) +
+    scale_x_continuous(name = xlab) +
+    scale_y_continuous(name = ylab) +
+    guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+    guides(shape = guide_legend(ncol = 1, byrow = T)) +
+    otheme(xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T) 
+    theme(legend.position = 'right', legend.direction = "vertical", legend.justification = c(0,.5))
+fp = sprintf("%s/22.pca.pdf", dirw)
+ggsave(p1, filename = fp, width = 12, height = 12)
+#}}}
+#}}}
+
+#{{{ mec02: stelpflug2016 + walley2016 + briggs B73
+sid = 'mec02'
+dirw = file.path(dird, sid, 'data')
+t_cfg %>% filter(sid == !!sid)
+sids = str_split(t_cfg %>% filter(sid == !!sid) %>% pull(author), "[\\+]")[[1]] 
+sids
+
+#{{{ collect featurecounts data & normalize
+res = merge_me_datasets(sids, t_cfg, dird, group = 'Tissue')
+th = res$th; t_rc = res$t_rc
+th = th %>% filter(Genotype == 'B73')
+t_rc = t_rc %>% select(one_of(c('gid', th$SampleID)))
+dim(th); dim(t_rc)
+tissues = unique(th$Tissue)
+
+tm = t_rc %>% gather(SampleID, ReadCount, -gid)
+res = readcount_norm(tm, t_gs)
+tl = res$tl; tm = res$tm
+
+fh = file.path(dirw, '01.reads.tsv')
+write_tsv(th, fh)
+fo = file.path(dirw, '20.rc.norm.rda')
+save(tl, tm, file = fo)
+#}}}
+
+#{{{ read data for hclust and pca
+fi = file.path(dirw, '20.rc.norm.rda')
+x = load(fi)
+x
+
+tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
+t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+e = tw %>% filter(gid %in% gids) %>% select(-gid)
+dim(e)
+#}}}
+
+#{{{ hclust tree
+cor_opt = "pearson"
+hc_opt = "ward.D"
+e.c.dist <- as.dist(1-cor(e, method = cor_opt))
+e.c.hc <- hclust(e.c.dist, method = hc_opt)
+hc = e.c.hc
+tree = as.phylo(e.c.hc)
+
+tp = tl %>% inner_join(th, by = 'SampleID') %>%
+    mutate(taxa = SampleID,
+           Rep = as.character(Replicate),
+           lab = sprintf("%s %s %s", SampleID, Genotype, Replicate)) %>%
+    select(taxa, everything())
+p1 = ggtree(tree) + 
+    scale_x_continuous(expand = c(0,0), limits=c(-.5,17)) +
+    scale_y_discrete(expand = c(.02,0)) +
+    theme_tree2()
+p1 = p1 %<+% tp + 
+    #geom_tiplab(aes(label = lab), size = 2, offset = 0.04) + 
+    geom_text(aes(label = Tissue), size = 2, nudge_x = .1, hjust = 0) +
+    geom_text(aes(label = Rep), size = 2, nudge_x = 5, hjust = 0)
+fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
+ggsave(p1, filename = fo, width = 8, height = 18)
+#}}}
+
+#{{{ PCA
+pca <- prcomp(asinh(e), center = F, scale. = F)
+x = pca['rotation'][[1]]
+y = summary(pca)$importance
+y[,1:5]
+
+xlab = sprintf("PC1 (%.01f%%)", y[2,1]*100)
+ylab = sprintf("PC2 (%.01f%%)", y[2,2]*100)
+cols6 = pal_d3()(6)
+shapes7 = c(15:18, 7,8,9)
+tp = as_tibble(x[,1:5]) %>%
+    add_column(SampleID = rownames(x)) %>%
+    left_join(th, by = 'SampleID')
+tps = tp %>% distinct(Tissue) %>%
+    mutate(colors = rep(cols6, each = 7)[1:length(tissues)],
+           shapes = rep(shapes7, 6)[1:length(tissues)])
+p1 = ggplot(tp) +
+    #geom_point(aes(x = PC1, y = PC2, shape = Tissue, color = Tissue, group = Tissue), size = 2) +
+    geom_point(aes(x = PC1, y = PC2), color = 'red', size = 2) +
+    geom_text_repel(aes(x = PC1, y = PC2, label = Tissue), size = 2) +
+    scale_x_continuous(name = xlab) +
+    scale_y_continuous(name = ylab) +
+    guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+    guides(shape = guide_legend(ncol = 1, byrow = T)) +
+    otheme(xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T) 
+    theme(legend.position = 'right', legend.direction = "vertical", legend.justification = c(0,.5))
+fp = sprintf("%s/22.pca.pdf", dirw)
+ggsave(p1, filename = fp, width = 12, height = 12)
+#}}}
+#}}}
+
+#{{{ met01: liu2013 + yu2015
+sid = 'met01'
+dirw = file.path(dird, sid, 'data')
+t_cfg %>% filter(sid == !!sid)
+sids = str_split(t_cfg %>% filter(sid == !!sid) %>% pull(author), "[\\+]")[[1]] 
+sids
+
+#{{{ collect featurecounts data & normalize
+res = merge_me_datasets(sids, t_cfg, dird, group = 'Treatment')
+th = res$th; t_rc = res$t_rc
+th = th %>% filter(!str_detect(Treatment, "Liu2013_ET"))
+t_rc = t_rc %>% select(one_of('gid', th$SampleID))
+dim(th); dim(t_rc)
+
+tm = t_rc %>% gather(SampleID, ReadCount, -gid)
+res = readcount_norm(tm, t_gs)
+tl = res$tl; tm = res$tm
+
+fh = file.path(dirw, '01.reads.tsv')
+write_tsv(th, fh)
+fo = file.path(dirw, '20.rc.norm.rda')
+save(tl, tm, file = fo)
+#}}}
+
+#{{{ read data for hclust and pca
+fi = file.path(dirw, '20.rc.norm.rda')
+x = load(fi)
+x
+
+tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
+t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+e = tw %>% filter(gid %in% gids) %>% select(-gid)
+dim(e)
+#}}}
+
+#{{{ hclust tree
+cor_opt = "pearson"
+hc_opt = "ward.D"
+e.c.dist <- as.dist(1-cor(e, method = cor_opt))
+e.c.hc <- hclust(e.c.dist, method = hc_opt)
+hc = e.c.hc
+tree = as.phylo(e.c.hc)
+
+tp = tl %>% inner_join(th, by = 'SampleID') %>%
+    mutate(taxa = SampleID,
+           lab = sprintf("%s %s %s", SampleID, Treatment, Replicate)) %>%
+    select(taxa, everything())
+p1 = ggtree(tree) + 
+    scale_x_continuous(expand = expand_scale(mult=c(0,.5))) +
+    scale_y_discrete(expand = c(.02,0)) +
+    theme_tree2()
+p1 = p1 %<+% tp + 
+    geom_tiplab(aes(label = lab), size = 3, offset = 0.04)
+fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
+ggsave(p1, filename = fo, width = 6, height = 8)
+#}}}
+
+#{{{ PCA
+pca <- prcomp(asinh(e), center = F, scale. = F)
+x = pca['rotation'][[1]]
+y = summary(pca)$importance
+y[,1:5]
+
+xlab = sprintf("PC1 (%.01f%%)", y[2,1]*100)
+ylab = sprintf("PC2 (%.01f%%)", y[2,2]*100)
+cols6 = pal_d3()(6)
+shapes7 = c(15:18, 7,8,9)
+tp = as_tibble(x[,1:5]) %>%
+    add_column(SampleID = rownames(x)) %>%
+    left_join(th, by = 'SampleID')
+p1 = ggplot(tp) +
+    geom_point(aes(x = PC1, y = PC2), color = 'red', size = 2) +
+    geom_text_repel(aes(x = PC1, y = PC2, label = Treatment), size = 2.5) +
+    scale_x_continuous(name = xlab) +
+    scale_y_continuous(name = ylab) +
+    guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+    guides(shape = guide_legend(ncol = 1, byrow = T)) +
+    otheme(xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T) 
+    theme(legend.position = 'right', legend.direction = "vertical", legend.justification = c(0,.5))
+fp = sprintf("%s/22.pca.pdf", dirw)
+ggsave(p1, filename = fp, width = 8, height = 8)
+#}}}
+#}}}
 
 #{{{ output
 diro = file.path(dird, '09_output')
@@ -2732,6 +2994,7 @@ for(i in 1:nrow(t_cfg)) {
     fh2 = file.path(diri, '02.reads.corrected.tsv')
     fh = ifelse(file.exists(fh2), fh2, fh1) 
     th = read_tsv(fh)
+    tm = tm %>% filter(SampleID %in% th$SampleID)
     #stopifnot(nrow(th) * ngene == nrow(tm))
     #
     tl = th
