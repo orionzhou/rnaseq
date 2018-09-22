@@ -350,6 +350,6 @@ th = get_read_list(ti)
 th %>% count(Tissue); th %>% count(Genotype); th %>% count(Replicate)
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
-create_cache_dir(sid, dird, dirc)
+#create_cache_dir(sid, dird, dirc)
 
 

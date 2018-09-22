@@ -1,0 +1,196 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired
+SRR404131	Stelpflug2016_Germinating Seed_24H	B73	NA	R1	FALSE
+SRR404132	Stelpflug2016_Germinating Seed_24H	B73	NA	R1	FALSE
+SRR404139	Stelpflug2016_Germinating Seed_24H	B73	NA	R2	FALSE
+SRR404140	Stelpflug2016_Germinating Seed_24H	B73	NA	R3	FALSE
+SRR404141	Stelpflug2016_Primary Root_6DAS	B73	NA	R1	FALSE
+SRR404142	Stelpflug2016_Primary Root_6DAS	B73	NA	R1	FALSE
+SRR404143	Stelpflug2016_Primary Root_6DAS	B73	NA	R2	FALSE
+SRR404144	Stelpflug2016_Primary Root_6DAS	B73	NA	R3	FALSE
+SRR404145	Stelpflug2016_Stem and SAM_V3	B73	NA	R1	FALSE
+SRR404146	Stelpflug2016_Stem and SAM_V3	B73	NA	R1	FALSE
+SRR404147	Stelpflug2016_Stem and SAM_V3	B73	NA	R2	FALSE
+SRR404148	Stelpflug2016_Stem and SAM_V3	B73	NA	R3	FALSE
+SRR404149	Stelpflug2016_Tip of stage-2 Leaf_V5	B73	NA	R1	FALSE
+SRR404150	Stelpflug2016_Tip of stage-2 Leaf_V5	B73	NA	R1	FALSE
+SRR404152	Stelpflug2016_Tip of stage-2 Leaf_V5	B73	NA	R2	FALSE
+SRR404153	Stelpflug2016_Tip of stage-2 Leaf_V5	B73	NA	R3	FALSE
+SRR404154	Stelpflug2016_Eighth Leaf_V9	B73	NA	R1	FALSE
+SRR404155	Stelpflug2016_Eighth Leaf_V9	B73	NA	R2	FALSE
+SRR404156	Stelpflug2016_Eighth Leaf_V9	B73	NA	R3	FALSE
+SRR404158	Stelpflug2016_Eleventh Leaf_V9	B73	NA	R1	FALSE
+SRR404159	Stelpflug2016_Eleventh Leaf_V9	B73	NA	R2	FALSE
+SRR404160	Stelpflug2016_Eleventh Leaf_V9	B73	NA	R3	FALSE
+SRR404161	Stelpflug2016_Thirteenth Leaf_V9	B73	NA	R1	FALSE
+SRR404162	Stelpflug2016_Thirteenth Leaf_V9	B73	NA	R2	FALSE
+SRR404163	Stelpflug2016_Thirteenth Leaf_V9	B73	NA	R3	FALSE
+SRR404164	Stelpflug2016_Immature Leaves_V9	B73	NA	R1	FALSE
+SRR404171	Stelpflug2016_Immature Leaves_V9	B73	NA	R2	FALSE
+SRR404172	Stelpflug2016_Immature Leaves_V9	B73	NA	R3	FALSE
+SRR404173	Stelpflug2016_Thirteenth Leaf_VT	B73	NA	R1	FALSE
+SRR404174	Stelpflug2016_Thirteenth Leaf_VT	B73	NA	R2	FALSE
+SRR404175	Stelpflug2016_Thirteenth Leaf_VT	B73	NA	R3	FALSE
+SRR404176	Stelpflug2016_Thirteenth Leaf_R2	B73	NA	R1	FALSE
+SRR404177	Stelpflug2016_Thirteenth Leaf_R2	B73	NA	R2	FALSE
+SRR404178	Stelpflug2016_Thirteenth Leaf_R2	B73	NA	R3	FALSE
+SRR404179	Stelpflug2016_Whole seed_10DAP	B73	NA	R1	FALSE
+SRR404180	Stelpflug2016_Whole seed_10DAP	B73	NA	R2	FALSE
+SRR404181	Stelpflug2016_Whole seed_10DAP	B73	NA	R3	FALSE
+SRR404182	Stelpflug2016_Whole seed_12DAP	B73	NA	R1	FALSE
+SRR404183	Stelpflug2016_Whole seed_12DAP	B73	NA	R2	FALSE
+SRR404184	Stelpflug2016_Whole seed_12DAP	B73	NA	R3	FALSE
+SRR404185	Stelpflug2016_Endopsperm_12DAP	B73	NA	R1	FALSE
+SRR404186	Stelpflug2016_Endopsperm_12DAP	B73	NA	R2	FALSE
+SRR404187	Stelpflug2016_Endopsperm_12DAP	B73	NA	R3	FALSE
+SRR404188	Stelpflug2016_Whole seed_14DAP	B73	NA	R1	FALSE
+SRR404189	Stelpflug2016_Whole seed_14DAP	B73	NA	R2	FALSE
+SRR404190	Stelpflug2016_Whole seed_14DAP	B73	NA	R3	FALSE
+SRR404191	Stelpflug2016_Endopsperm_14DAP	B73	NA	R1	FALSE
+SRR404192	Stelpflug2016_Endopsperm_14DAP	B73	NA	R2	FALSE
+SRR404193	Stelpflug2016_Endopsperm_14DAP	B73	NA	R3	FALSE
+SRR404194	Stelpflug2016_Whole seed_16DAP	B73	NA	R1	FALSE
+SRR404195	Stelpflug2016_Whole seed_16DAP	B73	NA	R2	FALSE
+SRR404196	Stelpflug2016_Whole seed_16DAP	B73	NA	R3	FALSE
+SRR404197	Stelpflug2016_Endosperm_16DAP	B73	NA	R1	FALSE
+SRR404198	Stelpflug2016_Endosperm_16DAP	B73	NA	R2	FALSE
+SRR404199	Stelpflug2016_Endosperm_16DAP	B73	NA	R3	FALSE
+SRR404200	Stelpflug2016_Embryo_16DAP	B73	NA	R1	FALSE
+SRR404202	Stelpflug2016_Embryo_16DAP	B73	NA	R2	FALSE
+SRR404203	Stelpflug2016_Embryo_16DAP	B73	NA	R3	FALSE
+SRR957415	Walley2016_endosperm 12 days after pollination	B73	NA	1	FALSE
+SRR957416	Walley2016_endosperm 12 days after pollination	B73	NA	2	FALSE
+SRR957417	Walley2016_endosperm 12 days after pollination	B73	NA	3	FALSE
+SRR957418	Walley2016_pericarp and aleurone	B73	NA	1	FALSE
+SRR957419	Walley2016_pericarp and aleurone	B73	NA	2	FALSE
+SRR957420	Walley2016_pericarp and aleurone	B73	NA	3	FALSE
+SRR957421	Walley2016_endosperm crown	B73	NA	1	FALSE
+SRR957422	Walley2016_endosperm crown	B73	NA	2	FALSE
+SRR957423	Walley2016_endosperm crown	B73	NA	3	FALSE
+SRR957424	Walley2016_symmetrical division zone	B73	NA	1	FALSE
+SRR957425	Walley2016_symmetrical division zone	B73	NA	2	FALSE
+SRR957426	Walley2016_symmetrical division zone	B73	NA	3	FALSE
+SRR957427	Walley2016_stomatal division zone	B73	NA	1	FALSE
+SRR957428	Walley2016_stomatal division zone	B73	NA	2	FALSE
+SRR957429	Walley2016_stomatal division zone	B73	NA	3	FALSE
+SRR957430	Walley2016_growth zone	B73	NA	1	FALSE
+SRR957431	Walley2016_growth zone	B73	NA	2	FALSE
+SRR957432	Walley2016_growth zone	B73	NA	3	FALSE
+SRR957433	Walley2016_embryos 20 days after pollination	B73	NA	1	FALSE
+SRR957434	Walley2016_embryos 20 days after pollination	B73	NA	2	FALSE
+SRR957435	Walley2016_embryos 20 days after pollination	B73	NA	3	FALSE
+SRR957436	Walley2016_embryos	B73	NA	1	FALSE
+SRR957437	Walley2016_embryos	B73	NA	2	FALSE
+SRR957438	Walley2016_embryos	B73	NA	3	FALSE
+SRR957439	Walley2016_germinating kernels	B73	NA	1	FALSE
+SRR957440	Walley2016_germinating kernels	B73	NA	2	FALSE
+SRR957441	Walley2016_germinating kernels	B73	NA	3	FALSE
+SRR957442	Walley2016_mature leaf tissue (leaf 8)	B73	NA	1	FALSE
+SRR957443	Walley2016_mature leaf tissue (leaf 8)	B73	NA	2	FALSE
+SRR957444	Walley2016_mature leaf tissue (leaf 8)	B73	NA	3	FALSE
+SRR957445	Walley2016_6-8 mm from tip of ear primordium	B73	NA	1	FALSE
+SRR957446	Walley2016_6-8 mm from tip of ear primordium	B73	NA	2	FALSE
+SRR957447	Walley2016_6-8 mm from tip of ear primordium	B73	NA	3	FALSE
+SRR957448	Walley2016_2-4 mm from tip of ear primordium	B73	NA	1	FALSE
+SRR957449	Walley2016_2-4 mm from tip of ear primordium	B73	NA	2	FALSE
+SRR957450	Walley2016_2-4 mm from tip of ear primordium	B73	NA	3	FALSE
+SRR957451	Walley2016_Root maturation zone	B73	NA	1	FALSE
+SRR957452	Walley2016_Root elongation zone	B73	NA	1	FALSE
+SRR957453	Walley2016_Root cortex	B73	NA	1	FALSE
+SRR957454	Walley2016_Root maturation zone	B73	NA	2	FALSE
+SRR957455	Walley2016_Root elongation zone	B73	NA	2	FALSE
+SRR957456	Walley2016_Root cortex	B73	NA	2	FALSE
+SRR957457	Walley2016_Root maturation zone	B73	NA	3	FALSE
+SRR957458	Walley2016_Root elongation zone	B73	NA	3	FALSE
+SRR957459	Walley2016_Root cortex	B73	NA	3	FALSE
+SRR957460	Walley2016_Primary root	B73	NA	1	FALSE
+SRR957461	Walley2016_Primary root	B73	NA	2	FALSE
+SRR957462	Walley2016_Primary root	B73	NA	3	FALSE
+SRR957463	Walley2016_Secondary root	B73	NA	1	FALSE
+SRR957464	Walley2016_Secondary root	B73	NA	2	FALSE
+SRR957465	Walley2016_Secondary root	B73	NA	3	FALSE
+SRR957466	Walley2016_Mature pollen	B73	NA	1	FALSE
+SRR957467	Walley2016_Mature pollen	B73	NA	2	FALSE
+SRR957468	Walley2016_Mature pollen	B73	NA	3	FALSE
+SRR957469	Walley2016_silks	B73	NA	1	FALSE
+SRR957470	Walley2016_silks	B73	NA	2	FALSE
+SRR957471	Walley2016_silks	B73	NA	3	FALSE
+SRR957472	Walley2016_mature female spikelets	B73	NA	1	FALSE
+SRR957473	Walley2016_mature female spikelets	B73	NA	2	FALSE
+SRR957474	Walley2016_mature female spikelets	B73	NA	3	FALSE
+SRR957475	Walley2016_Internode 6-7	B73	NA	1	FALSE
+SRR957476	Walley2016_Internode 6-7	B73	NA	2	FALSE
+SRR957477	Walley2016_Internode 6-7	B73	NA	3	FALSE
+SRR957478	Walley2016_Internode 7-8	B73	NA	1	FALSE
+SRR957479	Walley2016_Internode 7-8	B73	NA	2	FALSE
+SRR957480	Walley2016_Internode 7-8	B73	NA	3	FALSE
+SRR957481	Walley2016_Vegetative Meristem & Surrounding Tissue	B73	NA	1	FALSE
+SRR957482	Walley2016_Vegetative Meristem & Surrounding Tissue	B73	NA	2	FALSE
+BR001	Briggs_blade_v12	B73	NA	1	TRUE
+BR002	Briggs_blade_v12	B73	NA	2	TRUE
+BR004	Briggs_blade_v12	B73	NA	3	TRUE
+BR010	Briggs_auricle_v12	B73	NA	1	TRUE
+BR011	Briggs_auricle_v12	B73	NA	2	TRUE
+BR012	Briggs_auricle_v12	B73	NA	3	TRUE
+BR019	Briggs_sheath_v12	B73	NA	1	TRUE
+BR020	Briggs_sheath_v12	B73	NA	2	TRUE
+BR021	Briggs_sheath_v12	B73	NA	3	TRUE
+BR028	Briggs_internode_v12	B73	NA	1	TRUE
+BR029	Briggs_internode_v12	B73	NA	2	TRUE
+BR030	Briggs_internode_v12	B73	NA	3	TRUE
+BR037	Briggs_tassel_v12	B73	NA	1	TRUE
+BR038	Briggs_tassel_v12	B73	NA	2	TRUE
+BR039	Briggs_tassel_v12	B73	NA	3	TRUE
+BR046	Briggs_ear_v14	B73	NA	1	TRUE
+BR047	Briggs_ear_v14	B73	NA	2	TRUE
+BR048	Briggs_ear_v14	B73	NA	3	TRUE
+BR055	Briggs_silk_0DAP	B73	NA	1	TRUE
+BR056	Briggs_silk_0DAP	B73	NA	2	TRUE
+BR057	Briggs_silk_0DAP	B73	NA	3	TRUE
+BR064	Briggs_spikelets_0DAP	B73	NA	1	TRUE
+BR065	Briggs_spikelets_0DAP	B73	NA	2	TRUE
+BR066	Briggs_spikelets_0DAP	B73	NA	3	TRUE
+BR073	Briggs_husk_0DAP	B73	NA	1	TRUE
+BR074	Briggs_husk_0DAP	B73	NA	2	TRUE
+BR075	Briggs_husk_0DAP	B73	NA	3	TRUE
+BR082	Briggs_tasselstem_0DAP	B73	NA	1	TRUE
+BR083	Briggs_tasselstem_0DAP	B73	NA	2	TRUE
+BR084	Briggs_tasselstem_0DAP	B73	NA	3	TRUE
+BR091	Briggs_floret_0DAP	B73	NA	1	TRUE
+BR092	Briggs_floret_0DAP	B73	NA	2	TRUE
+BR093	Briggs_floret_0DAP	B73	NA	3	TRUE
+BR118	Briggs_kernel_14DAP	B73	NA	1	TRUE
+BR119	Briggs_kernel_14DAP	B73	NA	2	TRUE
+BR120	Briggs_kernel_14DAP	B73	NA	3	TRUE
+BR100	Briggs_flagleaf_0DAP	B73	NA	1	TRUE
+BR101	Briggs_flagleaf_0DAP	B73	NA	2	TRUE
+BR102	Briggs_flagleaf_0DAP	B73	NA	3	TRUE
+BR109	Briggs_root_0DAP	B73	NA	1	TRUE
+BR110	Briggs_root_0DAP	B73	NA	2	TRUE
+BR111	Briggs_root_0DAP	B73	NA	3	TRUE
+BR130	Briggs_endosperm_14DAP	B73	NA	1	TRUE
+BR131	Briggs_endosperm_14DAP	B73	NA	2	TRUE
+BR132	Briggs_endosperm_14DAP	B73	NA	3	TRUE
+BR142	Briggs_embryo_27DAP	B73	NA	1	TRUE
+BR143	Briggs_embryo_27DAP	B73	NA	2	TRUE
+BR144	Briggs_embryo_27DAP	B73	NA	3	TRUE
+BR154	Briggs_endosperm_27DAP	B73	NA	1	TRUE
+BR155	Briggs_endosperm_27DAP	B73	NA	2	TRUE
+BR156	Briggs_endosperm_27DAP	B73	NA	3	TRUE
+BR166	Briggs_coleoptile_tip	B73	NA	1	TRUE
+BR167	Briggs_coleoptile_tip	B73	NA	2	TRUE
+BR168	Briggs_coleoptile_tip	B73	NA	3	TRUE
+BR175	Briggs_radicle_root	B73	NA	1	TRUE
+BR176	Briggs_radicle_root	B73	NA	2	TRUE
+BR177	Briggs_radicle_root	B73	NA	3	TRUE
+BR184	Briggs_embryo_imbibedseed	B73	NA	1	TRUE
+BR242	Briggs_embryo_imbibedseed	B73	NA	3	TRUE
+BR243	Briggs_embryo_imbibedseed	B73	NA	4	TRUE
+BR193	Briggs_seedlingleaf_11DAS	B73	NA	1	TRUE
+BR194	Briggs_seedlingleaf_11DAS	B73	NA	2	TRUE
+BR195	Briggs_seedlingleaf_11DAS	B73	NA	3	TRUE
+BR202	Briggs_seedlingroot_11DAS	B73	NA	1	TRUE
+BR203	Briggs_seedlingroot_11DAS	B73	NA	2	TRUE
+BR204	Briggs_seedlingroot_11DAS	B73	NA	3	TRUE
+BR211	Briggs_seedlingmeristem_11DAS	B73	NA	1	TRUE
+BR212	Briggs_seedlingmeristem_11DAS	B73	NA	2	TRUE
+BR213	Briggs_seedlingmeristem_11DAS	B73	NA	3	TRUE

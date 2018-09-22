@@ -1,5 +1,0 @@
-config_default: /home/springer/zhoux379/git/snk/config.yaml
-dirw: /scratch.global/zhoux379/maize.expression/baldauf2018
-samplelist: 01.reads.tsv
-species: maize
-stranded: 'no'
