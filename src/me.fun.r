@@ -210,6 +210,8 @@ merge_me_datasets <- function(sids, t_cfg, dird, group = 'Tissue') {
 create_cache_dir <- function(sid, dird, dirc) {
     #{{{
     dirw = file.path(dird, sid)
+    cmd = sprintf("mkdir -p %s", dirw)
+    system(cmd)
     dirc1 = file.path(dirc, sid)
     cmd = sprintf("mkdir -p %s", dirc1)
     system(cmd)
