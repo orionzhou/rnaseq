@@ -10,31 +10,21 @@ t_gs = read_tsv(fi, col_types = 'ccccciic') %>%
     summarise(size = max(size))
 #}}}
 
-#{{{ me10a - leaf 6 zones
-sid = 'me10a'
+sid = 'me99c'
 diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
 dirw = file.path(dird, '11_qc', sid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 fh = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 th = read_tsv(fh)
-
-fi = file.path(diri, "multiqc_trimmomatic.txt")
-tt1 = read_multiqc_trimmomatic(fi, paired = F)
-fi = file.path(diri, 'multiqc_star.txt')
-tt2 = read_multiqc_star(fi, paired = T)
-fi = file.path(diri, 'multiqc_featureCounts.txt')
-tt3 = read_multiqc_featurecounts(fi)
-tp = th %>% select(-paired) %>% 
-    left_join(tt1, by = 'SampleID') %>%
-    left_join(tt2, by = 'SampleID') %>%
-    left_join(tt3, by = 'SampleID')
+#
+tt = read_multiqc(diri, th)
 fo = file.path(dirw, '10.mapping.stat.tsv')
 write_tsv(tp, fo)
 
-#{{{ collect featurecounts data & normalize
+#{{{ obtain raw read counts, normalize and save
 fi = file.path(diri, '../featurecounts.tsv')
 t_rc = read_tsv(fi)
-
+#
 tm = t_rc %>% gather(SampleID, ReadCount, -gid)
 res = readcount_norm(tm, t_gs)
 tl = res$tl; tm = res$tm
@@ -113,7 +103,6 @@ p1 = ggplot(tp, aes(x = PC1, y = PC2, color = gt, label = gt, shape = repli)) +
     guides(shape = guide_legend(ncol = 1, byrow = T))
 fp = sprintf("%s/22.pca.pdf", dirw)
 ggsave(p1, filename = fp, width = 8, height = 8)
-#}}}
 #}}}
 
 #{{{ me13a - li2013

@@ -130,6 +130,10 @@ read_multiqc_star <- function(fi, paired = T) {
                   unmapped = unmapped_mismatches + unmapped_tooshort + unmapped_other,
                   nd = total - uniquely_mapped - multimapped - unmapped) 
     stopifnot(sum(ti2$nd) < 1000)
+    ti2 = ti2 %>% group_by(SampleID) %>%
+        summarise(uniquely_mapped = sum(uniquely_mapped),
+                  multimapped = sum(multimapped),
+                  unmapped = sum(unmapped))
     types = c("uniquely_mapped", "multimapped", "unmapped")
     to = ti2 %>% select(SampleID, uniquely_mapped, multimapped, unmapped)
     to
@@ -152,6 +156,31 @@ read_multiqc_featurecounts <- function(fi) {
                         Unassigned_NoFeatures, Unassigned_Ambiguity, 
                         Unassigned_Unmapped)
     to
+    #}}}
+}
+
+read_multiqc <- function(diri, th) {
+    #{{{
+    paired = unique(th$paired)
+    if(length(paired) == 2) paired = 'both'
+    fi = file.path(diri, "multiqc_trimmomatic.txt")
+    tt1 = read_multiqc_trimmomatic(fi, paired = paired)
+    fi = file.path(diri, 'multiqc_star.txt')
+    tt2 = read_multiqc_star(fi, paired = paired)
+    fi = file.path(diri, 'multiqc_featureCounts.txt')
+    tt3 = read_multiqc_featurecounts(fi)
+    tt = th %>% select(-paired) %>% 
+        left_join(tt1, by = 'SampleID') %>%
+        left_join(tt2, by = 'SampleID') %>%
+        left_join(tt3, by = 'SampleID')
+    tt %>% group_by(Tissue, Genotype, Treatment) %>%
+        summarise(total = sum(total), Assigned = sum(Assigned)) %>%
+        ungroup() %>% group_by(1) %>%
+        summarise(total_median = median(total/1000000),
+                  total_mean = mean(total/1000000),
+                  assigned_median = median(Assigned/1000000),
+                  assigned_mean = mean(Assigned/1000000)) %>% print(n=1)
+    tt
     #}}}
 }
 
