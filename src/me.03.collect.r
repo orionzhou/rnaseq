@@ -10,6 +10,112 @@ t_gs = read_tsv(fi, col_types = 'ccccciic') %>%
     summarise(size = max(size))
 #}}}
 
+#{{{ me10a - leaf 6 zones
+sid = 'me10a'
+diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
+dirw = file.path(dird, '11_qc', sid)
+if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
+fh = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+th = read_tsv(fh)
+
+fi = file.path(diri, "multiqc_trimmomatic.txt")
+tt1 = read_multiqc_trimmomatic(fi, paired = F)
+fi = file.path(diri, 'multiqc_star.txt')
+tt2 = read_multiqc_star(fi, paired = T)
+fi = file.path(diri, 'multiqc_featureCounts.txt')
+tt3 = read_multiqc_featurecounts(fi)
+tp = th %>% select(-paired) %>% 
+    left_join(tt1, by = 'SampleID') %>%
+    left_join(tt2, by = 'SampleID') %>%
+    left_join(tt3, by = 'SampleID')
+fo = file.path(dirw, '10.mapping.stat.tsv')
+write_tsv(tp, fo)
+
+#{{{ collect featurecounts data & normalize
+fi = file.path(diri, '../featurecounts.tsv')
+t_rc = read_tsv(fi)
+
+tm = t_rc %>% gather(SampleID, ReadCount, -gid)
+res = readcount_norm(tm, t_gs)
+tl = res$tl; tm = res$tm
+
+fo = file.path(dirw, '20.rc.norm.rda')
+save(tl, tm, file = fo)
+#}}}
+
+#{{{ read data for hclust and pca
+fi = file.path(dirw, '20.rc.norm.rda')
+x = load(fi)
+x
+#
+tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
+t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+e = tw %>% filter(gid %in% gids) %>% select(-gid)
+dim(e)
+#}}}
+
+#{{{ hclust tree
+cor_opt = "pearson"
+hc_opt = "ward.D"
+plot_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
+e.c.dist <- as.dist(1-cor(e, method = cor_opt))
+e.c.hc <- hclust(e.c.dist, method = hc_opt)
+hc = e.c.hc
+tree = as.phylo(e.c.hc)
+
+tp = tl %>% inner_join(th, by = 'SampleID') %>%
+    mutate(taxa = SampleID,
+           Rep = as.character(Replicate),
+           lab = sprintf("%s %s %s", SampleID, Genotype, Replicate)) %>%
+    select(taxa, everything())
+cols1 = c('gray80','black','red','seagreen3',pal_d3()(5))
+p1 = ggtree(tree) +
+    #geom_tiplab(size = 4, color = 'black') +
+    scale_x_continuous(expand = c(0,0), limits=c(0,.15)) +
+    scale_y_discrete(expand = c(.01,0)) +
+    theme_tree2()
+p1 = p1 %<+% tp +
+    #geom_tiplab(aes(label = lab), size = 2, offset = 0.04) +
+    geom_text(aes(label = SampleID), size = 2, nudge_x = .001, hjust = 0) +
+    geom_text(aes(label = Genotype), size = 2, nudge_x= .015, hjust = 0) +
+    geom_text(aes(label = Rep), size = 2, nudge_x = .022, hjust = 0)
+fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
+ggsave(p1, filename = fo, width = 8, height = 15)
+#}}}
+
+#{{{ PCA
+pca <- prcomp(asinh(e), center = F, scale. = F)
+x = pca['rotation'][[1]]
+y = summary(pca)$importance
+y[,1:5]
+xlab = sprintf("PC1 (%.01f%%)", y[2,1]*100)
+ylab = sprintf("PC2 (%.01f%%)", y[2,2]*100)
+#
+tp = as_tibble(x[,1:5]) %>%
+    add_column(SampleID = rownames(x)) %>%
+    left_join(th, by = 'SampleID') %>%
+    mutate(gt = ifelse(Genotype %in% c("B73", "Mo17"), Genotype, "RIL"),
+           repli = sprintf("Rep%d", Replicate))
+p1 = ggplot(tp, aes(x = PC1, y = PC2, color = gt, label = gt, shape = repli)) +
+    geom_point(size = 1.5) +
+    #geom_label_repel() +
+    scale_x_continuous(name = xlab) +
+    scale_y_continuous(name = ylab) +
+    scale_color_d3() +
+    scale_shape_manual(values = c(16, 4)) +
+    theme_bw() +
+    #theme(axis.ticks.length = unit(0, 'lines')) +
+    theme(plot.margin = unit(c(.2,.2,.2,.2), "lines")) +
+    theme(legend.position = c(0,1), legend.justification = c(0,1)) +
+    theme(legend.direction = "vertical", legend.background = element_blank()) +
+    theme(legend.title = element_blank(), legend.key.size = unit(.8, 'lines'), legend.key.width = unit(.8, 'lines'), legend.text = element_text(size = 9)) +
+    guides(shape = guide_legend(ncol = 1, byrow = T))
+fp = sprintf("%s/22.pca.pdf", dirw)
+ggsave(p1, filename = fp, width = 8, height = 8)
+#}}}
+#}}}
+
 #{{{ me13a - li2013
 study = 'me13a'
 dirw = file.path(dirp, study, 'data')
@@ -174,10 +280,10 @@ ggsave(p1, filename = fp, width = 8, height = 8)
 #}}}
 
 #{{{ me13b - liu2013 leaf TS1
-study = 'me13b'
-dirw = file.path(dirp, study, 'data')
-diri = file.path(dirp, study, 'data/raw/multiqc_data')
-fh = file.path(dirw, '01.reads.tsv')
+sid = 'me13b'
+diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
+dirw = file.path(dird, '11_qc', sid)
+fh = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 th = read_tsv(fh)
 th %>% distinct(paired)
 times = th %>% distinct(Treatment) %>% pull(Treatment)
@@ -627,10 +733,10 @@ ggsave(p1, filename = fp, width = 8, height = 8)
 #}}}
 
 #{{{ me14a - hirsch2014
-study = 'me14a'
-dirw = file.path(dirp, study, 'data')
-diri = file.path(dirp, study, 'data/raw/multiqc_data')
-fh = file.path(dirw, '01.reads.tsv')
+sid = 'me14a'
+diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
+dirw = file.path(dird, '11_qc', sid)
+fh = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 th = read_tsv(fh)
 gts = unique(th$Genotype)
 

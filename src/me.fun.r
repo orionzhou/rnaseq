@@ -83,48 +83,34 @@ readcount_norm <- function(t_rc, t_gs) {
 read_multiqc_trimmomatic <- function(fi, paired = T) {
     #{{{
     ti = read_tsv(fi)
+    types = c("surviving", "forward_only_surviving", "reverse_only_surviving", "dropped")
     if (paired == F) {
-        types = c("surviving", "dropped")
         nd = ti %>% mutate(nd = input_reads - surviving - dropped) %>%
             group_by(1) %>% summarise(nd = sum(nd)) %>% pull(nd)
         stopifnot(nd == 0)
-        to = ti %>% mutate(SampleID = Sample) %>%
-            select(SampleID, surviving, dropped) %>%
-            gather(type, nseq, -SampleID)
-    } else if(paired == T) {
-        types = c("surviving", "forward_only_surviving", "reverse_only_surviving", "dropped")
+        to = ti %>% mutate(SampleID = Sample, total = input_reads, 
+                           surviving_f=0, surviving_r=0)
+    } else if(paired == T | paired == 'both') {
         ti2 = ti %>% 
             separate(Sample, c("SampleID", 'suf'), sep = "_") %>% select(-suf) %>%
-            select(SampleID, input_read_pairs, surviving, forward_only_surviving,
-                   reverse_only_surviving, dropped) 
+            mutate(surviving_f = forward_only_surviving,
+                   surviving_r = reverse_only_surviving)
+        if(paired == 'both') 
+            ti2 = ti2 %>% 
+                replace_na(list('input_reads'=0, 'input_read_pairs'=0,
+                                'surviving_f'=0, 'surviving_r'=0)) %>%
+                mutate(input_read_pairs = 
+                    ifelse(input_read_pairs == 0, input_reads, input_read_pairs))
         nd = ti2 %>% mutate(nd = input_read_pairs - surviving - 
-                            forward_only_surviving - reverse_only_surviving -
-                            dropped) %>%
+                            surviving_f - surviving_r - dropped) %>%
             group_by(1) %>% summarise(nd = sum(nd)) %>% pull(nd)
         stopifnot(nd == 0)
-        to = ti2 %>% select(-input_read_pairs) %>%
-            gather(type, nseq, -SampleID) 
-    } else if (paired == 'both') {
-        types = c("surviving", "forward_only_surviving", "reverse_only_surviving", "dropped")
-        ti2 = ti %>% replace_na(list('input_reads'=0, 'input_read_pairs'=0,
-                    'forward_only_surviving'=0, 'reverse_only_surviving'=0)) %>%
-            mutate(input_read_pairs = ifelse(input_read_pairs == 0, input_reads, input_read_pairs))
-        ti2 = ti2 %>% 
-            separate(Sample, c("SampleID", 'suf'), sep = "_") %>% select(-suf) %>%
-            select(SampleID, input_read_pairs, surviving, forward_only_surviving,
-                   reverse_only_surviving, dropped) 
-        nd = ti2 %>% mutate(nd = input_read_pairs - surviving - 
-                            forward_only_surviving - reverse_only_surviving -
-                            dropped) %>%
-            group_by(1) %>% summarise(nd = sum(nd)) %>% pull(nd)
-        stopifnot(nd == 0)
-        to = ti2 %>% select(-input_read_pairs) %>%
-            gather(type, nseq, -SampleID) 
+        to = ti2 %>% mutate(total = input_read_pairs)
     } else {
         stop(sprintf("unsupported option: %s", paired))
     }
-    to %>% mutate(nseq = nseq/1000000,
-                  type = factor(type, levels = types))
+    to %>%
+        select(SampleID, total, surviving, surviving_f, surviving_r, dropped)
     #}}}
 }
 
@@ -142,14 +128,10 @@ read_multiqc_star <- function(fi, paired = T) {
                   uniquely_mapped = uniquely_mapped,
                   multimapped = multimapped + multimapped_toomany,
                   unmapped = unmapped_mismatches + unmapped_tooshort + unmapped_other,
-                  n.diff = total - uniquely_mapped - multimapped - unmapped) 
-    stopifnot(sum(ti2$n.diff) < 1000)
+                  nd = total - uniquely_mapped - multimapped - unmapped) 
+    stopifnot(sum(ti2$nd) < 1000)
     types = c("uniquely_mapped", "multimapped", "unmapped")
-    to = ti2 %>% select(-n.diff, -total) %>%
-        gather(type, rc, -SampleID) %>%
-        group_by(SampleID, type) %>% 
-        summarise(rc = sum(rc) / 1000000) %>%
-        mutate(type = factor(type, levels = types))
+    to = ti2 %>% select(SampleID, uniquely_mapped, multimapped, unmapped)
     to
     #}}}
 }
@@ -166,10 +148,9 @@ read_multiqc_featurecounts <- function(fi) {
     #
     types = c("Assigned", "Unassigned_MultiMapping", "Unassigned_Unmapped",
               "Unassigned_NoFeatures", "Unassigned_Ambiguity")
-    to = ti2 %>% select(-Total, -nd) %>%
-        gather(type, rc, -SampleID) %>%
-        mutate(rc = rc / 1000000) %>%
-        mutate(type = factor(type, levels = types))
+    to = ti2 %>% select(SampleID, Assigned, Unassigned_MultiMapping,
+                        Unassigned_NoFeatures, Unassigned_Ambiguity, 
+                        Unassigned_Unmapped)
     to
     #}}}
 }
