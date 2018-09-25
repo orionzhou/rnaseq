@@ -10,7 +10,7 @@ t_gs = read_tsv(fi, col_types = 'ccccciic') %>%
     summarise(size = max(size))
 #}}}
 
-sid = 'me18a'
+sid = 'me99b'
 #{{{ mapping stats
 Sys.setenv(R_CONFIG_ACTIVE = sid)
 diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
@@ -40,11 +40,13 @@ fo = file.path(dirw, '20.rc.norm.rda')
 save(tl, tm, file = fo)
 #}}}
 
-#{{{ read data for hclust and pca
+#{{{ read from 20.rc.norm.rda
 fi = file.path(dirw, '20.rc.norm.rda')
 x = load(fi)
 x
+#}}}
 
+#{{{ prepare for hclust and pca 
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
@@ -114,225 +116,17 @@ if(sid == 'me14c') {
         mutate(Tissue = ifelse(SampleID == 'SRR445416', 'tassel', Tissue)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426798', 'Mo17', Genotype)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426814', 'M37W', Genotype))
+} else if(sid == 'me99b') {
+    gts = c("B73", "Mo17", "B73xMo17")
+    tissues = sort(unique(th$Tissue))
+    th = th %>% 
+        filter(Genotype %in% gts, ! SampleID %in% c('BR207', 'BR230', "BR235"))
 }
 write_tsv(th, fh2, na = '')
 #}}}
 
 
-#{{{ me99b - briggs
-study = 'me99b'
-dirw = file.path(dirp, study, 'data')
-diri = file.path(dirp, study, 'data/raw/multiqc_data')
-fh = file.path(dirw, '01.reads.tsv')
-th = read_tsv(fh)
-gts = c("B73", "Mo17", "B73xMo17")
-tissues = sort(unique(th$Tissue))
-th = th %>% filter(Genotype %in% gts, ! SampleID %in% c('BR207', 'BR230', "BR235"))
-fh = file.path(dirw, "02.reads.corrected.tsv")
-#write_tsv(th, fh)
-
-#{{{ trim - number read pairs
-fi = file.path(diri, "multiqc_trimmomatic.txt")
-ti = read_tsv(fi)
-ti2 = ti %>% separate(Sample, c("SampleID", 'suf'), sep = "_") %>% select(-suf) %>%
-    select(SampleID, input_read_pairs, surviving, forward_only_surviving,
-           reverse_only_surviving, dropped) 
-sum(ti2 %>% mutate(ndiff = input_read_pairs - surviving - forward_only_surviving - reverse_only_surviving - dropped) %>% pull(ndiff))
-ti3 = ti2 %>% select(-input_read_pairs) %>%
-    gather(type, nseq, -SampleID)
-
-types = c("surviving", "forward_only_surviving", "reverse_only_surviving", "dropped")
-tp = th %>% inner_join(ti3, by = 'SampleID') %>%
-    group_by(Genotype, Tissue, type) %>%
-    summarise(nseq = sum(nseq)/1000000) %>% ungroup() %>% 
-    mutate(Tissue = factor(Tissue, levels = tissues),
-           Genotype = factor(Genotype, levels = rev(gts)),
-           type = factor(type, levels = types))
-p1 = ggplot(tp) +
-    geom_bar(mapping = aes(x = Genotype, y = nseq, fill = type), stat = 'identity', position = position_stack(reverse = T), width = .7) +
-    scale_x_discrete(expand = c(0,0)) +
-    scale_y_continuous(name = 'Num. Read Pairs (/million)', expand = expand_scale(mult=c(0,.03))) +
-    scale_fill_simpsons() +
-    coord_flip() +
-    facet_wrap(~Tissue, ncol = 4, strip.position = 'top', scales = 'free_x') +
-    theme_bw() +
-    theme(strip.background = element_blank(), strip.text = element_text(size = 7, margin = margin(0,0,0,0,'lines'))) + 
-    theme(legend.position = c(.5,1), legend.justification = c(.5,-.4)) +
-    guides(direction = 'horizontal', fill = guide_legend(nrow = 1, byrow = T)) +
-    theme(legend.title = element_blank(), legend.key.size = unit(.8, 'lines'), legend.text = element_text(size = 8)) +
-    theme(axis.ticks.length = unit(0, 'lines')) +
-    theme(plot.margin = unit(c(1.5,.5,.5,.5), "lines")) +
-    theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
-    theme(axis.title.x = element_text(size = 9), axis.title.y = element_blank()) +
-    theme(axis.text = element_text(size=8))
-fp = sprintf("%s/11.reads.pdf", dirw)
-ggsave(p1, filename = fp, width = 6, height = 6)
-#}}}
-
-#{{{ star - mapped reads
-fi = file.path(diri, 'multiqc_star.txt')
-ti = read_tsv(fi)
-ti2 = ti %>%
-    separate(Sample, c("SampleID", 'suf'), sep = "_") %>% select(-suf) %>%
-    transmute(SampleID = SampleID, total = total_reads,
-              uniquely_mapped = uniquely_mapped,
-              multimapped = multimapped + multimapped_toomany,
-              unmapped = unmapped_mismatches + unmapped_tooshort + unmapped_other,
-              n.diff = total - uniquely_mapped - multimapped - unmapped)
-sum(ti2$n.diff)
-ti2 = ti2 %>% gather(type, rc, -SampleID) %>%
-    group_by(SampleID, type) %>% summarise(rc = sum(rc)) %>%
-    spread(type, rc)
-#
-types = c("uniquely_mapped", "multimapped", "unmapped")
-tp = ti2 %>% select(-total, -n.diff) %>%
-    gather(type, rc, -SampleID) %>%
-    inner_join(th, by = 'SampleID') %>%
-    group_by(Genotype, Tissue, type) %>%
-    summarise(rc = sum(rc)/1000000) %>% ungroup() %>%
-    mutate(type = factor(type, levels = types),
-           Tissue = factor(Tissue, levels = rev(tissues)),
-           Genotype = factor(Genotype, levels = gts))
-p1 = ggplot(tp) +
-    geom_bar(mapping = aes(x = Genotype, y = rc, fill = type), stat = 'identity', position = position_stack(reverse = T), width=.8) +
-    scale_x_discrete(expand = c(0,0)) +
-    scale_y_continuous(name = 'Num. Read Pairs (/million)', expand = expand_scale(mult=c(0,.03))) +
-    scale_fill_simpsons() +
-    coord_flip() +
-    facet_wrap(~Tissue, ncol = 4, strip.position = 'top', scales = 'free_x') +
-    theme_bw() +
-    theme(strip.background = element_blank(), strip.text = element_text(size = 7, margin = margin(0,0,0,0,'lines'))) + 
-    theme(legend.position = c(.5,1), legend.justification = c(.5,-.4)) +
-    guides(direction = 'horizontal', fill = guide_legend(nrow = 1, byrow = T)) +
-    theme(legend.title = element_blank(), legend.key.size = unit(.8, 'lines'), legend.text = element_text(size = 8)) +
-    theme(axis.ticks.length = unit(0, 'lines')) +
-    theme(plot.margin = unit(c(1.5,.5,.5,.5), "lines")) +
-    theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
-    theme(axis.title.x = element_text(size = 9), axis.title.y = element_blank()) +
-    theme(axis.text = element_text(size=8))
-fp = sprintf("%s/12.mapping.pdf", dirw)
-ggsave(p1, filename = fp, width = 6, height = 6)
-#}}}
-
-#{{{ featurecounts
-fi = file.path(diri, 'multiqc_featureCounts.txt')
-ti = read_tsv(fi)
-ti2 = ti %>% mutate(SampleID = Sample) %>%
-    select(SampleID, Total, Assigned, Unassigned_Unmapped, Unassigned_MultiMapping,
-           Unassigned_NoFeatures, Unassigned_Ambiguity) %>%
-    mutate(n.diff = Total-Assigned-Unassigned_Unmapped-Unassigned_MultiMapping-Unassigned_NoFeatures-Unassigned_Ambiguity)
-sum(ti2$n.diff)
-
-types = c("Assigned", "Unassigned_MultiMapping", "Unassigned_Unmapped",
-          "Unassigned_NoFeatures", "Unassigned_Ambiguity")
-tp = ti2 %>% select(-Total, -n.diff) %>%
-    gather(type, rc, -SampleID) %>%
-    inner_join(th, by = 'SampleID') %>%
-    group_by(Genotype, Tissue, type) %>%
-    summarise(rc = sum(rc)/1000000) %>% ungroup() %>%
-    mutate(type = factor(type, levels = types),
-           Genotype = factor(Genotype, levels = rev(gts)),
-           Tissue = factor(Tissue, levels = tissues))
-p1 = ggplot(tp) +
-    geom_bar(mapping = aes(x = Genotype, y = rc, fill = type), stat = 'identity', position = position_stack(reverse = T), width=.8) +
-    scale_x_discrete(expand = c(0,0)) +
-    scale_y_continuous(name = 'Num. Read Pairs (/million)', expand = expand_scale(mult=c(0,.03))) +
-    scale_fill_simpsons() +
-    coord_flip() +
-    facet_wrap(~Tissue, ncol = 4, strip.position = 'top', scales = 'free_x') +
-    theme_bw() +
-    theme(strip.background = element_blank(), strip.text = element_text(size = 7, margin = margin(0,0,0,0,'lines'))) + 
-    theme(legend.position = c(.5,1), legend.justification = c(.5,-.4)) +
-    guides(direction = 'horizontal', fill = guide_legend(nrow = 1, byrow = T)) +
-    theme(legend.title = element_blank(), legend.key.size = unit(.8, 'lines'), legend.text = element_text(size = 8)) +
-    theme(axis.ticks.length = unit(0, 'lines')) +
-    theme(plot.margin = unit(c(1.5,.5,.5,.5), "lines")) +
-    theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank()) +
-    theme(axis.title.x = element_text(size = 9), axis.title.y = element_blank()) +
-    theme(axis.text = element_text(size=8))
-fp = sprintf("%s/13.assigned.pdf", dirw)
-ggsave(p1, filename = fp, width = 6, height = 6)
-#}}}
-
-#{{{ collect featurecounts data & normalize
-fi = file.path(diri, '../featurecounts.tsv')
-ti = read_tsv(fi)
-
-tm = t_rc %>% gather(SampleID, ReadCount, -gid) # not filtered for SampleID
-res = readcount_norm(tm, t_gs)
-tl = res$tl; tm = res$tm
-
-fo = file.path(dirw, '20.rc.norm.rda')
-save(tl, tm, file = fo)
-#}}}
-
-#{{{ read data for hclust and pca
-fi = file.path(dirw, '20.rc.norm.rda')
-x = load(fi)
-x
-#
-tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
-t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
-e = tw %>% filter(gid %in% gids) %>% select(-gid)
-dim(e)
-#}}}
-
-#{{{ hclust tree
-cor_opt = "pearson"
-hc_opt = "ward.D"
-e.c.dist <- as.dist(1-cor(e, method = cor_opt))
-e.c.hc <- hclust(e.c.dist, method = hc_opt)
-hc = e.c.hc
-tree = as.phylo(e.c.hc)
-#
-thp = mutate(th, 
-    lab = sprintf("%s %s %s %s", SampleID, Tissue, Genotype, Replicate))
-p1 = ggtree(tree) + 
-    #geom_tiplab(size = 4, color = 'black', offset = 0.04) +
-    ggplot2::xlim(0, 16) + 
-    theme_tree2()
-p1 = p1 %<+% thp + 
-    geom_tiplab(aes(label = lab), size = 3, offset = 0.04) + 
-    #geom_text(aes(color = as.character(gt_ok), label = gt), size = 4, nudge_x = 6, hjust = 0) + 
-    scale_color_manual(values = c("black", "royalblue", "tomato"))
-fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width = 12, height = 30)
-#}}}
-
-#{{{ PCA
-pca <- prcomp(asinh(e), center = F, scale. = F)
-x = pca['rotation'][[1]]
-y = summary(pca)$importance
-y[,1:5]
-xlab = sprintf("PC1 (%.01f%%)", y[2,1]*100)
-ylab = sprintf("PC2 (%.01f%%)", y[2,2]*100)
-tismap = LETTERS[1:length(tissues)]
-names(tismap) = tissues
-tp = as_tibble(x[,1:5]) %>%
-    add_column(SampleID = rownames(x)) %>%
-    left_join(th, by = 'SampleID') %>% 
-    mutate(label = tismap[Tissue])
-cols = c(brewer.pal(8, 'Dark2'), brewer.pal(9, 'Set1'))
-cols = c(brewer.pal(4, 'Set1'))
-p1 = ggplot(tp) +
-    geom_point(aes(x = PC1, y = PC2, shape = Tissue, color = Genotype), size = 3) +
-    scale_x_continuous(name = xlab) +
-    scale_y_continuous(name = ylab) +
-    scale_shape_manual(name = "", values = tismap) +
-    scale_color_manual(name = "", values = cols) +
-    theme_bw() +
-    theme(axis.ticks.length = unit(0, 'lines')) +
-    theme(plot.margin = unit(c(.2,.2,.2,.2), "lines")) +
-    theme(legend.position = 'right', legend.direction = "vertical", legend.justification = c(0,.5)) +
-    theme(legend.title = element_blank(), legend.key.size = unit(1, 'lines'), legend.key.width = unit(1, 'lines'), legend.text = element_text(size = 9)) +
-    guides(shape = guide_legend(ncol = 1, byrow = T)) 
-fp = sprintf("%s/22.pca.pdf", dirw)
-ggsave(p1, filename = fp, width = 11, height = 10)
-#}}}
-#}}}
-
-#{{{ me99d - enders stress response 3' RNA-Seq
+#{{{ ##me99d - enders stress response 3' RNA-Seq
 study = 'me99d'
 dirw = file.path(dirp, study, 'data')
 diri = file.path(dirp, study, 'data/raw/multiqc_data')
@@ -503,7 +297,7 @@ ggsave(p1, filename = fp, width = 8, height = 8)
 #}}}
 #}}}
 
-#{{{ me99e - settles endosperm
+#{{{ ##me99e - settles endosperm
 study = 'me99e'
 dirw = file.path(dirp, study, 'data')
 diri = file.path(dirp, study, 'data/raw/multiqc_data')
@@ -990,7 +784,8 @@ ggsave(p1, filename = fp, width = 8, height = 8)
 #}}}
 #}}}
 
-#{{{ output
+# write output
+#{{{ 
 diro = file.path(dird, '09_output')
 ngene = 46117
 

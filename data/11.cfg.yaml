@@ -137,7 +137,27 @@ me18a:
     hc.x.off: .01
     hc.wd: 10
     hc.ht: 130
-    pca.opt: col=tis,sha=rep
+    pca.opt: col=tis
+
+me18b:
+    hc.labsize: 2.5
+    hc.x.expand: .3
+    hc.x.off: .01
+    hc.wd: 8
+    hc.ht: 15
+    pca.opt: lab=gen,sha=tis
+    pca.labsize: 2
+
+me99b:
+    hc.labsize: 3
+    hc.x.expand: .3
+    hc.x.off: .01
+    hc.wd: 12
+    hc.ht: 30
+    pca.opt: lab=tis,sha=gen
+    pca.labsize: 2
+    pca.wd: 10
+    pca.ht: 10
 
 me99c:
     hc.labsize: 2.5

@@ -214,7 +214,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             scale_color_d3() +
             scale_shape() +
             #scale_shape_manual(values = c(16, 4, 15,17)) +
-            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
@@ -227,7 +227,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             scale_color_d3() +
             scale_shape() +
             #scale_shape_manual(values = c(16, 4, 15,17)) +
-            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
@@ -240,7 +240,33 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             scale_color_d3() +
             scale_shape() +
             #scale_shape_manual(values = c(16, 4, 15,17)) +
-            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=gen,sha=tis') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Genotype, shape = Tissue)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=tis,sha=gen') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Tissue, shape = Genotype)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
@@ -256,6 +282,30 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
+    } else if(opt == 'col=tis') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Tissue)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'col=tis,sha=tis') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Tissue, shape = Tissue)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
     } else if(opt == 'col=tre,sha=rep') {
         #{{{
         p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Treatment, shape = Replicate)) +
@@ -264,7 +314,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             scale_color_d3() +
             scale_shape() +
             #scale_shape_manual(values = c(16, 4, 15,17)) +
-            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
@@ -276,7 +326,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             scale_color_d3() +
             scale_shape() +
             #scale_shape_manual(values = c(16, 4, 15,17)) +
-            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
         #}}}
