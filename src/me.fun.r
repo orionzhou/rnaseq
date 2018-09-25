@@ -83,6 +83,15 @@ readcount_norm <- function(t_rc, t_gs) {
 #}}}
 }
 
+get_read_list <- function(dird, sid) {
+    #{{{
+    fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+    fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid)
+    fh = ifelse(file.exists(fh2), fh2, fh1) 
+    read_tsv(fh)
+    #}}}
+}
+
 read_multiqc_trimmomatic <- function(fi, paired = T) {
     #{{{
     ti = read_tsv(fi)
@@ -204,7 +213,7 @@ plot_hclust_tree <- function(tree, tp, fo, labsize = 3, x.expand = .2, x.off = .
     #}}}
 }
 
-plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht = 8) {
+plot_pca <- function(tp, fo, opt = 'col=tis', labsize = 2.5, wd = 8, ht = 8) {
     #{{{
     if(opt == 'col=tis,sha=rep') {
         #{{{
@@ -212,8 +221,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -225,8 +233,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_text_repel(size = labsize) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -238,8 +245,19 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_text_repel(size = labsize) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=tre') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Treatment)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -250,9 +268,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             geom_text_repel(size = labsize) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
-            scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -264,8 +280,19 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_text_repel(size = labsize) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
+            guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=tis,col=sid,sha=sid') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Tissue, color = sid, shape = sid)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -276,8 +303,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -288,8 +314,6 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -300,8 +324,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -312,8 +335,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
@@ -324,8 +346,7 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
             geom_point(size = 1.5) +
             scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
             scale_color_d3() +
-            scale_shape() +
-            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            scale_shape_manual(values = shapes) +
             guides(direction = 'vertical', color = guide_legend(ncol = 1)) +
             guides(shape = guide_legend(ncol = 1, byrow = T)) +
             otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
