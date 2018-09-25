@@ -16,15 +16,18 @@ require(ggsci)
 require(ggrepel)
 require(scales)
 require(pheatmap)
+require(yaml)
 options(stringsAsFactors = FALSE)
 dirr = '~/git/luffy/r'
 source(file.path(dirr, 'plot.R'))
-
+#
 dirp = '~/projects/maize.expression/data'
 dird = '~/projects/maize.expression/data'
 dirc = '/scratch.global/zhoux379/maize.expression'
-f_cfg = file.path(dirp, '01.cfg.tsv')
+f_cfg = file.path(dird, '01.cfg.tsv')
 t_cfg = read_tsv(f_cfg)
+f_yml = file.path(dird, '11.cfg.yaml')
+Sys.setenv("R_CONFIG_FILE" = f_yml)
 #}}}
 
 readcount_norm <- function(t_rc, t_gs) {
@@ -118,7 +121,7 @@ read_multiqc_star <- function(fi, paired = T) {
     #{{{
     ti = read_tsv(fi)
     if(paired == F) {
-        ti2 = ti %>% rename(SampleID = Sample)
+        ti2 = ti %>% mutate(SampleID = Sample) %>% select(-Sample)
     } else {
         ti2 = ti %>% separate(Sample, c("SampleID", 'suf'), sep = "_") %>% 
             select(-suf) 
@@ -184,6 +187,106 @@ read_multiqc <- function(diri, th) {
     #}}}
 }
 
+plot_hclust_tree <- function(tree, tp, fo, labsize = 3, x.expand = .2, x.off = .05, wd = 6, ht = 8) {
+    #{{{
+    cols1 = c('gray80','black','red','seagreen3', pal_d3()(5))
+    p1 = ggtree(tree) +
+        #geom_tiplab(size = labsize, color = 'black') +
+        scale_x_continuous(expand = expand_scale(mult=c(.02,x.expand))) +
+        scale_y_discrete(expand = c(.01,0)) +
+        theme_tree2()
+    p1 = p1 %<+% tp +
+        geom_tiplab(aes(label = lab), size = labsize, offset = x.off, family = 'mono')
+        #geom_text(aes(label = SampleID), size = 2, nudge_x = .001, hjust = 0) +
+        #geom_text(aes(label = Genotype), size = 2, nudge_x= .015, hjust = 0) +
+        #geom_text(aes(label = Rep), size = 2, nudge_x = .022, hjust = 0)
+    ggsave(p1, filename = fo, width = wd, height = ht)
+    #}}}
+}
+
+plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht = 8) {
+    #{{{
+    if(opt == 'col=tis,sha=rep') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Tissue, shape = Replicate)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=tis,sha=rep') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Tissue, shape = Replicate)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'lab=tre,sha=rep') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, label = Treatment, shape = Replicate)) +
+            geom_point(size = 1.5) +
+            geom_text_repel(size = labsize) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'col=tis,sha=tre') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Tissue, shape = Treatment)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'col=tre,sha=rep') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, color = Treatment, shape = Replicate)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else if(opt == 'sha=rep') {
+        #{{{
+        p1 = ggplot(tp, aes(x = PC1, y = PC2, shape = Replicate)) +
+            geom_point(size = 1.5) +
+            scale_x_continuous(name = xlab) + scale_y_continuous(name = ylab) +
+            scale_color_d3() +
+            scale_shape() +
+            #scale_shape_manual(values = c(16, 4, 15,17)) +
+            guides(direction = 'vertical', fill = guide_legend(ncol = 1)) +
+            guides(shape = guide_legend(ncol = 1, byrow = T)) +
+            otheme(legend.pos = 'top.left', xgrid = T, ygrid = T, xtitle = T, ytitle = T, xtext = T, ytext = T)
+        #}}}
+    } else {
+        stop(sprintf("unknown opt: %s", opt))
+    }
+    ggsave(p1, filename = fo, width = wd, height = ht)
+    #}}}
+}
+
 merge_me_datasets <- function(sids, t_cfg, dird, group = 'Tissue') {
     #{{{
     th = tibble(); t_rc = tibble()
@@ -214,28 +317,6 @@ merge_me_datasets <- function(sids, t_cfg, dird, group = 'Tissue') {
         }
     }
     list(th = th, t_rc = t_rc)
-    #}}}
-}
-
-create_cache_dir <- function(sid, dird, dirc) {
-    #{{{
-    dirw = file.path(dird, sid)
-    cmd = sprintf("mkdir -p %s", dirw)
-    system(cmd)
-    dirc1 = file.path(dirc, sid)
-    cmd = sprintf("mkdir -p %s", dirc1)
-    system(cmd)
-    if(file.exists(file.path(dirw, 'cache'))) system(sprintf("rm %s/cache", dirw))
-    cmd = sprintf("ln -sf %s/ %s/cache", dirc1, dirw)
-    system(cmd)
-    fread = sprintf('%s/05_read_list/%s.tsv', dird, sid)
-    stopifnot(file.exists(fread))
-    cmd = sprintf("ln -sf %s %s/01.reads.tsv", fread, dirc1)
-    system(cmd)
-    cmd = sprintf("mkdir -p %s/raw", dirw)
-    system(cmd)
-    cmd = sprintf("ln -sf %s/raw/ %s/data", dirw, dirc1)
-    system(cmd)
     #}}}
 }
 
