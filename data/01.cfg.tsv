@@ -22,7 +22,7 @@ me99b	B73&Mo17 atlas	Briggs	illumina	reverse	34	27	B73+Mo17+BxM	23 tissues
 me99c	biomAP		illumina	no	33	25	35 inbreds + 96 hybrids	5 tissues	
 me99d	stress response	Enders	3rnaseq	no			B73+Mo17		
 me99e	endosperm mutant	Settles	illumina	no			W22		
-mec01	dev atlas 41	me16b+me16c	illumina	no			B73	41 tissues	
-mec02	dev atlas 64	me16b+me16c+me99b	illumina	no			B73	64 tissues	
-mec02	maize dev atlas	me10a+me11a+me12a+me13b+me14c+me14d+me16b+me16c+me99b	illumina	no			B73	many tissues	
-met01	leaf time series 22t	me13b+me15b	illumina	no			B73	leaf	
+mec01	dev atlas 41						B73	41 tissues	
+mec02	dev atlas 64						B73	64 tissues	
+mec03	maize dev atlas						B73	many tissues	
+met01	leaf time series 22t						B73	leaf	

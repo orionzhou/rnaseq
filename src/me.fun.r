@@ -337,37 +337,4 @@ plot_pca <- function(tp, fo, opt = 'col=tis,sha=rep', labsize = 2.5, wd = 8, ht 
     #}}}
 }
 
-merge_me_datasets <- function(sids, t_cfg, dird, group = 'Tissue') {
-    #{{{
-    th = tibble(); t_rc = tibble()
-    for (sid1 in sids) {
-        study1 = t_cfg %>% filter(sid == !!sid1) %>% pull(author)
-        diri = file.path(dird, sid1, 'data')
-        fh1 = file.path(diri, '01.reads.tsv')
-        fh2 = file.path(diri, '02.reads.corrected.tsv')
-        fh = ifelse(file.exists(fh2), fh2, fh1) 
-        th1 = read_tsv(fh) 
-        if(group == 'Tissue') {
-            th1 = th1 %>% mutate(Tissue = sprintf("%s_%s", study1, Tissue))
-        } else if(group == 'Genotype') {
-            th1 = th1 %>% mutate(Genotype = sprintf("%s_%s", study1, Genotype))
-        } else if(group == 'Treatment') {
-            th1 = th1 %>% mutate(Treatment = sprintf("%s_%s", study1, Treatment))
-        } else {
-            stop("unsupported group")
-        }
-        th = rbind(th, th1)
-        fi = file.path(diri, 'raw/featurecounts.tsv')
-        t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', th1$SampleID)))
-        stopifnot(ncol(t_rc1) == nrow(th1) + 1)
-        if(nrow(t_rc) == 0)
-            t_rc = t_rc1
-        else {
-            t_rc = t_rc %>% inner_join(t_rc1, by = 'gid')
-        }
-    }
-    list(th = th, t_rc = t_rc)
-    #}}}
-}
-
 

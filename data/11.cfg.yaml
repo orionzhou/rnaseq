@@ -166,3 +166,39 @@ me99c:
     hc.wd: 10
     hc.ht: 30
     pca.opt: col=tis,sha=rep
+
+met01:
+    sids: me16b+me16c
+    hc.labsize: 2.5
+    hc.x.expand: .2
+    hc.x.off: .05
+    hc.wd: 8
+    hc.ht: 12
+    pca.opt: lab=tis
+    pca.labsize: 2
+    pca.wd: 10
+    pca.ht: 10
+
+met02:
+    sids: me16b+me16c+me99b
+    hc.labsize: 2.5
+    hc.x.expand: .2
+    hc.x.off: .05
+    hc.wd: 8
+    hc.ht: 18
+    pca.opt: lab=tis
+    pca.labsize: 2
+    pca.wd: 10
+    pca.ht: 10
+
+met03:
+    sids: me10a+me11a+me12a+me13b+me14c+me14d+me16b+me16c+me99b
+    hc.labsize: 2.5
+    hc.x.expand: .2
+    hc.x.off: .05
+    hc.wd: 8
+    hc.ht: 18
+    pca.opt: lab=tis
+    pca.labsize: 2
+    pca.wd: 10
+    pca.ht: 10
