@@ -341,7 +341,7 @@ th
 #}}}
 }
 
-sid = 'me14d'
+sid = 'me16b'
 fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
 fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
 ti = read_sra_run(fi, fi2)

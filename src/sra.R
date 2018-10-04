@@ -29,6 +29,7 @@ sra_fill_replicate <- function(th) {
             cmap[key] = 1
         th$Replicate[i] = cmap[key]
     }
+    th = th %>% mutate(Replicate = as.integer(Replicate))
     th %>% count(Replicate) %>% print(n=10)
     th
     #}}}

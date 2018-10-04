@@ -16,10 +16,7 @@ Sys.setenv(R_CONFIG_ACTIVE = sid)
 diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
 dirw = file.path(dird, '11_qc', sid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
-fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)
-fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid)
-fh = ifelse(file.exists(fh2), fh2, fh1)
-th = read_tsv(fh)
+th = get_read_list(dird, sid)
 tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
 reps = unique(th$Replicate)
 #
@@ -238,6 +235,7 @@ ggsave(p1, filename = fp, width = 6, height = 6)
 #}}}
 #}}}
 
+
 # combined datasets
 sid = 'mec03'
 #{{{ collect featurecounts data & normalize
@@ -250,10 +248,8 @@ if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 th = tibble(); t_rc = tibble()
 for (sid1 in sids) {
     diri = file.path(dird, '08_raw_output', sid1, 'multiqc_data')
-    fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid1)
-    fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid1)
-    fh = ifelse(file.exists(fh2), fh2, fh1) 
-    th1 = read_tsv(fh) %>% mutate(sid = sid1) %>% select(sid, everything())
+    th1 = get_read_list(dird, sid1)
+    th1 = th1 %>% mutate(sid = sid1) %>% select(sid, everything())
     if(sid1 == 'me99b') {
         th1 = th1 %>% filter(Genotype == 'B73')
     } else if(sid1 == 'me13b') {
@@ -273,28 +269,15 @@ for (sid1 in sids) {
 }
 dim(th); dim(t_rc)
 th %>% dplyr::count(sid)
-
+#
 tm = t_rc %>% gather(SampleID, ReadCount, -gid)
 res = readcount_norm(tm, t_gs)
 tl = res$tl; tm = res$tm
 #}}}
 
 #{{{ merge reps and save to 20.rc.norm.rda
-ths = th %>% distinct(sid, Tissue, Genotype, Treatment) %>%
-    mutate(nSampleID = sprintf("%s_%03d", !!sid, 1:length(Tissue)))
-th = th %>% inner_join(ths, by = c("sid", "Tissue", "Genotype", "Treatment"))
-t_map = th %>% select(SampleID, nSampleID)
-th = ths %>% select(SampleID=nSampleID, sid, Tissue, Genotype, Treatment)
-tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
-#
-tm = tm %>% inner_join(t_map, by = 'SampleID') %>%
-    mutate(SampleID = nSampleID) %>%
-    group_by(gid, SampleID) %>%
-    #summarise(ReadCount = sum(ReadCount), nRC = sum(nRC), rCPM = mean(rCPM),
-    #          rFPKM = mean(rFPKM), CPM = mean(CPM), FPKM = mean(FPKM)) %>%
-    summarise(CPM = mean(CPM), FPKM = mean(FPKM)) %>%
-    ungroup()
-#
+res = merge_reps(th, tm)
+th = res$th; tm = res$tm
 fo = file.path(dirw, '20.rc.norm.rda')
 save(th, tm, file = fo)
 #}}}
@@ -314,6 +297,7 @@ dim(e)
 #}}}
 
 #{{{ hclust
+tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
 cor_opt = "pearson"
 hc_opt = "ward.D"
 plot_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
@@ -322,7 +306,7 @@ e.c.hc <- hclust(e.c.dist, method = hc_opt)
 hc = e.c.hc
 tree = as.phylo(e.c.hc)
 #
-tp = th %>% mutate(taxa = SampleID, lab = sid)
+tp = th %>% mutate(taxa = SampleID, lab = SampleID)
 if(length(tiss)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Tissue), lab)
 if(length(genos)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Genotype), lab)
 if(length(treas)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Treatment), lab)
@@ -333,6 +317,79 @@ plot_hclust_tree(tree, tp, fo,
                  x.expand = config::get("hc.x.expand"),
                  x.off = config::get("hc.x.off"), 
                  wd = config::get("hc.wd"), ht = config::get("hc.ht"))
+
+is_tip <- tree$edge[,2] <= length(tree$tip.label)
+ordered_tips = tree$edge[is_tip,2]
+lnames = tree$tip.label[ordered_tips]
+df_mat = data.frame(as.matrix(1-e.c.dist))[,rev(lnames)]
+
+                 labsize = config::get("hc.labsize")
+                 x.expand = config::get("hc.x.expand")
+                 x.off = config::get("hc.x.off")
+                 wd = config::get("hc.wd")
+                 ht = config::get("hc.ht")
+    cols1 = c('gray80','black','red','seagreen3', pal_d3()(5))
+    p1 = ggtree(tree) +
+        #geom_tiplab(size = labsize, color = 'black') +
+        scale_x_continuous(expand = expand_scale(mult=c(.02,x.expand))) +
+        scale_y_discrete(expand = c(.01,0)) +
+        theme_tree2()
+    p1 = p1 %<+% tp +
+        geom_tiplab(aes(label = lab), size = labsize, offset = x.off, family = 'mono')
+        #geom_text(aes(label = SampleID), size = 2, nudge_x = .001, hjust = 0) +
+        #geom_text(aes(label = Genotype), size = 2, nudge_x= .015, hjust = 0) +
+        #geom_text(aes(label = Rep), size = 2, nudge_x = .022, hjust = 0)
+p2 = gheatmap(p1, df_mat, offset = 10, width = 10, colnames = F)
+ggsave(p2, filename = fo, width = 12, height = 10)
+#}}}
+
+#{{{ pheatmap
+pdf(sprintf("%s/xx.pdf", dirw), width = 10, height = 5)
+plot(ehc)
+dev.off()
+
+require(dendsort)
+#mat <- as.dist(cor(e, method = 'pearson'))
+#hc <- hclust(mat, method = 'ward.D')
+edist <- as.dist(1-cor(e, method = cor_opt))
+ehc <- hclust(edist, method = hc_opt)
+lnames = ehc$labels
+mat = 1 - as.matrix(edist)
+#mat = mat[lnames,rev(lnames)]
+th = th %>% mutate(SampleID = factor(SampleID, levels = lnames)) %>%
+    arrange(SampleID)
+fo = sprintf("%s/21.heatmap.pdf", dirw)
+pheatmap(
+    mat               = mat,
+    #color             = inferno(length(mat_breaks) - 1),
+    #breaks            = mat_breaks,
+    border_color      = NA,
+    cluster_cols      = ehc,
+    cluster_rows      = ehc,
+    show_colnames     = F,
+    show_rownames     = T,
+    labels_row        = th$Tissue,
+    #annotation_row    = th[,c('SampleID','sid')],
+    #annotation_colors = pal_d3()(10),
+    drop_levels       = T,
+    fontsize          = 7,
+    main              = "Dev. Atlas 122 Tissues",
+    filename          = fo,
+    width             = 11,
+    height            = 10
+)
+
+  cellwidth = 30, cellheight = 30, scale = "none",
+  treeheight_row = 200,
+  kmeans_k = NA,
+  show_rownames = T, show_colnames = F,
+  clustering_method = "complete",
+  cluster_rows = T, cluster_cols = T,
+  #clustering_distance_rows = drows1, 
+  #clustering_distance_cols = dcols1,
+  #annotation_col = ta,
+  #annotation_colors = ann_colors,
+
 #}}}
 
 #{{{ PCA
@@ -352,26 +409,4 @@ plot_pca(tp, fo, opt = config::get("pca.opt"), labsize = config::get("pca.labsiz
          wd = config::get("pca.wd"), ht = config::get("pca.ht"))
 #}}}
 
-# write output
-#{{{ 
-diro = file.path(dird, '15_output')
-for(i in 1:nrow(t_cfg)) {
-    sid = t_cfg$sid[i]; study = t_cfg$study[i]
-    #
-    diri = file.path(dird, '11_qc', sid)
-    fi = file.path(diri, '20.rc.norm.rda')
-    if(!file.exists(fi)) next
-    cat(sid, study, "\n")
-    x = load(fi)
-    if(!str_detect(sid, 'me[ct]')) {
-        th = get_read_list(dird, sid)
-        tm = tm %>% filter(SampleID %in% th$SampleID)
-    }
-    #stopifnot(nrow(th) * ngene == nrow(tm))
-    #
-    tl = th
-    fo = sprintf("%s/%s.rda", diro, sid)
-    save(tl, tm, file = fo)
-}
-#}}}
 

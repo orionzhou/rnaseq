@@ -83,6 +83,33 @@ readcount_norm <- function(t_rc, t_gs) {
 #}}}
 }
 
+merge_reps <- function(th, tm, sid) {
+    #{{{
+    if("sid" %in% colnames(th)) {
+        ths = th %>% distinct(sid, Tissue, Genotype, Treatment) %>%
+            mutate(nSampleID = sprintf("%s_%d", !!sid, 1:length(Tissue)))
+        th = th %>% inner_join(ths, by = c("sid", "Tissue", "Genotype", "Treatment"))
+        t_map = th %>% select(SampleID, nSampleID)
+        th = ths %>% select(SampleID=nSampleID, sid, Tissue, Genotype, Treatment)
+    } else {
+        ths = th %>% distinct(Tissue, Genotype, Treatment) %>%
+            mutate(nSampleID = sprintf("%s_%d", !!sid, 1:length(Tissue)))
+        th = th %>% inner_join(ths, by = c("Tissue", "Genotype", "Treatment"))
+        t_map = th %>% select(SampleID, nSampleID)
+        th = ths %>% select(SampleID=nSampleID, Tissue, Genotype, Treatment)
+    }
+    #
+    tm = tm %>% inner_join(t_map, by = 'SampleID') %>%
+        mutate(SampleID = nSampleID) %>%
+        group_by(gid, SampleID) %>%
+        #summarise(ReadCount = sum(ReadCount), nRC = sum(nRC), rCPM = mean(rCPM),
+        #          rFPKM = mean(rFPKM), CPM = mean(CPM), FPKM = mean(FPKM)) %>%
+        summarise(CPM = mean(CPM), FPKM = mean(FPKM)) %>%
+        ungroup()
+    list(th = th, tm = tm)
+    #}}}
+}
+
 get_read_list <- function(dird, sid) {
     #{{{
     fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)

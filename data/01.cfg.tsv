@@ -1,28 +1,28 @@
-sid	study	author	readtype	stranded	total	assigned	genotype	tissue	treatment
-me10a	leaf 6 zones	Li2010	illumina	no	20	10	B73	leaf 6 zones	
-me11a	reproductive 12	Davidson2011	illumina	no	20	12	B73	reproductive 12	
-me12a	KN1 TF	Bolduc2012	illumina	no	50	42	B73	meristem	
-me13a	eQTL	Li2013	illumina	no	57	49	105 RILs	SAM	B73 and Mo17 IBM
-me13b	leaf time-series 13t	Liu2013	illumina	no	269	183	B73	early leaf	
-me14a	pan-transcriptome	Hirsch2014	illumina	no	10	8	503 inbreds	seedling	
-me14b	endosperm 7t	Li2014	solid	no	75	13	B73	endosperm	
-me14c	7 gamete	Chettoor2014	illumina	no	80	32	B73	gamete 7	
-me14d	ligule	Johnston2014	illumina	no	84	60	B73	ligule	
-me15a	SAM	Leiboff2015	illumina	no	33	26	380 lines	SAM	
-me15b	leaf time-series 9t	Yu2015	illumina	no	240	162	B73	late leaf	
-me16a	ePAV GWAS	Jin2016	illumina	no	37	25	368 inbred lines	15 DAP kernels	phenotypic data
-me16b	atlas	Stelpflug2016	illumina	no	30	22	B73	18 tissues	
-me16c	proteome	Walley2016	illumina	no	70	53	B73	23 tissues	
-me17a	eRD-GWAS	Lin2017	illumina	no	24	19	27 inbreds	5 tissues	
-me18a	dysregulation	Kremling2018	3rnaseq	no		2-6M	255 lines	7 tissues	
-me18b	SPE	Baldauf2018	illumina	no	71	63	7 inbreds + 6 hybrids	3 root stages	
-me18c	sorghum pacbio	Wang2018	illumina	no			B73+sorghum	11 tissues	
-me99a	biomass	Kaeppler2018	illumina	no		25M	78 inbreds		
-me99b	B73&Mo17 atlas	Briggs	illumina	reverse	34	27	B73+Mo17+BxM	23 tissues	
-me99c	biomAP		illumina	no	33	25	35 inbreds + 96 hybrids	5 tissues	
-me99d	stress response	Enders	3rnaseq	no			B73+Mo17		
-me99e	endosperm mutant	Settles	illumina	no			W22		
-mec01	dev atlas 41						B73	41 tissues	
-mec02	dev atlas 64						B73	64 tissues	
-mec03	dev atlas 122						B73	122 tissues	
-met01	leaf time series 22t						B73	leaf	
+sid	study	author	source	readtype	stranded	meta	total	assigned	genotype	tissue
+me10a	leaf 6 zones	Li2010	sra	illumina	no		20	10	B73	leaf 6 zones
+me11a	reproductive 12	Davidson2011	sra	illumina	no		20	12	B73	reproductive 12
+me12a	KN1 TF	Bolduc2012	sra	illumina	no		50	42	B73	meristem
+me13a	eQTL	Li2013	sra	illumina	no		57	49	105 RILs	SAM
+me13b	leaf time-series 13t	Liu2013	sra	illumina	no		269	183	B73	early leaf
+me14a	pan-transcriptome	Hirsch2014	sra	illumina	no		10	8	503 inbreds	seedling
+me14b	endosperm 7t	Li2014	sra	solid	no		75	13	B73	endosperm
+me14c	7 gamete	Chettoor2014	sra	illumina	no		80	32	B73	gamete 7
+me14d	ligule	Johnston2014	sra	illumina	no		84	60	B73	ligule
+me15a	SAM	Leiboff2015	sra	illumina	no		33	26	380 lines	SAM
+me15b	leaf time-series 9t	Yu2015	sra	illumina	no		240	162	B73	late leaf
+me16a	ePAV GWAS	Jin2016	sra	illumina	no		37	25	368 inbred lines	kernel_15DAP
+me16b	atlas	Stelpflug2016	sra	illumina	no		30	22	B73	18 tissues
+me16c	proteome	Walley2016	sra	illumina	no		70	53	B73	23 tissues
+me17a	eRD-GWAS	Lin2017	sra	illumina	no		24	19	27 inbreds	5 tissues
+me18a	dysregulation	Kremling2018	sra	3rnaseq	no			2-6M	255 lines	7 tissues
+me18b	SPE	Baldauf2018	sra	illumina	no		71	63	7 inbreds + 6 hybrids	3 root stages
+me18c	sorghum pacbio	Wang2018	sra	illumina	no				B73+sorghum	11 tissues
+me99a	biomass	Kaeppler2018	sra	illumina	no			25M	78 inbreds	
+me99b	B73&Mo17 atlas	Briggs	local	illumina	reverse		34	27	B73+Mo17+BxM	23 tissues
+me99c	biomAP		local_interleaved	illumina	no		33	25	35 inbreds + 96 hybrids	5 tissues
+me99d	stress response	Enders	local	3rnaseq	no				B73+Mo17	
+me99e	endosperm mutant	Settles	local	illumina	no				W22	
+mec01	dev atlas 41					T			B73	41 tissues
+mec02	dev atlas 64					T			B73	64 tissues
+mec03	dev atlas 122					T			B73	122 tissues
+met01	leaf time series 22t					T			B73	leaf
