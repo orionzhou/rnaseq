@@ -4,6 +4,8 @@ default:
     hc.x.off: .01
     hc.wd: 6
     hc.ht: 6
+    hm.wd: 8
+    hm.ht: 7 
     pca.opt: col=tis,sha=rep
     pca.labsize: 3
     pca.wd: 8
@@ -154,6 +156,21 @@ me99b:
     hc.x.off: .01
     hc.wd: 12
     hc.ht: 30
+    hm.wd: 16
+    hm.ht: 15 
+    pca.opt: lab=tis,sha=gen
+    pca.labsize: 2
+    pca.wd: 10
+    pca.ht: 10
+
+me99b.m:
+    hc.labsize: 3
+    hc.x.expand: .3
+    hc.x.off: .01
+    hc.wd: 12
+    hc.ht: 30
+    hm.wd: 16
+    hm.ht: 15 
     pca.opt: lab=tis,sha=gen
     pca.labsize: 2
     pca.wd: 10
@@ -198,6 +215,8 @@ mec03:
     hc.x.off: .05
     hc.wd: 8
     hc.ht: 18
+    hm.wd: 11
+    hm.ht: 10
     pca.opt: lab=tis,col=sid,sha=sid
     pca.labsize: 2
     pca.wd: 10

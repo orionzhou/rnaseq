@@ -352,4 +352,77 @@ fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #create_cache_dir(sid, dird, dirc)
 
+#{{{ biomap 
+sid = 'me99c'
+diri = '~/projects/biomap/analysis/01_exp_design'
+fi = file.path(diri, "04.typo.corrected.tsv")
+ti = read_tsv(fi) %>%
+    mutate(raw_idx = sid,
+           sid = sprintf("bm%03d", idx)) %>%
+    select(sid, raw_idx, sample, everything()) %>%
+    select(-idx)
+fo = file.path(diri, "06.sample.renamed.tsv")
+#write_tsv(ti, fo)
 
+# create sym-links, write read list
+th = ti %>%
+    transmute(SampleID = sid, Tissue = tissue, Genotype = genotype, 
+              Treatment = NA, Replicate = NA,
+              paired = T,
+              inbred = ifelse(type == 'Inbred', T, F), 
+              fi = Readfile,
+              fv = file.exists(Readfile))
+table(th$fv)
+
+gts = th %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
+pas = strsplit(th$Genotype[!th$inbred], split = 'x')
+pas = unique(unlist(pas))
+pas[! pas %in% gts]
+
+diro = sprintf("%s/cache/%s/09_fq_interleaved", dird, sid)
+if(!dir.exists(diro)) system(sprintf("mkdir -p %s", diro))
+cmds = th %>% 
+    mutate(fl = sprintf("%s/%s.fq.gz", diro, SampleID)) %>%
+    mutate(cmd = sprintf("ln -sf %s %s", fi, fl)) %>%
+    pull(cmd)
+map_int(cmds, system)
+
+tp = th %>% select(-fi, -fv) %>%
+    separate(Tissue, c('Tissue', 'rep'), by = '_')
+tp %>% filter(!is.na(rep))
+tp %>% filter(!is.na(rep)) %>% distinct(Tissue, Genotype)
+tp = tp %>% mutate(Replicate = as.integer(ifelse(is.na(rep), 1, 2))) %>%
+    select(-rep)
+
+fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+write_tsv(tp, fo, na = '')
+#}}}
+
+#{{{ briggs
+sid = 'me99b'
+fi = '~/projects/briggs/data/03_collect/01.reads.tsv'
+ti = read_tsv(fi)
+
+diro1 = sprintf("%s/cache/%s/09_fastq_raw", dird, sid)
+diro2 = sprintf("%s/cache/%s/10_fastq", dird, sid)
+if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
+if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
+
+# create sym-links, write read list
+ti = ti %>%
+    mutate(nR1 = ifelse(gz, sprintf("%s/%s_1.fq.gz", diro2, SampleID), 
+                        sprintf("%s/%s_1.fq", diro1, SampleID)),
+           nR2 = ifelse(gz, sprintf("%s/%s_2.fq.gz", diro2, SampleID), 
+                        sprintf("%s/%s_2.fq", diro1, SampleID))) %>%
+    mutate(cmd1 = sprintf("ln -sf %s %s", R1, nR1),
+           cmd2 = sprintf("ln -sf %s %s", R2, nR2))
+
+map_int(ti$cmd1, system)
+map_int(ti$cmd2, system)
+
+th = ti %>% select(SampleID, Tissue, Genotype) %>%
+    mutate(Treatment = '', Replicate = '', paired = T)
+th = sra_fill_replicate(th)
+fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+write_tsv(th, fo)
+#}}}

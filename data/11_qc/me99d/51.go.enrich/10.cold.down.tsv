@@ -1,0 +1,41 @@
+source	goid	ratioInSample	ratioInPop	pval.adj	gotype	goname
+uniprot.plants	GO:0044206	1/20	1/11832	0.02416532046163851	P	UMP salvage
+uniprot.plants	GO:2001006	1/20	1/11832	0.02416532046163851	P	regulation of cellulose biosynthetic process
+uniprot.plants	GO:0001934	1/20	2/11832	0.02416532046163851	P	positive regulation of protein phosphorylation
+uniprot.plants	GO:0004845	1/20	2/11832	0.02416532046163851	F	uracil phosphoribosyltransferase activity
+uniprot.plants	GO:0005850	1/20	2/11832	0.02416532046163851	C	eukaryotic translation initiation factor 2 complex
+uniprot.plants	GO:0005851	1/20	2/11832	0.02416532046163851	C	eukaryotic translation initiation factor 2B complex
+uniprot.plants	GO:0006207	1/20	2/11832	0.02416532046163851	P	'de novo' pyrimidine nucleobase biosynthetic process
+uniprot.plants	GO:0006271	1/20	2/11832	0.02416532046163851	P	DNA strand elongation involved in DNA replication
+uniprot.plants	GO:0031048	1/20	2/11832	0.02416532046163851	P	chromatin silencing by small RNA
+uniprot.plants	GO:0033290	1/20	2/11832	0.02416532046163851	C	eukaryotic 48S preinitiation complex
+uniprot.plants	GO:0061709	1/20	2/11832	0.02416532046163851	P	reticulophagy
+uniprot.plants	GO:0061723	1/20	2/11832	0.02416532046163851	P	glycophagy
+uniprot.plants	GO:1990316	1/20	2/11832	0.02416532046163851	C	Atg1/ULK1 kinase complex
+uniprot.plants	GO:1901141	1/20	3/11832	0.0336318177181243	P	regulation of lignin biosynthetic process
+uniprot.plants	GO:0043614	1/20	4/11832	0.0392056275681909	C	multi-eIF complex
+uniprot.plants	GO:2000904	1/20	4/11832	0.0392056275681909	P	regulation of starch metabolic process
+uniprot.plants	GO:0030242	1/20	5/11832	0.04352685156316176	P	autophagy of peroxisome
+uniprot.plants	GO:0060321	1/20	5/11832	0.04352685156316176	P	acceptance of pollen
+uniprot.plants	GO:0001927	1/20	6/11832	0.04697128458321204	P	exocyst assembly
+uniprot.plants	GO:0032947	1/20	6/11832	0.04697128458321204	F	protein-containing complex scaffold activity
+uniprot.plants	GO:0033588	1/20	7/11832	0.049778068799823154	C	Elongator holoenzyme complex
+uniprot.plants	GO:0070062	1/20	7/11832	0.049778068799823154	C	extracellular exosome
+arabidopsis	GO:0004849	1/16	1/9693	0.03262143494745504	F	uridine kinase activity
+arabidopsis	GO:0044206	1/16	1/9693	0.03262143494745504	P	UMP salvage
+arabidopsis	GO:1901141	1/16	1/9693	0.03262143494745504	P	regulation of lignin biosynthetic process
+arabidopsis	GO:2001006	1/16	1/9693	0.03262143494745504	P	regulation of cellulose biosynthetic process
+arabidopsis	GO:0003723	3/16	165/9693	0.03262143494745504	F	RNA binding
+arabidopsis	GO:0004845	1/16	2/9693	0.03262143494745504	F	uracil phosphoribosyltransferase activity
+arabidopsis	GO:0005853	1/16	2/9693	0.03262143494745504	C	eukaryotic translation elongation factor 1 complex
+arabidopsis	GO:0006271	1/16	2/9693	0.03262143494745504	P	DNA strand elongation involved in DNA replication
+arabidopsis	GO:2000904	1/16	2/9693	0.03262143494745504	P	regulation of starch metabolic process
+arabidopsis	GO:0006207	1/16	3/9693	0.04400486480290732	P	'de novo' pyrimidine nucleobase biosynthetic process
+Interproscan5	GO:0004849	1/24	2/20755	0.02980072428781484	F	uridine kinase activity
+Interproscan5	GO:0044206	1/24	2/20755	0.02980072428781484	P	UMP salvage
+Interproscan5	GO:0000145	2/24	64/20755	0.02980072428781484	C	exocyst
+Interproscan5	GO:0004617	1/24	3/20755	0.02980072428781484	F	phosphoglycerate dehydrogenase activity
+Interproscan5	GO:0005853	1/24	3/20755	0.02980072428781484	C	eukaryotic translation elongation factor 1 complex
+Interproscan5	GO:0033588	1/24	4/20755	0.03309357383375999	C	Elongator holoenzyme complex
+Interproscan5	GO:0006564	1/24	6/20755	0.03718904470314842	P	L-serine biosynthetic process
+Interproscan5	GO:0006893	1/24	6/20755	0.03718904470314842	P	Golgi to plasma membrane transport

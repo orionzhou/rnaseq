@@ -1,0 +1,33 @@
+source	goid	ratioInSample	ratioInPop	pval.adj	gotype	goname
+uniprot.plants	GO:0004066	3/55	6/11832	2.0987987722147507e-4	F	asparagine synthase (glutamine-hydrolyzing) activity
+uniprot.plants	GO:0006529	3/55	6/11832	2.0987987722147507e-4	P	asparagine biosynthetic process
+uniprot.plants	GO:0008154	2/55	3/11832	0.002830309143673656	P	actin polymerization or depolymerization
+uniprot.plants	GO:0008179	2/55	3/11832	0.002830309143673656	F	adenylate cyclase binding
+uniprot.plants	GO:0045761	2/55	3/11832	0.002830309143673656	P	regulation of adenylate cyclase activity
+uniprot.plants	GO:0030864	2/55	4/11832	0.00470309721471179	C	cortical actin cytoskeleton
+uniprot.plants	GO:0007163	2/55	5/11832	0.006698655647387975	P	establishment or maintenance of cell polarity
+uniprot.plants	GO:0006511	3/55	32/11832	0.011944345306717096	P	ubiquitin-dependent protein catabolic process
+uniprot.plants	GO:0003779	2/55	9/11832	0.018533468045050374	F	actin binding
+uniprot.plants	GO:0005829	14/55	1259/11832	0.03257886062214665	C	cytosol
+uniprot.plants	GO:0031965	2/55	15/11832	0.04344322525179182	C	nuclear membrane
+uniprot.plants	GO:0008139	2/55	19/11832	0.04506937707616808	F	nuclear localization sequence binding
+uniprot.plants	GO:0010114	2/55	22/11832	0.04506937707616808	P	response to red light
+uniprot.plants	GO:0000152	1/55	1/11832	0.04506937707616808	C	nuclear ubiquitin ligase complex
+uniprot.plants	GO:0000495	1/55	1/11832	0.04506937707616808	P	box H/ACA snoRNA 3'-end processing
+uniprot.plants	GO:0004534	1/55	1/11832	0.04506937707616808	F	5'-3' exoribonuclease activity
+uniprot.plants	GO:0010587	1/55	1/11832	0.04506937707616808	P	miRNA catabolic process
+uniprot.plants	GO:0015446	1/55	1/11832	0.04506937707616808	F	ATPase-coupled arsenite transmembrane transporter activity
+uniprot.plants	GO:0042344	1/55	1/11832	0.04506937707616808	P	indole glucosinolate catabolic process
+uniprot.plants	GO:0046938	1/55	1/11832	0.04506937707616808	P	phytochelatin biosynthetic process
+uniprot.plants	GO:0071992	1/55	1/11832	0.04506937707616808	F	phytochelatin transmembrane transporter ATPase activity
+uniprot.plants	GO:1901799	1/55	1/11832	0.04506937707616808	P	negative regulation of proteasomal protein catabolic process
+uniprot.plants	GO:1902446	1/55	1/11832	0.04506937707616808	P	regulation of shade avoidance
+uniprot.plants	GO:0010311	2/55	23/11832	0.04684853592723947	P	lateral root formation
+arabidopsis	GO:0005829	15/43	818/9693	2.459166966242792e-4	C	cytosol
+arabidopsis	GO:0005853	2/43	2/9693	0.002143487697147666	C	eukaryotic translation elongation factor 1 complex
+Interproscan5	GO:0003779	5/71	54/20755	9.2426786124969e-5	F	actin binding
+Interproscan5	GO:0005853	2/71	3/20755	0.0014160325858479546	C	eukaryotic translation elongation factor 1 complex
+Interproscan5	GO:0007010	2/71	12/20755	0.01758103151342252	P	cytoskeleton organization
+Interproscan5	GO:0046872	6/71	325/20755	0.01758103151342252	F	metal ion binding
+Interproscan5	GO:0042626	3/71	63/20755	0.020744470633671082	F	ATPase activity, coupled to transmembrane movement of substances
+Interproscan5	GO:0008536	2/71	17/20755	0.020744470633671082	F	Ran GTPase binding

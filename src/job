@@ -1,0 +1,14 @@
+##PBS -l nodes=1:ppn=4,mem=30gb,walltime=5:00:00
+##PBS -l nodes=1:ppn=24,mem=62gb,walltime=2:00:00
+#PBS -l nodes=1:ppn=1,mem=120gb,walltime=5:00:00
+#PBS -m ae
+#PBS -M zhoux379@umn.edu
+#PBS -q ram256g
+##PBS -q small
+
+cd ~/projects/maize.expression/src
+#Rscript --no-init-file --no-restore me.run.r
+Rscript --no-init-file --no-restore me.04.output.r
+
+#genie3.R -p 12 11_input/n82.rda 12_output/n82.rda
+
