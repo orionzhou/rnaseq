@@ -51,6 +51,7 @@ tt = th %>% select(-paired) %>%
     left_join(tt2, by = 'SampleID') %>%
     left_join(tt3, by = 'SampleID')
 tt %>% mutate(nd = total-dropped-pair-unpair) %>% pull(nd) %>% sum()
+tt %>% mutate(nd = pair-pair_map-pair_orphan-pair_unmap) %>% pull(nd) %>% sum()
 tt %>% mutate(nd = pair+unpair-Assigned-
               Unassigned_MultiMapping-
               Unassigned_NoFeatures-Unassigned_Ambiguity-Unassigned_Unmapped) %>% select(nd)#pull(nd) %>% sum()
