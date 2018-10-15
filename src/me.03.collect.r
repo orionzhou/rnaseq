@@ -22,9 +22,53 @@ x = load(file.path(dirg, genome, '55.rda'))
 th = get_read_list(dird, sid)
 tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
 reps = unique(th$Replicate)
+paired = unique(th$paired)
+if(length(paired) == 2) paired = 'both'
 
 diri = file.path(dird, '08_raw_output', sid, 'multiqc_data')
-tt = read_multiqc(diri, th, readtype, mapper)
+#
+if(readtype == 'illumina') {
+    fi = file.path(diri, "multiqc_trimmomatic.txt")
+    tt1 = read_multiqc_trimmomatic(fi, paired = paired)
+}
+#
+if(mapper == 'star') {
+    fi = file.path(diri, 'multiqc_star.txt')
+    tt2 = read_multiqc_star(fi, paired = paired)
+} else if (mapper == 'hisat2') {
+    fi = file.path(diri, 'multiqc_hisat2.txt')
+    tt2 = read_multiqc_hisat2(fi, paired = paired)
+} 
+#
+fi = file.path(diri, '../bamstats.tsv')
+tt2 = read_tsv(fi) %>% rename(SampleID = sid)
+#
+fi = file.path(diri, 'multiqc_featureCounts.txt')
+tt3 = read_multiqc_featurecounts(fi)
+
+tt = th %>% select(-paired) %>% 
+    left_join(tt1, by = 'SampleID') %>%
+    left_join(tt2, by = 'SampleID') %>%
+    left_join(tt3, by = 'SampleID')
+tt %>% mutate(nd = total-dropped-pair-unpair) %>% pull(nd) %>% sum()
+tt %>% mutate(nd = pair+unpair-Assigned-
+              Unassigned_MultiMapping-
+              Unassigned_NoFeatures-Unassigned_Ambiguity-Unassigned_Unmapped) %>% select(nd)#pull(nd) %>% sum()
+#
+tt %>% select(SampleID,pair,unpair,Assigned,
+              Unassigned_MultiMapping,
+              #Unassigned_NoFeatures,
+              #Unassigned_Ambiguity,
+              Unassigned_Unmapped)
+#
+tt %>% group_by(Tissue, Genotype, Treatment) %>%
+    summarise(total = sum(total), Assigned = sum(Assigned)) %>%
+    ungroup() %>% group_by(1) %>%
+    summarise(total_median = median(total/1000000),
+              total_mean = mean(total/1000000),
+              assigned_median = median(Assigned/1000000),
+              assigned_mean = mean(Assigned/1000000)) %>% print(n=1)
+
 fo = file.path(dirw, '10.mapping.stat.tsv')
 write_tsv(tt, fo)
 

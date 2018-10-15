@@ -110,10 +110,14 @@ read_multiqc_hisat2 <- function(fi, paired = T) {
     } else {
         ti2 = ti %>% 
             transmute(SampleID = Sample,
-                      total = paired_total + unpaired_total,
-                      uniquely_mapped = paired_aligned_one+paired_aligned_discord_one+unpaired_aligned_one,
-                      multimapped = paired_aligned_multi+unpaired_aligned_multi,
-                      unmapped = paired_aligned_none+unpaired_aligned_none)
+                      #total = paired_total + unpaired_total,
+                      #uniquely_mapped = paired_aligned_one+paired_aligned_discord_one+unpaired_aligned_one,
+                      #multimapped = paired_aligned_multi+unpaired_aligned_multi,
+                      #unmapped = paired_aligned_none+unpaired_aligned_none)
+                      total = paired_total,
+                      uniquely_mapped = paired_aligned_one+paired_aligned_discord_one,
+                      multimapped = paired_aligned_multi,
+                      unmapped = paired_aligned_none)
     }
     ti2 = ti2 %>% mutate(nd = total - uniquely_mapped - multimapped - unmapped)
     cat(sum(ti2$nd),"\n")
@@ -144,39 +148,8 @@ read_multiqc_featurecounts <- function(fi) {
     to
     #}}}
 }
-read_multiqc <- function(diri, th, readtype = 'illumina', mapper = 'star') {
-    #{{{
-    paired = unique(th$paired)
-    if(length(paired) == 2) paired = 'both'
-    if(readtype == 'illumina') {
-        fi = file.path(diri, "multiqc_trimmomatic.txt")
-        tt1 = read_multiqc_trimmomatic(fi, paired = paired)
-    }
-    if(mapper == 'star') {
-        fi = file.path(diri, 'multiqc_star.txt')
-        tt2 = read_multiqc_star(fi, paired = paired)
-    } else if (mapper == 'hisat2') {
-        fi = file.path(diri, 'multiqc_hisat2.txt')
-        tt2 = read_multiqc_hisat2(fi, paired = paired)
-    } 
-    fi = file.path(diri, 'multiqc_featureCounts.txt')
-    tt3 = read_multiqc_featurecounts(fi)
-    tt = th %>% select(-paired) %>% 
-        left_join(tt1, by = 'SampleID') %>%
-        left_join(tt2, by = 'SampleID') %>%
-        left_join(tt3, by = 'SampleID')
-    tt %>% group_by(Tissue, Genotype, Treatment) %>%
-        summarise(total = sum(total), Assigned = sum(Assigned)) %>%
-        ungroup() %>% group_by(1) %>%
-        summarise(total_median = median(total/1000000),
-                  total_mean = mean(total/1000000),
-                  assigned_median = median(Assigned/1000000),
-                  assigned_mean = mean(Assigned/1000000)) %>% print(n=1)
-    tt
-    #}}}
-}
-readcount_norm <- function(t_rc, t_gs) {
-#{{{ normalize
+readcount_norm <- function(t_rc, t_gs = F) {
+    #{{{ normalize
     tm = t_rc
     tw = tm %>% 
         select(SampleID, gid, ReadCount) %>%
@@ -186,10 +159,10 @@ readcount_norm <- function(t_rc, t_gs) {
     rownames(twd) = tw$gid
     # nRC with DESeq2
     require(DESeq2)
-    th = tm %>% distinct(SampleID) %>% arrange(SampleID)
-    thd = data.frame(th)
-    rownames(thd) = th$SampleID
-    stopifnot(identical(thd$SampleID, colnames(twd)))
+    th = tm %>% distinct(SampleID) %>% mutate(sid = SampleID) %>% arrange(SampleID)
+    th2 = th %>% mutate(SampleID = factor(SampleID))
+    thd = column_to_rownames(as.data.frame(th2), var = 'sid')
+    stopifnot(identical(rownames(thd), colnames(twd)))
     dds = DESeqDataSetFromMatrix(countData=twd, colData=thd, design = ~SampleID)
     dds = estimateSizeFactors(dds)
     sf = sizeFactors(dds)
@@ -210,13 +183,15 @@ readcount_norm <- function(t_rc, t_gs) {
         mutate(gid = rownames(cpm(y))) %>%
         gather(SampleID, rCPM, -gid)
     # rFPKM & FPKM
-    t_cpm = t_cpm %>% left_join(t_gs, by = 'gid') %>% 
-        mutate(FPKM = CPM / (size / 1000)) %>%
-        select(-size)
-    t_rcpm = t_rcpm %>% left_join(t_gs, by = 'gid') %>% 
-        mutate(rFPKM = rCPM / (size / 1000)) %>%
-        select(-size)
-#
+    if(t_gs) {
+        t_cpm = t_cpm %>% left_join(t_gs, by = 'gid') %>% 
+            mutate(FPKM = CPM / (size / 1000)) %>%
+            select(-size)
+        t_rcpm = t_rcpm %>% left_join(t_gs, by = 'gid') %>% 
+            mutate(rFPKM = rCPM / (size / 1000)) %>%
+            select(-size)
+    }
+    #
     tl = th %>% inner_join(t_sf, by = 'SampleID') %>%
         inner_join(t_nf, by = 'SampleID')
     tm = tm %>% 
@@ -225,7 +200,7 @@ readcount_norm <- function(t_rc, t_gs) {
         left_join(t_cpm, by = c('SampleID','gid')) 
     stopifnot(nrow(tm) == length(gids) * nrow(th))
     list(tl = tl, tm = tm)
-#}}}
+    #}}}
 }
 plot_hclust_tree <- function(tree, tp, fo, labsize = 3, x.expand = .2, x.off = .05, wd = 6, ht = 8) {
     #{{{
