@@ -4,5 +4,5 @@ This repo provides a collection of recently published (after 2010) maize gene ex
 
 Raw sequencing reads were downloaded from [NCBI Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), trimmed using [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) and mapped to the [maize B73 AGP_v4 genome](http://plants.ensembl.org/Zea_mays/Info/Index) using [STAR](https://github.com/alexdobin/STAR).  Uniquely mapped reads were assigned to and counted for the 46,117 reference gene models ([Ensembl Plants v37](http://plants.ensembl.org/Zea_mays/Info/Index)) using [featureCounts](http://bioinf.wehi.edu.au/featureCounts/).  Raw read counts were then normalized using the [TMM normalization approach](https://bioconductor.org/packages/release/bioc/html/edgeR.html) to give CPMs (Counts Per Million reads) and then further normalized by gene CDS lengths to give FPKM (Fragments Per Kilobase of exon per Million reads) values.  Hierarchical clustering and principal component analysis were used to explore sample clustering pattern.
 
-See [this table](/data/01.cfg.tsv) for the list of collected datasets.
+See [this table](/data/01.cfg.tsv) for a list of collected datasets.
 
