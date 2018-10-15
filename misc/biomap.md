@@ -1,6 +1,6 @@
 # biomAP
 
-[This table](/data/05_read_list/me99c.tsv) contains raw sample meta-data, while [this table](data/05_read_list/me99c.c.tsv) has corrected meta-data (sample `bm252` corrected from `Root` to `Leaf` tissue).
+[This table](/data/05_read_list/me99c.tsv) contains raw sample meta-data, while [this table](/data/05_read_list/me99c.c.tsv) has corrected meta-data (sample `bm252` corrected from `Root` to `Leaf` tissue).
   - msi path: `/home/springer/zhoux379/projects/maize.expression/data/05_read_list/me99c.c.tsv`
 
 Intermediate files (\*.fastq, \*.bam) are under msi scratch space:
