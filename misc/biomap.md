@@ -12,7 +12,8 @@ Intermediate files (\*.fastq, \*.bam) are under msi scratch space:
   - `31_featurecounts`: Read count tables for 46,117 Ensembl Plants v37 genes
   - `33_ase`: intermediate files in the allele count pipeline
 
-[Mapping stats table](/data/11_qc/me99c/10.mapping.stat.tsv) (msi path: `/home/springer/zhoux379/projects/maize.expression/data/11_qc/me99c/10.mapping.stat.tsv`) contains trimming, mapping and counting statistics for each sample with the following columns:
+[Mapping stats table](/data/11_qc/me99c/10.mapping.stat.tsv) contains trimming, mapping and counting statistics for each sample with the following columns:
+  - msi path: `/home/springer/zhoux379/projects/maize.expression/data/11_qc/me99c/10.mapping.stat.tsv`
   - Sample meta data: `SampleID`, `Tissue`, `Genotype`, `Treatment`, `Replicate`: 
   - Trimming statistics: `total`, `surviving`, `surviving_f`, `surviving_r`, `dropped`
   - Mapping statistics:
