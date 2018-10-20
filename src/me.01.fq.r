@@ -7,7 +7,7 @@ t_cfg
 get_read_list <- function(ti) {
 #{{{
 if(sid == 'me10a') {
-#{{{ me10a - li2010
+#{{{ Li2010
     th = ti %>%
         mutate(Tissue = sprintf("leaf_%s", SampleName)) %>%
         transmute(SampleID = Run,
@@ -19,7 +19,7 @@ if(sid == 'me10a') {
         arrange(SampleID)
 #}}}
 } else if(sid == 'me11a') {
-#{{{ me11a - Davidson2011
+#{{{ Davidson2011
     tismap = c(
 "Embryo 25 days after pollination" = 'embryo_25DAP',
 "Endosperm 25 days after pollination" = 'endosperm_25DAP',
@@ -64,7 +64,7 @@ if(sid == 'me10a') {
         arrange(SampleID)
 #}}}
 } else if(sid == 'me13a') {
-#{{{ me13a - li2013
+#{{{ Li2013
     th = ti %>% separate("SampleName", c('org', 'ibm', 'parent', 'tis1', 'tis2', 'Genotype'), sep = "_", fill = 'left')
     th %>% count(parent)
     th %>% count(tis1)
@@ -79,7 +79,7 @@ if(sid == 'me10a') {
         arrange(SampleID)
 #}}}
 } else if (sid == 'me13b') {
-#{{{ me13b - liu2013
+#{{{ Liu2013
     th = ti %>% 
         separate("SampleName", c("pre", "Treatment"), sep = "_", fill = "left") %>%
         mutate(Treatment = ifelse(is.na(pre), Treatment, sprintf("E%s", Treatment))) 
@@ -94,7 +94,7 @@ if(sid == 'me10a') {
         arrange(SampleID)
 #}}}
 } else if (sid == 'me14a') {
-#{{{ me14a - hirsch2014
+#{{{ Hirsch2014
 th = ti %>% separate(Title, c("org", "Genotype"), sep = ", ") %>%
     separate(Genotype, c("Genotype", "suf"), sep = " RNAseq") %>%
     select(-org, -suf) %>%
@@ -107,7 +107,7 @@ th = ti %>% separate(Title, c("org", "Genotype"), sep = ", ") %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me14b') {
-#{{{ me14b - li2014 endosperm
+#{{{ Li2014 endosperm
 th = ti %>% 
     separate(Title, c("pre", "Treatment"), sep = " B73 ") %>%
     select(-pre) %>%
@@ -153,7 +153,7 @@ th = ti %>% separate(Title, c("gsm1", "gsm"), sep = ": ") %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me15a') {
-#{{{ me15a - leiboff2015
+#{{{ Leiboff2015
 th = ti %>% transmute(SampleID = Run,
                       Tissue = 'SAM',
                       Genotype = SampleName,
@@ -163,7 +163,7 @@ th = ti %>% transmute(SampleID = Run,
     arrange(SampleID)
 #}}}
 } else if (sid == 'me15b') {
-#{{{ me15b - yu2015
+#{{{ Yu2015
     th = ti %>% separate(Title, c("pre", "Treatment"), sep = " at ") %>%
         transmute(SampleID = Run, 
                   Tissue = "Leaf",
@@ -175,7 +175,7 @@ th = ti %>% transmute(SampleID = Run,
         arrange(SampleID)
 #}}}
 } else if (sid == 'me16a') {
-#{{{ me16a - jin2016
+#{{{ Jin2016
 th = ti %>% transmute(SampleID = Run,
                       Tissue = 'kernel',
                       Genotype = SampleName,
@@ -185,7 +185,7 @@ th = ti %>% transmute(SampleID = Run,
     arrange(SampleID)
 #}}}
 } else if (sid == 'me16b') {
-#{{{ me16b - stelpflug2016
+#{{{ Stelpflug2016
 tismap = c(
     "Eighth Leaf" = 'leaf_8',
     "Eleventh Leaf" = 'leaf_11',
@@ -217,7 +217,7 @@ th = th %>% transmute(SampleID = Run,
     arrange(SampleID)
 #}}}
 } else if (sid == 'me16c') {
-#{{{ me16c - walley2016
+#{{{ Walley2016
 tismap = c(
 "2-4 mm from tip of ear primordium" = 'ear_2-4',
 "6-8 mm from tip of ear primordium" = 'ear_6-8', 
@@ -261,7 +261,7 @@ th = ti %>% separate(Title, c('gsm1', 'gsm'), sep = ': ') %>%
 th %>% count(Tissue) %>% print(n=23)
 #}}}
 } else if (sid == 'me17a') {
-#{{{ me17a - lin2017
+#{{{ Lin2017
 th1 = ti %>% filter(paired) %>%
     mutate(LibraryName = ifelse(LibraryName=='Mo18W', 'Mo18W-root', LibraryName)) %>%
     separate(LibraryName, c('gt','tissue'), sep = "-") %>%
@@ -288,7 +288,7 @@ th %>% count(Tissue)
 th %>% count(Genotype)
 #}}}
 } else if (sid == 'me18a') {
-#{{{ me18a - kremling2018
+#{{{ Kremling2018
 th1 = ti %>% separate("LibraryName", c('lib1', 'lib2', 'tissue', 'genotype', 'suf'), sep = "_", fill = 'left')
 th1 %>% count(tissue)
 tissues = "GRoot GShoot Kern L3Base L3Mid L3Tip LMAD26 LMAD8 LMAN26 LMAN8 LMid"
@@ -321,7 +321,7 @@ th = th4 %>% mutate(Treatment = '', Replicate = '') %>%
 th %>% count(Tissue)
 #}}}
 } else if (sid == 'me18b') {
-#{{{ me18b - baldauf2018
+#{{{ Baldauf2018
 th = ti %>% 
     mutate(SampleName = str_replace(SampleName, '-', '_0_')) %>%
     separate(SampleName, c("gt", "stage", "rep"), sep = "_") %>%
@@ -351,6 +351,35 @@ th %>% count(Tissue); th %>% count(Genotype); th %>% count(Replicate)
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #create_cache_dir(sid, dird, dirc)
+
+#{{{ briggs
+sid = 'me99b'
+fi = '~/projects/briggs/data/03_collect/01.reads.tsv'
+ti = read_tsv(fi)
+
+diro1 = sprintf("%s/cache/%s/09_fastq_raw", dird, sid)
+diro2 = sprintf("%s/cache/%s/10_fastq", dird, sid)
+if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
+if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
+
+# create sym-links, write read list
+ti = ti %>%
+    mutate(nR1 = ifelse(gz, sprintf("%s/%s_1.fq.gz", diro2, SampleID), 
+                        sprintf("%s/%s_1.fq", diro1, SampleID)),
+           nR2 = ifelse(gz, sprintf("%s/%s_2.fq.gz", diro2, SampleID), 
+                        sprintf("%s/%s_2.fq", diro1, SampleID))) %>%
+    mutate(cmd1 = sprintf("ln -sf %s %s", R1, nR1),
+           cmd2 = sprintf("ln -sf %s %s", R2, nR2))
+
+map_int(ti$cmd1, system)
+map_int(ti$cmd2, system)
+
+th = ti %>% select(SampleID, Tissue, Genotype) %>%
+    mutate(Treatment = '', Replicate = '', paired = T)
+th = sra_fill_replicate(th)
+fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+write_tsv(th, fo)
+#}}}
 
 #{{{ biomap 
 sid = 'me99c'
@@ -398,31 +427,11 @@ fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(tp, fo, na = '')
 #}}}
 
-#{{{ briggs
-sid = 'me99b'
-fi = '~/projects/briggs/data/03_collect/01.reads.tsv'
+#{{{ Enders
+sid = 'me99d'
+fi = sprintf("%s/05_read_list/%s.raw.tsv", dird, sid)
 ti = read_tsv(fi)
-
-diro1 = sprintf("%s/cache/%s/09_fastq_raw", dird, sid)
-diro2 = sprintf("%s/cache/%s/10_fastq", dird, sid)
-if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
-if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
-
-# create sym-links, write read list
-ti = ti %>%
-    mutate(nR1 = ifelse(gz, sprintf("%s/%s_1.fq.gz", diro2, SampleID), 
-                        sprintf("%s/%s_1.fq", diro1, SampleID)),
-           nR2 = ifelse(gz, sprintf("%s/%s_2.fq.gz", diro2, SampleID), 
-                        sprintf("%s/%s_2.fq", diro1, SampleID))) %>%
-    mutate(cmd1 = sprintf("ln -sf %s %s", R1, nR1),
-           cmd2 = sprintf("ln -sf %s %s", R2, nR2))
-
-map_int(ti$cmd1, system)
-map_int(ti$cmd2, system)
-
-th = ti %>% select(SampleID, Tissue, Genotype) %>%
-    mutate(Treatment = '', Replicate = '', paired = T)
-th = sra_fill_replicate(th)
-fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
-write_tsv(th, fo)
 #}}}
+
+
+
