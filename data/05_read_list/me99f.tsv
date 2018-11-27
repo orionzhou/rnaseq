@@ -1,0 +1,19 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired
+BW1	endosperm	B73xW22		1	TRUE
+BW2	endosperm	B73xW22		2	TRUE
+BW3	endosperm	B73xW22		3	TRUE
+PB1	endosperm	PH207xB73		1	TRUE
+PB2	endosperm	PH207xB73		2	TRUE
+PB3	endosperm	PH207xB73		3	TRUE
+BP1	endosperm	B73xPH207		1	TRUE
+BP2	endosperm	B73xPH207		2	TRUE
+BP3	endosperm	B73xPH207		3	TRUE
+PW1	endosperm	PH207xW22		1	TRUE
+PW2	endosperm	PH207xW22		2	TRUE
+PW3	endosperm	PH207xW22		3	TRUE
+WB1	endosperm	W22xB73		1	TRUE
+WB2	endosperm	W22xB73		2	TRUE
+WB3	endosperm	W22xB73		3	TRUE
+WP1	endosperm	W22xPH207		1	TRUE
+WP2	endosperm	W22xPH207		2	TRUE
+WP3	endosperm	W22xPH207		3	TRUE
