@@ -1,13 +1,13 @@
 SampleID	Tissue	Genotype	Treatment	Replicate	paired
-SRR039501	leaf_base	B73		1	FALSE
-SRR039502	leaf_base	B73		2	FALSE
-SRR039503	leaf_-1cm	B73		1	FALSE
-SRR039504	leaf_-1cm	B73		2	FALSE
-SRR039505	leaf_4cm	B73		1	FALSE
-SRR039506	leaf_4cm	B73		2	FALSE
-SRR039507	leaf_tip	B73		1	FALSE
-SRR039508	leaf_tip	B73		2	FALSE
-SRR039509	leaf_mesophyll	B73		1	FALSE
-SRR039510	leaf_mesophyll	B73		2	FALSE
-SRR039512	leaf_bundle-sheath	B73		1	FALSE
-SRR039514	leaf_bundle-sheath	B73		2	FALSE
+SRR039501	leaf	B73	base	1	FALSE
+SRR039502	leaf	B73	base	2	FALSE
+SRR039503	leaf	B73	-1cm	1	FALSE
+SRR039504	leaf	B73	-1cm	2	FALSE
+SRR039505	leaf	B73	4cm	1	FALSE
+SRR039506	leaf	B73	4cm	2	FALSE
+SRR039507	leaf	B73	tip	1	FALSE
+SRR039508	leaf	B73	tip	2	FALSE
+SRR039509	leaf	B73	mesophyll	1	FALSE
+SRR039510	leaf	B73	mesophyll	2	FALSE
+SRR039512	leaf	B73	bundle-sheath	1	FALSE
+SRR039514	leaf	B73	bundle-sheath	2	FALSE

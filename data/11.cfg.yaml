@@ -1,233 +1,215 @@
 default:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    hm.wd: 8
-    hm.ht: 7 
-    pca.opt: col=tis,sha=rep
-    pca.labsize: 3
-    pca.wd: 8
-    pca.ht: 8
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  hm.wd: 8
+  hm.ht: 7 
+  pca.opt: col=tis,sha=rep
+  pca.labsize: 3
+  pca.wd: 8
+  pca.ht: 8
 me10a:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: col=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: col=tis,sha=rep
 me11a:
-    hc.labsize: 2.5
-    hc.x.expand: .4
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: lab=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .4
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: lab=tis,sha=rep
 me12a:
-    hc.labsize: 2.5
-    hc.x.expand: .35
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: col=tis,sha=tre
-
+  hc.labsize: 2.5
+  hc.x.expand: .35
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: col=tis,sha=tre
 me13a:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .002
-    hc.wd: 8
-    hc.ht: 20
-    pca.opt: sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .002
+  hc.wd: 8
+  hc.ht: 20
+  pca.opt: sha=rep
 me13b:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .1
-    hc.wd: 6
-    hc.ht: 10
-    pca.opt: lab=tre,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .1
+  hc.wd: 6
+  hc.ht: 10
+  pca.opt: lab=tre,sha=rep
+me13c:
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .02
+  hc.wd: 6
+  hc.ht: 10
 me14a:
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .02
-    hc.wd: 10
-    hc.ht: 35
-    pca.opt: sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .02
+  hc.wd: 10
+  hc.ht: 35
+  pca.opt: sha=rep
 me14b:
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: lab=tre,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: lab=tre,sha=rep
 me14c:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: lab=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: lab=tis,sha=rep
 me14d:
-    hc.labsize: 2.5
-    hc.x.expand: .33
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: lab=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .33
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: lab=tis,sha=rep
 me15a:
-    hc.labsize: 2.5
-    hc.x.expand: .25
-    hc.x.off: .01
-    hc.wd: 8
-    hc.ht: 30
-    pca.opt: sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .25
+  hc.x.off: .01
+  hc.wd: 8
+  hc.ht: 30
+  pca.opt: sha=rep
 me15b:
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .01
-    hc.wd: 6
-    hc.ht: 6
-    pca.opt: lab=tre,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .01
+  hc.wd: 6
+  hc.ht: 6
+  pca.opt: lab=tre,sha=rep
 me16a:
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .01
-    hc.wd: 8
-    hc.ht: 30
-    pca.opt: col=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .01
+  hc.wd: 8
+  hc.ht: 30
+  pca.opt: col=tis,sha=rep
 me16b:
-    hc.labsize: 2.5
-    hc.x.expand: .4
-    hc.x.off: .01
-    hc.wd: 8
-    hc.ht: 8
-    pca.opt: lab=tis,sha=rep
-    pca.labsize: 2.5
-
+  hc.labsize: 2.5
+  hc.x.expand: .4
+  hc.x.off: .01
+  hc.wd: 8
+  hc.ht: 25
+  pca.opt: lab=tis,sha=rep
+  pca.labsize: 2.5
 me16c:
-    hc.labsize: 2.5
-    hc.x.expand: .35
-    hc.x.off: .01
-    hc.wd: 8
-    hc.ht: 8
-    pca.opt: lab=tis,sha=rep
-    pca.labsize: 2.5
-
+  hc.labsize: 2.5
+  hc.x.expand: .35
+  hc.x.off: .01
+  hc.wd: 8
+  hc.ht: 8
+  pca.opt: lab=tis,sha=rep
+  pca.labsize: 2.5
 me17a:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 10
-    hc.ht: 15
-    pca.opt: col=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 10
+  hc.ht: 15
+  pca.opt: col=tis,sha=rep
 me18a:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 10
-    hc.ht: 130
-    pca.opt: col=tis
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 10
+  hc.ht: 130
+  pca.opt: col=tis
 me18b:
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 8
-    hc.ht: 15
-    pca.opt: lab=gen,sha=tis
-    pca.labsize: 2
-
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 8
+  hc.ht: 15
+  pca.opt: lab=gen,sha=tis
+  pca.labsize: 2
 me99b:
-    hc.labsize: 3
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 12
-    hc.ht: 30
-    hm.wd: 16
-    hm.ht: 15 
-    pca.opt: lab=tis,sha=gen
-    pca.labsize: 2
-    pca.wd: 10
-    pca.ht: 10
-
+  hc.labsize: 3
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 12
+  hc.ht: 30
+  hm.wd: 16
+  hm.ht: 15 
+  pca.opt: lab=tis,sha=gen
+  pca.labsize: 2
+  pca.wd: 10
+  pca.ht: 10
 me99b.m:
-    hc.labsize: 3
-    hc.x.expand: .3
-    hc.x.off: .01
-    hc.wd: 12
-    hc.ht: 30
-    hm.wd: 16
-    hm.ht: 15 
-    pca.opt: lab=tis,sha=gen
-    pca.labsize: 2
-    pca.wd: 10
-    pca.ht: 10
-
+  hc.labsize: 3
+  hc.x.expand: .3
+  hc.x.off: .01
+  hc.wd: 12
+  hc.ht: 30
+  hm.wd: 16
+  hm.ht: 15 
+  pca.opt: lab=tis,sha=gen
+  pca.labsize: 2
+  pca.wd: 10
+  pca.ht: 10
 me99c:
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .05
-    hc.wd: 10
-    hc.ht: 30
-    pca.opt: col=tis,sha=rep
-
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .05
+  hc.wd: 10
+  hc.ht: 30
+  pca.opt: col=tis,sha=rep
 mec01:
-    sids: me16b+me16c
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .05
-    hc.wd: 8
-    hc.ht: 8
-    pca.opt: lab=tis,col=sid,sha=sid
-    pca.labsize: 2
-    pca.wd: 10
-    pca.ht: 10
-
+  sids: me16b+me16c
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .05
+  hc.wd: 8
+  hc.ht: 8
+  pca.opt: lab=tis,col=sid,sha=sid
+  pca.labsize: 2
+  pca.wd: 10
+  pca.ht: 10
 mec02:
-    sids: me16b+me16c+me99b
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .05
-    hc.wd: 8
-    hc.ht: 10
-    pca.opt: lab=tis,col=sid,sha=sid
-    pca.labsize: 2
-    pca.wd: 10
-    pca.ht: 10
-
+  sids: me16b+me16c+me99b
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .05
+  hc.wd: 8
+  hc.ht: 10
+  pca.opt: lab=tis,col=sid,sha=sid
+  pca.labsize: 2
+  pca.wd: 10
+  pca.ht: 10
 mec03:
-    sids: me10a+me11a+me12a+me13b+me15b+me14c+me14d+me16b+me16c+me99b
-    hc.labsize: 2.5
-    hc.x.expand: .3
-    hc.x.off: .05
-    hc.wd: 8
-    hc.ht: 18
-    hm.wd: 11
-    hm.ht: 10
-    pca.opt: lab=tis,col=sid,sha=sid
-    pca.labsize: 2
-    pca.wd: 10
-    pca.ht: 10
-
+  sids: me10a+me11a+me12a+me13b+me15b+me14c+me14d+me16b+me16c+me18b+me99b
+  hc.labsize: 2.5
+  hc.x.expand: .3
+  hc.x.off: .05
+  hc.wd: 8
+  hc.ht: 18
+  hm.wd: 11
+  hm.ht: 10
+  pca.opt: lab=tis,col=sid,sha=sid
+  pca.labsize: 2
+  pca.wd: 10
+  pca.ht: 10
 met01:
-    sids: me13b+me15b
-    hc.labsize: 2.5
-    hc.x.expand: .2
-    hc.x.off: .05
-    hc.wd: 6
-    hc.ht: 8
-    pca.opt: lab=tre
-    pca.labsize: 2
+  sids: me13b+me15b
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .05
+  hc.wd: 6
+  hc.ht: 8
+  pca.opt: lab=tre
+  pca.labsize: 2

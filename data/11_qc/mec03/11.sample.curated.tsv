@@ -1,0 +1,126 @@
+SampleID	sid	Tissue	Stage
+mec03_1	me10a	leaf	base
+mec03_2	me10a	leaf	-1cm
+mec03_3	me10a	leaf	4cm
+mec03_4	me10a	leaf	tip
+mec03_5	me10a	leaf	mesophyll
+mec03_6	me10a	leaf	bundle-sheath
+mec03_7	me11a	cob	pre-emerg
+mec03_8	me11a	leaf	20d_field
+mec03_9	me11a	tassel	pre-emerg
+mec03_10	me11a	cob	post-emerg
+mec03_11	me11a	endosperm	25DAP
+mec03_12	me11a	anther	
+mec03_13	me11a	ovule	
+mec03_14	me11a	pollen	
+mec03_15	me11a	silk	
+mec03_16	me11a	seed	10DAP
+mec03_17	me11a	leaf	20d_gc
+mec03_18	me11a	tassel	post-emerg
+mec03_19	me11a	seed	5DAP
+mec03_20	me11a	embryo	25DAP
+mec03_21	me12a	leaf	
+mec03_22	me12a	tassel	
+mec03_23	me12a	ears	
+mec03_24	me12a	meristem	SAM
+mec03_25	me13b	leaf	T00
+mec03_26	me13b	leaf	T06
+mec03_27	me13b	leaf	T12
+mec03_28	me13b	leaf	T18
+mec03_29	me13b	leaf	T24
+mec03_30	me13b	leaf	T30
+mec03_31	me13b	leaf	T36
+mec03_32	me13b	leaf	T42
+mec03_33	me13b	leaf	T48
+mec03_34	me13b	leaf	T54
+mec03_35	me13b	leaf	T60
+mec03_36	me13b	leaf	T66
+mec03_37	me13b	leaf	T72
+mec03_38	me15b	leaf	T084
+mec03_39	me15b	leaf	T096
+mec03_40	me15b	leaf	T108
+mec03_41	me15b	leaf	T120
+mec03_42	me15b	leaf	T132
+mec03_43	me15b	leaf	T144
+mec03_44	me15b	leaf	T156
+mec03_45	me15b	leaf	T168
+mec03_46	me15b	leaf	T192
+mec03_47	me14c	seedling	
+mec03_48	me14c	pollen	
+mec03_49	me14c	embryo	embryosac
+mec03_50	me14c	embryo	ovule
+mec03_51	me14d	ligule	B
+mec03_52	me14d	ligule	L
+mec03_53	me14d	ligule	S
+mec03_54	me14d	ligule	wtL
+mec03_55	me14d	ligule	lg1
+mec03_56	me14d	ligule	B_L1
+mec03_57	me14d	ligule	L_L1
+mec03_58	me14d	ligule	S_L1
+mec03_59	me16b	seed	germ_24H
+mec03_60	me16b	root	primary_6DAS
+mec03_61	me16b	stem	SAM_V3
+mec03_62	me16b	leaf	tip_V5
+mec03_63	me16b	leaf	8_V9
+mec03_64	me16b	leaf	11_V9
+mec03_65	me16b	leaf	13_V9
+mec03_66	me16b	leaf	immature_V9
+mec03_67	me16b	leaf	13_VT
+mec03_68	me16b	leaf	13_R2
+mec03_69	me16b	seed	10DAP
+mec03_70	me16b	seed	12DAP
+mec03_71	me16b	endosperm	12DAP
+mec03_72	me16b	seed	14DAP
+mec03_73	me16b	endosperm	14DAP
+mec03_74	me16b	seed	16DAP
+mec03_75	me16b	endosperm	16DAP
+mec03_76	me16b	embryo	16DAP
+mec03_77	me16c	endosperm	12DAP
+mec03_78	me16c	embryo	pericarp
+mec03_79	me16c	endosperm	crown
+mec03_80	me16c	leaf	symmetrical
+mec03_81	me16c	leaf	stomatal
+mec03_82	me16c	leaf	growth
+mec03_83	me16c	embryo	20DAP
+mec03_84	me16c	embryo	
+mec03_85	me16c	kernel	germ
+mec03_86	me16c	leaf	mature_8
+mec03_87	me16c	ear	6-8
+mec03_88	me16c	ear	2-4
+mec03_89	me16c	root	mz
+mec03_90	me16c	root	ez
+mec03_91	me16c	root	cortex
+mec03_92	me16c	root	primary
+mec03_93	me16c	root	secondary
+mec03_94	me16c	pollen	
+mec03_95	me16c	silk	
+mec03_96	me16c	spikelet	
+mec03_97	me16c	internode	6-7
+mec03_98	me16c	internode	7-8
+mec03_99	me16c	meristem	
+mec03_100	me18b	root	III
+mec03_101	me18b	root	II
+mec03_102	me18b	root	I
+mec03_103	me99b	leaf	blade_v12
+mec03_104	me99b	stem	auricle_v12
+mec03_105	me99b	stem	sheath_v12
+mec03_106	me99b	stem	internode_v12
+mec03_107	me99b	tassel	v12
+mec03_108	me99b	ear	v14
+mec03_109	me99b	silk	0DAP
+mec03_110	me99b	tassel	spikelet
+mec03_111	me99b	stem	husk_0DAP
+mec03_112	me99b	stem	tasselstem_0DAP
+mec03_113	me99b	tassel	floret_0DAP
+mec03_114	me99b	kernel	14DAP
+mec03_115	me99b	leaf	flagleaf_0DAP
+mec03_116	me99b	root	0DAP
+mec03_117	me99b	endosperm	14DAP
+mec03_118	me99b	embryo	27DAP
+mec03_119	me99b	endosperm	27DAP
+mec03_120	me99b	root	coleoptile_tip
+mec03_121	me99b	root	radicle
+mec03_122	me99b	embryo	imbibedseed
+mec03_123	me99b	leaf	seedling_11DAS
+mec03_124	me99b	root	seedling_11DAS
+mec03_125	me99b	meristem	seedling_11DAS
