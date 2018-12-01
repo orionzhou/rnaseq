@@ -179,6 +179,23 @@ th = ti %>% separate(Title, c("gsm1", "gsm"), sep = ": ") %>%
               paired = paired) %>%
     arrange(SampleID)
 #}}}
+} else if (sid == 'me14e') {
+#{{{ Chen seed
+th = ti %>%
+    mutate(SampleName=str_replace(SampleName, "_B73$", '')) %>%
+    mutate(SampleName=str_replace(SampleName, "-DAP", "DAP")) %>%
+    mutate(SampleName=str_replace(SampleName, "^embryo_(\\d+)-?DAP$", '\\1DAP_embryo')) %>%
+    separate(SampleName, c("stage","tis"), sep="_", fill='right') %>%
+    mutate(tis=str_replace(tis, '^whole-','')) %>%
+    mutate(stage=str_replace(stage, '^(\\d+)$', '\\1DAP')) %>%
+    transmute(SampleID = Run,
+              Tissue = tis,
+              Genotype = 'B73',
+              Treatment = stage,
+              Replicate = '',
+              paired = paired) %>%
+    arrange(SampleID)
+#}}}
 } else if (sid == 'me15a') {
 #{{{ Leiboff2015
 th = ti %>% transmute(SampleID = Run,
@@ -372,27 +389,29 @@ th = ti %>%
 th = sra_fill_replicate(th)
 #}}}
 } else if (sid == 'me99a') {
-#{{{ Kaepler2018
+#{{{ Kaeppler2018
 th = ti %>%
     mutate(gt0 = str_replace(Title2, "^.*Zea mays ?", "")) %>%
     mutate(gt0 = str_replace(gt0, " ?transcriptome$", '')) %>%
     mutate(gt0 = str_replace(gt0, " ?gene expression profiling.*$", '')) %>%
     mutate(gt0 = str_replace(gt0, ' ', '')) %>%
     mutate(gt0 = str_replace(gt0, "_([0-9]{4})$", "~\\1")) %>%
-    separate(gt0, c("gt1",'gt2'), sep='_', fill='right',extra='merge') %>%
+    separate(gt0, c("gt1",'tis'), sep='_', fill='right',extra='merge') %>%
     mutate(gt1 = str_replace(gt1, "~([0-9]{4})$", "_\\1")) %>%
-    replace_na(list(gt2='')) %>%
-    transmute(SampleID = Run, Tissue = 'leaf', Genotype = gt1,
-              Treatment = gt2, Replicate = '', paired = paired) %>%
+    replace_na(list(tis='S')) %>%
+    mutate(tis=str_replace(tis,'_T2', '')) %>%
+    mutate(tis=str_replace(tis,'^L\\?\\?$','L')) %>%
+    transmute(SampleID = Run, Tissue = tis, Genotype = gt1,
+              Treatment = '', Replicate = '', paired = paired) %>%
     arrange(SampleID)
-idx = which(th$Treatment=='MoG_115')
+idx = which(th$Tissue=='MoG_115')
 th$Genotype[idx] = sprintf("%s-MoG-115", th$Genotype[idx])
-th$Treatment[idx] = ''
+th$Tissue[idx] = 'S'
 th = th %>% mutate(inbred = !str_detect(Genotype, '[xX]'))
 th %>% count(Treatment) %>% print(n=20)
-th %>% filter(inbred) %>% distinct(Genotype,Treatment)
+th %>% filter(inbred) %>% distinct(Tissue)
 th %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
-th %>% filter(!inbred) %>% distinct(Genotype,Treatment)
+th %>% filter(!inbred) %>% count(Tissue)
 th %>% filter(!inbred) %>% distinct(Genotype) %>% pull(Genotype)
 #}}}
 } else {
@@ -556,10 +575,32 @@ fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #}}}
 
-#{{{ Enders
+#{{{ tenders_3rnaseq: me99d
 sid = 'me99d'
-fi = sprintf("%s/05_read_list/%s.raw.tsv", dird, sid)
-ti = read_tsv(fi)
+fi = file.path(dird, '03.raw.xlsx')
+ti = read_xlsx(fi, sheet=sid)
+#
+diro2 = sprintf("%s/%s/10_fastq", dirc, sid)
+if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
+
+# create sym-links, write read list
+ti = ti %>% fill(Tissue, Genotype, directory) %>%
+    mutate(f1 = sprintf("%s/%s.fq.gz", directory, file)) %>%
+    mutate(nf1 = sprintf("%s/%s.fq.gz", diro2, SampleID)) %>%
+    mutate(cmd1 = sprintf("ln -sf %s %s", f1, nf1)) %>%
+    mutate(tag = file.exists(f1))
+sum(!ti$tag)
+
+map_int(ti$cmd1, system)
+
+th = ti %>% select(SampleID,Tissue,Genotype,Treatment) %>%
+    mutate(Replicate = '', paired = F) %>%
+    select(SampleID, Tissue, Genotype, Treatment, everything())
+th = sra_fill_replicate(th)
+th %>% count(Genotype, Tissue, Treatment) %>% print(n=50)
+th
+fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+write_tsv(th, fo)
 #}}}
 
 

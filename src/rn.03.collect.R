@@ -1,9 +1,10 @@
 source("functions.R")
 source(file.path(dirr, "sra.R"))
+require(ape)
+require(ggtree)
 t_cfg
 
-sid = 'mec03'
-sid = 'me13c'
+sid = 'me99a'
 #{{{ config
 Sys.setenv(R_CONFIG_ACTIVE = sid)
 dirw = file.path(dird, '11_qc', sid)
@@ -19,16 +20,16 @@ meta = cfg %>% pull(meta)
 x = load(file.path(dirg, genome, '55.rda'))
 #}}}
 
-#{{{ [meta=F] mapping stats, raw read counts, normalize
+#{{{ [meta=F] mapping stats
 th = get_read_list(dird, sid)
-tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
-reps = unique(th$Replicate)
+tiss = unique(th$Tissue); genos = unique(th$Genotype); 
+treas = unique(th$Treatment); reps = unique(th$Replicate)
 paired = unique(th$paired)
 if(length(paired) == 2) paired = 'both'
 
 diri = file.path(dird, '08_raw_output', sid)
 fi = file.path(diri, 'trimming.tsv')
-tt1 = read_tsv(fi) %>% 
+tt1 = read_tsv(fi) %>%
     separate(sid, c('SampleID','pe'), sep='[\\.]') %>%
     mutate(passed=passed_filter_reads,
     failed=low_quality_reads+too_many_N_reads+too_short_reads+too_long_reads) %>%
@@ -41,7 +42,7 @@ tt2 = read_tsv(fi) %>% select(SampleID=sid, everything())
 fi = file.path(diri, 'multiqc_data/multiqc_featureCounts.txt')
 tt3 = read_multiqc_featurecounts(fi)
 
-tt = th %>% select(-paired) %>% 
+tt = th %>% select(-paired) %>%
     left_join(tt1, by = 'SampleID') %>%
     left_join(tt2, by = 'SampleID') %>%
     left_join(tt3, by = 'SampleID')
@@ -61,22 +62,16 @@ tt %>% group_by(Tissue, Genotype, Treatment) %>%
 
 fo = file.path(dirw, '10.mapping.stat.tsv')
 write_tsv(tt, fo)
-
-fi = file.path(diri, 'featurecounts.tsv')
-t_rc = read_tsv(fi)
-tm = t_rc %>% gather(SampleID, ReadCount, -gid) %>%
-    filter(SampleID %in% th$SampleID)
-res = readcount_norm(tm, size.gene)
-tl = res$tl; tm = res$tm
 #}}}
 
-#{{{ [meta=T] collect featurecounts data & normalize
-sids = str_split(config::get("sids"), "[\\+]")[[1]] 
+#{{{ [meta=T] merge featurecounts
+sid = 'met01'
+sids = str_split(t_cfg$study[t_cfg$sid==sid], "[\\+]")[[1]]
 sids
 #
 th = tibble(); t_rc = tibble()
 for (sid1 in sids) {
-    diri = file.path(dird, '08_raw_output', sid1, 'multiqc_data')
+    diri = file.path(dird, '08_raw_output', sid1)
     th1 = get_read_list(dird, sid1)
     if(sid1 == 'me12a') {
         th1 = th1 %>% filter(Treatment == 'WT')
@@ -87,11 +82,15 @@ for (sid1 in sids) {
     } else if(sid1 == 'me99b') {
         th1 = th1 %>% filter(Genotype == 'B73')
     }
-    th1 = th1 %>% mutate(sid = sid1) %>% 
-        select(sid, SampleID, Tissue, Genotype, Treatment, everything())
+    osids = th1$SampleID
+    nsids = sprintf("%s_%s", sid1, osids)
+    names(osids) = nsids
+    th1 = th1 %>% mutate(SampleID = nsids) %>%
+        select(SampleID, Tissue, Genotype, Treatment, everything())
     th = rbind(th, th1)
-    fi = file.path(diri, '../featurecounts.tsv')
-    t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', th1$SampleID)))
+    fi = file.path(diri, 'featurecounts.tsv')
+    t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', osids))) %>%
+        rename(!!osids)
     stopifnot(ncol(t_rc1) == nrow(th1) + 1)
     if(nrow(t_rc) == 0) {
         t_rc = t_rc1
@@ -100,35 +99,45 @@ for (sid1 in sids) {
     }
 }
 dim(th); dim(t_rc)
-th %>% dplyr::count(sid)
 th %>% dplyr::count(Tissue) %>% print(n=40)
+th %>% dplyr::count(Tissue,Genotype,Treatment) %>% print(n=40)
+th %>% dplyr::count(Tissue,Genotype,Treatment) %>% count(n) %>% print(n=40)
 
-tm = t_rc %>% gather(SampleID, ReadCount, -gid)
-res = readcount_norm(tm, t_gs)
-tl = res$tl; tm = res$tm
-
-res = merge_reps(th, tm, sid)
-th = res$th; tm = res$tm
-th = th %>% mutate(Replicate = NA)
-tiss = unique(th$Tissue); genos = unique(th$Genotype); treas = unique(th$Treatment)
-reps = unique(th$Replicate)
+fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+write_tsv(th, fo)
+diro = file.path(dird, '08_raw_output', sid)
+system(sprintf("mkdir -p %s", diro))
+map_int(sprintf("touch %s/%s", diro, c("multiqc.html",'trimming.tsv','bamstats.tsv')), system)
+fo = sprintf("%s/featurecounts.tsv", diro)
+write_tsv(t_rc, fo)
+# run rc2cpm
 #}}}
 
-#{{{ [optional] fix/remove mis-labelled samples, save to mexx.c.tsv and 20.rc.norm.rda
+th = get_read_list(dird, sid)
+tiss = unique(th$Tissue); genos = unique(th$Genotype)
+treas = unique(th$Treatment); reps = unique(th$Replicate)
+
+fi = file.path(dird, '08_raw_output', sid, 'cpm.rds')
+res = readRDS(fi)
+tl = res$tl; tm = res$tm
+
+#{{{ [optional] fix/remove mis-labelled samples, save to mexx.c.tsv
 #cls = cutree(ehc, h = .1)
 #tcl = tibble(SampleID = names(cls), grp = as.integer(cls))
 #th2 = th %>% inner_join(tcl, by = 'SampleID')
-#th3 = th2 %>% group_by(Tissue, Genotype) %>% 
+#th3 = th2 %>% group_by(Tissue, Genotype) %>%
     #summarise(nrep = length(Replicate), ngrp = length(unique(grp))) %>%
     #ungroup() %>%
     #filter(nrep > 1, ngrp > 1)
 #th2 %>% inner_join(th3, by = c("Tissue", "Genotype")) %>% print(n=40)
-
+#
+ft = file.path(dirw, '10.mapping.stat.tsv')
+tt = read_tsv(ft)
 fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 th = read_tsv(fh1)
 fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid)
 if(sid == 'me13c') {
-    th = th %>% 
+    th = th %>%
         mutate(Genotype = ifelse(SampleID=='SRR767691','Oh43',Genotype)) %>%
         mutate(Genotype = ifelse(SampleID=='SRR651079','Oh7b',Genotype))
 } else if(sid == 'me14c') {
@@ -144,10 +153,15 @@ if(sid == 'me13c') {
         mutate(Tissue = ifelse(SampleID == 'SRR445416', 'tassel', Tissue)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426798', 'Mo17', Genotype)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426814', 'M37W', Genotype))
+} else if(sid == 'me99a') {
+    samples_low = tt %>% filter(passed < 5000000) %>% pull(SampleID)
+    th = th %>%
+        filter(!SampleID %in% samples_low) %>%
+        mutate(Tissue=ifelse(SampleID=='SRR8043188','L',Tissue))
 } else if(sid == 'me99b') {
     gts = c("B73", "Mo17", "B73xMo17")
     tissues = sort(unique(th$Tissue))
-    th = th %>% 
+    th = th %>%
         #filter(Genotype %in% gts) %>%
         filter(! SampleID %in% c('BR207', 'BR230', "BR235")) %>%
         mutate(Genotype = ifelse(SampleID=='BR003', 'Mo17', Genotype)) %>%
@@ -159,35 +173,17 @@ if(sid == 'me13c') {
     th = th %>% mutate(Replicate = '')
     th = sra_fill_replicate(th)
 } else if(sid == 'me99c') {
-    th = th %>% 
+    th = th %>%
         mutate(Tissue = ifelse(SampleID == 'bm252', 'Leaf', Tissue))
 }
 write_tsv(th, fh2)#, na = '')
-
 # re-normalize everything [if no sample is removed then no need to do this]
-fi = file.path(diri, 'featurecounts.tsv')
-t_rc = read_tsv(fi)
-tm = t_rc %>% gather(SampleID, ReadCount, -gid) %>%
-    filter(SampleID %in% th$SampleID)
-res = readcount_norm(tm, size.gene)
-tl = res$tl; tm = res$tm
-#}}}
-
-#{{{ save to 20.rc.norm.rda
-fo = file.path(dirw, '20.rc.norm.rda')
-save(th, tl, tm, file = fo)
-#}}}
-
-#{{{ read from 20.rc.norm.rda
-fi = file.path(dirw, '20.rc.norm.rda')
-x = load(fi)
-x
 #}}}
 
 #{{{ hclust
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .5) %>% pull(gid)
 e = tw %>% filter(gid %in% gids) %>% select(-gid)
 dim(e)
 
@@ -200,21 +196,21 @@ ehc <- hclust(edist, method = hc_opt)
 tree = as.phylo(ehc)
 lnames = ehc$labels[ehc$order]
 #
-tp = th %>% mutate(taxa = SampleID, lab = SampleID) 
+tp = th %>% mutate(taxa = SampleID, lab = SampleID)
 if(length(tiss)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Tissue), lab)
 if(length(genos)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Genotype), lab)
 if(length(treas)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Treatment), lab)
 if(length(reps)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Replicate), lab)
 t_hc = tp %>% select(taxa, everything())
 fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-plot_hclust_tree(tree, t_hc, fo, 
-                 labsize = config::get("hc.labsize"), 
+plot_hclust_tree(tree, t_hc, fo,
+                 labsize = config::get("hc.labsize"),
                  x.expand = config::get("hc.x.expand"),
-                 x.off = config::get("hc.x.off"), 
+                 x.off = config::get("hc.x.off"),
                  wd = config::get("hc.wd"), ht = config::get("hc.ht"))
 #}}}
 
-#{{{ mec03-specific annotation
+#{{{ #mec03-specific annotation
 fh = file.path(dirw, '10.sample.tsv')
 write_tsv(th, fh)
 fh = file.path(dirw, '11.sample.curated.tsv')
@@ -226,7 +222,7 @@ th %>% dplyr::count(Tissue) %>% print(n = 23)
 require(Rtsne)
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .5) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
 tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
@@ -241,12 +237,12 @@ tp = as_tibble(tsne$Y) %>%
     #mutate(Tissue=ifelse(Tissue %in% tissues_merge, 'misc', Tissue)) %>%
     mutate(txt = sprintf("%s_%s", Genotype, Replicate))
 p_tsne = ggplot(tp) +
-    geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
-    geom_point(aes(x=V1, y=V2, color=Tissue), size=2) +
+    #geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
+    geom_point(aes(x=V1, y=V2, color=Tissue, shape=inbred), size=2) +
     #stat_ellipse(aes(x=V1, y=V2, fill=Tissue), linetype=1, alpha=.4) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
-    #scale_shape_manual(values = c(15,4,16)) +
+    scale_shape_manual(values = c(15,4,16)) +
     scale_color_manual(values = pal_npg()(10)) +
     otheme(legend.pos = 'bottom.right', legend.dir = 'v',
            margin = c(.2,.2,.2,.2)) +

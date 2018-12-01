@@ -138,6 +138,13 @@ me18b:
   hc.ht: 15
   pca.opt: lab=gen,sha=tis
   pca.labsize: 2
+me99a:
+  hc.labsize: 2.5
+  hc.x.expand: .2
+  hc.x.off: .05
+  hc.wd: 10
+  hc.ht: 49
+  pca.opt: col=tis,sha=rep
 me99b:
   hc.labsize: 3
   hc.x.expand: .3
@@ -170,7 +177,6 @@ me99c:
   hc.ht: 30
   pca.opt: col=tis,sha=rep
 mec01:
-  sids: me16b+me16c
   hc.labsize: 2.5
   hc.x.expand: .3
   hc.x.off: .05
@@ -181,7 +187,6 @@ mec01:
   pca.wd: 10
   pca.ht: 10
 mec02:
-  sids: me16b+me16c+me99b
   hc.labsize: 2.5
   hc.x.expand: .3
   hc.x.off: .05
@@ -192,7 +197,6 @@ mec02:
   pca.wd: 10
   pca.ht: 10
 mec03:
-  sids: me10a+me11a+me12a+me13b+me15b+me14c+me14d+me16b+me16c+me18b+me99b
   hc.labsize: 2.5
   hc.x.expand: .3
   hc.x.off: .05
@@ -205,7 +209,6 @@ mec03:
   pca.wd: 10
   pca.ht: 10
 met01:
-  sids: me13b+me15b
   hc.labsize: 2.5
   hc.x.expand: .2
   hc.x.off: .05
