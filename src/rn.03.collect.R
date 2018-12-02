@@ -4,7 +4,7 @@ require(ape)
 require(ggtree)
 t_cfg
 
-sid = 'me99a'
+sid = 'mec04'
 #{{{ config
 Sys.setenv(R_CONFIG_ACTIVE = sid)
 dirw = file.path(dird, '11_qc', sid)
@@ -85,6 +85,8 @@ for (sid1 in sids) {
     nsids = sprintf("%s_%s", sid1, osids)
     names(osids) = nsids
     th1 = th1 %>% mutate(SampleID = nsids) %>%
+        replace_na(list(Treatment='?')) %>%
+        mutate(Treatment=sprintf("%s|%s", sid1, Treatment)) %>%
         select(SampleID, Tissue, Genotype, Treatment, everything())
     th = rbind(th, th1)
     fi = file.path(diri, 'featurecounts.tsv')
