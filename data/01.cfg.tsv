@@ -21,7 +21,7 @@ me17b	stress cis-trans	waters2017	local	illumina	no		T			B, M, P and F1	seedliln
 me17c	drought stress	marcon2017	sra	illumina	no		T			B, M anf F1	root	B73	star
 me18a	dysregulation	kremling2018	sra	3rnaseq	no				3.0	255 lines	7 tissues	B73	star
 me18b	SPE	baldauf2018	sra	illumina	no			71.0	63.0	7 inbreds + 6 hybrids	3 root stages	B73	star
-me18c	sorghum pacbio	wang2018	sra	illumina	no					B73+sorghum	11 tissues	B73	star
+me18c	sorghum pacbio	wang2018	sra	illumina	no					B73+sorghum	11 tissues	B73	
 me18d	root ionics	schaefer2018	sra	illumina	no					48 inbreds	root	B73	star
 me99a	biomass	kaeppler2018	sra	illumina	no					170 inbreds + 96 hybrids	5 tissues	B73	star
 me99b	B73&Mo17 atlas	briggs	local	illumina	reverse			34.0	27.0	B, M anf F1	23 tissues	B73	hisat2
