@@ -30,7 +30,8 @@ me99c	biomAP	li2019	local_interleaved	illumina	no			33.0	25.0	35 inbreds + 96 hy
 me99d	stress response	enders	local	3rnaseq	no		T			B and M	leaf	B73	star
 me99e	endosperm mutant	settles	local	illumina	no					W22	endosperm	B73	star
 me99f	imprinting	anderson	local	illumina	no					F1 btw. B,W,P	endosperm	B73	star
-mec01	me10a+me13b+me15b		local	illumina	no	T				B73	leaf 28	B73	star
-mec02	me14b+me14e		local	illumina	no	T				B73	seed 60	B73	star
+mec01	me10a+me13b+me15b		local	illumina	no	T				B73	leaf 40	B73	star
+mec02	me14b+me14e		local	illumina	no	T				B73	embryo+endosperm 61	B73	star
 mec03	me16b+me16c+me99b		local	illumina	no	T				B73	dev atlas 136	B73	star
+mec04	me17c+me18b		local	illumina	no	T				B73	root	B73	star
 met01	me13b+me15b		local	illumina	no	T				B73	leaf 22	B73	star

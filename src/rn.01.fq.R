@@ -2,7 +2,7 @@ source("functions.R")
 source(file.path(dirr, "sra.R"))
 t_cfg %>% select(sid, study, author) %>% print(n=40)
 
-get_read_list <- function(ti, sid) {
+fix_read_list <- function(ti, sid) {
 #{{{
 if(sid == 'me10a') {
 #{{{ Li2010
@@ -79,9 +79,9 @@ if(sid == 'me10a') {
 #}}}
 } else if (sid == 'me13b') {
 #{{{ Liu2013
-    th = ti %>% 
+    th = ti %>%
         separate("SampleName", c("pre", "Treatment"), sep = "_", fill = "left") %>%
-        mutate(Treatment = ifelse(is.na(pre), Treatment, sprintf("E%s", Treatment))) 
+        mutate(Treatment = ifelse(is.na(pre), Treatment, sprintf("E%s", Treatment)))
     th %>% count(paired)
     th %>% count(Treatment)
     th = th %>% transmute(SampleID = Run,
@@ -187,6 +187,7 @@ th = ti %>%
     mutate(SampleName=str_replace(SampleName, "^embryo_(\\d+)-?DAP$", '\\1DAP_embryo')) %>%
     separate(SampleName, c("stage","tis"), sep="_", fill='right') %>%
     mutate(tis=str_replace(tis, '^whole-','')) %>%
+    mutate(tis=str_replace(tis, '^endopserm$', 'endosperm')) %>%
     mutate(stage=str_replace(stage, '^(\\d+)$', '\\1DAP')) %>%
     transmute(SampleID = Run,
               Tissue = tis,
@@ -327,6 +328,16 @@ th = rbind(th1,th2)
 th %>% count(Tissue)
 th %>% count(Genotype)
 #}}}
+} else if (sid == 'me17c') {
+#{{{ Marcon2017
+th = ti %>% separate(SampleName, c("gt",'trea','rep'), by='-') %>%
+    transmute(SampleID = Run, Tissue = 'root',
+              Genotype = gt,
+              Treatment = trea,
+              Replicate = rep,
+              paired = paired) %>%
+    arrange(SampleID)
+#}}}
 } else if (sid == 'me18a') {
 #{{{ Kremling2018
 th1 = ti %>%
@@ -407,7 +418,10 @@ th = ti %>%
 idx = which(th$Tissue=='MoG_115')
 th$Genotype[idx] = sprintf("%s-MoG-115", th$Genotype[idx])
 th$Tissue[idx] = 'S'
-th = th %>% mutate(inbred = !str_detect(Genotype, '[xX]'))
+tismap = c('S'='seedling','I'='internode','R'='root','L'='leaf','E'='endosperm')
+th = th %>%
+    mutate(Tissue=tismap[Tissue]) %>%
+    mutate(inbred = !str_detect(Genotype, '[xX]'))
 th %>% count(Treatment) %>% print(n=20)
 th %>% filter(inbred) %>% distinct(Tissue)
 th %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
@@ -427,7 +441,7 @@ fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
 fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
 ti = read_sra_run(fi, fi2)
 
-th = get_read_list(ti, sid)
+th = fix_read_list(ti, sid)
 th %>% count(Tissue, Genotype, Treatment) %>% print(n=100)
 th %>% count(Replicate)
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)

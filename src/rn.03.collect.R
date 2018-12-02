@@ -22,7 +22,7 @@ x = load(file.path(dirg, genome, '55.rda'))
 
 #{{{ [meta=F] mapping stats
 th = get_read_list(dird, sid)
-tiss = unique(th$Tissue); genos = unique(th$Genotype); 
+tiss = unique(th$Tissue); genos = unique(th$Genotype);
 treas = unique(th$Treatment); reps = unique(th$Replicate)
 paired = unique(th$paired)
 if(length(paired) == 2) paired = 'both'
@@ -65,7 +65,6 @@ write_tsv(tt, fo)
 #}}}
 
 #{{{ [meta=T] merge featurecounts
-sid = 'met01'
 sids = str_split(t_cfg$study[t_cfg$sid==sid], "[\\+]")[[1]]
 sids
 #
@@ -76,9 +75,9 @@ for (sid1 in sids) {
     if(sid1 == 'me12a') {
         th1 = th1 %>% filter(Treatment == 'WT')
     } else if(sid1 == 'me13b') {
-        th1 = th1 %>% filter(!str_detect(Treatment, "ET"))
+        th1 = th1 #%>% filter(!str_detect(Treatment, "ET"))
     } else if(sid1 == 'me18b') {
-        th1 = th1 %>% filter(Genotype == 'B73')
+        th1 = th1 %>% filter(Treatment == 'con')
     } else if(sid1 == 'me99b') {
         th1 = th1 %>% filter(Genotype == 'B73')
     }
@@ -122,6 +121,7 @@ res = readRDS(fi)
 tl = res$tl; tm = res$tm
 
 #{{{ [optional] fix/remove mis-labelled samples, save to mexx.c.tsv
+#{{{ cut hc tree
 #cls = cutree(ehc, h = .1)
 #tcl = tibble(SampleID = names(cls), grp = as.integer(cls))
 #th2 = th %>% inner_join(tcl, by = 'SampleID')
@@ -130,35 +130,59 @@ tl = res$tl; tm = res$tm
     #ungroup() %>%
     #filter(nrep > 1, ngrp > 1)
 #th2 %>% inner_join(th3, by = c("Tissue", "Genotype")) %>% print(n=40)
-#
+#}}}
 ft = file.path(dirw, '10.mapping.stat.tsv')
 tt = read_tsv(ft)
 fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 th = read_tsv(fh1)
 fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid)
 if(sid == 'me13c') {
+    #{{{
     th = th %>%
         mutate(Genotype = ifelse(SampleID=='SRR767691','Oh43',Genotype)) %>%
         mutate(Genotype = ifelse(SampleID=='SRR651079','Oh7b',Genotype))
+    #}}}
 } else if(sid == 'me14c') {
     th = th %>% filter(! SampleID %in% c("SRR254169"))
 } else if(sid == 'me14d') {
     th = th %>% filter(! SampleID %in% c("SRR1573518", 'SRR1573513'))
 } else if(sid == 'me16b') {
+    #{{{
     th = th %>% filter(!SampleID %in% c("SRR1620930","SRR1620929","SRR1620927",
                                         "SRR1620908","SRR1620913"))
+    #}}}
 } else if(sid == 'me17a') {
+    #{{{
     th = th %>%
         mutate(Tissue = ifelse(SampleID == 'SRR445601', 'tassel', Tissue)) %>%
         mutate(Tissue = ifelse(SampleID == 'SRR445416', 'tassel', Tissue)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426798', 'Mo17', Genotype)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426814', 'M37W', Genotype))
-} else if(sid == 'me99a') {
-    samples_low = tt %>% filter(passed < 5000000) %>% pull(SampleID)
+    #}}}
+} else if(sid == 'me18b') {
+    #{{{
     th = th %>%
-        filter(!SampleID %in% samples_low) %>%
-        mutate(Tissue=ifelse(SampleID=='SRR8043188','L',Tissue))
+        filter(!SampleID %in% c("SRR5786263", "SRR5786217")) %>%
+        mutate(Treatment=ifelse(SampleID=='SRR5786370','II',Treatment)) %>%
+        mutate(Treatment=ifelse(Genotype=='B73' & Treatment=='I' &
+                                Replicate %in% 3:8, 'Z1', Treatment)) %>%
+        mutate(Treatment=ifelse(Genotype=='B73' & Treatment=='II' &
+                                Replicate %in% c(3,4,10:12), 'Z2', Treatment)) %>%
+        mutate(Treatment=ifelse(Genotype=='B73' & Treatment=='III' &
+                                Replicate %in% c(4,7:10), 'Z3', Treatment))
+    #}}}
+} else if(sid == 'me99a') {
+    #{{{
+    samples_low = tt %>% filter(passed < 1e7) %>% pull(SampleID)
+    samples2 = c("SRR8043600","SRR8043169","SRR8043151","SRR8043196","SRR8043556")
+    th = th %>%
+        filter(!SampleID %in% c(samples_low,samples2)) %>%
+        mutate(Tissue=ifelse(SampleID=='SRR8043188','leaf',Tissue))
+    i = which(th$SampleID == 'SRR5691477')
+    th$Genotype[i] = 'PHN11x?'; th$inbred[i] = F
+    #}}}
 } else if(sid == 'me99b') {
+    #{{{
     gts = c("B73", "Mo17", "B73xMo17")
     tissues = sort(unique(th$Tissue))
     th = th %>%
@@ -172,9 +196,12 @@ if(sid == 'me13c') {
         mutate(Genotype = ifelse(SampleID=='BR032', 'Mo17', Genotype))
     th = th %>% mutate(Replicate = '')
     th = sra_fill_replicate(th)
+    #}}}
 } else if(sid == 'me99c') {
+    #{{{
     th = th %>%
         mutate(Tissue = ifelse(SampleID == 'bm252', 'Leaf', Tissue))
+    #}}}
 }
 write_tsv(th, fh2)#, na = '')
 # re-normalize everything [if no sample is removed then no need to do this]
@@ -183,7 +210,7 @@ write_tsv(th, fh2)#, na = '')
 #{{{ hclust
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .5) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 e = tw %>% filter(gid %in% gids) %>% select(-gid)
 dim(e)
 
@@ -201,58 +228,65 @@ if(length(tiss)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Tissue), lab)
 if(length(genos)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Genotype), lab)
 if(length(treas)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Treatment), lab)
 if(length(reps)>1) tp = tp %>% mutate(lab = sprintf("%s %s", lab, Replicate), lab)
-t_hc = tp %>% select(taxa, everything())
+tp = tp %>% select(taxa, everything())
+cols1 = c('gray80','black','red','seagreen3', pal_d3()(5))
+if(length(unique(tp$Tissue)) > 15) tp = tp %>% mutate(Tissue='')
+p1 = ggtree(tree, layout = 'rectangular') +
+    #geom_tiplab(size = labsize, color = 'black') +
+    scale_x_continuous(expand = expand_scale(
+        mult=c(.02, config::get("hc.x.expand")))) +
+    scale_y_discrete(expand = c(.01,0)) +
+    theme_tree2()
+p1 = p1 %<+% tp + geom_tiplab(
+        aes(label=lab, color = Tissue),
+        #aes(label=lab, color = Genotype),
+        #aes(label=lab, color = Treatment),
+        size = config::get("hc.labsize"),
+        offset = config::get("hc.x.off"),
+        family='mono') +
+    #scale_color_npg()
+    scale_color_aaas()
 fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-plot_hclust_tree(tree, t_hc, fo,
-                 labsize = config::get("hc.labsize"),
-                 x.expand = config::get("hc.x.expand"),
-                 x.off = config::get("hc.x.off"),
-                 wd = config::get("hc.wd"), ht = config::get("hc.ht"))
-#}}}
-
-#{{{ #mec03-specific annotation
-fh = file.path(dirw, '10.sample.tsv')
-write_tsv(th, fh)
-fh = file.path(dirw, '11.sample.curated.tsv')
-th = read_tsv(fh)
-th %>% dplyr::count(Tissue) %>% print(n = 23)
+ggsave(p1, filename = fo, width=config::get("hc.wd"), height=config::get("hc.ht"))
 #}}}
 
 #{{{ tSNE
 require(Rtsne)
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .5) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
 tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
               pca = T, max_iter = 500)
 
-#tissues_merge = th %>% count(Tissue) %>% filter(n < 5) %>% pull(Tissue)
 tp = as_tibble(tsne$Y) %>%
     add_column(SampleID = colnames(tt)[-1]) %>%
     inner_join(th, by = 'SampleID') %>%
     replace_na(list(Treatment='')) %>%
-    #mutate(Treatment=ifelse(Tissue %in% tissues_merge, sprintf("%s_%s",Tissue,Treatment), Treatment)) %>%
-    #mutate(Tissue=ifelse(Tissue %in% tissues_merge, 'misc', Tissue)) %>%
+    #mutate(txt = sprintf("%s_%s", Treatment, Replicate))
     mutate(txt = sprintf("%s_%s", Genotype, Replicate))
+if(length(unique(tp$Tissue)) > 15) tp = tp %>% mutate(Tissue='')
 p_tsne = ggplot(tp) +
     #geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
+    #geom_point(aes(x=V1, y=V2, color=Tissue), size=2) +
     geom_point(aes(x=V1, y=V2, color=Tissue, shape=inbred), size=2) +
+    #geom_point(aes(x=V1, y=V2, color=Genotype), size=2) +
+    #geom_point(aes(x=V1, y=V2, color=Treatment), size=2) +
     #stat_ellipse(aes(x=V1, y=V2, fill=Tissue), linetype=1, alpha=.4) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
     scale_shape_manual(values = c(15,4,16)) +
-    scale_color_manual(values = pal_npg()(10)) +
-    otheme(legend.pos = 'bottom.right', legend.dir = 'v',
+    #scale_color_npg() +
+    scale_color_aaas() +
+    #scale_color_manual(values = pal_aaas()(10)) +
+    otheme(legend.pos = 'bottom.left', legend.dir = 'v',
            margin = c(.2,.2,.2,.2)) +
     theme(axis.ticks.length = unit(0, 'lines')) +
     guides(color = guide_legend(ncol = 2, byrow = T))
 fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width = 8, height = 8)
 #}}}
-
-me_output(sid, study, meta, dird)
 
 #{{{ # ggtree + heatmap
 is_tip <- tree$edge[,2] <= length(tree$tip.label)
@@ -328,51 +362,6 @@ tp = as_tibble(x[,1:5]) %>%
 fo = file.path(dirw, '25.pca.pdf')
 plot_pca(tp, fo, opt = config::get("pca.opt"), labsize = config::get("pca.labsize"),
          wd = config::get("pca.wd"), ht = config::get("pca.ht"))
-#}}}
-
-#{{{ ##me99d - enders stress response 3' RNA-Seq
-#{{{ hclust tree
-cor_opt = "pearson"
-hc_opt = "ward.D"
-plot_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
-e.c.dist <- as.dist(1-cor(e, method = cor_opt))
-e.c.hc <- hclust(e.c.dist, method = hc_opt)
-hc = e.c.hc
-tree = as.phylo(e.c.hc)
-
-tp = tl %>% inner_join(th, by = 'SampleID') %>%
-    mutate(taxa = SampleID,
-           lab = sprintf("%s %s %s", Tissue, Genotype, Treatment)) %>%
-    select(taxa, everything())
-p1 = ggtree(tree) +
-    #geom_tiplab(size = 4, color = 'black') +
-    scale_x_continuous(expand = c(0,0), limits=c(-.02,3.3)) +
-    scale_y_discrete(expand = c(.01,0)) +
-    theme_tree2()
-p1 = p1 %<+% tp +
-    #geom_tiplab(aes(label = lab), size = 2, offset = 0.04) +
-    geom_text(aes(label = lab), size = 2.5, nudge_x = .01, hjust = 0)
-fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width = 8, height = 10)
-#}}}
-#}}}
-#{{{ ##me99e - settles endosperm
-#{{{ hclust tree
-tp = tl %>% inner_join(th, by = 'SampleID') %>%
-    mutate(taxa = SampleID,
-           lab = sprintf("%s %s %s", Tissue, Genotype, Replicate)) %>%
-    select(taxa, everything())
-p1 = ggtree(tree) +
-    #geom_tiplab(size = 4, color = 'black') +
-    scale_x_continuous(expand = c(0,0), limits=c(-.02,5.5)) +
-    scale_y_discrete(expand = c(.01,0)) +
-    theme_tree2()
-p1 = p1 %<+% tp +
-    #geom_tiplab(aes(label = lab), size = 2, offset = 0.04) +
-    geom_text(aes(label = lab), size = 2.5, nudge_x = .01, hjust = 0)
-fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width = 6, height = 8)
-#}}}
 #}}}
 
 
