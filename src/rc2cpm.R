@@ -7,7 +7,7 @@ parser$add_argument("out", nargs=1, help="output file (*.rds)")
 parser$add_argument("--sample", default='none',
                     help="sample list table (*.tsv) [default: %(default)s]")
 parser$add_argument("--config", default='none',
-                    help="genome configuration file (*.rda) [default: %(default)s]")
+                    help="genome configuration file (*.rds) [default: %(default)s]")
 args <- parser$parse_args()
 
 f_exp = args$exp
@@ -19,7 +19,7 @@ if( file.access(f_exp) == -1 )
     stop(sprintf("file ( %s ) cannot be accessed", f_exp))
 size.gene = F
 if( f_cfg != 'none')
-    x = load(f_cfg)
+    size.gene = readRDS(f_cfg)$size.gene
 
 source("~/projects/rnaseq/src/functions.R")
 

@@ -1,5 +1,4 @@
 source("functions.R")
-source(file.path(dirr, "sra.R"))
 require(ape)
 require(ggtree)
 t_cfg
@@ -17,7 +16,7 @@ readtype = cfg %>% pull(readtype)
 mapper = cfg %>% pull(mapper)
 genome = cfg %>% pull(reference)
 meta = cfg %>% pull(meta)
-x = load(file.path(dirg, genome, '55.rda'))
+gcfg = read_genome_conf(genome)
 #}}}
 
 #{{{ [meta=F] mapping stats
@@ -64,19 +63,19 @@ fo = file.path(dirw, '10.mapping.stat.tsv')
 write_tsv(tt, fo)
 #}}}
 
-#{{{ [meta=T] merge featurecounts
+#{{{ [meta=T] merge datasets
 sids = str_split(t_cfg$study[t_cfg$sid==sid], "[\\+]")[[1]]
 sids
 #
 th = tibble(); t_rc = tibble()
 for (sid1 in sids) {
     diri = file.path(dird, '08_raw_output', sid1)
-    th1 = get_read_list(dird, sid1)
+    th1 = rnaseq_sample_meta(sid1)
     if(sid1 == 'me12a') {
         th1 = th1 %>% filter(Treatment == 'WT')
     } else if(sid1 == 'me13b') {
         th1 = th1 #%>% filter(!str_detect(Treatment, "ET"))
-    } else if(sid1 == 'me18b') {
+    } else if(sid1 == 'me17c') {
         th1 = th1 %>% filter(Treatment == 'con')
     } else if(sid1 == 'me99b') {
         th1 = th1 %>% filter(Genotype == 'B73')
@@ -100,9 +99,9 @@ for (sid1 in sids) {
     }
 }
 dim(th); dim(t_rc)
-th %>% dplyr::count(Tissue) %>% print(n=40)
-th %>% dplyr::count(Tissue,Genotype,Treatment) %>% print(n=40)
-th %>% dplyr::count(Tissue,Genotype,Treatment) %>% count(n) %>% print(n=40)
+th %>% count(Tissue) %>% print(n=40)
+th %>% count(Tissue,Genotype,Treatment) %>% print(n=40)
+th %>% count(Tissue,Genotype,Treatment) %>% count(n) %>% print(n=40)
 
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
@@ -114,7 +113,7 @@ write_tsv(t_rc, fo)
 # run rc2cpm
 #}}}
 
-th = get_read_list(dird, sid)
+th = rnaseq_sample_meta(sid)
 tiss = unique(th$Tissue); genos = unique(th$Genotype)
 treas = unique(th$Treatment); reps = unique(th$Replicate)
 
@@ -240,8 +239,8 @@ p1 = ggtree(tree, layout = 'rectangular') +
     scale_y_discrete(expand = c(.01,0)) +
     theme_tree2()
 p1 = p1 %<+% tp + geom_tiplab(
-        aes(label=lab, color = Tissue),
-        #aes(label=lab, color = Genotype),
+        #aes(label=lab, color = Tissue),
+        aes(label=lab, color = Genotype),
         #aes(label=lab, color = Treatment),
         size = config::get("hc.labsize"),
         offset = config::get("hc.x.off"),
@@ -266,14 +265,14 @@ tp = as_tibble(tsne$Y) %>%
     add_column(SampleID = colnames(tt)[-1]) %>%
     inner_join(th, by = 'SampleID') %>%
     replace_na(list(Treatment='')) %>%
-    #mutate(txt = sprintf("%s_%s", Treatment, Replicate))
-    mutate(txt = sprintf("%s_%s", Genotype, Replicate))
+    mutate(txt = sprintf("%s_%s", Treatment, Replicate))
+    #mutate(txt = sprintf("%s_%s", Genotype, Replicate))
 if(length(unique(tp$Tissue)) > 15) tp = tp %>% mutate(Tissue='')
 p_tsne = ggplot(tp) +
-    #geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
+    geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
     #geom_point(aes(x=V1, y=V2, color=Tissue), size=2) +
-    geom_point(aes(x=V1, y=V2, color=Tissue, shape=inbred), size=2) +
-    #geom_point(aes(x=V1, y=V2, color=Genotype), size=2) +
+    #geom_point(aes(x=V1, y=V2, color=Tissue, shape=inbred), size=2) +
+    geom_point(aes(x=V1, y=V2, color=Genotype), size=2) +
     #geom_point(aes(x=V1, y=V2, color=Treatment), size=2) +
     #stat_ellipse(aes(x=V1, y=V2, fill=Tissue), linetype=1, alpha=.4) +
     scale_x_continuous(name = 'tSNE-1') +
@@ -282,7 +281,7 @@ p_tsne = ggplot(tp) +
     #scale_color_npg() +
     scale_color_aaas() +
     #scale_color_manual(values = pal_aaas()(10)) +
-    otheme(legend.pos = 'bottom.left', legend.dir = 'v',
+    otheme(legend.pos = 'bottom.right', legend.dir = 'v',
            margin = c(.2,.2,.2,.2)) +
     theme(axis.ticks.length = unit(0, 'lines')) +
     guides(color = guide_legend(ncol = 2, byrow = T))

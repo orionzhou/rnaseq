@@ -128,7 +128,12 @@ me17a:
   hc.x.off: .01
   hc.wd: 10
   hc.ht: 15
-  pca.opt: col=tis,sha=rep
+me17c:
+  hc.labsize: 3
+  hc.x.expand: .5
+  hc.x.off: .002
+  hc.wd: 7
+  hc.ht: 7
 me18a:
   hc.labsize: 2.5
   hc.x.expand: .3
