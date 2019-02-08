@@ -1,468 +1,468 @@
-SampleID	Tissue	Genotype	Treatment	Replicate	paired	inbred
-bm001	Leaf	Q381		1	TRUE	TRUE
-bm002	Leaf	PHW65		1	TRUE	TRUE
-bm003	Leaf	PHN11		1	TRUE	TRUE
-bm004	Leaf	PHJ40		1	TRUE	TRUE
-bm005	Leaf	PHG83		1	TRUE	TRUE
-bm006	Leaf	PHG72		1	TRUE	TRUE
-bm007	Leaf	PHG50		1	TRUE	TRUE
-bm008	Internode	LH156		1	TRUE	TRUE
-bm009	Seedling	LH85		1	TRUE	TRUE
-bm010	Leaf	AS5707		1	TRUE	TRUE
-bm011	Endosperm	LH85		1	TRUE	TRUE
-bm012	Leaf	PHG47		1	TRUE	TRUE
-bm013	Leaf	PHG39		1	TRUE	TRUE
-bm014	Leaf	PHG35		1	TRUE	TRUE
-bm015	Endosperm	LH156		1	TRUE	TRUE
-bm016	Leaf	PHG29		1	TRUE	TRUE
-bm017	Leaf	PHB47		1	TRUE	TRUE
-bm018	Leaf	PH207		1	TRUE	TRUE
-bm019	Leaf	Oh43		1	TRUE	TRUE
-bm020	Leaf	Ny821		1	TRUE	TRUE
-bm021	Leaf	NKS8326		1	TRUE	TRUE
-bm022	Leaf	NKH8431		1	TRUE	TRUE
-bm023	Leaf	NC230		1	TRUE	TRUE
-bm024	Leaf	MoG		1	TRUE	TRUE
-bm025	Leaf	Mo45		1	TRUE	TRUE
-bm026	Endosperm	LH145		1	TRUE	TRUE
-bm027	Leaf	Mo17		1	TRUE	TRUE
-bm028	Leaf	LH93		1	TRUE	TRUE
-bm029	Leaf	LH85		1	TRUE	TRUE
-bm030	Leaf	LH156		1	TRUE	TRUE
-bm031	Leaf	LH145		1	TRUE	TRUE
-bm032	Leaf	LH123Ht		1	TRUE	TRUE
-bm033	Leaf	H99		1	TRUE	TRUE
-bm034	Leaf	DKHBA1		1	TRUE	TRUE
-bm035	Leaf	DKFAPW		1	TRUE	TRUE
-bm036	Leaf	CR1Ht		1	TRUE	TRUE
-bm037	Endosperm	LH123Ht		1	TRUE	TRUE
-bm038	Leaf	B84		1	TRUE	TRUE
-bm039	Leaf	B73		1	TRUE	TRUE
-bm040	Leaf	AS5707		2	TRUE	TRUE
-bm041	Internode	W64A		1	TRUE	TRUE
-bm042	Internode	Q381		1	TRUE	TRUE
-bm043	Internode	PHW65		1	TRUE	TRUE
-bm044	Internode	PHN11		1	TRUE	TRUE
-bm045	Internode	PHJ40		1	TRUE	TRUE
-bm046	Internode	PHG83		1	TRUE	TRUE
-bm047	Internode	PHG72		1	TRUE	TRUE
-bm048	Endosperm	H99		1	TRUE	TRUE
-bm049	Internode	PHG50		1	TRUE	TRUE
-bm050	Internode	PHG47		1	TRUE	TRUE
-bm051	Internode	PHG39		1	TRUE	TRUE
-bm052	Internode	PHG35		1	TRUE	TRUE
-bm053	Internode	PHG29		1	TRUE	TRUE
-bm054	Internode	PHB47		1	TRUE	TRUE
-bm055	Internode	PH207		1	TRUE	TRUE
-bm056	Internode	Oh43		1	TRUE	TRUE
-bm057	Internode	Ny821		1	TRUE	TRUE
-bm058	Internode	NKS8326		1	TRUE	TRUE
-bm059	Endosperm	DKFAPW		1	TRUE	TRUE
-bm060	Internode	NKH8431		1	TRUE	TRUE
-bm061	Internode	NC230		1	TRUE	TRUE
-bm062	Internode	MoG		1	TRUE	TRUE
-bm063	Internode	Mo45		1	TRUE	TRUE
-bm064	Internode	Mo17		1	TRUE	TRUE
-bm065	Internode	LH93		1	TRUE	TRUE
-bm066	Internode	LH85		1	TRUE	TRUE
-bm067	Internode	LH156		2	TRUE	TRUE
-bm068	Internode	LH145		1	TRUE	TRUE
-bm069	Internode	LH123Ht		1	TRUE	TRUE
-bm070	Endosperm	CR1Ht		1	TRUE	TRUE
-bm071	Internode	H99		1	TRUE	TRUE
-bm072	Internode	DKHBA1		1	TRUE	TRUE
-bm073	Internode	DKFAPW		1	TRUE	TRUE
-bm074	Internode	CR1Ht		1	TRUE	TRUE
-bm075	Internode	B84		1	TRUE	TRUE
-bm076	Internode	B73		1	TRUE	TRUE
-bm077	Internode	AS5707		1	TRUE	TRUE
-bm078	Endosperm	W64A		1	TRUE	TRUE
-bm079	Endosperm	Q381		1	TRUE	TRUE
-bm080	Endosperm	PHW65		1	TRUE	TRUE
-bm081	Endosperm	B84		1	TRUE	TRUE
-bm082	Endosperm	PHN11		1	TRUE	TRUE
-bm083	Endosperm	PHJ40		1	TRUE	TRUE
-bm084	Endosperm	PHG83		1	TRUE	TRUE
-bm085	Endosperm	PHG72		1	TRUE	TRUE
-bm086	Endosperm	PHG50		1	TRUE	TRUE
-bm087	Endosperm	PHG47		1	TRUE	TRUE
-bm088	Endosperm	PHG39		1	TRUE	TRUE
-bm089	Endosperm	PHG29		1	TRUE	TRUE
-bm090	Endosperm	PHB47		1	TRUE	TRUE
-bm091	Endosperm	B73		1	TRUE	TRUE
-bm092	Endosperm	PH207		1	TRUE	TRUE
-bm093	Endosperm	Oh43		1	TRUE	TRUE
-bm094	Endosperm	Ny821		1	TRUE	TRUE
-bm095	Endosperm	NKS8326		1	TRUE	TRUE
-bm096	Endosperm	NKH8431		1	TRUE	TRUE
-bm097	Endosperm	NC230		1	TRUE	TRUE
-bm098	Endosperm	MoG		1	TRUE	TRUE
-bm099	Endosperm	Mo45		1	TRUE	TRUE
-bm100	Endosperm	Mo17		1	TRUE	TRUE
-bm101	Endosperm	LH93		1	TRUE	TRUE
-bm102	Endosperm	PHG35		1	TRUE	TRUE
-bm103	Seedling	LH123Ht		1	TRUE	TRUE
-bm104	Root	W64A		1	TRUE	TRUE
-bm105	Root	Q381		1	TRUE	TRUE
-bm106	Root	PHW65		1	TRUE	TRUE
-bm107	Root	PHN11		1	TRUE	TRUE
-bm108	Root	PHJ40		1	TRUE	TRUE
-bm109	Root	PHG83		1	TRUE	TRUE
-bm110	Root	PHG72		1	TRUE	TRUE
-bm111	Root	PHG50		1	TRUE	TRUE
-bm112	Root	PHG47		1	TRUE	TRUE
-bm113	Root	PHG39		1	TRUE	TRUE
-bm114	Root	PHG35		1	TRUE	TRUE
-bm115	Root	PHG29		1	TRUE	TRUE
-bm116	Root	PHB47		1	TRUE	TRUE
-bm117	Root	PH207		1	TRUE	TRUE
-bm118	Root	Oh43		1	TRUE	TRUE
-bm119	Root	Ny821		1	TRUE	TRUE
-bm120	Root	NKS8326		1	TRUE	TRUE
-bm121	Root	NKH8431		1	TRUE	TRUE
-bm122	Root	NC230		1	TRUE	TRUE
-bm123	Root	MoG		1	TRUE	TRUE
-bm124	Root	Mo45		1	TRUE	TRUE
-bm125	Root	Mo44		1	TRUE	TRUE
-bm126	Root	Mo17		1	TRUE	TRUE
-bm127	Root	LH93		1	TRUE	TRUE
-bm128	Root	LH85		1	TRUE	TRUE
-bm129	Root	LH156		1	TRUE	TRUE
-bm130	Root	LH145		1	TRUE	TRUE
-bm131	Root	LH123Ht		1	TRUE	TRUE
-bm132	Root	H99		1	TRUE	TRUE
-bm133	Root	DKHBA1		1	TRUE	TRUE
-bm134	Root	DKFAPW		1	TRUE	TRUE
-bm135	Root	CR1Ht		1	TRUE	TRUE
-bm136	Root	B84		1	TRUE	TRUE
-bm137	Root	B73		1	TRUE	TRUE
-bm138	Root	AS5707		1	TRUE	TRUE
-bm139	Seedling	W64A		1	TRUE	TRUE
-bm140	Seedling	Q381		1	TRUE	TRUE
-bm141	Seedling	PHW65		1	TRUE	TRUE
-bm142	Seedling	PHN11		1	TRUE	TRUE
-bm143	Seedling	PHJ40		1	TRUE	TRUE
-bm144	Seedling	PHG83		1	TRUE	TRUE
-bm145	Seedling	PHG72		1	TRUE	TRUE
-bm146	Seedling	PHG50		1	TRUE	TRUE
-bm147	Seedling	PHG47		1	TRUE	TRUE
-bm148	Seedling	PHG39		1	TRUE	TRUE
-bm149	Seedling	PHG35		1	TRUE	TRUE
-bm150	Seedling	PHG29		1	TRUE	TRUE
-bm151	Seedling	PHB47		1	TRUE	TRUE
-bm152	Seedling	PH207		1	TRUE	TRUE
-bm153	Seedling	Oh43		1	TRUE	TRUE
-bm154	Seedling	Ny821		1	TRUE	TRUE
-bm155	Seedling	NKS8326		1	TRUE	TRUE
-bm156	Seedling	NKH8431		1	TRUE	TRUE
-bm157	Seedling	NC230		1	TRUE	TRUE
-bm158	Seedling	MoG		1	TRUE	TRUE
-bm159	Seedling	Mo45		1	TRUE	TRUE
-bm160	Seedling	Mo44		1	TRUE	TRUE
-bm161	Seedling	Mo17		1	TRUE	TRUE
-bm162	Seedling	LH93		1	TRUE	TRUE
-bm163	Seedling	LH85		2	TRUE	TRUE
-bm164	Seedling	LH156		1	TRUE	TRUE
-bm165	Seedling	LH145		1	TRUE	TRUE
-bm166	Seedling	LH123Ht		2	TRUE	TRUE
-bm167	Seedling	H99		1	TRUE	TRUE
-bm168	Seedling	DKHBA1		1	TRUE	TRUE
-bm169	Seedling	DKFAPW		1	TRUE	TRUE
-bm170	Seedling	CR1Ht		1	TRUE	TRUE
-bm171	Seedling	B84		1	TRUE	TRUE
-bm172	Seedling	B73		1	TRUE	TRUE
-bm173	Seedling	AS5707		1	TRUE	TRUE
-bm174	Leaf	W64A		1	TRUE	TRUE
-bm175	Endosperm	B73xMo17		1	TRUE	FALSE
-bm176	Endosperm	B73xPH207		1	TRUE	FALSE
-bm177	Endosperm	B84xB73		1	TRUE	FALSE
-bm178	Internode	B84xB73		1	TRUE	FALSE
-bm179	Seedling	B84xB73		1	TRUE	FALSE
-bm180	Root	B84xB73		1	TRUE	FALSE
-bm181	Leaf	B84xB73		1	TRUE	FALSE
-bm182	Internode	B84xMo17		1	TRUE	FALSE
-bm183	Root	B84xMo17		1	TRUE	FALSE
-bm184	Leaf	B84xMo17		1	TRUE	FALSE
-bm185	Endosperm	B84xMo17		1	TRUE	FALSE
-bm186	Seedling	B84xMo17		1	TRUE	FALSE
-bm187	Endosperm	B84xPH207		1	TRUE	FALSE
-bm188	Endosperm	CR1HtxB73		1	TRUE	FALSE
-bm189	Endosperm	CR1HtxMo17		1	TRUE	FALSE
-bm190	Endosperm	CR1HtxPH207		1	TRUE	FALSE
-bm191	Seedling	DKFAPWxB73		1	TRUE	FALSE
-bm192	Internode	DKFAPWxB73		1	TRUE	FALSE
-bm193	Root	DKFAPWxB73		1	TRUE	FALSE
-bm194	Leaf	DKFAPWxB73		1	TRUE	FALSE
-bm195	Endosperm	DKFAPWxB73		1	TRUE	FALSE
-bm196	Internode	DKFAPWxMo17		1	TRUE	FALSE
-bm197	Seedling	DKFAPWxMo17		1	TRUE	FALSE
-bm198	Root	DKFAPWxMo17		1	TRUE	FALSE
-bm199	Leaf	DKFAPWxMo17		1	TRUE	FALSE
-bm200	Endosperm	DKFAPWxMo17		1	TRUE	FALSE
-bm201	Endosperm	DKFAPWxPH207		1	TRUE	FALSE
-bm202	Seedling	H99xB73		1	TRUE	FALSE
-bm203	Root	H99xB73		1	TRUE	FALSE
-bm204	Leaf	H99xB73		1	TRUE	FALSE
-bm205	Endosperm	H99xB73		1	TRUE	FALSE
-bm206	Internode	H99xMo17		1	TRUE	FALSE
-bm207	Seedling	H99xMo17		1	TRUE	FALSE
-bm208	Root	H99xMo17		1	TRUE	FALSE
-bm209	Leaf	H99xMo17		1	TRUE	FALSE
-bm210	Endosperm	H99xMo17		1	TRUE	FALSE
-bm211	Endosperm	H99xPH207		1	TRUE	FALSE
-bm212	Seedling	LH123HtxB73		1	TRUE	FALSE
-bm213	Root	LH123HtxB73		1	TRUE	FALSE
-bm214	Leaf	LH123HtxB73		1	TRUE	FALSE
-bm215	Endosperm	LH123HtxB73		1	TRUE	FALSE
-bm216	Seedling	LH123HtxMo17		1	TRUE	FALSE
-bm217	Endosperm	LH123HtxMo17		1	TRUE	FALSE
-bm218	Internode	LH123HtxMo17		1	TRUE	FALSE
-bm219	Leaf	LH123HtxMo17		1	TRUE	FALSE
-bm220	Root	LH123HtxMo17		1	TRUE	FALSE
-bm221	Endosperm	LH123HtxPH207		1	TRUE	FALSE
-bm222	Internode	LH145xB73		1	TRUE	FALSE
-bm223	Seedling	LH145xB73		1	TRUE	FALSE
-bm224	Leaf	LH145xB73		1	TRUE	FALSE
-bm225	Root	LH145xB73		1	TRUE	FALSE
-bm226	Endosperm	LH145xB73		1	TRUE	FALSE
-bm227	Endosperm	LH145xMo17		1	TRUE	FALSE
-bm228	Endosperm	LH145xMo17		2	TRUE	FALSE
-bm229	Endosperm	LH145xPH207		1	TRUE	FALSE
-bm230	Seedling	LH156xB73		1	TRUE	FALSE
-bm231	Leaf	LH156xB73		1	TRUE	FALSE
-bm232	Root	LH156xB73		1	TRUE	FALSE
-bm233	Endosperm	LH156xB73		1	TRUE	FALSE
-bm234	Endosperm	LH156xB73		2	TRUE	FALSE
-bm235	Seedling	LH156xMo17		1	TRUE	FALSE
-bm236	Leaf	LH156xMo17		1	TRUE	FALSE
-bm237	Internode	LH156xMo17		1	TRUE	FALSE
-bm238	Internode	LH156xMo17		2	TRUE	FALSE
-bm239	Root	LH156xMo17		1	TRUE	FALSE
-bm240	Root	LH156xMo17		2	TRUE	FALSE
-bm241	Endosperm	LH156xMo17		1	TRUE	FALSE
-bm242	Internode	LH85xB73		1	TRUE	FALSE
-bm243	Seedling	LH85xB73		1	TRUE	FALSE
-bm244	Leaf	LH85xB73		1	TRUE	FALSE
-bm245	Root	LH85xB73		1	TRUE	FALSE
-bm246	Endosperm	LH85xB73		1	TRUE	FALSE
-bm247	Endosperm	LH85xMo17		1	TRUE	FALSE
-bm248	Endosperm	LH85xPH207		1	TRUE	FALSE
-bm249	Internode	LH93xB73		1	TRUE	FALSE
-bm250	Seedling	LH93xB73		1	TRUE	FALSE
-bm251	Leaf	LH93xB73		1	TRUE	FALSE
-bm252	Root	LH93xB73		1	TRUE	FALSE
-bm253	Endosperm	LH93xB73		1	TRUE	FALSE
-bm254	Seedling	LH93xMo17		1	TRUE	FALSE
-bm255	Leaf	LH93xMo17		1	TRUE	FALSE
-bm256	Root	LH93xMo17		1	TRUE	FALSE
-bm257	Endosperm	LH93xMo17		1	TRUE	FALSE
-bm258	Internode	LH93xMo17		1	TRUE	FALSE
-bm259	Endosperm	LH93xPH207		1	TRUE	FALSE
-bm260	Internode	Mo17xB73		1	TRUE	FALSE
-bm261	Seedling	Mo17xB73		1	TRUE	FALSE
-bm262	Leaf	Mo17xB73		1	TRUE	FALSE
-bm263	Root	Mo17xB73		1	TRUE	FALSE
-bm264	Endosperm	Mo17xB73		1	TRUE	FALSE
-bm265	Endosperm	Mo17xB73		2	TRUE	FALSE
-bm266	Seedling	Mo17xOh43		1	TRUE	FALSE
-bm267	Leaf	Mo17xOh43		1	TRUE	FALSE
-bm268	Root	Mo17xOh43		1	TRUE	FALSE
-bm269	Internode	Mo17xOh43		1	TRUE	FALSE
-bm270	Endosperm	Mo17xPH207		1	TRUE	FALSE
-bm271	Internode	Mo17xPH207		1	TRUE	FALSE
-bm272	Seedling	Mo17xPH207		1	TRUE	FALSE
-bm273	Leaf	Mo17xPH207		1	TRUE	FALSE
-bm274	Root	Mo17xPH207		1	TRUE	FALSE
-bm275	Seedling	Mo17xPHG29		1	TRUE	FALSE
-bm276	Internode	Mo17xPHG29		1	TRUE	FALSE
-bm277	Root	Mo17xPHG29		1	TRUE	FALSE
-bm278	Leaf	Mo17xPHG29		1	TRUE	FALSE
-bm279	Leaf	Mo17xPHG29		2	TRUE	FALSE
-bm280	Seedling	Mo44xB73		1	TRUE	FALSE
-bm281	Leaf	Mo44xB73		1	TRUE	FALSE
-bm282	Root	Mo44xB73		1	TRUE	FALSE
-bm283	Internode	Mo44xB73		1	TRUE	FALSE
-bm284	Seedling	Mo44xMo17		1	TRUE	FALSE
-bm285	Internode	Mo44xMo17		1	TRUE	FALSE
-bm286	Root	Mo44xMo17		1	TRUE	FALSE
-bm287	Leaf	Mo44xMo17		1	TRUE	FALSE
-bm288	Leaf	Mo44xMo17		2	TRUE	FALSE
-bm289	Internode	Mo45xB73		1	TRUE	FALSE
-bm290	Seedling	Mo45xB73		1	TRUE	FALSE
-bm291	Leaf	Mo45xB73		1	TRUE	FALSE
-bm292	Root	Mo45xB73		1	TRUE	FALSE
-bm293	Endosperm	Mo45xB73		1	TRUE	FALSE
-bm294	Internode	Mo45xMo17		1	TRUE	FALSE
-bm295	Endosperm	Mo45xMo17		1	TRUE	FALSE
-bm296	Leaf	Mo45xMo17		1	TRUE	FALSE
-bm297	Root	Mo45xMo17		1	TRUE	FALSE
-bm298	Seedling	Mo45xMo17		1	TRUE	FALSE
-bm299	Endosperm	Mo45xPH207		1	TRUE	FALSE
-bm300	Endosperm	MoGxB73		1	TRUE	FALSE
-bm301	Internode	MoGxB73		1	TRUE	FALSE
-bm302	Leaf	MoGxB73		1	TRUE	FALSE
-bm303	Root	MoGxB73		1	TRUE	FALSE
-bm304	Seedling	MoGxB73		1	TRUE	FALSE
-bm305	Seedling	MoGxMo17		1	TRUE	FALSE
-bm306	Endosperm	MoGxMo17		1	TRUE	FALSE
-bm307	Internode	MoGxMo17		1	TRUE	FALSE
-bm308	Leaf	MoGxMo17		1	TRUE	FALSE
-bm309	Root	MoGxMo17		1	TRUE	FALSE
-bm310	Endosperm	NC230xB73		1	TRUE	FALSE
-bm311	Endosperm	NC230xB73		2	TRUE	FALSE
-bm312	Endosperm	NC230xMo17		1	TRUE	FALSE
-bm313	Endosperm	NC230xPH207		1	TRUE	FALSE
-bm314	Internode	NKH8431xB73		1	TRUE	FALSE
-bm315	Leaf	NKH8431xB73		1	TRUE	FALSE
-bm316	Root	NKH8431xB73		1	TRUE	FALSE
-bm317	Seedling	NKH8431xB73		1	TRUE	FALSE
-bm318	Endosperm	NKH8431xMo17		1	TRUE	FALSE
-bm319	Endosperm	NKH8431xPH207		1	TRUE	FALSE
-bm320	Internode	NKS8326xB73		1	TRUE	FALSE
-bm321	Leaf	NKS8326xB73		1	TRUE	FALSE
-bm322	Root	NKS8326xB73		1	TRUE	FALSE
-bm323	Endosperm	NKS8326xB73		1	TRUE	FALSE
-bm324	Seedling	NKS8326xB73		1	TRUE	FALSE
-bm325	Seedling	NKS8326xMo17		1	TRUE	FALSE
-bm326	Internode	NKS8326xMo17		1	TRUE	FALSE
-bm327	Leaf	NKS8326xMo17		1	TRUE	FALSE
-bm328	Root	NKS8326xMo17		1	TRUE	FALSE
-bm329	Endosperm	NKS8326xMo17		1	TRUE	FALSE
-bm330	Endosperm	NKS8326xPH207		1	TRUE	FALSE
-bm331	Endosperm	Ny821xB73		1	TRUE	FALSE
-bm332	Endosperm	Ny821xMo17		1	TRUE	FALSE
-bm333	Endosperm	Ny821xPH207		1	TRUE	FALSE
-bm334	Endosperm	Oh43xB73		1	TRUE	FALSE
-bm335	Internode	Oh43xB73		1	TRUE	FALSE
-bm336	Leaf	Oh43xB73		1	TRUE	FALSE
-bm337	Root	Oh43xB73		1	TRUE	FALSE
-bm338	Seedling	Oh43xB73		1	TRUE	FALSE
-bm339	Endosperm	Oh43xMo17		1	TRUE	FALSE
-bm340	Endosperm	Oh43xPH207		1	TRUE	FALSE
-bm341	Leaf	PH207xB73		1	TRUE	FALSE
-bm342	Root	PH207xB73		1	TRUE	FALSE
-bm343	Endosperm	PH207xB73		1	TRUE	FALSE
-bm344	Seedling	PH207xB73		1	TRUE	FALSE
-bm345	Internode	PH207xB73		1	TRUE	FALSE
-bm346	Endosperm	PH207xMo17		1	TRUE	FALSE
-bm347	Internode	PHB47xB73		1	TRUE	FALSE
-bm348	Leaf	PHB47xB73		1	TRUE	FALSE
-bm349	Root	PHB47xB73		1	TRUE	FALSE
-bm350	Endosperm	PHB47xB73		1	TRUE	FALSE
-bm351	Seedling	PHB47xB73		1	TRUE	FALSE
-bm352	Seedling	PHB47xMo17		1	TRUE	FALSE
-bm353	Internode	PHB47xMo17		1	TRUE	FALSE
-bm354	Leaf	PHB47xMo17		1	TRUE	FALSE
-bm355	Root	PHB47xMo17		1	TRUE	FALSE
-bm356	Endosperm	PHB47xMo17		1	TRUE	FALSE
-bm357	Endosperm	PHB47xPH207		1	TRUE	FALSE
-bm358	Internode	PHG29xB73		1	TRUE	FALSE
-bm359	Leaf	PHG29xB73		1	TRUE	FALSE
-bm360	Root	PHG29xB73		1	TRUE	FALSE
-bm361	Endosperm	PHG29xB73		1	TRUE	FALSE
-bm362	Seedling	PHG29xB73		1	TRUE	FALSE
-bm363	Endosperm	PHG29xMo17		1	TRUE	FALSE
-bm364	Endosperm	PHG29xPH207		1	TRUE	FALSE
-bm365	Endosperm	PHG35xB73		1	TRUE	FALSE
-bm366	Internode	PHG35xB73		1	TRUE	FALSE
-bm367	Leaf	PHG35xB73		1	TRUE	FALSE
-bm368	Root	PHG35xB73		1	TRUE	FALSE
-bm369	Seedling	PHG35xB73		1	TRUE	FALSE
-bm370	Seedling	PHG35xMo17		1	TRUE	FALSE
-bm371	Internode	PHG35xMo17		1	TRUE	FALSE
-bm372	Leaf	PHG35xMo17		1	TRUE	FALSE
-bm373	Root	PHG35xMo17		1	TRUE	FALSE
-bm374	Endosperm	PHG35xMo17		1	TRUE	FALSE
-bm375	Endosperm	PHG35xPH207		1	TRUE	FALSE
-bm376	Internode	PHG39xB73		1	TRUE	FALSE
-bm377	Leaf	PHG39xB73		1	TRUE	FALSE
-bm378	Root	PHG39xB73		1	TRUE	FALSE
-bm379	Endosperm	PHG39xB73		1	TRUE	FALSE
-bm380	Seedling	PHG39xB73		1	TRUE	FALSE
-bm381	Seedling	PHG39xMo17		1	TRUE	FALSE
-bm382	Leaf	PHG39xMo17		1	TRUE	FALSE
-bm383	Root	PHG39xMo17		1	TRUE	FALSE
-bm384	Endosperm	PHG39xMo17		1	TRUE	FALSE
-bm385	Internode	PHG39xMo17		1	TRUE	FALSE
-bm386	Endosperm	PHG39xPH207		1	TRUE	FALSE
-bm387	Internode	PHG47xB73		1	TRUE	FALSE
-bm388	Root	PHG47xB73		1	TRUE	FALSE
-bm389	Leaf	PHG47xB73		1	TRUE	FALSE
-bm390	Leaf	PHG47xB73		2	TRUE	FALSE
-bm391	Endosperm	PHG47xB73		1	TRUE	FALSE
-bm392	Internode	PHG47xMo17		1	TRUE	FALSE
-bm393	Root	PHG47xMo17		1	TRUE	FALSE
-bm394	Leaf	PHG47xMo17		1	TRUE	FALSE
-bm395	Endosperm	PHG47xMo17		1	TRUE	FALSE
-bm396	Seedling	PHG47xMo17		1	TRUE	FALSE
-bm397	Endosperm	PHG47xPH207		1	TRUE	FALSE
-bm398	Seedling	PHG50xB73		1	TRUE	FALSE
-bm399	Endosperm	PHG50xB73		1	TRUE	FALSE
-bm400	Internode	PHG50xB73		1	TRUE	FALSE
-bm401	Leaf	PHG50xB73		1	TRUE	FALSE
-bm402	Root	PHG50xB73		1	TRUE	FALSE
-bm403	Seedling	PHG50xMo17		1	TRUE	FALSE
-bm404	Endosperm	PHG50xMo17		1	TRUE	FALSE
-bm405	Leaf	PHG50xMo17		1	TRUE	FALSE
-bm406	Root	PHG50xMo17		1	TRUE	FALSE
-bm407	Internode	PHG50xMo17		1	TRUE	FALSE
-bm408	Endosperm	PHG50xPH207		1	TRUE	FALSE
-bm409	Internode	PHG72xB73		1	TRUE	FALSE
-bm410	Leaf	PHG72xB73		1	TRUE	FALSE
-bm411	Root	PHG72xB73		1	TRUE	FALSE
-bm412	Endosperm	PHG72xB73		1	TRUE	FALSE
-bm413	Seedling	PHG72xB73		1	TRUE	FALSE
-bm414	Endosperm	PHG72xMo17		1	TRUE	FALSE
-bm415	Endosperm	PHG72xPH207		1	TRUE	FALSE
-bm416	Endosperm	PHG83xB73		1	TRUE	FALSE
-bm417	Endosperm	PHG83xMo17		1	TRUE	FALSE
-bm418	Endosperm	PHG83xPH207		1	TRUE	FALSE
-bm419	Seedling	PHJ40xB73		1	TRUE	FALSE
-bm420	Endosperm	PHJ40xB73		1	TRUE	FALSE
-bm421	Internode	PHJ40xB73		1	TRUE	FALSE
-bm422	Leaf	PHJ40xB73		1	TRUE	FALSE
-bm423	Root	PHJ40xB73		1	TRUE	FALSE
-bm424	Endosperm	PHJ40xMo17		1	TRUE	FALSE
-bm425	Internode	PHJ40xMo17		1	TRUE	FALSE
-bm426	Leaf	PHJ40xMo17		1	TRUE	FALSE
-bm427	Root	PHJ40xMo17		1	TRUE	FALSE
-bm428	Seedling	PHJ40xMo17		1	TRUE	FALSE
-bm429	Endosperm	PHJ40xPH207		1	TRUE	FALSE
-bm430	Internode	PHN11xB73		1	TRUE	FALSE
-bm431	Leaf	PHN11xB73		1	TRUE	FALSE
-bm432	Root	PHN11xB73		1	TRUE	FALSE
-bm433	Endosperm	PHN11xB73		1	TRUE	FALSE
-bm434	Seedling	PHN11xB73		1	TRUE	FALSE
-bm435	Leaf	PHN11xMo17		1	TRUE	FALSE
-bm436	Root	PHN11xMo17		1	TRUE	FALSE
-bm437	Seedling	PHN11xMo17		1	TRUE	FALSE
-bm438	Endosperm	PHN11xPH207		1	TRUE	FALSE
-bm439	Seedling	PHW65xB73		1	TRUE	FALSE
-bm440	Internode	PHW65xB73		1	TRUE	FALSE
-bm441	Root	PHW65xB73		1	TRUE	FALSE
-bm442	Leaf	PHW65xB73		1	TRUE	FALSE
-bm443	Leaf	PHW65xB73		2	TRUE	FALSE
-bm444	Endosperm	PHW65xB73		1	TRUE	FALSE
-bm445	Seedling	PHW65xMo17		1	TRUE	FALSE
-bm446	Internode	PHW65xMo17		1	TRUE	FALSE
-bm447	Leaf	PHW65xMo17		1	TRUE	FALSE
-bm448	Root	PHW65xMo17		1	TRUE	FALSE
-bm449	Endosperm	PHW65xMo17		1	TRUE	FALSE
-bm450	Endosperm	PHW65xPH207		1	TRUE	FALSE
-bm451	Seedling	Q381xB73		1	TRUE	FALSE
-bm452	Leaf	Q381xB73		1	TRUE	FALSE
-bm453	Root	Q381xB73		1	TRUE	FALSE
-bm454	Endosperm	Q381xB73		2	TRUE	FALSE
-bm455	Endosperm	Q381xB73		1	TRUE	FALSE
-bm456	Endosperm	Q381xMo17		1	TRUE	FALSE
-bm457	Endosperm	Q381xPH207		1	TRUE	FALSE
-bm458	Endosperm	W64AxB73		1	TRUE	FALSE
-bm459	Root	W64AxB73		1	TRUE	FALSE
-bm460	Seedling	W64AxB73		1	TRUE	FALSE
-bm461	Root	W64AxMo17		1	TRUE	FALSE
-bm462	Seedling	W64AxMo17		1	TRUE	FALSE
-bm463	Endosperm	W64AxMo17		1	TRUE	FALSE
-bm464	Leaf	W64AxMo17		1	TRUE	FALSE
-bm465	Leaf	W64AxMo17		2	TRUE	FALSE
-bm466	Leaf	W64AxMo17xB73		1	TRUE	FALSE
-bm467	Endosperm	W64AxPH207		1	TRUE	FALSE
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	inbred	r0
+bm001	Leaf	Q381		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.GATCAG.fastq.gz
+bm002	Leaf	PHW65		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.CAGATC.fastq.gz
+bm003	Leaf	PHN11		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.GCCAAT.fastq.gz
+bm004	Leaf	PHJ40		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.ACAGTG.fastq.gz
+bm005	Leaf	PHG83		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.TGACCA.fastq.gz
+bm006	Leaf	PHG72		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.TTAGGC.fastq.gz
+bm007	Leaf	PHG50		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.1.116499.CGATGT.fastq.gz
+bm008	Internode	LH156		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.7.115518.GCCTTA.fastq.gz
+bm009	Seedling	LH85		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.7.115518.GCACTT.fastq.gz
+bm010	Leaf	AS5707		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.7.115518.GCAAGG.fastq.gz
+bm011	Endosperm	LH85		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.GGCTAC.fastq.gz
+bm012	Leaf	PHG47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.3.121353.TTCTCC.fastq.gz
+bm013	Leaf	PHG39		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.3.121353.TTCGAA.fastq.gz
+bm014	Leaf	PHG35		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.3.121353.TGGCGC.fastq.gz
+bm015	Endosperm	LH156		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.TAGCTT.fastq.gz
+bm016	Leaf	PHG29		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.3.121353.TGCTGG.fastq.gz
+bm017	Leaf	PHB47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.2.121347.TGCCAT.fastq.gz
+bm018	Leaf	PH207		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.2.121347.TGAATG.fastq.gz
+bm019	Leaf	Oh43		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.2.121347.GGCCTG.fastq.gz
+bm020	Leaf	Ny821		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.2.121347.GGCACA.fastq.gz
+bm021	Leaf	NKS8326		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.2.121347.GCTCCA.fastq.gz
+bm022	Leaf	NKH8431		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.1.121341.GCCTTA.fastq.gz
+bm023	Leaf	NC230		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.1.121341.GCACTT.fastq.gz
+bm024	Leaf	MoG		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.1.121341.GCAAGG.fastq.gz
+bm025	Leaf	Mo45		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.1.121341.GATGCT.fastq.gz
+bm026	Endosperm	LH145		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.GATCAG.fastq.gz
+bm027	Leaf	Mo17		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9078.1.121341.GATATA.fastq.gz
+bm028	Leaf	LH93		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.GACGGA.fastq.gz
+bm029	Leaf	LH85		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.GAATAA.fastq.gz
+bm030	Leaf	LH156		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.GAAACC.fastq.gz
+bm031	Leaf	LH145		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.CTGCTG.fastq.gz
+bm032	Leaf	LH123Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.CGAGAA.fastq.gz
+bm033	Leaf	H99		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9053.1.119374.CCTTAG.fastq.gz
+bm034	Leaf	DKHBA1		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.CCGCAA.fastq.gz
+bm035	Leaf	DKFAPW		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.CCCATG.fastq.gz
+bm036	Leaf	CR1Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.CCACGC.fastq.gz
+bm037	Endosperm	LH123Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.CAGATC.fastq.gz
+bm038	Leaf	B84		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.ATCTAT.fastq.gz
+bm039	Leaf	B73		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.ATCCTA.fastq.gz
+bm040	Leaf	AS5707		2	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.8.119444.ATACGG.fastq.gz
+bm041	Internode	W64A		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.AGGCCG.fastq.gz
+bm042	Internode	Q381		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.AGCGCT.fastq.gz
+bm043	Internode	PHW65		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.AGCATC.fastq.gz
+bm044	Internode	PHN11		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.AGATAG.fastq.gz
+bm045	Internode	PHJ40		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.AGAAGA.fastq.gz
+bm046	Internode	PHG83		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.7.119437.ACTCTC.fastq.gz
+bm047	Internode	PHG72		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.ACGATA.fastq.gz
+bm048	Endosperm	H99		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.GCCAAT.fastq.gz
+bm049	Internode	PHG50		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.ACCGGC.fastq.gz
+bm050	Internode	PHG47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.ACCCAG.fastq.gz
+bm051	Internode	PHG39		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.ACATCT.fastq.gz
+bm052	Internode	PHG35		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.ACAAAC.fastq.gz
+bm053	Internode	PHG29		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.6.119430.AATAGG.fastq.gz
+bm054	Internode	PHB47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AAGGAC.fastq.gz
+bm055	Internode	PH207		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AAGCGA.fastq.gz
+bm056	Internode	Oh43		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AAGACT.fastq.gz
+bm057	Internode	Ny821		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AACTTG.fastq.gz
+bm058	Internode	NKS8326		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AACAAA.fastq.gz
+bm059	Endosperm	DKFAPW		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.ACAGTG.fastq.gz
+bm060	Internode	NKH8431		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.5.119423.AAATGC.fastq.gz
+bm061	Internode	NC230		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.AAAGCA.fastq.gz
+bm062	Internode	MoG		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.AAACAT.fastq.gz
+bm063	Internode	Mo45		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.TCGGCA.fastq.gz
+bm064	Internode	Mo17		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.TCGAAG.fastq.gz
+bm065	Internode	LH93		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.TCCCGA.fastq.gz
+bm066	Internode	LH85		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.4.119416.TCATTC.fastq.gz
+bm067	Internode	LH156		2	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.TATAAT.fastq.gz
+bm068	Internode	LH145		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.TACAGC.fastq.gz
+bm069	Internode	LH123Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.TAATCG.fastq.gz
+bm070	Endosperm	CR1Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.TGACCA.fastq.gz
+bm071	Internode	H99		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.GACGAC.fastq.gz
+bm072	Internode	DKHBA1		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.CTCAGA.fastq.gz
+bm073	Internode	DKFAPW		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.3.119409.CTATAC.fastq.gz
+bm074	Internode	CR1Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CTAGCT.fastq.gz
+bm075	Internode	B84		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CGGAAT.fastq.gz
+bm076	Internode	B73		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CCAACA.fastq.gz
+bm077	Internode	AS5707		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CATTTT.fastq.gz
+bm078	Endosperm	W64A		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CATGGC.fastq.gz
+bm079	Endosperm	Q381		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.2.119402.CAGGCG.fastq.gz
+bm080	Endosperm	PHW65		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.CACTCA.fastq.gz
+bm081	Endosperm	B84		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.TTAGGC.fastq.gz
+bm082	Endosperm	PHN11		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.CACGAT.fastq.gz
+bm083	Endosperm	PHJ40		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.CACCGG.fastq.gz
+bm084	Endosperm	PHG83		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.CAACTA.fastq.gz
+bm085	Endosperm	PHG72		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.CAAAAG.fastq.gz
+bm086	Endosperm	PHG50		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9052.1.119395.ATTCCT.fastq.gz
+bm087	Endosperm	PHG47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.4.119177.ATGAGC.fastq.gz
+bm088	Endosperm	PHG39		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.4.119177.ACTGAT.fastq.gz
+bm089	Endosperm	PHG29		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.4.119177.GAGTGG.fastq.gz
+bm090	Endosperm	PHB47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.4.119177.CGTACG.fastq.gz
+bm091	Endosperm	B73		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.1.119156.CGATGT.fastq.gz
+bm092	Endosperm	PH207		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.4.119177.GTTTCG.fastq.gz
+bm093	Endosperm	Oh43		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.GTGGCC.fastq.gz
+bm094	Endosperm	Ny821		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.GTGAAA.fastq.gz
+bm095	Endosperm	NKS8326		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.GTCCGC.fastq.gz
+bm096	Endosperm	NKH8431		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.GTAGAG.fastq.gz
+bm097	Endosperm	NC230		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.CCGTCC.fastq.gz
+bm098	Endosperm	MoG		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.3.119170.ATGTCA.fastq.gz
+bm099	Endosperm	Mo45		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.AGTTCC.fastq.gz
+bm100	Endosperm	Mo17		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.AGTCAA.fastq.gz
+bm101	Endosperm	LH93		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/9047.2.119163.CTTGTA.fastq.gz
+bm102	Endosperm	PHG35		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.7.115518.GATGCT.fastq.gz
+bm103	Seedling	LH123Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.7.115518.GATATA.fastq.gz
+bm104	Root	W64A		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.GACGGA.fastq.gz
+bm105	Root	Q381		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.GAATAA.fastq.gz
+bm106	Root	PHW65		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.GAAACC.fastq.gz
+bm107	Root	PHN11		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.CTGCTG.fastq.gz
+bm108	Root	PHJ40		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.CGAGAA.fastq.gz
+bm109	Root	PHG83		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.6.115511.CCTTAG.fastq.gz
+bm110	Root	PHG72		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.CCGCAA.fastq.gz
+bm111	Root	PHG50		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.CCCATG.fastq.gz
+bm112	Root	PHG47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.CCACGC.fastq.gz
+bm113	Root	PHG39		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.ATCTAT.fastq.gz
+bm114	Root	PHG35		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.ATCCTA.fastq.gz
+bm115	Root	PHG29		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.5.115504.ATACGG.fastq.gz
+bm116	Root	PHB47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.AGGCCG.fastq.gz
+bm117	Root	PH207		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.AGCGCT.fastq.gz
+bm118	Root	Oh43		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.AGCATC.fastq.gz
+bm119	Root	Ny821		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.AGATAG.fastq.gz
+bm120	Root	NKS8326		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.AGAAGA.fastq.gz
+bm121	Root	NKH8431		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.4.115497.ACTCTC.fastq.gz
+bm122	Root	NC230		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.ACGATA.fastq.gz
+bm123	Root	MoG		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.ACCGGC.fastq.gz
+bm124	Root	Mo45		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.ACCCAG.fastq.gz
+bm125	Root	Mo44		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.ACATCT.fastq.gz
+bm126	Root	Mo17		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.ACAAAC.fastq.gz
+bm127	Root	LH93		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.3.115490.AATAGG.fastq.gz
+bm128	Root	LH85		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AAGGAC.fastq.gz
+bm129	Root	LH156		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AAGCGA.fastq.gz
+bm130	Root	LH145		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AAGACT.fastq.gz
+bm131	Root	LH123Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AACTTG.fastq.gz
+bm132	Root	H99		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AACAAA.fastq.gz
+bm133	Root	DKHBA1		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8911.2.115483.AAATGC.fastq.gz
+bm134	Root	DKFAPW		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.AAAGCA.fastq.gz
+bm135	Root	CR1Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.AAACAT.fastq.gz
+bm136	Root	B84		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.TCGGCA.fastq.gz
+bm137	Root	B73		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.TCGAAG.fastq.gz
+bm138	Root	AS5707		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.TCCCGA.fastq.gz
+bm139	Seedling	W64A		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.8.116548.TCATTC.fastq.gz
+bm140	Seedling	Q381		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.TATAAT.fastq.gz
+bm141	Seedling	PHW65		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.TACAGC.fastq.gz
+bm142	Seedling	PHN11		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.TAATCG.fastq.gz
+bm143	Seedling	PHJ40		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.GACGAC.fastq.gz
+bm144	Seedling	PHG83		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.CTCAGA.fastq.gz
+bm145	Seedling	PHG72		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.7.116541.CTATAC.fastq.gz
+bm146	Seedling	PHG50		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CTAGCT.fastq.gz
+bm147	Seedling	PHG47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CGGAAT.fastq.gz
+bm148	Seedling	PHG39		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CCAACA.fastq.gz
+bm149	Seedling	PHG35		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CATTTT.fastq.gz
+bm150	Seedling	PHG29		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CATGGC.fastq.gz
+bm151	Seedling	PHB47		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.6.116534.CAGGCG.fastq.gz
+bm152	Seedling	PH207		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.CACTCA.fastq.gz
+bm153	Seedling	Oh43		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.CACGAT.fastq.gz
+bm154	Seedling	Ny821		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.CACCGG.fastq.gz
+bm155	Seedling	NKS8326		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.CAACTA.fastq.gz
+bm156	Seedling	NKH8431		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.CAAAAG.fastq.gz
+bm157	Seedling	NC230		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.5.116527.ATTCCT.fastq.gz
+bm158	Seedling	MoG		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.ATGAGC.fastq.gz
+bm159	Seedling	Mo45		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.ACTGAT.fastq.gz
+bm160	Seedling	Mo44		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.GGTAGC.fastq.gz
+bm161	Seedling	Mo17		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.GAGTGG.fastq.gz
+bm162	Seedling	LH93		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.CGTACG.fastq.gz
+bm163	Seedling	LH85		2	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.4.116520.GTTTCG.fastq.gz
+bm164	Seedling	LH156		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.GTGGCC.fastq.gz
+bm165	Seedling	LH145		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.GTGAAA.fastq.gz
+bm166	Seedling	LH123Ht		2	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.GTCCGC.fastq.gz
+bm167	Seedling	H99		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.GTAGAG.fastq.gz
+bm168	Seedling	DKHBA1		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.CCGTCC.fastq.gz
+bm169	Seedling	DKFAPW		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.3.116513.ATGTCA.fastq.gz
+bm170	Seedling	CR1Ht		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.AGTTCC.fastq.gz
+bm171	Seedling	B84		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.AGTCAA.fastq.gz
+bm172	Seedling	B73		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.CTTGTA.fastq.gz
+bm173	Seedling	AS5707		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.GGCTAC.fastq.gz
+bm174	Leaf	W64A		1	TRUE	TRUE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.170615.ZeamayEProfiling_3/8937.2.116506.TAGCTT.fastq.gz
+bm175	Endosperm	B73xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.ATTCCT.fastq.gz
+bm176	Endosperm	B73xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.GTGGCC.fastq.gz
+bm177	Endosperm	B84xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.CACCGG.fastq.gz
+bm178	Internode	B84xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.TCCCGA.fastq.gz
+bm179	Seedling	B84xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.7.124747.GATGCT.fastq.gz
+bm180	Root	B84xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.TCGGCA.fastq.gz
+bm181	Leaf	B84xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.CGATGT.fastq.gz
+bm182	Internode	B84xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.TCGAAG.fastq.gz
+bm183	Root	B84xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.AAACAT.fastq.gz
+bm184	Leaf	B84xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.TTAGGC.fastq.gz
+bm185	Endosperm	B84xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.CAAAAG.fastq.gz
+bm186	Seedling	B84xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.3.125924.TTCGAA.fastq.gz
+bm187	Endosperm	B84xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CAACTA.fastq.gz
+bm188	Endosperm	CR1HtxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CACCGG.fastq.gz
+bm189	Endosperm	CR1HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.2.124874.CACGAT.fastq.gz
+bm190	Endosperm	CR1HtxPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CACTCA.fastq.gz
+bm191	Seedling	DKFAPWxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.TTAGGC.fastq.gz
+bm192	Internode	DKFAPWxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.TCGGCA.fastq.gz
+bm193	Root	DKFAPWxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.AAAGCA.fastq.gz
+bm194	Leaf	DKFAPWxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.TGACCA.fastq.gz
+bm195	Endosperm	DKFAPWxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CAGGCG.fastq.gz
+bm196	Internode	DKFAPWxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.AAACAT.fastq.gz
+bm197	Seedling	DKFAPWxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.7.124747.GCAAGG.fastq.gz
+bm198	Root	DKFAPWxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.AAATGC.fastq.gz
+bm199	Leaf	DKFAPWxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.ACAGTG.fastq.gz
+bm200	Endosperm	DKFAPWxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CATGGC.fastq.gz
+bm201	Endosperm	DKFAPWxPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.CACGAT.fastq.gz
+bm202	Seedling	H99xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.TGACCA.fastq.gz
+bm203	Root	H99xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.AACAAA.fastq.gz
+bm204	Leaf	H99xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.GCCAAT.fastq.gz
+bm205	Endosperm	H99xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.6.124902.CATTTT.fastq.gz
+bm206	Internode	H99xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.AAAGCA.fastq.gz
+bm207	Seedling	H99xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.7.124747.GCACTT.fastq.gz
+bm208	Root	H99xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.AACTTG.fastq.gz
+bm209	Leaf	H99xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.2.124055.CAGATC.fastq.gz
+bm210	Endosperm	H99xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.CCAACA.fastq.gz
+bm211	Endosperm	H99xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.CGGAAT.fastq.gz
+bm212	Seedling	LH123HtxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.8.124753.GCCTTA.fastq.gz
+bm213	Root	LH123HtxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.AAGACT.fastq.gz
+bm214	Leaf	LH123HtxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.GATCAG.fastq.gz
+bm215	Endosperm	LH123HtxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.CTAGCT.fastq.gz
+bm216	Seedling	LH123HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.ACAGTG.fastq.gz
+bm217	Endosperm	LH123HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.CACTCA.fastq.gz
+bm218	Internode	LH123HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AAATGC.fastq.gz
+bm219	Leaf	LH123HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.TAGCTT.fastq.gz
+bm220	Root	LH123HtxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.AAGCGA.fastq.gz
+bm221	Endosperm	LH123HtxPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.CTATAC.fastq.gz
+bm222	Internode	LH145xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AACAAA.fastq.gz
+bm223	Seedling	LH145xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.8.124753.GCTCCA.fastq.gz
+bm224	Leaf	LH145xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.GGCTAC.fastq.gz
+bm225	Root	LH145xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.AAGGAC.fastq.gz
+bm226	Endosperm	LH145xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.CTCAGA.fastq.gz
+bm227	Endosperm	LH145xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.1.124868.CGATGT.fastq.gz
+bm228	Endosperm	LH145xMo17		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.2.124874.TTAGGC.fastq.gz
+bm229	Endosperm	LH145xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.7.124909.GACGAC.fastq.gz
+bm230	Seedling	LH156xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.GCCAAT.fastq.gz
+bm231	Leaf	LH156xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.CTTGTA.fastq.gz
+bm232	Root	LH156xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.AATAGG.fastq.gz
+bm233	Endosperm	LH156xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.1.124868.TGACCA.fastq.gz
+bm234	Endosperm	LH156xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.1.124868.ACAGTG.fastq.gz
+bm235	Seedling	LH156xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.8.124753.GGCACA.fastq.gz
+bm236	Leaf	LH156xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.AGTCAA.fastq.gz
+bm237	Internode	LH156xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.AGTCAA.fastq.gz
+bm238	Internode	LH156xMo17		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.AGTTCC.fastq.gz
+bm239	Root	LH156xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.ACTGAT.fastq.gz
+bm240	Root	LH156xMo17		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.ATGAGC.fastq.gz
+bm241	Endosperm	LH156xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TAATCG.fastq.gz
+bm242	Internode	LH85xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.ATTCCT.fastq.gz
+bm243	Seedling	LH85xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.8.124753.GGCCTG.fastq.gz
+bm244	Leaf	LH85xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.3.124062.AGTTCC.fastq.gz
+bm245	Root	LH85xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.3.124114.ACAAAC.fastq.gz
+bm246	Endosperm	LH85xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TACAGC.fastq.gz
+bm247	Endosperm	LH85xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TATAAT.fastq.gz
+bm248	Endosperm	LH85xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TCATTC.fastq.gz
+bm249	Internode	LH93xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AACTTG.fastq.gz
+bm250	Seedling	LH93xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.1.124049.TTCTCC.fastq.gz
+bm251	Leaf	LH93xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.ATGTCA.fastq.gz
+bm252	Root	LH93xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.ACATCT.fastq.gz
+bm253	Endosperm	LH93xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TCCCGA.fastq.gz
+bm254	Seedling	LH93xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.1.124049.TTCGAA.fastq.gz
+bm255	Leaf	LH93xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.CCGTCC.fastq.gz
+bm256	Root	LH93xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.ACCCAG.fastq.gz
+bm257	Endosperm	LH93xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.2.124874.TCGAAG.fastq.gz
+bm258	Internode	LH93xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.TCTACC.fastq.gz
+bm259	Endosperm	LH93xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.1.125646.TCGGCA.fastq.gz
+bm260	Internode	Mo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AAGACT.fastq.gz
+bm261	Seedling	Mo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.1.124049.TGGCGC.fastq.gz
+bm262	Leaf	Mo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.GTAGAG.fastq.gz
+bm263	Root	Mo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.ACCGGC.fastq.gz
+bm264	Endosperm	Mo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.1.124868.GCCAAT.fastq.gz
+bm265	Endosperm	Mo17xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.1.124868.CAGATC.fastq.gz
+bm266	Seedling	Mo17xOh43		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.CAGATC.fastq.gz
+bm267	Leaf	Mo17xOh43		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.GTCCGC.fastq.gz
+bm268	Root	Mo17xOh43		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.ACGATA.fastq.gz
+bm269	Internode	Mo17xOh43		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.3.125924.CCACGC.fastq.gz
+bm270	Endosperm	Mo17xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CAGGCG.fastq.gz
+bm271	Internode	Mo17xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AAGCGA.fastq.gz
+bm272	Seedling	Mo17xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.1.124049.TGCTGG.fastq.gz
+bm273	Leaf	Mo17xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.GTGAAA.fastq.gz
+bm274	Root	Mo17xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.ACTCTC.fastq.gz
+bm275	Seedling	Mo17xPHG29		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.GATCAG.fastq.gz
+bm276	Internode	Mo17xPHG29		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.2.124714.AAGGAC.fastq.gz
+bm277	Root	Mo17xPHG29		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.4.124121.AGAAGA.fastq.gz
+bm278	Leaf	Mo17xPHG29		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.ATGTCA.fastq.gz
+bm279	Leaf	Mo17xPHG29		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.CCGTCC.fastq.gz
+bm280	Seedling	Mo44xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.1.124049.TGCCAT.fastq.gz
+bm281	Leaf	Mo44xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.4.124069.GTGGCC.fastq.gz
+bm282	Root	Mo44xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.AGATAG.fastq.gz
+bm283	Internode	Mo44xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.TGAATG.fastq.gz
+bm284	Seedling	Mo44xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.TAGCTT.fastq.gz
+bm285	Internode	Mo44xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.AATAGG.fastq.gz
+bm286	Root	Mo44xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.AGCATC.fastq.gz
+bm287	Leaf	Mo44xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.GTAGAG.fastq.gz
+bm288	Leaf	Mo44xMo17		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.GTCCGC.fastq.gz
+bm289	Internode	Mo45xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.ACAAAC.fastq.gz
+bm290	Seedling	Mo45xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.8.124753.TGAATG.fastq.gz
+bm291	Leaf	Mo45xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.GTTTCG.fastq.gz
+bm292	Root	Mo45xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.AGCGCT.fastq.gz
+bm293	Endosperm	Mo45xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AAACAT.fastq.gz
+bm294	Internode	Mo45xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.CGTACG.fastq.gz
+bm295	Endosperm	Mo45xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.CAACTA.fastq.gz
+bm296	Leaf	Mo45xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.CGTACG.fastq.gz
+bm297	Root	Mo45xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.AGGCCG.fastq.gz
+bm298	Seedling	Mo45xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.CCGCAA.fastq.gz
+bm299	Endosperm	Mo45xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AAAGCA.fastq.gz
+bm300	Endosperm	MoGxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.ACTGAT.fastq.gz
+bm301	Internode	MoGxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.ACATCT.fastq.gz
+bm302	Leaf	MoGxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.GAGTGG.fastq.gz
+bm303	Root	MoGxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.ATACGG.fastq.gz
+bm304	Seedling	MoGxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.CCTTAG.fastq.gz
+bm305	Seedling	MoGxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.GGCTAC.fastq.gz
+bm306	Endosperm	MoGxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CATGGC.fastq.gz
+bm307	Internode	MoGxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.ACCCAG.fastq.gz
+bm308	Leaf	MoGxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.GGTAGC.fastq.gz
+bm309	Root	MoGxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.5.124128.ATCCTA.fastq.gz
+bm310	Endosperm	NC230xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.GATCAG.fastq.gz
+bm311	Endosperm	NC230xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.TAGCTT.fastq.gz
+bm312	Endosperm	NC230xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AAATGC.fastq.gz
+bm313	Endosperm	NC230xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.GTTTCG.fastq.gz
+bm314	Internode	NKH8431xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.ACCGGC.fastq.gz
+bm315	Leaf	NKH8431xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.6.124083.ACTGAT.fastq.gz
+bm316	Root	NKH8431xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.ATCTAT.fastq.gz
+bm317	Seedling	NKH8431xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.CGAGAA.fastq.gz
+bm318	Endosperm	NKH8431xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AACAAA.fastq.gz
+bm319	Endosperm	NKH8431xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AACTTG.fastq.gz
+bm320	Internode	NKS8326xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.3.124721.ACGATA.fastq.gz
+bm321	Leaf	NKS8326xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.6.124083.ATGAGC.fastq.gz
+bm322	Root	NKS8326xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.CCACGC.fastq.gz
+bm323	Endosperm	NKS8326xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.2.125653.AAGACT.fastq.gz
+bm324	Seedling	NKS8326xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.CTGCTG.fastq.gz
+bm325	Seedling	NKS8326xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.GAGTGG.fastq.gz
+bm326	Internode	NKS8326xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.ACTCTC.fastq.gz
+bm327	Leaf	NKS8326xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.6.124083.ATTCCT.fastq.gz
+bm328	Root	NKS8326xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.CCCATG.fastq.gz
+bm329	Endosperm	NKS8326xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.AAGCGA.fastq.gz
+bm330	Endosperm	NKS8326xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.AAGGAC.fastq.gz
+bm331	Endosperm	Ny821xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.AATAGG.fastq.gz
+bm332	Endosperm	Ny821xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CATTTT.fastq.gz
+bm333	Endosperm	Ny821xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.ACAAAC.fastq.gz
+bm334	Endosperm	Oh43xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CCAACA.fastq.gz
+bm335	Internode	Oh43xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.AGAAGA.fastq.gz
+bm336	Leaf	Oh43xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.6.124083.CAAAAG.fastq.gz
+bm337	Root	Oh43xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.CCGCAA.fastq.gz
+bm338	Seedling	Oh43xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.GAAACC.fastq.gz
+bm339	Endosperm	Oh43xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CGGAAT.fastq.gz
+bm340	Endosperm	Oh43xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.ACATCT.fastq.gz
+bm341	Leaf	PH207xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.7.124088.CAACTA.fastq.gz
+bm342	Root	PH207xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.CCTTAG.fastq.gz
+bm343	Endosperm	PH207xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.3.125660.ACCCAG.fastq.gz
+bm344	Seedling	PH207xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.6.126054.GAATAA.fastq.gz
+bm345	Internode	PH207xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.TGCCAT.fastq.gz
+bm346	Endosperm	PH207xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.ACCGGC.fastq.gz
+bm347	Internode	PHB47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.AGATAG.fastq.gz
+bm348	Leaf	PHB47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.7.124088.CACCGG.fastq.gz
+bm349	Root	PHB47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.6.124135.CGAGAA.fastq.gz
+bm350	Endosperm	PHB47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.ACGATA.fastq.gz
+bm351	Seedling	PHB47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GATATA.fastq.gz
+bm352	Seedling	PHB47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.CTTGTA.fastq.gz
+bm353	Internode	PHB47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.AGCATC.fastq.gz
+bm354	Leaf	PHB47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.7.124088.CACGAT.fastq.gz
+bm355	Root	PHB47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.CTGCTG.fastq.gz
+bm356	Endosperm	PHB47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.ACTCTC.fastq.gz
+bm357	Endosperm	PHB47xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.AGAAGA.fastq.gz
+bm358	Internode	PHG29xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.AGCGCT.fastq.gz
+bm359	Leaf	PHG29xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.7.124088.CACTCA.fastq.gz
+bm360	Root	PHG29xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.GAAACC.fastq.gz
+bm361	Endosperm	PHG29xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.AGATAG.fastq.gz
+bm362	Seedling	PHG29xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GATGCT.fastq.gz
+bm363	Endosperm	PHG29xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.4.125667.AGCATC.fastq.gz
+bm364	Endosperm	PHG29xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.AGCGCT.fastq.gz
+bm365	Endosperm	PHG35xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.6.125146.CTAGCT.fastq.gz
+bm366	Internode	PHG35xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.4.124728.AGGCCG.fastq.gz
+bm367	Leaf	PHG35xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.CAGGCG.fastq.gz
+bm368	Root	PHG35xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.GAATAA.fastq.gz
+bm369	Seedling	PHG35xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GCAAGG.fastq.gz
+bm370	Seedling	PHG35xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.AGTCAA.fastq.gz
+bm371	Internode	PHG35xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.5.124735.ATACGG.fastq.gz
+bm372	Leaf	PHG35xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.5.124076.CATGGC.fastq.gz
+bm373	Root	PHG35xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.GACGGA.fastq.gz
+bm374	Endosperm	PHG35xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.AGGCCG.fastq.gz
+bm375	Endosperm	PHG35xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.ATACGG.fastq.gz
+bm376	Internode	PHG39xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.5.124735.ATCCTA.fastq.gz
+bm377	Leaf	PHG39xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CATTTT.fastq.gz
+bm378	Root	PHG39xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.GATATA.fastq.gz
+bm379	Endosperm	PHG39xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.ATCCTA.fastq.gz
+bm380	Seedling	PHG39xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.3.125924.TTCTCC.fastq.gz
+bm381	Seedling	PHG39xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.2.125118.AGTTCC.fastq.gz
+bm382	Leaf	PHG39xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CCAACA.fastq.gz
+bm383	Root	PHG39xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.7.124142.GATGCT.fastq.gz
+bm384	Endosperm	PHG39xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.ATCTAT.fastq.gz
+bm385	Internode	PHG39xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.TGCTGG.fastq.gz
+bm386	Endosperm	PHG39xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.ATGAGC.fastq.gz
+bm387	Internode	PHG47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.5.124735.ATCTAT.fastq.gz
+bm388	Root	PHG47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GCAAGG.fastq.gz
+bm389	Leaf	PHG47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.GTGAAA.fastq.gz
+bm390	Leaf	PHG47xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.GTGGCC.fastq.gz
+bm391	Endosperm	PHG47xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.5.125674.CCACGC.fastq.gz
+bm392	Internode	PHG47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.5.124735.CCACGC.fastq.gz
+bm393	Root	PHG47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.7.124747.GATATA.fastq.gz
+bm394	Leaf	PHG47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CGGAAT.fastq.gz
+bm395	Endosperm	PHG47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.CCCATG.fastq.gz
+bm396	Seedling	PHG47xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GCACTT.fastq.gz
+bm397	Endosperm	PHG47xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.CCGCAA.fastq.gz
+bm398	Seedling	PHG50xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.ATGTCA.fastq.gz
+bm399	Endosperm	PHG50xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.CTATAC.fastq.gz
+bm400	Internode	PHG50xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.5.124735.CCCATG.fastq.gz
+bm401	Leaf	PHG50xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CTAGCT.fastq.gz
+bm402	Root	PHG50xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GCACTT.fastq.gz
+bm403	Seedling	PHG50xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.5.125139.CAAAAG.fastq.gz
+bm404	Endosperm	PHG50xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.CTCAGA.fastq.gz
+bm405	Leaf	PHG50xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CTATAC.fastq.gz
+bm406	Root	PHG50xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GCCTTA.fastq.gz
+bm407	Internode	PHG50xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.3.125924.TGGCGC.fastq.gz
+bm408	Endosperm	PHG50xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.CCTTAG.fastq.gz
+bm409	Internode	PHG72xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.6.124741.CCGCAA.fastq.gz
+bm410	Leaf	PHG72xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9163.8.124093.CTCAGA.fastq.gz
+bm411	Root	PHG72xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GCTCCA.fastq.gz
+bm412	Endosperm	PHG72xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.CGAGAA.fastq.gz
+bm413	Seedling	PHG72xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GCCTTA.fastq.gz
+bm414	Endosperm	PHG72xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.CTGCTG.fastq.gz
+bm415	Endosperm	PHG72xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.6.125681.GAAACC.fastq.gz
+bm416	Endosperm	PHG83xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GAATAA.fastq.gz
+bm417	Endosperm	PHG83xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.GACGAC.fastq.gz
+bm418	Endosperm	PHG83xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GACGGA.fastq.gz
+bm419	Seedling	PHJ40xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.4.125132.GGTAGC.fastq.gz
+bm420	Endosperm	PHJ40xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.TAATCG.fastq.gz
+bm421	Internode	PHJ40xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.6.124741.CCTTAG.fastq.gz
+bm422	Leaf	PHJ40xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.GACGAC.fastq.gz
+bm423	Root	PHJ40xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GGCACA.fastq.gz
+bm424	Endosperm	PHJ40xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.TACAGC.fastq.gz
+bm425	Internode	PHJ40xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.6.124741.CGAGAA.fastq.gz
+bm426	Leaf	PHJ40xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.TAATCG.fastq.gz
+bm427	Root	PHJ40xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.8.124149.GGCCTG.fastq.gz
+bm428	Seedling	PHJ40xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9239.7.126061.GCTCCA.fastq.gz
+bm429	Endosperm	PHJ40xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GATATA.fastq.gz
+bm430	Internode	PHN11xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.6.124741.CTGCTG.fastq.gz
+bm431	Leaf	PHN11xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.TACAGC.fastq.gz
+bm432	Root	PHN11xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TGAATG.fastq.gz
+bm433	Endosperm	PHN11xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GATGCT.fastq.gz
+bm434	Seedling	PHN11xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.3.125924.ATCTAT.fastq.gz
+bm435	Leaf	PHN11xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.TATAAT.fastq.gz
+bm436	Root	PHN11xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TGCCAT.fastq.gz
+bm437	Seedling	PHN11xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.GGCACA.fastq.gz
+bm438	Endosperm	PHN11xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GCAAGG.fastq.gz
+bm439	Seedling	PHW65xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.CCGTCC.fastq.gz
+bm440	Internode	PHW65xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.6.124741.GAAACC.fastq.gz
+bm441	Root	PHW65xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TGCTGG.fastq.gz
+bm442	Leaf	PHW65xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.4.124888.GTTTCG.fastq.gz
+bm443	Leaf	PHW65xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.2.124874.CGTACG.fastq.gz
+bm444	Endosperm	PHW65xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.7.125688.GCACTT.fastq.gz
+bm445	Seedling	PHW65xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.GTAGAG.fastq.gz
+bm446	Internode	PHW65xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.7.124747.GAATAA.fastq.gz
+bm447	Leaf	PHW65xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.TCATTC.fastq.gz
+bm448	Root	PHW65xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TGGCGC.fastq.gz
+bm449	Endosperm	PHW65xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.8.125695.GCCTTA.fastq.gz
+bm450	Endosperm	PHW65xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.8.125695.GCTCCA.fastq.gz
+bm451	Seedling	Q381xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.GTCCGC.fastq.gz
+bm452	Leaf	Q381xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.1.124100.TCCCGA.fastq.gz
+bm453	Root	Q381xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TTCGAA.fastq.gz
+bm454	Endosperm	Q381xB73		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.2.124874.CTTGTA.fastq.gz
+bm455	Endosperm	Q381xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.3.124881.GGCTAC.fastq.gz
+bm456	Endosperm	Q381xMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.8.125695.GGCACA.fastq.gz
+bm457	Endosperm	Q381xPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.8.125695.GGCCTG.fastq.gz
+bm458	Endosperm	W64AxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.7.125153.TATAAT.fastq.gz
+bm459	Root	W64AxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9179.7.124642.TTCTCC.fastq.gz
+bm460	Seedling	W64AxB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9235.2.125917.GGCCTG.fastq.gz
+bm461	Root	W64AxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.1.125111.CGATGT.fastq.gz
+bm462	Seedling	W64AxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9200.3.125125.GTGAAA.fastq.gz
+bm463	Endosperm	W64AxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9172.1.124707.TCATTC.fastq.gz
+bm464	Leaf	W64AxMo17		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.GAGTGG.fastq.gz
+bm465	Leaf	W64AxMo17		2	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9192.5.124895.GGTAGC.fastq.gz
+bm466	Leaf	W64AxMo17xB73		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9162.2.124107.TCGAAG.fastq.gz
+bm467	Endosperm	W64AxPH207		1	TRUE	FALSE	/home/hirschc1/shared/Archive/reads/biomap/RNAseq/JGI.230715.ZeamayEProfiling_4/9222.8.125695.TGAATG.fastq.gz

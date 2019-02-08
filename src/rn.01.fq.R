@@ -1,6 +1,6 @@
 source("functions.R")
 source(file.path(dirr, "sra.R"))
-t_cfg %>% select(sid, study, author) %>% print(n=40)
+t_cfg %>% select(yid, study, author) %>% print(n=40)
 
 fix_read_list <- function(ti, sid) {
 #{{{
@@ -452,12 +452,12 @@ sid = 'me99b'
 fi = '~/projects/briggs/data/03_collect/01.reads.tsv'
 ti = read_tsv(fi)
 
+#{{{ #[obsolete] create sym-links, write read list
 diro1 = sprintf("%s/cache/%s/09_fastq_raw", dird, sid)
 diro2 = sprintf("%s/cache/%s/10_fastq", dird, sid)
 if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
 if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
 
-# create sym-links, write read list
 ti = ti %>%
     mutate(nR1 = ifelse(gz, sprintf("%s/%s_1.fq.gz", diro2, SampleID),
                         sprintf("%s/%s_1.fq", diro1, SampleID)),
@@ -468,6 +468,7 @@ ti = ti %>%
 
 map_int(ti$cmd1, system)
 map_int(ti$cmd2, system)
+#}}}
 
 tismap = c(
 'spikelets_0DAP' = 'spikelet_0DAP',
@@ -483,20 +484,21 @@ tismap = c(
 'seedlingmeristem_11DAS' = 'meristem_seedling_11DAS',
 'seedlingroot_11DAS' = 'root_seedling_11DAS'
 )
-th = ti %>% select(SampleID, Tissue, Genotype) %>%
+th = ti %>% select(SampleID, Tissue, Genotype, r1=R1,r2=R2) %>%
     mutate(Tissue = ifelse(Tissue %in% names(tismap), tismap[Tissue], Tissue)) %>%
     separate(Tissue, c("Tissue", "Treatment"), fill='right', extra='merge') %>%
     mutate(Replicate = '', paired = T) %>%
-    select(SampleID, Tissue, Genotype, Treatment, everything())
+    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired, everything())
 th %>% count(Tissue, Treatment) %>% print(n=23)
 th = sra_fill_replicate(th)
+
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #}}}
 
 #{{{ biomap
 sid = 'me99c'
-diri = '~/projects/biomap/analysis/01_exp_design'
+diri = '~/projects/biomap/data/01_exp_design'
 fi = file.path(diri, "04.typo.corrected.tsv")
 ti = read_tsv(fi) %>%
     mutate(raw_idx = sid,
@@ -506,12 +508,11 @@ ti = read_tsv(fi) %>%
 fo = file.path(diri, "06.sample.renamed.tsv")
 #write_tsv(ti, fo)
 
-# create sym-links, write read list
 th = ti %>%
     transmute(SampleID = sid, Tissue = tissue, Genotype = genotype,
               Treatment = NA, Replicate = NA,
               paired = T,
-              inbred = ifelse(type == 'Inbred', T, F), 
+              inbred = ifelse(type == 'Inbred', T, F),
               fi = Readfile,
               fv = file.exists(Readfile))
 table(th$fv)
@@ -521,16 +522,18 @@ pas = strsplit(th$Genotype[!th$inbred], split = 'x')
 pas = unique(unlist(pas))
 pas[! pas %in% gts]
 
+#{{{ [obsolete] create sym-links, write read list
 diro = sprintf("%s/cache/%s/09_fq_interleaved", dird, sid)
 if(!dir.exists(diro)) system(sprintf("mkdir -p %s", diro))
-cmds = th %>% 
+cmds = th %>%
     mutate(fl = sprintf("%s/%s.fq.gz", diro, SampleID)) %>%
     mutate(cmd = sprintf("ln -sf %s %s", fi, fl)) %>%
     pull(cmd)
 map_int(cmds, system)
+#}}}
 
-tp = th %>% select(-fi, -fv) %>%
-    separate(Tissue, c('Tissue', 'rep'), by = '_')
+tp = th %>% select(-fv, r0=fi) %>%
+    separate(Tissue, c('Tissue', 'rep'), by = '_', fill='right',extra='merge')
 tp %>% filter(!is.na(rep))
 tp %>% filter(!is.na(rep)) %>% distinct(Tissue, Genotype)
 tp = tp %>% mutate(Replicate = as.integer(ifelse(is.na(rep), 1, 2))) %>%
@@ -543,15 +546,10 @@ write_tsv(tp, fo, na = '')
 #{{{ me17b, me99f
 sid2pid = c('me17b'='sp033', 'me99f'='sp064')
 sid = 'me99f'
+sid = 'me17b'
 fi = file.path(dird, '03.raw.xlsx')
 ti = read_xlsx(fi, sheet=sid2pid[sid])
-#
-diro1 = sprintf("%s/%s/09_fastq_raw", dirc, sid)
-diro2 = sprintf("%s/%s/10_fastq", dirc, sid)
-if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
-if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
 
-# create sym-links, write read list
 ndig = floor(log10(nrow(ti))) + 1
 if(is.na(ti$SampleID[1])) {
     fmt_sid = sprintf("s%%0%dd", ndig)
@@ -559,6 +557,8 @@ if(is.na(ti$SampleID[1])) {
     ti$SampleID = nsids
 }
 dir0 = '/home/springer/data_release/umgc/hiseq'
+diro1 = sprintf("%s/%s/09_fastq_raw", dirc, sid)
+diro2 = sprintf("%s/%s/10_fastq", dirc, sid)
 ti = ti %>% fill(Tissue, Genotype, directory) %>%
     mutate(f1 = sprintf("%s/%s/%s_R1_001.fastq", dir0, directory, file),
            f2 = sprintf("%s/%s/%s_R2_001.fastq", dir0, directory, file)) %>%
@@ -576,15 +576,20 @@ ti = ti %>% fill(Tissue, Genotype, directory) %>%
     mutate(tag = file.exists(f1) & file.exists(f2))
 sum(!ti$tag)
 
+#{{{ [obsolete] create sym-links, write read list
+if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
+if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
+
 map_int(ti$cmd1, system)
 map_int(ti$cmd2, system)
+#}}}
 
-th = ti %>% select(SampleID, Tissue, Genotype) %>%
+th = ti %>% select(SampleID, Tissue, Genotype, r1=f1, r2=f2) %>%
     mutate(Treatment='', Replicate = '', paired = T) %>%
-    select(SampleID, Tissue, Genotype, Treatment, everything())
+    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired, everything())
 th = sra_fill_replicate(th)
 th %>% count(Genotype, Tissue, Treatment) %>% print(n=50)
-th
+
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #}}}
@@ -595,9 +600,6 @@ fi = file.path(dird, '03.raw.xlsx')
 ti = read_xlsx(fi, sheet=sid)
 #
 diro2 = sprintf("%s/%s/10_fastq", dirc, sid)
-if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
-
-# create sym-links, write read list
 ti = ti %>% fill(Tissue, Genotype, directory) %>%
     mutate(f1 = sprintf("%s/%s.fq.gz", directory, file)) %>%
     mutate(nf1 = sprintf("%s/%s.fq.gz", diro2, SampleID)) %>%
@@ -605,14 +607,17 @@ ti = ti %>% fill(Tissue, Genotype, directory) %>%
     mutate(tag = file.exists(f1))
 sum(!ti$tag)
 
+#{{{ [obsolte] create sym-links, write read list
+if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
 map_int(ti$cmd1, system)
+#}}}
 
-th = ti %>% select(SampleID,Tissue,Genotype,Treatment) %>%
+th = ti %>% select(SampleID,Tissue,Genotype,Treatment,r0=f1) %>%
     mutate(Replicate = '', paired = F) %>%
-    select(SampleID, Tissue, Genotype, Treatment, everything())
+    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired, everything())
 th = sra_fill_replicate(th)
 th %>% count(Genotype, Tissue, Treatment) %>% print(n=50)
-th
+
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
 write_tsv(th, fo)
 #}}}

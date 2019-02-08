@@ -1,220 +1,220 @@
-SampleID	Tissue	Genotype	Treatment	Replicate	paired
-BR001	leaf	B73	blade_v12	1	TRUE
-BR002	leaf	B73	blade_v12	2	TRUE
-BR003	leaf	B73	blade_v12	3	TRUE
-BR004	leaf	Mo17	blade_v12	1	TRUE
-BR005	leaf	Mo17	blade_v12	2	TRUE
-BR006	leaf	Mo17	blade_v12	3	TRUE
-BR007	leaf	B73xMo17	blade_v12	1	TRUE
-BR008	leaf	B73xMo17	blade_v12	2	TRUE
-BR009	leaf	B73xMo17	blade_v12	3	TRUE
-BR010	stem	B73	auricle_v12	1	TRUE
-BR011	stem	B73	auricle_v12	2	TRUE
-BR012	stem	B73	auricle_v12	3	TRUE
-BR013	stem	Mo17	auricle_v12	1	TRUE
-BR014	stem	Mo17	auricle_v12	2	TRUE
-BR015	stem	Mo17	auricle_v12	3	TRUE
-BR016	stem	B73xMo17	auricle_v12	1	TRUE
-BR017	stem	B73xMo17	auricle_v12	2	TRUE
-BR018	stem	B73xMo17	auricle_v12	3	TRUE
-BR019	stem	B73	sheath_v12	1	TRUE
-BR020	stem	B73	sheath_v12	2	TRUE
-BR021	stem	B73	sheath_v12	3	TRUE
-BR022	stem	Mo17	sheath_v12	1	TRUE
-BR023	stem	Mo17	sheath_v12	2	TRUE
-BR024	stem	Mo17	sheath_v12	3	TRUE
-BR025	stem	B73xMo17	sheath_v12	1	TRUE
-BR026	stem	B73xMo17	sheath_v12	2	TRUE
-BR027	stem	B73xMo17	sheath_v12	3	TRUE
-BR028	internode	B73	v12	1	TRUE
-BR032	internode	B73	v12	2	TRUE
-BR030	internode	B73	v12	3	TRUE
-BR031	internode	Mo17	v12	1	TRUE
-BR029	internode	Mo17	v12	2	TRUE
-BR033	internode	Mo17	v12	3	TRUE
-BR034	internode	B73xMo17	v12	1	TRUE
-BR035	internode	B73xMo17	v12	2	TRUE
-BR036	internode	B73xMo17	v12	3	TRUE
-BR037	tassel	B73	v12	1	TRUE
-BR038	tassel	B73	v12	2	TRUE
-BR039	tassel	B73	v12	3	TRUE
-BR040	tassel	Mo17	v12	1	TRUE
-BR041	tassel	Mo17	v12	2	TRUE
-BR042	tassel	Mo17	v12	3	TRUE
-BR043	tassel	B73xMo17	v12	1	TRUE
-BR044	tassel	B73xMo17	v12	2	TRUE
-BR045	tassel	B73xMo17	v12	3	TRUE
-BR046	ear	B73	v14	1	TRUE
-BR047	ear	B73	v14	2	TRUE
-BR048	ear	B73	v14	3	TRUE
-BR049	ear	Mo17	v14	1	TRUE
-BR050	ear	Mo17	v14	2	TRUE
-BR051	ear	Mo17	v14	3	TRUE
-BR052	ear	B73xMo17	v14	1	TRUE
-BR053	ear	B73xMo17	v14	2	TRUE
-BR054	ear	B73xMo17	v14	3	TRUE
-BR055	silk	B73	0DAP	1	TRUE
-BR056	silk	B73	0DAP	2	TRUE
-BR057	silk	B73	0DAP	3	TRUE
-BR058	silk	Mo17	0DAP	1	TRUE
-BR059	silk	Mo17	0DAP	2	TRUE
-BR060	silk	Mo17	0DAP	3	TRUE
-BR061	silk	B73xMo17	0DAP	1	TRUE
-BR062	silk	B73xMo17	0DAP	2	TRUE
-BR063	silk	B73xMo17	0DAP	3	TRUE
-BR064	spikelet	B73	0DAP	1	TRUE
-BR065	spikelet	B73	0DAP	2	TRUE
-BR066	spikelet	B73	0DAP	3	TRUE
-BR067	spikelet	Mo17	0DAP	1	TRUE
-BR068	spikelet	Mo17	0DAP	2	TRUE
-BR069	spikelet	Mo17	0DAP	3	TRUE
-BR070	spikelet	B73xMo17	0DAP	1	TRUE
-BR071	spikelet	B73xMo17	0DAP	2	TRUE
-BR072	spikelet	B73xMo17	0DAP	3	TRUE
-BR073	stem	B73	husk_0DAP	1	TRUE
-BR074	stem	B73	husk_0DAP	2	TRUE
-BR075	stem	B73	husk_0DAP	3	TRUE
-BR076	stem	Mo17	husk_0DAP	1	TRUE
-BR077	stem	Mo17	husk_0DAP	2	TRUE
-BR078	stem	Mo17	husk_0DAP	3	TRUE
-BR079	stem	B73xMo17	husk_0DAP	1	TRUE
-BR080	stem	B73xMo17	husk_0DAP	2	TRUE
-BR081	stem	B73xMo17	husk_0DAP	3	TRUE
-BR082	stem	B73	tasselstem_0DAP	1	TRUE
-BR083	stem	B73	tasselstem_0DAP	2	TRUE
-BR084	stem	B73	tasselstem_0DAP	3	TRUE
-BR085	stem	Mo17	tasselstem_0DAP	1	TRUE
-BR086	stem	Mo17	tasselstem_0DAP	2	TRUE
-BR087	stem	Mo17	tasselstem_0DAP	3	TRUE
-BR088	stem	B73xMo17	tasselstem_0DAP	1	TRUE
-BR089	stem	B73xMo17	tasselstem_0DAP	2	TRUE
-BR090	stem	B73xMo17	tasselstem_0DAP	3	TRUE
-BR091	floret	B73	0DAP	1	TRUE
-BR092	floret	B73	0DAP	2	TRUE
-BR093	floret	B73	0DAP	3	TRUE
-BR094	floret	Mo17	0DAP	1	TRUE
-BR095	floret	Mo17	0DAP	2	TRUE
-BR096	floret	Mo17	0DAP	3	TRUE
-BR097	floret	B73xMo17	0DAP	1	TRUE
-BR098	floret	B73xMo17	0DAP	2	TRUE
-BR099	floret	B73xMo17	0DAP	3	TRUE
-BR118	kernel	B73	14DAP	1	TRUE
-BR119	kernel	B73	14DAP	2	TRUE
-BR120	kernel	B73	14DAP	3	TRUE
-BR121	kernel	Mo17	14DAP	1	TRUE
-BR122	kernel	Mo17	14DAP	2	TRUE
-BR123	kernel	Mo17	14DAP	3	TRUE
-BR124	kernel	B73xMo17	14DAP	1	TRUE
-BR125	kernel	B73xMo17	14DAP	2	TRUE
-BR126	kernel	B73xMo17	14DAP	3	TRUE
-BR127	kernel	Mo17xB73	14DAP	1	TRUE
-BR128	kernel	Mo17xB73	14DAP	2	TRUE
-BR129	kernel	Mo17xB73	14DAP	3	TRUE
-BR100	leaf	B73	flag_0DAP	1	TRUE
-BR101	leaf	B73	flag_0DAP	2	TRUE
-BR102	leaf	B73	flag_0DAP	3	TRUE
-BR103	leaf	Mo17	flag_0DAP	1	TRUE
-BR104	leaf	Mo17	flag_0DAP	2	TRUE
-BR105	leaf	Mo17	flag_0DAP	3	TRUE
-BR106	leaf	B73xMo17	flag_0DAP	1	TRUE
-BR107	leaf	B73xMo17	flag_0DAP	2	TRUE
-BR108	leaf	B73xMo17	flag_0DAP	3	TRUE
-BR109	root	B73	0DAP	1	TRUE
-BR110	root	B73	0DAP	2	TRUE
-BR111	root	B73	0DAP	3	TRUE
-BR112	root	Mo17	0DAP	1	TRUE
-BR113	root	Mo17	0DAP	2	TRUE
-BR114	root	Mo17	0DAP	3	TRUE
-BR115	root	B73xMo17	0DAP	1	TRUE
-BR116	root	B73xMo17	0DAP	2	TRUE
-BR117	root	B73xMo17	0DAP	3	TRUE
-BR130	endosperm	B73	14DAP	1	TRUE
-BR131	endosperm	B73	14DAP	2	TRUE
-BR132	endosperm	B73	14DAP	3	TRUE
-BR133	endosperm	Mo17	14DAP	1	TRUE
-BR134	endosperm	Mo17	14DAP	2	TRUE
-BR135	endosperm	Mo17	14DAP	3	TRUE
-BR136	endosperm	B73xMo17	14DAP	1	TRUE
-BR137	endosperm	B73xMo17	14DAP	2	TRUE
-BR138	endosperm	B73xMo17	14DAP	3	TRUE
-BR139	endosperm	Mo17xB73	14DAP	1	TRUE
-BR140	endosperm	Mo17xB73	14DAP	2	TRUE
-BR141	endosperm	Mo17xB73	14DAP	3	TRUE
-BR142	embryo	B73	27DAP	1	TRUE
-BR143	embryo	B73	27DAP	2	TRUE
-BR144	embryo	B73	27DAP	3	TRUE
-BR145	embryo	Mo17	27DAP	1	TRUE
-BR146	embryo	Mo17	27DAP	2	TRUE
-BR147	embryo	Mo17	27DAP	3	TRUE
-BR148	embryo	B73xMo17	27DAP	1	TRUE
-BR149	embryo	B73xMo17	27DAP	2	TRUE
-BR150	embryo	B73xMo17	27DAP	3	TRUE
-BR151	embryo	Mo17xB73	27DAP	1	TRUE
-BR152	embryo	Mo17xB73	27DAP	2	TRUE
-BR153	embryo	Mo17xB73	27DAP	3	TRUE
-BR154	endosperm	B73	27DAP	1	TRUE
-BR155	endosperm	B73	27DAP	2	TRUE
-BR156	endosperm	B73	27DAP	3	TRUE
-BR157	endosperm	Mo17	27DAP	1	TRUE
-BR158	endosperm	Mo17	27DAP	2	TRUE
-BR159	endosperm	Mo17	27DAP	3	TRUE
-BR160	endosperm	B73xMo17	27DAP	1	TRUE
-BR161	endosperm	B73xMo17	27DAP	2	TRUE
-BR162	endosperm	B73xMo17	27DAP	3	TRUE
-BR163	endosperm	Mo17xB73	27DAP	1	TRUE
-BR164	endosperm	Mo17xB73	27DAP	2	TRUE
-BR165	endosperm	Mo17xB73	27DAP	3	TRUE
-BR166	coleoptile	B73	tip	1	TRUE
-BR167	coleoptile	B73	tip	2	TRUE
-BR168	coleoptile	B73	tip	3	TRUE
-BR169	coleoptile	Mo17	tip	1	TRUE
-BR170	coleoptile	Mo17	tip	2	TRUE
-BR171	coleoptile	Mo17	tip	3	TRUE
-BR172	coleoptile	B73xMo17	tip	1	TRUE
-BR173	coleoptile	B73xMo17	tip	2	TRUE
-BR174	coleoptile	B73xMo17	tip	3	TRUE
-BR175	root	B73	radicle	1	TRUE
-BR176	root	B73	radicle	2	TRUE
-BR177	root	B73	radicle	3	TRUE
-BR178	root	Mo17	radicle	1	TRUE
-BR179	root	Mo17	radicle	2	TRUE
-BR180	root	Mo17	radicle	3	TRUE
-BR181	root	B73xMo17	radicle	1	TRUE
-BR182	root	B73xMo17	radicle	2	TRUE
-BR183	root	B73xMo17	radicle	3	TRUE
-BR184	embryo	B73	imbibedseed	1	TRUE
-BR242	embryo	B73	imbibedseed	2	TRUE
-BR243	embryo	B73	imbibedseed	3	TRUE
-BR245	embryo	Mo17	imbibedseed	1	TRUE
-BR188	embryo	Mo17	imbibedseed	2	TRUE
-BR227	embryo	Mo17	imbibedseed	3	TRUE
-BR230	embryo	B73xMo17	imbibedseed	1	TRUE
-BR191	embryo	B73xMo17	imbibedseed	2	TRUE
-BR192	embryo	B73xMo17	imbibedseed	3	TRUE
-BR193	leaf	B73	seedling_11DAS	1	TRUE
-BR194	leaf	B73	seedling_11DAS	2	TRUE
-BR195	leaf	B73	seedling_11DAS	3	TRUE
-BR196	leaf	Mo17	seedling_11DAS	1	TRUE
-BR197	leaf	Mo17	seedling_11DAS	2	TRUE
-BR198	leaf	Mo17	seedling_11DAS	3	TRUE
-BR199	leaf	B73xMo17	seedling_11DAS	1	TRUE
-BR200	leaf	B73xMo17	seedling_11DAS	2	TRUE
-BR201	leaf	B73xMo17	seedling_11DAS	3	TRUE
-BR202	root	B73	seedling_11DAS	1	TRUE
-BR203	root	B73	seedling_11DAS	2	TRUE
-BR204	root	B73	seedling_11DAS	3	TRUE
-BR187	embryo	Mo17	imbibedseed	4	TRUE
-BR206	root	Mo17	seedling_11DAS	1	TRUE
-BR207	root	Mo17	seedling_11DAS	2	TRUE
-BR208	root	B73xMo17	seedling_11DAS	1	TRUE
-BR209	root	B73xMo17	seedling_11DAS	2	TRUE
-BR235	embryo	B73	imbibedseed	4	TRUE
-BR211	meristem	B73	seedling_11DAS	1	TRUE
-BR212	meristem	B73	seedling_11DAS	2	TRUE
-BR213	meristem	B73	seedling_11DAS	3	TRUE
-BR214	meristem	Mo17	seedling_11DAS	1	TRUE
-BR215	meristem	Mo17	seedling_11DAS	2	TRUE
-BR216	meristem	Mo17	seedling_11DAS	3	TRUE
-BR217	meristem	B73xMo17	seedling_11DAS	1	TRUE
-BR218	meristem	B73xMo17	seedling_11DAS	2	TRUE
-BR219	meristem	B73xMo17	seedling_11DAS	3	TRUE
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	r1	r2
+BR001	leaf	B73	blade_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index2_S2_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index2_S2_R2_001.fastq
+BR002	leaf	B73	blade_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index1_S1_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index1_S1_R2_001.fastq
+BR003	leaf	B73	blade_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index4_S4_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index4_S4_R2_001.fastq
+BR004	leaf	Mo17	blade_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index3_S3_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index3_S3_R2_001.fastq
+BR005	leaf	Mo17	blade_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index5_S5_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index5_S5_R2_001.fastq
+BR006	leaf	Mo17	blade_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index8_S8_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index8_S8_R2_001.fastq
+BR007	leaf	B73xMo17	blade_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index6_S6_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index6_S6_R2_001.fastq
+BR008	leaf	B73xMo17	blade_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index9_S9_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index9_S9_R2_001.fastq
+BR009	leaf	B73xMo17	blade_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index7_S7_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index7_S7_R2_001.fastq
+BR010	stem	B73	auricle_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index10_S10_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index10_S10_R2_001.fastq
+BR011	stem	B73	auricle_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index12_S12_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index12_S12_R2_001.fastq
+BR012	stem	B73	auricle_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index11_S11_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index11_S11_R2_001.fastq
+BR013	stem	Mo17	auricle_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index13_S13_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index13_S13_R2_001.fastq
+BR014	stem	Mo17	auricle_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index20_S16_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index20_S16_R2_001.fastq
+BR015	stem	Mo17	auricle_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index14_S14_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index14_S14_R2_001.fastq
+BR016	stem	B73xMo17	auricle_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index21_S17_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index21_S17_R2_001.fastq
+BR017	stem	B73xMo17	auricle_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index15_S15_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index15_S15_R2_001.fastq
+BR018	stem	B73xMo17	auricle_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index22_S18_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool1_18_Index22_S18_R2_001.fastq
+BR019	stem	B73	sheath_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index2_S20_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index2_S20_R2_001.fastq
+BR020	stem	B73	sheath_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index1_S19_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index1_S19_R2_001.fastq
+BR021	stem	B73	sheath_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index4_S22_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index4_S22_R2_001.fastq
+BR022	stem	Mo17	sheath_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index3_S21_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index3_S21_R2_001.fastq
+BR023	stem	Mo17	sheath_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index5_S23_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index5_S23_R2_001.fastq
+BR024	stem	Mo17	sheath_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index8_S26_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index8_S26_R2_001.fastq
+BR025	stem	B73xMo17	sheath_v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index6_S24_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index6_S24_R2_001.fastq
+BR026	stem	B73xMo17	sheath_v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index9_S27_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index9_S27_R2_001.fastq
+BR027	stem	B73xMo17	sheath_v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index7_S25_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index7_S25_R2_001.fastq
+BR028	internode	B73	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index10_S28_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index10_S28_R2_001.fastq
+BR032	internode	B73	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index12_S30_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index12_S30_R2_001.fastq
+BR030	internode	B73	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index11_S29_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index11_S29_R2_001.fastq
+BR031	internode	Mo17	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index13_S31_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index13_S31_R2_001.fastq
+BR029	internode	Mo17	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index20_S34_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index20_S34_R2_001.fastq
+BR033	internode	Mo17	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index14_S32_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index14_S32_R2_001.fastq
+BR034	internode	B73xMo17	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index21_S35_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index21_S35_R2_001.fastq
+BR035	internode	B73xMo17	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index15_S33_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index15_S33_R2_001.fastq
+BR036	internode	B73xMo17	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index22_S36_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool2_18_index22_S36_R2_001.fastq
+BR037	tassel	B73	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index2_S38_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index2_S38_R2_001.fastq
+BR038	tassel	B73	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index1_S37_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index1_S37_R2_001.fastq
+BR039	tassel	B73	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index4_S40_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index4_S40_R2_001.fastq
+BR040	tassel	Mo17	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index3_S39_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index3_S39_R2_001.fastq
+BR041	tassel	Mo17	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index5_S41_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index5_S41_R2_001.fastq
+BR042	tassel	Mo17	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index8_S44_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index8_S44_R2_001.fastq
+BR043	tassel	B73xMo17	v12	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index6_S42_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index6_S42_R2_001.fastq
+BR044	tassel	B73xMo17	v12	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index9_S45_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index9_S45_R2_001.fastq
+BR045	tassel	B73xMo17	v12	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index7_S43_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index7_S43_R2_001.fastq
+BR046	ear	B73	v14	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index10_S46_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index10_S46_R2_001.fastq
+BR047	ear	B73	v14	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index12_S48_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index12_S48_R2_001.fastq
+BR048	ear	B73	v14	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index11_S47_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index11_S47_R2_001.fastq
+BR049	ear	Mo17	v14	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index13_S49_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index13_S49_R2_001.fastq
+BR050	ear	Mo17	v14	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index20_S52_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index20_S52_R2_001.fastq
+BR051	ear	Mo17	v14	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index14_S50_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index14_S50_R2_001.fastq
+BR052	ear	B73xMo17	v14	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index21_S53_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index21_S53_R2_001.fastq
+BR053	ear	B73xMo17	v14	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index15_S51_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index15_S51_R2_001.fastq
+BR054	ear	B73xMo17	v14	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index22_S54_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool3_18_index22_S54_R2_001.fastq
+BR055	silk	B73	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index2_S56_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index2_S56_R2_001.fastq
+BR056	silk	B73	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index1_S55_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index1_S55_R2_001.fastq
+BR057	silk	B73	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index4_S58_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index4_S58_R2_001.fastq
+BR058	silk	Mo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index3_S57_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index3_S57_R2_001.fastq
+BR059	silk	Mo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index5_S59_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index5_S59_R2_001.fastq
+BR060	silk	Mo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index8_S62_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index8_S62_R2_001.fastq
+BR061	silk	B73xMo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index6_S60_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index6_S60_R2_001.fastq
+BR062	silk	B73xMo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index9_S63_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index9_S63_R2_001.fastq
+BR063	silk	B73xMo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index7_S61_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index7_S61_R2_001.fastq
+BR064	spikelet	B73	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index10_S64_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index10_S64_R2_001.fastq
+BR065	spikelet	B73	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index12_S66_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index12_S66_R2_001.fastq
+BR066	spikelet	B73	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index11_S65_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index11_S65_R2_001.fastq
+BR067	spikelet	Mo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index13_S67_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index13_S67_R2_001.fastq
+BR068	spikelet	Mo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index20_S70_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index20_S70_R2_001.fastq
+BR069	spikelet	Mo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index14_S68_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index14_S68_R2_001.fastq
+BR070	spikelet	B73xMo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index21_S71_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index21_S71_R2_001.fastq
+BR071	spikelet	B73xMo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index15_S69_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index15_S69_R2_001.fastq
+BR072	spikelet	B73xMo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index22_S72_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool4_18_index22_S72_R2_001.fastq
+BR073	stem	B73	husk_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index2_S74_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index2_S74_R2_001.fastq
+BR074	stem	B73	husk_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index1_S73_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index1_S73_R2_001.fastq
+BR075	stem	B73	husk_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index4_S76_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index4_S76_R2_001.fastq
+BR076	stem	Mo17	husk_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index3_S75_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index3_S75_R2_001.fastq
+BR077	stem	Mo17	husk_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index5_S77_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index5_S77_R2_001.fastq
+BR078	stem	Mo17	husk_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index8_S80_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index8_S80_R2_001.fastq
+BR079	stem	B73xMo17	husk_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index6_S78_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index6_S78_R2_001.fastq
+BR080	stem	B73xMo17	husk_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index9_S81_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index9_S81_R2_001.fastq
+BR081	stem	B73xMo17	husk_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index7_S79_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index7_S79_R2_001.fastq
+BR082	stem	B73	tasselstem_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index10_S82_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index10_S82_R2_001.fastq
+BR083	stem	B73	tasselstem_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index12_S84_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index12_S84_R2_001.fastq
+BR084	stem	B73	tasselstem_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index11_S83_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index11_S83_R2_001.fastq
+BR085	stem	Mo17	tasselstem_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index13_S85_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index13_S85_R2_001.fastq
+BR086	stem	Mo17	tasselstem_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index20_S88_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index20_S88_R2_001.fastq
+BR087	stem	Mo17	tasselstem_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index14_S86_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index14_S86_R2_001.fastq
+BR088	stem	B73xMo17	tasselstem_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index21_S89_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index21_S89_R2_001.fastq
+BR089	stem	B73xMo17	tasselstem_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index15_S87_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index15_S87_R2_001.fastq
+BR090	stem	B73xMo17	tasselstem_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index22_S90_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170127_D00635_0197_ACAC47ANXX/Springer_Project_052_Run1_Redemux/briggs_pool5_18_index22_S90_R2_001.fastq
+BR091	floret	B73	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index2_S9_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index2_S9_R2_001.fastq
+BR092	floret	B73	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index1_S8_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index1_S8_R2_001.fastq
+BR093	floret	B73	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index4_S11_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index4_S11_R2_001.fastq
+BR094	floret	Mo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index3_S10_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index3_S10_R2_001.fastq
+BR095	floret	Mo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index5_S12_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index5_S12_R2_001.fastq
+BR096	floret	Mo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index8_S15_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index8_S15_R2_001.fastq
+BR097	floret	B73xMo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index6_S13_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index6_S13_R2_001.fastq
+BR098	floret	B73xMo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index9_S16_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index9_S16_R2_001.fastq
+BR099	floret	B73xMo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index7_S14_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index7_S14_R2_001.fastq
+BR118	kernel	B73	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index10_S17_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index10_S17_R2_001.fastq
+BR119	kernel	B73	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index12_S19_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index12_S19_R2_001.fastq
+BR120	kernel	B73	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index11_S18_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index11_S18_R2_001.fastq
+BR121	kernel	Mo17	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index13_S20_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index13_S20_R2_001.fastq
+BR122	kernel	Mo17	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index20_S25_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index20_S25_R2_001.fastq
+BR123	kernel	Mo17	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index14_S21_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index14_S21_R2_001.fastq
+BR124	kernel	B73xMo17	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index21_S26_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index21_S26_R2_001.fastq
+BR125	kernel	B73xMo17	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index15_S22_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index15_S22_R2_001.fastq
+BR126	kernel	B73xMo17	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index22_S27_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index22_S27_R2_001.fastq
+BR127	kernel	Mo17xB73	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index16_S23_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index16_S23_R2_001.fastq
+BR128	kernel	Mo17xB73	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index23_S28_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index23_S28_R2_001.fastq
+BR129	kernel	Mo17xB73	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index18_S24_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool6_21_index18_S24_R2_001.fastq
+BR100	leaf	B73	flag_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index2_S30_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index2_S30_R2_001.fastq
+BR101	leaf	B73	flag_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index4_S32_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index4_S32_R2_001.fastq
+BR102	leaf	B73	flag_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index5_S33_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index5_S33_R2_001.fastq
+BR103	leaf	Mo17	flag_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index27_S46_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index27_S46_R2_001.fastq
+BR104	leaf	Mo17	flag_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index25_S45_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index25_S45_R2_001.fastq
+BR105	leaf	Mo17	flag_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index6_S34_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index6_S34_R2_001.fastq
+BR106	leaf	B73xMo17	flag_0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index7_S35_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index7_S35_R2_001.fastq
+BR107	leaf	B73xMo17	flag_0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index23_S44_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index23_S44_R2_001.fastq
+BR108	leaf	B73xMo17	flag_0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index12_S40_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index12_S40_R2_001.fastq
+BR109	root	B73	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index1_S29_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index1_S29_R2_001.fastq
+BR110	root	B73	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index9_S37_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index9_S37_R2_001.fastq
+BR111	root	B73	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index11_S39_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index11_S39_R2_001.fastq
+BR112	root	Mo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index20_S41_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index20_S41_R2_001.fastq
+BR113	root	Mo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index21_S42_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index21_S42_R2_001.fastq
+BR114	root	Mo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index22_S43_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index22_S43_R2_001.fastq
+BR115	root	B73xMo17	0DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index10_S38_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index10_S38_R2_001.fastq
+BR116	root	B73xMo17	0DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index3_S31_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index3_S31_R2_001.fastq
+BR117	root	B73xMo17	0DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index8_S36_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool7_18_index8_S36_R2_001.fastq
+BR130	endosperm	B73	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index2_S48_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index2_S48_R2_001.fastq
+BR131	endosperm	B73	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index1_S47_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index1_S47_R2_001.fastq
+BR132	endosperm	B73	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index4_S50_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index4_S50_R2_001.fastq
+BR133	endosperm	Mo17	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index3_S49_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index3_S49_R2_001.fastq
+BR134	endosperm	Mo17	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index5_S51_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index5_S51_R2_001.fastq
+BR135	endosperm	Mo17	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index8_S54_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index8_S54_R2_001.fastq
+BR136	endosperm	B73xMo17	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index6_S52_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index6_S52_R2_001.fastq
+BR137	endosperm	B73xMo17	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index9_S55_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index9_S55_R2_001.fastq
+BR138	endosperm	B73xMo17	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index7_S53_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index7_S53_R2_001.fastq
+BR139	endosperm	Mo17xB73	14DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index10_S56_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index10_S56_R2_001.fastq
+BR140	endosperm	Mo17xB73	14DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index12_S58_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index12_S58_R2_001.fastq
+BR141	endosperm	Mo17xB73	14DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index11_S57_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index11_S57_R2_001.fastq
+BR142	embryo	B73	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index13_S59_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index13_S59_R2_001.fastq
+BR143	embryo	B73	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index20_S65_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index20_S65_R2_001.fastq
+BR144	embryo	B73	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index14_S60_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index14_S60_R2_001.fastq
+BR145	embryo	Mo17	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index21_S66_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index21_S66_R2_001.fastq
+BR146	embryo	Mo17	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index15_S61_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index15_S61_R2_001.fastq
+BR147	embryo	Mo17	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index22_S67_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index22_S67_R2_001.fastq
+BR148	embryo	B73xMo17	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index16_S62_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index16_S62_R2_001.fastq
+BR149	embryo	B73xMo17	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index23_S68_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index23_S68_R2_001.fastq
+BR150	embryo	B73xMo17	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index18_S63_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index18_S63_R2_001.fastq
+BR151	embryo	Mo17xB73	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index25_S69_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index25_S69_R2_001.fastq
+BR152	embryo	Mo17xB73	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index19_S64_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index19_S64_R2_001.fastq
+BR153	embryo	Mo17xB73	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index27_S70_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool8_24_index27_S70_R2_001.fastq
+BR154	endosperm	B73	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index2_S72_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index2_S72_R2_001.fastq
+BR155	endosperm	B73	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index1_S71_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index1_S71_R2_001.fastq
+BR156	endosperm	B73	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index4_S74_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index4_S74_R2_001.fastq
+BR157	endosperm	Mo17	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index3_S73_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index3_S73_R2_001.fastq
+BR158	endosperm	Mo17	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index5_S75_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index5_S75_R2_001.fastq
+BR159	endosperm	Mo17	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index8_S78_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index8_S78_R2_001.fastq
+BR160	endosperm	B73xMo17	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index6_S76_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index6_S76_R2_001.fastq
+BR161	endosperm	B73xMo17	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index9_S79_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index9_S79_R2_001.fastq
+BR162	endosperm	B73xMo17	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index7_S77_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index7_S77_R2_001.fastq
+BR163	endosperm	Mo17xB73	27DAP	1	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index10_S80_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index10_S80_R2_001.fastq
+BR164	endosperm	Mo17xB73	27DAP	2	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index12_S82_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index12_S82_R2_001.fastq
+BR165	endosperm	Mo17xB73	27DAP	3	TRUE	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index11_S81_R1_001.fastq	/home/springer/data_release/umgc/hiseq/170210_D00635_0201_BCAK8EANXX/Springer_Project_052/briggs_pool9_12_index11_S81_R2_001.fastq
+BR166	coleoptile	B73	tip	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index2_S2_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index2_S2_R2_001.fastq.gz
+BR167	coleoptile	B73	tip	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index1_S1_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index1_S1_R2_001.fastq.gz
+BR168	coleoptile	B73	tip	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index4_S4_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index4_S4_R2_001.fastq.gz
+BR169	coleoptile	Mo17	tip	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index3_S3_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index3_S3_R2_001.fastq.gz
+BR170	coleoptile	Mo17	tip	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index5_S5_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index5_S5_R2_001.fastq.gz
+BR171	coleoptile	Mo17	tip	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index8_S8_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index8_S8_R2_001.fastq.gz
+BR172	coleoptile	B73xMo17	tip	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index6_S6_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index6_S6_R2_001.fastq.gz
+BR173	coleoptile	B73xMo17	tip	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index9_S9_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index9_S9_R2_001.fastq.gz
+BR174	coleoptile	B73xMo17	tip	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index7_S7_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index7_S7_R2_001.fastq.gz
+BR175	root	B73	radicle	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index10_S10_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index10_S10_R2_001.fastq.gz
+BR176	root	B73	radicle	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index12_S12_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index12_S12_R2_001.fastq.gz
+BR177	root	B73	radicle	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index11_S11_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index11_S11_R2_001.fastq.gz
+BR178	root	Mo17	radicle	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index13_S13_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index13_S13_R2_001.fastq.gz
+BR179	root	Mo17	radicle	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index20_S16_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index20_S16_R2_001.fastq.gz
+BR180	root	Mo17	radicle	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index14_S14_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index14_S14_R2_001.fastq.gz
+BR181	root	B73xMo17	radicle	1	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index21_S17_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index21_S17_R2_001.fastq.gz
+BR182	root	B73xMo17	radicle	2	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index15_S15_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index15_S15_R2_001.fastq.gz
+BR183	root	B73xMo17	radicle	3	TRUE	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index22_S18_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180103_D00635_0319_ACC5PFANXX/Springer_Project_058/briggs_pool10_18_Index22_S18_R2_001.fastq.gz
+BR184	embryo	B73	imbibedseed	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index2_S8_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index2_S8_R2_001.fastq.gz
+BR242	embryo	B73	imbibedseed	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index1_S1_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index1_S1_R2_001.fastq.gz
+BR243	embryo	B73	imbibedseed	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index4_S13_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index4_S13_R2_001.fastq.gz
+BR245	embryo	Mo17	imbibedseed	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index3_S12_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index3_S12_R2_001.fastq.gz
+BR188	embryo	Mo17	imbibedseed	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index5_S14_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index5_S14_R2_001.fastq.gz
+BR227	embryo	Mo17	imbibedseed	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index8_S17_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index8_S17_R2_001.fastq.gz
+BR230	embryo	B73xMo17	imbibedseed	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index6_S15_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index6_S15_R2_001.fastq.gz
+BR191	embryo	B73xMo17	imbibedseed	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index9_S18_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index9_S18_R2_001.fastq.gz
+BR192	embryo	B73xMo17	imbibedseed	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index7_S16_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index7_S16_R2_001.fastq.gz
+BR193	leaf	B73	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index10_S2_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index10_S2_R2_001.fastq.gz
+BR194	leaf	B73	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index12_S4_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index12_S4_R2_001.fastq.gz
+BR195	leaf	B73	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index11_S3_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index11_S3_R2_001.fastq.gz
+BR196	leaf	Mo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index13_S5_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index13_S5_R2_001.fastq.gz
+BR197	leaf	Mo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index20_S9_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index20_S9_R2_001.fastq.gz
+BR198	leaf	Mo17	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index14_S6_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index14_S6_R2_001.fastq.gz
+BR199	leaf	B73xMo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index21_S10_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index21_S10_R2_001.fastq.gz
+BR200	leaf	B73xMo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index15_S7_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index15_S7_R2_001.fastq.gz
+BR201	leaf	B73xMo17	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index22_S11_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool11_18_Index22_S11_R2_001.fastq.gz
+BR202	root	B73	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index2_S26_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index2_S26_R2_001.fastq.gz
+BR203	root	B73	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index1_S19_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index1_S19_R2_001.fastq.gz
+BR204	root	B73	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index4_S31_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index4_S31_R2_001.fastq.gz
+BR187	embryo	Mo17	imbibedseed	4	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index3_S30_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index3_S30_R2_001.fastq.gz
+BR206	root	Mo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index5_S32_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index5_S32_R2_001.fastq.gz
+BR207	root	Mo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index8_S35_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index8_S35_R2_001.fastq.gz
+BR208	root	B73xMo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index6_S33_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index6_S33_R2_001.fastq.gz
+BR209	root	B73xMo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index9_S36_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index9_S36_R2_001.fastq.gz
+BR235	embryo	B73	imbibedseed	4	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index7_S34_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index7_S34_R2_001.fastq.gz
+BR211	meristem	B73	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index10_S20_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index10_S20_R2_001.fastq.gz
+BR212	meristem	B73	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index12_S22_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index12_S22_R2_001.fastq.gz
+BR213	meristem	B73	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index11_S21_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index11_S21_R2_001.fastq.gz
+BR214	meristem	Mo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index13_S23_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index13_S23_R2_001.fastq.gz
+BR215	meristem	Mo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index20_S27_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index20_S27_R2_001.fastq.gz
+BR216	meristem	Mo17	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index14_S24_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index14_S24_R2_001.fastq.gz
+BR217	meristem	B73xMo17	seedling_11DAS	1	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index21_S28_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index21_S28_R2_001.fastq.gz
+BR218	meristem	B73xMo17	seedling_11DAS	2	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index15_S25_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index15_S25_R2_001.fastq.gz
+BR219	meristem	B73xMo17	seedling_11DAS	3	TRUE	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index22_S29_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180109_D00635_0322_BCATGLANXX/Springer_Project_058/briggs_pool12_18_Index22_S29_R2_001.fastq.gz

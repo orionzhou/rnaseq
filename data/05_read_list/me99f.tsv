@@ -1,19 +1,19 @@
-SampleID	Tissue	Genotype	Treatment	Replicate	paired
-BW1	endosperm	B73xW22		1	TRUE
-BW2	endosperm	B73xW22		2	TRUE
-BW3	endosperm	B73xW22		3	TRUE
-PB1	endosperm	PH207xB73		1	TRUE
-PB2	endosperm	PH207xB73		2	TRUE
-PB3	endosperm	PH207xB73		3	TRUE
-BP1	endosperm	B73xPH207		1	TRUE
-BP2	endosperm	B73xPH207		2	TRUE
-BP3	endosperm	B73xPH207		3	TRUE
-PW1	endosperm	PH207xW22		1	TRUE
-PW2	endosperm	PH207xW22		2	TRUE
-PW3	endosperm	PH207xW22		3	TRUE
-WB1	endosperm	W22xB73		1	TRUE
-WB2	endosperm	W22xB73		2	TRUE
-WB3	endosperm	W22xB73		3	TRUE
-WP1	endosperm	W22xPH207		1	TRUE
-WP2	endosperm	W22xPH207		2	TRUE
-WP3	endosperm	W22xPH207		3	TRUE
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	r1	r2
+BW1	endosperm	B73xW22		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index1_S15_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index1_S15_R2_001.fastq.gz
+BW2	endosperm	B73xW22		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index2_S16_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index2_S16_R2_001.fastq.gz
+BW3	endosperm	B73xW22		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index3_S17_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index3_S17_R2_001.fastq.gz
+PB1	endosperm	PH207xB73		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index4_S18_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index4_S18_R2_001.fastq.gz
+PB2	endosperm	PH207xB73		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index5_S19_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index5_S19_R2_001.fastq.gz
+PB3	endosperm	PH207xB73		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index6_S20_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index6_S20_R2_001.fastq.gz
+BP1	endosperm	B73xPH207		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index7_S21_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index7_S21_R2_001.fastq.gz
+BP2	endosperm	B73xPH207		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index8_S22_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index8_S22_R2_001.fastq.gz
+BP3	endosperm	B73xPH207		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index9_S23_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index9_S23_R2_001.fastq.gz
+PW1	endosperm	PH207xW22		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index10_S24_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index10_S24_R2_001.fastq.gz
+PW2	endosperm	PH207xW22		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index11_S25_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index11_S25_R2_001.fastq.gz
+PW3	endosperm	PH207xW22		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index12_S26_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index12_S26_R2_001.fastq.gz
+WB1	endosperm	W22xB73		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index13_S27_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index13_S27_R2_001.fastq.gz
+WB2	endosperm	W22xB73		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index14_S28_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index14_S28_R2_001.fastq.gz
+WB3	endosperm	W22xB73		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index23_S33_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index23_S33_R2_001.fastq.gz
+WP1	endosperm	W22xPH207		1	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index25_S34_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index25_S34_R2_001.fastq.gz
+WP2	endosperm	W22xPH207		2	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index27_S35_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index27_S35_R2_001.fastq.gz
+WP3	endosperm	W22xPH207		3	TRUE	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index19_S29_R1_001.fastq.gz	/home/springer/data_release/umgc/hiseq/180927_D00635_0413_BCCTE5ANXX/Springer_Project_064/SNA_Pool7_Index19_S29_R2_001.fastq.gz
