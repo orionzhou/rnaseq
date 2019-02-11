@@ -1,5 +1,4 @@
 source("functions.R")
-source(file.path(dirr, "sra.R"))
 t_cfg %>% select(yid, study, author) %>% print(n=40)
 
 fix_read_list <- function(ti, sid) {
@@ -399,6 +398,18 @@ th = ti %>%
     arrange(SampleID)
 th = sra_fill_replicate(th)
 #}}}
+} else if (sid == 'me19a') {
+#{{{
+th = ti %>%
+    transmute(SampleID = Run,
+              Tissue = "seedling",
+              Genotype = SampleName,
+              Treatment = '',
+              Replicate = 1,
+              paired = paired) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
 } else if (sid == 'me99a') {
 #{{{ Kaeppler2018
 th = ti %>%
@@ -436,7 +447,7 @@ th
 #}}}
 }
 
-sid = 'me99a'
+sid = 'me19a'
 fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
 fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
 ti = read_sra_run(fi, fi2)

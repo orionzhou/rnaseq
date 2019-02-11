@@ -3,13 +3,13 @@ require(ape)
 require(ggtree)
 t_cfg
 
-sid = 'mec04'
+yid = 'mec04'
 #{{{ config
-Sys.setenv(R_CONFIG_ACTIVE = sid)
-dirw = file.path(dird, '11_qc', sid)
+Sys.setenv(R_CONFIG_ACTIVE = yid)
+dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 #
-cfg = t_cfg %>% filter(sid == !!sid)
+cfg = t_cfg %>% filter(yid == !!yid)
 stopifnot(nrow(cfg) == 1)
 study = cfg %>% pull(study)
 readtype = cfg %>% pull(readtype)
@@ -20,16 +20,16 @@ gcfg = read_genome_conf(genome)
 #}}}
 
 #{{{ [meta=F] mapping stats
-th = get_read_list(dird, sid)
+th = get_read_list(dird, yid)
 tiss = unique(th$Tissue); genos = unique(th$Genotype);
 treas = unique(th$Treatment); reps = unique(th$Replicate)
 paired = unique(th$paired)
 if(length(paired) == 2) paired = 'both'
 
-diri = file.path(dird, '08_raw_output', sid)
+diri = file.path(dird, '08_raw_output', yid)
 fi = file.path(diri, 'trimming.tsv')
 tt1 = read_tsv(fi) %>%
-    separate(sid, c('SampleID','pe'), sep='[\\.]') %>%
+    separate(yid, c('SampleID','pe'), sep='[\\.]') %>%
     mutate(passed=passed_filter_reads,
     failed=low_quality_reads+too_many_N_reads+too_short_reads+too_long_reads) %>%
     mutate(passed = ifelse(pe=='pe', passed/2, passed)) %>%
@@ -37,7 +37,7 @@ tt1 = read_tsv(fi) %>%
     mutate(total = passed+failed) %>%
     select(SampleID, total, passed, failed)
 fi = file.path(diri, 'bamstats.tsv')
-tt2 = read_tsv(fi) %>% select(SampleID=sid, everything())
+tt2 = read_tsv(fi) %>% select(SampleID=yid, everything())
 fi = file.path(diri, 'multiqc_data/multiqc_featureCounts.txt')
 tt3 = read_multiqc_featurecounts(fi)
 
@@ -64,33 +64,33 @@ write_tsv(tt, fo)
 #}}}
 
 #{{{ [meta=T] merge datasets
-sids = str_split(t_cfg$study[t_cfg$sid==sid], "[\\+]")[[1]]
-sids
+yids = str_split(t_cfg$study[t_cfg$yid==yid], "[\\+]")[[1]]
+yids
 #
 th = tibble(); t_rc = tibble()
-for (sid1 in sids) {
-    diri = file.path(dird, '08_raw_output', sid1)
-    th1 = rnaseq_sample_meta(sid1)
-    if(sid1 == 'me12a') {
+for (yid1 in yids) {
+    diri = file.path(dird, '08_raw_output', yid1)
+    th1 = rnaseq_sample_meta(yid1)
+    if(yid1 == 'me12a') {
         th1 = th1 %>% filter(Treatment == 'WT')
-    } else if(sid1 == 'me13b') {
+    } else if(yid1 == 'me13b') {
         th1 = th1 #%>% filter(!str_detect(Treatment, "ET"))
-    } else if(sid1 == 'me17c') {
+    } else if(yid1 == 'me17c') {
         th1 = th1 %>% filter(Treatment == 'con')
-    } else if(sid1 == 'me99b') {
+    } else if(yid1 == 'me99b') {
         th1 = th1 %>% filter(Genotype == 'B73')
     }
-    osids = th1$SampleID
-    nsids = sprintf("%s_%s", sid1, osids)
-    names(osids) = nsids
-    th1 = th1 %>% mutate(SampleID = nsids) %>%
+    oyids = th1$SampleID
+    nyids = sprintf("%s_%s", yid1, oyids)
+    names(oyids) = nyids
+    th1 = th1 %>% mutate(SampleID = nyids) %>%
         replace_na(list(Treatment='?')) %>%
-        mutate(Treatment=sprintf("%s|%s", sid1, Treatment)) %>%
+        mutate(Treatment=sprintf("%s|%s", yid1, Treatment)) %>%
         select(SampleID, Tissue, Genotype, Treatment, everything())
     th = rbind(th, th1)
     fi = file.path(diri, 'featurecounts.tsv')
-    t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', osids))) %>%
-        rename(!!osids)
+    t_rc1 = read_tsv(fi) %>% select(one_of(c('gid', oyids))) %>%
+        rename(!!oyids)
     stopifnot(ncol(t_rc1) == nrow(th1) + 1)
     if(nrow(t_rc) == 0) {
         t_rc = t_rc1
@@ -103,21 +103,21 @@ th %>% count(Tissue) %>% print(n=40)
 th %>% count(Tissue,Genotype,Treatment) %>% print(n=40)
 th %>% count(Tissue,Genotype,Treatment) %>% count(n) %>% print(n=40)
 
-fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+fo = sprintf("%s/05_read_list/%s.tsv", dird, yid)
 write_tsv(th, fo)
-diro = file.path(dird, '08_raw_output', sid)
+diro = file.path(dird, '08_raw_output', yid)
 system(sprintf("mkdir -p %s", diro))
 map_int(sprintf("touch %s/%s", diro, c("multiqc.html",'trimming.tsv','bamstats.tsv')), system)
 fo = sprintf("%s/featurecounts.tsv", diro)
 write_tsv(t_rc, fo)
-# run rc2cpm
+# run Snakemake rc2cpm
 #}}}
 
-th = rnaseq_sample_meta(sid)
+th = rnaseq_sample_meta(yid)
 tiss = unique(th$Tissue); genos = unique(th$Genotype)
 treas = unique(th$Treatment); reps = unique(th$Replicate)
 
-fi = file.path(dird, '08_raw_output', sid, 'cpm.rds')
+fi = file.path(dird, '08_raw_output', yid, 'cpm.rds')
 res = readRDS(fi)
 tl = res$tl; tm = res$tm
 
@@ -134,25 +134,25 @@ tl = res$tl; tm = res$tm
 #}}}
 ft = file.path(dirw, '10.mapping.stat.tsv')
 tt = read_tsv(ft)
-fh1 = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+fh1 = sprintf("%s/05_read_list/%s.tsv", dird, yid)
 th = read_tsv(fh1)
-fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, sid)
-if(sid == 'me13c') {
+fh2 = sprintf("%s/05_read_list/%s.c.tsv", dird, yid)
+if(yid == 'me13c') {
     #{{{
     th = th %>%
         mutate(Genotype = ifelse(SampleID=='SRR767691','Oh43',Genotype)) %>%
         mutate(Genotype = ifelse(SampleID=='SRR651079','Oh7b',Genotype))
     #}}}
-} else if(sid == 'me14c') {
+} else if(yid == 'me14c') {
     th = th %>% filter(! SampleID %in% c("SRR254169"))
-} else if(sid == 'me14d') {
+} else if(yid == 'me14d') {
     th = th %>% filter(! SampleID %in% c("SRR1573518", 'SRR1573513'))
-} else if(sid == 'me16b') {
+} else if(yid == 'me16b') {
     #{{{
     th = th %>% filter(!SampleID %in% c("SRR1620930","SRR1620929","SRR1620927",
                                         "SRR1620908","SRR1620913"))
     #}}}
-} else if(sid == 'me17a') {
+} else if(yid == 'me17a') {
     #{{{
     th = th %>%
         mutate(Tissue = ifelse(SampleID == 'SRR445601', 'tassel', Tissue)) %>%
@@ -160,7 +160,7 @@ if(sid == 'me13c') {
         mutate(Genotype = ifelse(SampleID == 'SRR426798', 'Mo17', Genotype)) %>%
         mutate(Genotype = ifelse(SampleID == 'SRR426814', 'M37W', Genotype))
     #}}}
-} else if(sid == 'me18b') {
+} else if(yid == 'me18b') {
     #{{{
     th = th %>%
         filter(!SampleID %in% c("SRR5786263", "SRR5786217")) %>%
@@ -172,7 +172,7 @@ if(sid == 'me13c') {
         mutate(Treatment=ifelse(Genotype=='B73' & Treatment=='III' &
                                 Replicate %in% c(4,7:10), 'Z3', Treatment))
     #}}}
-} else if(sid == 'me99a') {
+} else if(yid == 'me99a') {
     #{{{
     samples_low = tt %>% filter(passed < 1e7) %>% pull(SampleID)
     samples2 = c("SRR8043600","SRR8043169","SRR8043151","SRR8043196","SRR8043556")
@@ -182,7 +182,7 @@ if(sid == 'me13c') {
     i = which(th$SampleID == 'SRR5691477')
     th$Genotype[i] = 'PHN11x?'; th$inbred[i] = F
     #}}}
-} else if(sid == 'me99b') {
+} else if(yid == 'me99b') {
     #{{{
     gts = c("B73", "Mo17", "B73xMo17")
     tissues = sort(unique(th$Tissue))
@@ -198,7 +198,7 @@ if(sid == 'me13c') {
     th = th %>% mutate(Replicate = '')
     th = sra_fill_replicate(th)
     #}}}
-} else if(sid == 'me99c') {
+} else if(yid == 'me99c') {
     #{{{
     th = th %>%
         mutate(Tissue = ifelse(SampleID == 'bm252', 'Leaf', Tissue))
@@ -327,7 +327,7 @@ pheatmap(
     show_colnames     = F,
     show_rownames     = T,
     labels_row        = t_hm$lab,
-    #annotation_row    = th[,c('SampleID','sid')],
+    #annotation_row    = th[,c('SampleID','yid')],
     #annotation_colors = pal_d3()(10),
     drop_levels       = T,
     fontsize          = 6,
