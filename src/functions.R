@@ -260,26 +260,4 @@ plot_pca <- function(tp, fo, opt = 'col=tis', labsize = 2.5, wd = 8, ht = 8) {
     ggsave(p1, filename = fo, width = wd, height = ht)
     #}}}
 }
-me_output <- function(sid, study, meta, dird = dird) {
-    #{{{
-    diri = file.path(dird, '11_qc', sid)
-    diro = file.path(dird, '15_output')
-    fi = file.path(diri, '20.rc.norm.rda')
-    if(!file.exists(fi)) {
-        cat(sprintf("%s[%s]: no data\n", sid, study))
-    } else {
-        x = load(fi)
-        if(is.na(meta) | meta != T) {
-            th = get_read_list(dird, sid)
-            tm = tm %>% filter(SampleID %in% th$SampleID)
-            res = merge_reps(th, tm, sid)
-            th = res$th; tm = res$tm
-        }
-        #stopifnot(nrow(th) * ngene == nrow(tm))
-        fo = sprintf("%s/%s.rda", diro, sid)
-        save(th, tm, file = fo)
-    }
-    T
-    #}}}
-}
 
