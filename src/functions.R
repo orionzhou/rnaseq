@@ -1,4 +1,5 @@
-require(rmaize)
+require(devtools)
+load_all("~/git/rmaize")
 dirp = '~/projects/rnaseq'
 dird = file.path(dirp, 'data')
 dirc = '/scratch.global/zhoux379/rnaseq'

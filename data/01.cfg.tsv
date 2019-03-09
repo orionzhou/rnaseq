@@ -6,6 +6,7 @@ me13a	eQTL	li2013	sra	illumina	no			B,M and RILs	SAM	105.0	B73	star	T
 me13b	leaf time-series 13t	liu2013	sra	illumina	no			B73	early leaf	13.0	B73	star	T	
 me13c	diverse inbreds	eitchen2013	sra	illumina	no			62 inbreds	seedling_leaf3	62.0	B73	star	T	
 me13d	imprinting	waters2013	sra	illumina	no			4 reciprocal hybrids	endosperm	8.0	B73	star		
+me13e	kernel eQTL	fu2013	sra	illumina	no			368 inbreds	kernel_15DAP	368.0	B73	star	T	
 me14a	pan-transcriptome	hirsch2014	sra	illumina	no			503 inbreds	seedling	503.0	B73	star	T	
 me14b	endosperm 7t	li2014	sra	solid	no			B73	endosperm	7.0	B73	star	T	
 me14c	7 gamete	chettoor2014	sra	illumina	no			B73	gamete 7	7.0	B73	star	T	
@@ -13,7 +14,6 @@ me14d	ligule	johnston2014	sra	illumina	no			B73	ligule		B73	star	T
 me14e	embryo+endosperm	chen2014	sra	illumina	no			B73	seed	53.0	B73	star	T	
 me15a	SAM	leiboff2015	sra	illumina	no			380 lines	SAM	380.0	B73	star	T	
 me15b	leaf time-series 9t	yu2015	sra	illumina	no			B73	late leaf	9.0	B73	star	T	
-me16a	ePAV GWAS	jin2016	sra	illumina	no			368 inbreds	kernel_15DAP	368.0	B73	star	T	
 me16b	atlas	stelpflug2016	sra	illumina	no			B73	93 tissues	93.0	B73	star	T	
 me16c	proteome	walley2016	sra	illumina	no			B73	23 tissues	23.0	B73	star	T	
 me17a	eRD-GWAS	lin2017	sra	illumina	no			27 inbreds	5 tissues	133.0	B73	star	T	
@@ -21,8 +21,9 @@ me17b	stress cis-trans	waters2017	local	illumina	no		T	B, M, P and F1	seedlilng	
 me17c	drought stress	marcon2017	sra	illumina	no		T	B, M anf F1	root	8.0	B73	star	T	
 me18a	dysregulation	kremling2018	sra	3rnaseq	no			255 lines	7 tissues	1781.0	B73	star	T	
 me18b	SPE	baldauf2018	sra	illumina	no			7 inbreds + 6 hybrids	3 root stages	46.0	B73	star	T	
+me18c	maize-teosinte RIL	wang2018	sra	illumina	no			W,T and RILs	seedling_v2	623.0	B73	star		T
 me18d	root ionics	schaefer2018	sra	illumina	no			48 inbreds	root	48.0	B73	star	T	
-me19a	widiv biomass	mazaheri2019	sra	illumina	no			453 inbreds	whole seedlings	453.0	B73	star		T
+me19a	widiv biomass	mazaheri2019	sra	illumina	no			453 inbreds	whole seedlings	453.0	B73	star	T	
 me99a	biomass	kaeppler2018	sra	illumina	no			170 inbreds + 96 hybrids	5 tissues	460.0	B73	star	T	
 me99b	B73&Mo17 atlas	zhou2018	local	illumina	reverse			B, M anf F1	23 tissues	23.0	B73	hisat2	T	
 me99b_m	B73&Mo17 atlas	zhou2018	local	illumina	reverse			B, M anf F1	23 tissues	23.0	Mo17	hisat2	T	

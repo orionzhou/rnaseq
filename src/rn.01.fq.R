@@ -385,6 +385,20 @@ th = ti %>%
               paired = paired) %>%
     arrange(SampleID)
 #}}}
+} else if (sid == 'me18c') {
+#{{{ Wang2018
+fd = file.path(dird, '03_sra_list','me18c.txt')
+td = read_tsv(fd, col_names=c('sid','sid2'))
+th = ti %>%
+    transmute(SampleID = LibraryName,
+              Tissue = 'seedling_v2',
+              Genotype = SampleID,
+              Treatment = NA,
+              Replicate = NA,
+              paired = paired) %>%
+    filter(SampleID %in% td$sid) %>%
+    arrange(SampleID)
+#}}}
 } else if (sid == 'me18d') {
 #{{{ Schaefer2018
 th = ti %>%
@@ -447,7 +461,7 @@ th
 #}}}
 }
 
-sid = 'me19a'
+sid = 'me18c'
 fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
 fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
 ti = read_sra_run(fi, fi2)
