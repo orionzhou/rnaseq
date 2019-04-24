@@ -3,7 +3,7 @@ require(ape)
 require(ggtree)
 t_cfg
 
-yid = 'mec04'
+yid = 'me99c'
 #{{{ config
 Sys.setenv(R_CONFIG_ACTIVE = yid)
 dirw = file.path(dird, '11_qc', yid)
@@ -14,7 +14,7 @@ stopifnot(nrow(cfg) == 1)
 study = cfg %>% pull(study)
 readtype = cfg %>% pull(readtype)
 mapper = cfg %>% pull(mapper)
-genome = cfg %>% pull(reference)
+genome = cfg %>% pull(ref)
 meta = cfg %>% pull(meta)
 gcfg = read_genome_conf(genome)
 #}}}
@@ -201,10 +201,10 @@ if(yid == 'me13c') {
 } else if(yid == 'me99c') {
     #{{{
     th = th %>%
-        mutate(Tissue = ifelse(SampleID == 'bm252', 'Leaf', Tissue))
+        mutate(Tissue = ifelse(SampleID == 'bm318', 'Leaf', Tissue))
     #}}}
 }
-write_tsv(th, fh2)#, na = '')
+write_tsv(th, fh2, na = '')
 # re-normalize everything [if no sample is removed then no need to do this]
 #}}}
 

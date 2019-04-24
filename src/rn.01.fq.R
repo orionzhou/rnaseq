@@ -11,7 +11,7 @@ if(sid == 'me10a') {
                   Genotype = 'B73',
                   Treatment = SampleName,
                   Replicate = '',
-                  paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me11a') {
@@ -41,7 +41,7 @@ if(sid == 'me10a') {
                   Genotype = 'B73',
                   Treatment = Treatment,
                   Replicate = '',
-                  paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me12a') {
@@ -58,7 +58,7 @@ if(sid == 'me10a') {
                   Genotype = 'B73',
                   Treatment = gen,
                   Replicate = rep,
-                  paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me13a') {
@@ -73,7 +73,7 @@ if(sid == 'me10a') {
                           Genotype = Genotype,
                           Treatment = '',
                           Replicate = '',
-                          paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me13b') {
@@ -88,7 +88,7 @@ if(sid == 'me10a') {
                           Genotype = 'B73',
                           Treatment = Treatment,
                           Replicate = '',
-                          paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me13c') {
@@ -97,13 +97,13 @@ if(sid == 'me10a') {
         mutate(gt = str_replace(SampleName, "[ _](rep|R) ?[0-9]+", '')) %>%
         mutate(gt = ifelse(gt=='M37W','M37w',gt))
     th %>% count(paired)
-    th %>% count(gt) 
+    th %>% count(gt)
     th = th %>% transmute(SampleID = Run,
                           Tissue = 'unknown',
                           Genotype = gt,
                           Treatment = '',
                           Replicate = '',
-                          paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
 } else if (sid == 'me13d') {
@@ -113,10 +113,20 @@ if(sid == 'me10a') {
                           Genotype = SampleName,
                           Treatment = '',
                           Replicate = '',
-                          paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
     th %>% count(Genotype)
     th %>% count(paired)
+#}}}
+} else if (sid == 'me13e') {
+#{{{ Fu2013
+th = ti %>% transmute(SampleID = Run,
+                      Tissue = 'kernel',
+                      Genotype = SampleName,
+                      Treatment = '',
+                      Replicate = '',
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
 #}}}
 } else if (sid == 'me14a') {
 #{{{ Hirsch2014
@@ -128,7 +138,7 @@ th = ti %>% separate(Title, c("org", "Genotype"), sep = ", ") %>%
               Genotype = Genotype,
               Treatment = '',
               Replicate = 1,
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me14b') {
@@ -145,7 +155,7 @@ th = ti %>%
               Genotype = 'B73',
               Treatment = Treatment,
               Replicate = '',
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me14c') {
@@ -161,7 +171,7 @@ th = ti %>%
               Genotype = 'B73',
               Treatment = treat,
               Replicate = rep,
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me14d') {
@@ -175,7 +185,7 @@ th = ti %>% separate(Title, c("gsm1", "gsm"), sep = ": ") %>%
               Genotype = 'B73',
               Treatment = tis,
               Replicate = '',
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me14e') {
@@ -193,7 +203,7 @@ th = ti %>%
               Genotype = 'B73',
               Treatment = stage,
               Replicate = '',
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me15a') {
@@ -203,7 +213,7 @@ th = ti %>% transmute(SampleID = Run,
                       Genotype = SampleName,
                       Treatment = '',
                       Replicate = '',
-                      paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me15b') {
@@ -214,19 +224,9 @@ th = ti %>% transmute(SampleID = Run,
                   Genotype = 'B73',
                   Treatment = Treatment,
                   Replicate = 1,
-                  paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
         filter(paired) %>%
         arrange(SampleID)
-#}}}
-} else if (sid == 'me16a') {
-#{{{ Jin2016
-th = ti %>% transmute(SampleID = Run,
-                      Tissue = 'kernel',
-                      Genotype = SampleName,
-                      Treatment = '',
-                      Replicate = '',
-                      paired = paired) %>%
-    arrange(SampleID)
 #}}}
 } else if (sid == 'me16b') {
 #{{{ Stelpflug2016
@@ -252,7 +252,7 @@ th = th %>%
               Genotype = 'B73',
               Treatment = Treatment,
               Replicate = '',
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me16c') {
@@ -296,7 +296,7 @@ th = ti %>% separate(Title, c('gsm1', 'gsm'), sep = ': ') %>%
               Genotype = 'B73',
               Treatment = Treatment,
               Replicate = Replicate,
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 th %>% count(Tissue) %>% print(n=23)
 #}}}
@@ -311,7 +311,7 @@ th1 = ti %>% filter(paired) %>%
               Genotype = gt,
               Treatment = '',
               Replicate = '',
-              paired = paired) %>%
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 th1 %>% count(Tissue)
 #
@@ -321,7 +321,7 @@ th2 = ti %>% filter(!paired) %>%
               Genotype = LibraryName,
               Treatment = '',
               Replicate = '',
-              paired = paired) %>% 
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 th = rbind(th1,th2)
 th %>% count(Tissue)
@@ -334,7 +334,7 @@ th = ti %>% separate(SampleName, c("gt",'trea','rep'), by='-') %>%
               Genotype = gt,
               Treatment = trea,
               Replicate = rep,
-              paired = paired) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me18a') {
@@ -365,11 +365,11 @@ th4 = th3 %>% filter(tissue %in% tissues) %>%
     transmute(SampleID = Run,
               Tissue = tissue,
               Genotype = genotype,
-              paired = paired) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #
 th = th4 %>% mutate(Treatment = '', Replicate = '') %>%
-    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired)
+    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired, spots, avgLength)
 th %>% count(Tissue) %>% print(n=100)
 #}}}
 } else if (sid == 'me18b') {
@@ -382,7 +382,7 @@ th = ti %>%
               Genotype = gt,
               Treatment = stage,
               Replicate = rep,
-              paired = paired) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me18c') {
@@ -390,13 +390,13 @@ th = ti %>%
 fd = file.path(dird, '03_sra_list','me18c.txt')
 td = read_tsv(fd, col_names=c('sid','sid2'))
 th = ti %>%
-    transmute(SampleID = LibraryName,
+    transmute(SampleID = Run,
               Tissue = 'seedling_v2',
-              Genotype = SampleID,
+              Genotype = LibraryName,
               Treatment = NA,
               Replicate = NA,
-              paired = paired) %>%
-    filter(SampleID %in% td$sid) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    filter(Genotype %in% td$sid) %>%
     arrange(SampleID)
 #}}}
 } else if (sid == 'me18d') {
@@ -408,7 +408,23 @@ th = ti %>%
               Genotype = gt,
               Treatment = '',
               Replicate = '',
-              paired = paired) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'me18e') {
+#{{{ Huang2018
+    fh = sprintf("%s/05_read_list/%s_raw.tsv", dird, sid)
+    tiss = c("root",'leaf','SAM','seed')
+    th2 = read_tsv(fh) %>%
+        mutate(Tissue=ifelse(Tissue %in% tiss, Tissue, 'seed')) %>%
+        select(SampleID, Tissue, Genotype)
+th = ti %>%
+    select(SampleID=Run, Treatment=Experiment,
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    inner_join(th2, by = 'SampleID') %>%
+    mutate(Replicate = '') %>%
+    select(SampleID, Tissue, Genotype, Treatment, Replicate, paired,spots,avgLength) %>%
     arrange(SampleID)
 th = sra_fill_replicate(th)
 #}}}
@@ -420,7 +436,7 @@ th = ti %>%
               Genotype = SampleName,
               Treatment = '',
               Replicate = 1,
-              paired = paired) %>%
+              paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 th = sra_fill_replicate(th)
 #}}}
@@ -438,7 +454,8 @@ th = ti %>%
     mutate(tis=str_replace(tis,'_T2', '')) %>%
     mutate(tis=str_replace(tis,'^L\\?\\?$','L')) %>%
     transmute(SampleID = Run, Tissue = tis, Genotype = gt1,
-              Treatment = '', Replicate = '', paired = paired) %>%
+              Treatment = '', Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
     arrange(SampleID)
 idx = which(th$Tissue=='MoG_115')
 th$Genotype[idx] = sprintf("%s-MoG-115", th$Genotype[idx])
@@ -461,11 +478,11 @@ th
 #}}}
 }
 
-sid = 'me18c'
+sid = 'me99a'
 fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
 fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
 ti = read_sra_run(fi, fi2)
-
+#
 th = fix_read_list(ti, sid)
 th %>% count(Tissue, Genotype, Treatment) %>% print(n=100)
 th %>% count(Replicate)
@@ -476,24 +493,6 @@ write_tsv(th, fo)
 sid = 'me99b'
 fi = '~/projects/briggs/data/03_collect/01.reads.tsv'
 ti = read_tsv(fi)
-
-#{{{ #[obsolete] create sym-links, write read list
-diro1 = sprintf("%s/cache/%s/09_fastq_raw", dird, sid)
-diro2 = sprintf("%s/cache/%s/10_fastq", dird, sid)
-if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
-if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
-
-ti = ti %>%
-    mutate(nR1 = ifelse(gz, sprintf("%s/%s_1.fq.gz", diro2, SampleID),
-                        sprintf("%s/%s_1.fq", diro1, SampleID)),
-           nR2 = ifelse(gz, sprintf("%s/%s_2.fq.gz", diro2, SampleID),
-                        sprintf("%s/%s_2.fq", diro1, SampleID))) %>%
-    mutate(cmd1 = sprintf("ln -sf %s %s", R1, nR1),
-           cmd2 = sprintf("ln -sf %s %s", R2, nR2))
-
-map_int(ti$cmd1, system)
-map_int(ti$cmd2, system)
-#}}}
 
 tismap = c(
 'spikelets_0DAP' = 'spikelet_0DAP',
@@ -509,7 +508,7 @@ tismap = c(
 'seedlingmeristem_11DAS' = 'meristem_seedling_11DAS',
 'seedlingroot_11DAS' = 'root_seedling_11DAS'
 )
-th = ti %>% select(SampleID, Tissue, Genotype, r1=R1,r2=R2) %>%
+th = ti %>% select(SampleID, Tissue, Genotype, r1=R1,r2=R2, spots, avgLength) %>%
     mutate(Tissue = ifelse(Tissue %in% names(tismap), tismap[Tissue], Tissue)) %>%
     separate(Tissue, c("Tissue", "Treatment"), fill='right', extra='merge') %>%
     mutate(Replicate = '', paired = T) %>%
@@ -524,54 +523,56 @@ write_tsv(th, fo)
 #{{{ biomap
 sid = 'me99c'
 diri = '~/projects/biomap/data/01_exp_design'
-fi = file.path(diri, "04.typo.corrected.tsv")
-ti = read_tsv(fi) %>%
-    mutate(raw_idx = sid,
-           sid = sprintf("bm%03d", idx)) %>%
-    select(sid, raw_idx, sample, everything()) %>%
-    select(-idx)
-fo = file.path(diri, "06.sample.renamed.tsv")
-#write_tsv(ti, fo)
 
-th = ti %>%
-    transmute(SampleID = sid, Tissue = tissue, Genotype = genotype,
-              Treatment = NA, Replicate = NA,
-              paired = T,
-              inbred = ifelse(type == 'Inbred', T, F),
-              fi = Readfile,
-              fv = file.exists(Readfile))
-table(th$fv)
+seqdirs = sprintf('/home/hirschc1/shared/Archive/reads/biomap/RNAseq/%s',
+                  c('JGI.170615.ZeamayEProfiling_3','JGI.230715.ZeamayEProfiling_4'))
+fis = sprintf("%s/jgi.%d.tsv", diri, 1:2)
+tq = tibble(seqdir=seqdirs, fn=fis) %>%
+    mutate(data = map(fn, read_tsv, skip=1,
+               col_names=c('lib','sid2','spots','sname','cond','sequencer','runType','fname'))) %>% unnest() %>%
+    separate(sname,c('gt','tis','suf'),sep='_',fill='right',extra='merge',remove=F)
 
-gts = th %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
-pas = strsplit(th$Genotype[!th$inbred], split = 'x')
-pas = unique(unlist(pas))
+tismap = c('L'='Leaf','I'='Internode','E'='Endosperm','R'='Root','S'='Shoot')
+tq2 = tq %>% mutate(r0=file.path(seqdir,fname)) %>%
+    mutate(r0 = str_replace(r0, '\\.anqrpt', '')) %>%
+    select(sid2,sname,gt,tis,suf,cond,r0,spots) %>%
+    mutate(tis = str_replace(tis, '\\?+$', '')) %>%
+    mutate(tis = tismap[tis]) %>%
+    mutate(gt = str_replace(gt, 'xSelf$', '')) %>%
+    mutate(gt = str_replace(gt, 'LH123ht', 'LH123HT')) %>%
+    mutate(gt = str_replace(gt, '^OH43$', 'Oh43')) %>%
+    mutate(inbred = !str_detect(gt, 'x')) %>%
+    separate(gt, c('pa1','pa2'), sep="x", fill='right',extra='merge', remove=F) %>%
+    mutate(pa2 = ifelse(!is.na(pa2) & pa2=='Mo17XB73','B73',pa2))
+tq2 %>% count(tis)
+tq2 %>% count(inbred)
+tq2 %>% count(pa1) %>% print(n=40)
+tq2 %>% count(pa2)
+
+to = tq2 %>% arrange(sid2) %>%
+    mutate(sid = sprintf("bm%03d", 1:length(sid2))) %>%
+    mutate(Treatment=NA, Replicate=NA, paired = T, avgLength=300) %>%
+    select(SampleID=sid, Tissue=tis, Genotype=gt, Treatment, Replicate, paired,
+           inbred, pa1, pa2, r0, spots, avgLength) %>%
+    mutate(fv = file.exists(r0))
+to %>% count(fv)
+to = to %>% select(-fv)
+
+gts = to %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
+pas = unique(to$pa1, to$pa2)
+pas = pas[!is.na(pas)]
 pas[! pas %in% gts]
 
-#{{{ [obsolete] create sym-links, write read list
-diro = sprintf("%s/cache/%s/09_fq_interleaved", dird, sid)
-if(!dir.exists(diro)) system(sprintf("mkdir -p %s", diro))
-cmds = th %>%
-    mutate(fl = sprintf("%s/%s.fq.gz", diro, SampleID)) %>%
-    mutate(cmd = sprintf("ln -sf %s %s", fi, fl)) %>%
-    pull(cmd)
-map_int(cmds, system)
-#}}}
-
-tp = th %>% select(-fv, r0=fi) %>%
-    separate(Tissue, c('Tissue', 'rep'), by = '_', fill='right',extra='merge')
-tp %>% filter(!is.na(rep))
-tp %>% filter(!is.na(rep)) %>% distinct(Tissue, Genotype)
-tp = tp %>% mutate(Replicate = as.integer(ifelse(is.na(rep), 1, 2))) %>%
-    select(-rep)
+to = sra_fill_replicate(to)
 
 fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
-write_tsv(tp, fo, na = '')
+write_tsv(to, fo, na = '')
 #}}}
 
 #{{{ me17b, me99f
 sid2pid = c('me17b'='sp033', 'me99f'='sp064')
 sid = 'me99f'
-sid = 'me17b'
+sid = 'me17b' # lack fastqc report
 fi = file.path(dird, '03.raw.xlsx')
 ti = read_xlsx(fi, sheet=sid2pid[sid])
 
@@ -601,16 +602,20 @@ ti = ti %>% fill(Tissue, Genotype, directory) %>%
     mutate(tag = file.exists(f1) & file.exists(f2))
 sum(!ti$tag)
 
-#{{{ [obsolete] create sym-links, write read list
-if(!dir.exists(diro1)) system(sprintf("mkdir -p %s", diro1))
-if(!dir.exists(diro2)) system(sprintf("mkdir -p %s", diro2))
+if(sid == 'me17b') {
+    to = ti %>% mutate(spots = 5e7, avgLength=51)
+} else {
+tt = ti %>% distinct(directory) %>%
+    mutate(rdir = file.path(dir0, directory)) %>%
+    mutate(data = map(rdir, read_msi_fastqc)) %>%
+    unnest() %>% select(-rdir)
+ti2 = ti %>% mutate(sampleName = str_replace_all(file,'_','.')) %>%
+    mutate(sampleName = str_replace(sampleName, '\\.S[0-9]+$',''))
+to = ti2 %>% inner_join(tt, by=c('directory','sampleName'))
+}
 
-map_int(ti$cmd1, system)
-map_int(ti$cmd2, system)
-#}}}
-
-th = ti %>% select(SampleID, Tissue, Genotype, r1=f1, r2=f2) %>%
-    mutate(Treatment='', Replicate = '', paired = T) %>%
+th = to %>% select(SampleID, Tissue, Genotype, r1=f1, r2=f2, spots,avgLength) %>%
+    mutate(Treatment='', Replicate = '', paired = T, avgLength=avgLength*2) %>%
     select(SampleID, Tissue, Genotype, Treatment, Replicate, paired, everything())
 th = sra_fill_replicate(th)
 th %>% count(Genotype, Tissue, Treatment) %>% print(n=50)
