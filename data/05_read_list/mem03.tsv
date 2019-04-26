@@ -1,0 +1,17 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	spots	avgLength
+SRR7690936	endosperm	B73	rbm48-umu1 -/-	1	TRUE	23546809	200
+SRR7690937	endosperm	B73	rbm48-umu1 -/-	2	TRUE	25031099	200
+SRR7690938	endosperm	B73	rbm48-umu1 -/-	3	TRUE	20991379	200
+SRR7690939	endosperm	B73	rbm48-umu1 -/-	4	TRUE	21426742	200
+SRR7690940	endosperm	B73	rbm48-umu1 +/+ (WT)	1	TRUE	23158782	200
+SRR7690941	endosperm	B73	rbm48-umu1 +/+ (WT)	2	TRUE	20157543	200
+SRR7690942	endosperm	B73	rbm48-umu1 +/+ (WT)	3	TRUE	24000237	200
+SRR7690943	endosperm	B73	rbm48-umu1 +/+ (WT)	4	TRUE	20439487	200
+SRR7690944	endosperm	B73	rbm48-umu2 -/-	1	TRUE	21297734	200
+SRR7690945	endosperm	B73	rbm48-umu2 -/-	2	TRUE	22487118	200
+SRR7690946	endosperm	B73	rbm48-umu2 -/-	3	TRUE	22511609	200
+SRR7690947	endosperm	B73	rbm48-umu2 -/-	4	TRUE	23422258	200
+SRR7690948	endosperm	B73	rbm48-umu2 +/+ (WT)	1	TRUE	23906030	200
+SRR7690949	endosperm	B73	rbm48-umu2 +/+ (WT)	2	TRUE	27800576	200
+SRR7690950	endosperm	B73	rbm48-umu2 +/+ (WT)	3	TRUE	16825911	200
+SRR7690951	endosperm	B73	rbm48-umu2 +/+ (WT)	4	TRUE	22149432	200

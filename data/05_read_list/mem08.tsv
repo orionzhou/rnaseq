@@ -1,0 +1,3 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	spots	avgLength
+SRR1588568	endosperm	B73	o2	1	FALSE	41066731	181
+SRR1588569	endosperm	B73	WT	1	FALSE	41537072	180

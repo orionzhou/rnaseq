@@ -1,5 +1,5 @@
 source("functions.R")
-t_cfg %>% select(yid, study, author) %>% print(n=40)
+t_cfg %>% select(yid, study, author) %>% print(n=80)
 
 fix_read_list <- function(ti, sid) {
 #{{{
@@ -41,23 +41,6 @@ if(sid == 'me10a') {
                   Genotype = 'B73',
                   Treatment = Treatment,
                   Replicate = '',
-                  paired = paired, spots = spots, avgLength=avgLength) %>%
-        arrange(SampleID)
-#}}}
-} else if (sid == 'me12a') {
-#{{{ Bolduc2012
-    th = ti %>%
-        separate(LibraryName, c("gsm1", "gsm"), sep = ": ") %>%
-        separate(gsm, c("gentisrep", 'zm', 'rna'), sep = "; ") %>%
-        separate(gentisrep, c("gentis", 'rep'), sep = " #") %>%
-        mutate(gentis = str_replace(gentis, " leaf (homo|het)", "_\\1 leaf")) %>%
-        separate(gentis, c("gen", "tis"), sep = " ") %>%
-        mutate(tis = str_replace(tis, 's$', '')) %>%
-        transmute(SampleID = Run,
-                  Tissue = tis,
-                  Genotype = 'B73',
-                  Treatment = gen,
-                  Replicate = rep,
                   paired = paired, spots = spots, avgLength=avgLength) %>%
         arrange(SampleID)
 #}}}
@@ -470,6 +453,206 @@ th %>% filter(inbred) %>% distinct(Genotype) %>% pull(Genotype)
 th %>% filter(!inbred) %>% count(Tissue)
 th %>% filter(!inbred) %>% distinct(Genotype) %>% pull(Genotype)
 #}}}
+} else if (sid == 'mem01') {
+#{{{ Bolduc2012
+    th = ti %>%
+        separate(LibraryName, c("gsm1", "gsm"), sep = ": ") %>%
+        separate(gsm, c("gentisrep", 'zm', 'rna'), sep = "; ") %>%
+        separate(gentisrep, c("gentis", 'rep'), sep = " #") %>%
+        mutate(gentis = str_replace(gentis, " leaf (homo|het)", "_\\1 leaf")) %>%
+        separate(gentis, c("gen", "tis"), sep = " ") %>%
+        mutate(tis = str_replace(tis, 's$', '')) %>%
+        transmute(SampleID = Run,
+                  Tissue = tis,
+                  Genotype = 'B73',
+                  Treatment = gen,
+                  Replicate = rep,
+                  paired = paired, spots = spots, avgLength=avgLength) %>%
+        arrange(SampleID)
+#}}}
+} else if (sid == 'mem02') {
+#{{{
+th = ti %>% separate(LibraryName, c('tre','rep'), sep='_') %>%
+    transmute(SampleID = Run,
+              Tissue = 'ear tip',
+              Genotype = 'B73',
+              Treatment = tre,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem03') {
+#{{{
+th = ti %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ') %>%
+    mutate(tre = str_replace(tre, " Rep[0-9]$", "")) %>%
+    transmute(SampleID = Run,
+              Tissue = 'endosperm',
+              Genotype = 'B73',
+              Treatment = tre,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem04') {
+#{{{
+th = ti %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    mutate(tre = ifelse(tre == 'wild type', 'WT', 'mads47')) %>%
+    transmute(SampleID = Run,
+              Tissue = 'kernel',
+              Genotype = 'B73',
+              Treatment = tre,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem05') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('gt','rep','tis'), sep='_', extra='merge') %>%
+    mutate(gt = ifelse(gt %in% c('wt','B73'), 'WT', gt)) %>%
+    transmute(SampleID = Run,
+              Tissue = tis,
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem06') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('tis','gt','rep'), sep='_', extra='merge') %>%
+    mutate(gt = ifelse(gt %in% c('wildtype'), 'WT', 're2')) %>%
+    transmute(SampleID = Run,
+              Tissue = 'tassel',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem07') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('gt','suf','rep'), sep=' ', extra='merge') %>%
+    transmute(SampleID = Run,
+              Tissue = 'endosperm',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem08') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    mutate(gt = ifelse(tre == 'wild type', 'WT', 'o2')) %>%
+    transmute(SampleID = Run,
+              Tissue = 'endosperm',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem09') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('gt','rep'), sep='_', extra='merge') %>%
+    mutate(gt = ifelse(gt == 'zmbzip22', 'bzip22', gt)) %>%
+    transmute(SampleID = Run,
+              Tissue = 'kernel',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem10') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('gt','rep'), sep='-', extra='merge') %>%
+    transmute(SampleID = Run,
+              Tissue = 'kernel',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem11') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('gt','rep'), sep='_', extra='merge') %>%
+    mutate(gt = ifelse(gt == 'fea4', gt, 'WT')) %>%
+    transmute(SampleID = Run,
+              Tissue = 'ear',
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem12') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    transmute(SampleID = Run,
+              Tissue = 'leaf primordia',
+              Genotype = 'B73',
+              Treatment = tre,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
+} else if (sid == 'mem13') {
+#{{{
+th = ti %>% filter(LibraryStrategy == 'RNA-Seq') %>%
+    separate(Title, c('str1','str2'), sep=': ') %>%
+    separate(str2, c('tre','str2b','str2c'), sep='; ', extra='merge') %>%
+    separate(tre, c('tre','str3'), sep=', ', extra='merge') %>%
+    separate(tre, c('gt','tis'), sep=' ', extra='merge') %>%
+    mutate(tis = ifelse(tis == 'Aleurone', 'aleurone', 'endosperm')) %>%
+    mutate(gt = ifelse(gt == 'B73', 'WT', gt)) %>%
+    transmute(SampleID = Run,
+              Tissue = tis,
+              Genotype = 'B73',
+              Treatment = gt,
+              Replicate = '',
+              paired = paired, spots = spots, avgLength=avgLength) %>%
+    arrange(SampleID)
+th = sra_fill_replicate(th)
+#}}}
 } else {
     cat("unknown study: ", sid, "\n")
 }
@@ -478,15 +661,17 @@ th
 #}}}
 }
 
-sid = 'me99a'
-fi = sprintf("%s/03_sra_list/%s.csv", dird, sid)
-fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, sid)
+yid = 'mem13'
+fi = sprintf("%s/03_sra_list/%s.csv", dird, yid)
+fi2 = sprintf("%s/03_sra_list/%s_exp.csv", dird, yid)
 ti = read_sra_run(fi, fi2)
-#
-th = fix_read_list(ti, sid)
+ti %>% print(width=Inf)
+t_cfg %>% filter(yid == !!yid) %>% print(width=Inf)
+
+th = fix_read_list(ti, yid)
 th %>% count(Tissue, Genotype, Treatment) %>% print(n=100)
 th %>% count(Replicate)
-fo = sprintf("%s/05_read_list/%s.tsv", dird, sid)
+fo = sprintf("%s/05_read_list/%s.tsv", dird, yid)
 write_tsv(th, fo)
 
 #{{{ briggs

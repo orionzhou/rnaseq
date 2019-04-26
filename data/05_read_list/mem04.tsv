@@ -1,0 +1,3 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	spots	avgLength
+SRR2089505	kernel	B73	mads47	1	TRUE	8247175	200
+SRR2089506	kernel	B73	WT	1	TRUE	7220711	200
