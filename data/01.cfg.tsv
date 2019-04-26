@@ -1,38 +1,50 @@
-yid	study	author	source	readtype	stranded	meta	stress	genotype	tissue	n	reference	mapper	done	run
-me10a	leaf 6 zones	li2010	sra	illumina	no			B73	leaf	6.0	B73	star	T	
-me11a	reproductive 12	davidson2011	sra	illumina	no			B73	reproductive	12.0	B73	star	T	
-me12a	KN1 TF	bolduc2012	sra	illumina	no			B73	meristem	10.0	B73	star	T	
-me13a	eQTL	li2013	sra	illumina	no			B,M and RILs	SAM	105.0	B73	star	T	
-me13b	leaf time-series 13t	liu2013	sra	illumina	no			B73	early leaf	13.0	B73	star	T	
-me13c	diverse inbreds	eitchen2013	sra	illumina	no			62 inbreds	seedling_leaf3	62.0	B73	star	T	
-me13d	imprinting	waters2013	sra	illumina	no			4 reciprocal hybrids	endosperm	8.0	B73	star		
-me13e	kernel eQTL	fu2013	sra	illumina	no			368 inbreds	kernel_15DAP	368.0	B73	star	T	
-me14a	pan-transcriptome	hirsch2014	sra	illumina	no			503 inbreds	seedling	503.0	B73	star	T	
-me14b	endosperm 7t	li2014	sra	solid	no			B73	endosperm	7.0	B73	star	T	
-me14c	7 gamete	chettoor2014	sra	illumina	no			B73	gamete 7	7.0	B73	star	T	
-me14d	ligule	johnston2014	sra	illumina	no			B73	ligule		B73	star	T	
-me14e	embryo+endosperm	chen2014	sra	illumina	no			B73	seed	53.0	B73	star	T	
-me15a	SAM	leiboff2015	sra	illumina	no			380 lines	SAM	380.0	B73	star	T	
-me15b	leaf time-series 9t	yu2015	sra	illumina	no			B73	late leaf	9.0	B73	star	T	
-me16b	atlas	stelpflug2016	sra	illumina	no			B73	93 tissues	93.0	B73	star	T	
-me16c	proteome	walley2016	sra	illumina	no			B73	23 tissues	23.0	B73	star	T	
-me17a	eRD-GWAS	lin2017	sra	illumina	no			27 inbreds	5 tissues	133.0	B73	star	T	
-me17b	stress cis-trans	waters2017	local	illumina	no		T	B, M, P and F1	seedlilng		B73	star		
-me17c	drought stress	marcon2017	sra	illumina	no		T	B, M anf F1	root	8.0	B73	star	T	
-me18a	dysregulation	kremling2018	sra	3rnaseq	no			255 lines	7 tissues	1781.0	B73	star	T	
-me18b	SPE	baldauf2018	sra	illumina	no			7 inbreds + 6 hybrids	3 root stages	46.0	B73	star	T	
-me18c	maize-teosinte RIL	wang2018	sra	illumina	no			W,T and RILs	seedling_v2	623.0	B73	star		T
-me18d	root ionics	schaefer2018	sra	illumina	no			48 inbreds	root	48.0	B73	star	T	
-me19a	widiv biomass	mazaheri2019	sra	illumina	no			453 inbreds	whole seedlings	453.0	B73	star	T	
-me99a	biomass	kaeppler2018	sra	illumina	no			170 inbreds + 96 hybrids	5 tissues	460.0	B73	star	T	
-me99b	B73&Mo17 atlas	zhou2018	local	illumina	reverse			B, M anf F1	23 tissues	23.0	B73	hisat2	T	
-me99b_m	B73&Mo17 atlas	zhou2018	local	illumina	reverse			B, M anf F1	23 tissues	23.0	Mo17	hisat2	T	
-me99c	biomAP	li2019	local_interleaved	illumina	no			35 inbreds + 96 hybrids	5 tissues	465.0	B73	star	T	
-me99d	stress response	enders	local	3rnaseq	no		T	B and M	leaf		B73	star	T	
-me99e	endosperm mutant	settles	local	illumina	no			W22	endosperm		B73	star		
-me99f	imprinting	anderson	local	illumina	no			F1 btw. B,W,P	endosperm	12.0	B73	star		
-mec01	me10a+me13b+me15b		local	illumina	no	T		B73	leaf 40	40.0	B73	star	T	
-mec02	me14b+me14e		local	illumina	no	T		B73	embryo+endosperm	61.0	B73	star	T	
-mec03	me16b+me16c+me99b		local	illumina	no	T		B73	dev atlas	139.0	B73	star	T	
-mec04	me17c+me18b		local	illumina	no	T		7 inbreds + 8 hybrids	3 root stages	50.0	B73	star	T	
-met01	me13b+me15b		local	illumina	no	T		B73	leaf 22	22.0	B73	star	T	
+yid	study	author	acc	source	readtype	stranded	meta	stress	ase	genotype	tissue	n	ref	mapper	done	run
+me10a	leaf 6 zones	li2010		sra	illumina	no				B73	leaf	6.0	B73	star	T	
+me11a	reproductive 12	davidson2011		sra	illumina	no				B73	reproductive	12.0	B73	star	T	
+me13a	eQTL	li2013		sra	illumina	no				B,M and RILs	SAM	105.0	B73	star	T	
+me13b	leaf time-series 13t	liu2013		sra	illumina	no				B73	early leaf	13.0	B73	star	T	
+me13c	diverse inbreds	eitchen2013		sra	illumina	no				62 inbreds	seedling_leaf3	62.0	B73	star	T	
+me13d	imprinting	waters2013		sra	illumina	no				4 reciprocal hybrids	endosperm	8.0	B73	star		
+me13e	kernel eQTL	fu2013		sra	illumina	no				368 inbreds	kernel_15DAP	368.0	B73	star	T	
+me14a	pan-transcriptome	hirsch2014		sra	illumina	no				503 inbreds	seedling	503.0	B73	star	T	
+me14b	endosperm 7t	li2014		sra	solid	no				B73	endosperm	7.0	B73	star	T	
+me14c	7 gamete	chettoor2014		sra	illumina	no				B73	gamete 7	7.0	B73	star	T	
+me14d	ligule	johnston2014		sra	illumina	no				B73	ligule		B73	star	T	
+me14e	embryo+endosperm	chen2014		sra	illumina	no				B73	seed	53.0	B73	star	T	
+me15a	SAM	leiboff2015		sra	illumina	no				380 lines	SAM	380.0	B73	star	T	
+me15b	leaf time-series 9t	yu2015		sra	illumina	no				B73	late leaf	9.0	B73	star	T	
+me16b	atlas	stelpflug2016		sra	illumina	no				B73	93 tissues	93.0	B73	star	T	
+me16c	proteome	walley2016		sra	illumina	no				B73	23 tissues	23.0	B73	star	T	
+me17a	eRD-GWAS	lin2017		sra	illumina	no				27 inbreds	5 tissues	133.0	B73	star	T	
+me17b	stress cis-trans	waters2017		local	illumina	no		T		B, M, P and F1	seedlilng		B73	hisat2		
+me17c	drought stress	marcon2017		sra	illumina	no		T	T	B, M anf F1	root	8.0	B73	hisat2	T	T
+me18a	dysregulation	kremling2018		sra	3rnaseq	no				255 lines	7 tissues	1781.0	B73	star	T	
+me18b	SPE	baldauf2018		sra	illumina	no				7 inbreds + 6 hybrids	3 root stages	46.0	B73	star	T	
+me18c	maize-teosinte RIL	wang2018		sra	illumina	no				W,T and RILs	seedling_v2	623.0	B73	star	T	
+me18d	root ionics	schaefer2018		sra	illumina	no				48 inbreds	root	48.0	B73	star	T	
+me18e	tissue GRN	huang2018		sra	illumina	no				diverse collections	4 tissues	1136.0	B73	star	T	
+me19a	widiv biomass	mazaheri2019		sra	illumina	no				453 inbreds	whole seedlings	453.0	B73	star	T	
+me99a	biomass	kaeppler2018		sra	illumina	no				170 inbreds + 96 hybrids	5 tissues	460.0	B73	star	T	
+me99b	B73&Mo17 atlas	zhou2018		local	illumina	reverse			T	B, M anf F1	23 tissues	23.0	B73	hisat2		T
+me99c	biomAP	li2019		local_interleaved	illumina	no				35 inbreds + 96 hybrids	5 tissues	465.0	B73	hisat2	T	
+me99d	stress response	enders		local	3rnaseq	no		T		B and M	leaf		B73	star	T	
+me99e	endosperm mutant	settles		local	illumina	no				W22	endosperm		B73	star		
+me99f	imprinting	anderson		local	illumina	no			T	F1 btw. B,W,P	endosperm	12.0	B73	star		
+mec01	me10a+me13b+me15b			local	illumina	no	T			B73	leaf 40	40.0	B73	star	T	
+mec02	me14b+me14e			local	illumina	no	T			B73	embryo+endosperm	61.0	B73	star	T	
+mec03	me16b+me16c+me99b			local	illumina	no	T			B73	dev atlas	139.0	B73	star	T	
+mec04	me17c+me18b			local	illumina	no	T			7 inbreds + 8 hybrids	3 root stages	50.0	B73	star	T	
+met01	me13b+me15b			local	illumina	no	T			B73	leaf 22	22.0	B73	star	T	
+mem01	KN1	bolduc2012		sra	illumina	no				B73	meristem	10.0	B73	star	T	
+mem02	cle7		PRJNA494874	sra	illumina	no				B73	ear tip	4.0	B73	star		
+mem03	rbm48		PRJNA485828	sra	illumina	no				W22	endosperm	16.0	B73	star		
+mem04	ZmMADS47		PRJNA289143	sra	illumina	no				B73	kernel	2.0	B73	star		
+mem05	ufo1	wittmeyer2018	PRJNA483200	sra	illumina	no				B73	pericarp	27.0	B73	star		
+mem06	rel2	liu2018	PRJNA475209	sra	illumina	no				B73	tassel	6.0	B73	star		
+mem07	opaque2	zhan2018	PRJNA471036	sra	illumina	no				B73	endosperm	6.0	B73	star		
+mem08	opaque2	li2015	PRJNA262503	sra	illumina	no				W22	endosperm	2.0	B73	star		
+mem09	ZmbZIP22	li2018	PRJNA449867	sra	illumina	no				W22	kernel	6.0	B73	star		
+mem10	floury3	li2017	PRJNA375801	sra	illumina	no				B73	endosperm	6.0	B73	star		
+mem11	fea4	pautler2015	PRJNA262781	sra	illumina	no				A619	ear primordia	6.0	B73	star		
+mem12	liguleless1		PRJNA260793	sra	illumina	no					leaf primordia	24.0	B73	star		
+mem13	nkd	Gontarek2016	PRJNA260183	sra	illumina	no				B73	aleurone+endosperm	2.0	B73	star		
