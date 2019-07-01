@@ -1,3 +1,0 @@
-"Experiment Accession","Experiment Title","Organism Name","Instrument","Submitter","Study Accession","Study Title","Sample Accession","Sample Title","Total Size, Mb","Total RUNs","Total Spots","Total Bases","Library Name","Library Strategy","Library Source","Library Selection"
-"SRX712854","GSM1515455: wild type; Zea mays; RNA-Seq","Zea mays","Illumina HiSeq 2500","GEO","SRP048204","Zea mays Transcriptome or Gene expression","SRS711009","","3014.9","1","41537072","7478040700","","RNA-Seq","TRANSCRIPTOMIC","cDNA"
-"SRX712853","GSM1515454: opaque2 mutant; Zea mays; RNA-Seq","Zea mays","Illumina HiSeq 2500","GEO","SRP048204","Zea mays Transcriptome or Gene expression","SRS711008","","3499.62","1","41066731","7441078375","","RNA-Seq","TRANSCRIPTOMIC","cDNA"

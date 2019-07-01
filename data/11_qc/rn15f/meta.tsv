@@ -1,0 +1,5 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	MergeID	paired	spots	avgLength
+SRR1765672	leaf	Zheng58	NN	1	m1	TRUE	23736829	200
+SRR1770102	leaf	Zheng58	LN	1	m2	TRUE	21988174	200
+SRR1770105	leaf	Chang7-2	NN	1	m3	TRUE	17413303	200
+SRR1770107	leaf	Chang7-2	LN	1	m4	TRUE	19129606	200

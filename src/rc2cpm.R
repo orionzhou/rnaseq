@@ -3,8 +3,9 @@ suppressPackageStartupMessages(library("argparse"))
 
 parser <- ArgumentParser(description = 'Normalize raw read count matrix to CPM and FPKM by DESeq2 and edgeR')
 parser$add_argument("sam", nargs=1, help="sample list table (*.tsv)")
-parser$add_argument("exp", nargs=1, help="raw read count matrix (*.tsv)")
+parser$add_argument("exp", nargs=1, help="raw read count matrix (*.rds)")
 parser$add_argument("out", nargs=1, help="output file (*.rds)")
+parser$add_argument("--opt", default='mmquant', help="data matrix format [default: %(default)s]")
 parser$add_argument("--yid", default='mex', help="study ID [default: %(default)s]")
 parser$add_argument("--config", default='none',
                     help="genome configuration file (*.rds) [default: %(default)s]")
@@ -13,6 +14,7 @@ args <- parser$parse_args()
 f_sam = args$sam
 f_exp = args$exp
 f_out = args$out
+opt = args$opt
 yid = args$yid
 f_cfg = args$config
 
@@ -21,15 +23,26 @@ if( file.access(f_exp) == -1 )
 if( file.access(f_sam) == -1 )
     stop(sprintf("file ( %s ) cannot be accessed", f_sam))
 size.gene = F
-if( f_cfg != 'none')
-    size.gene = readRDS(f_cfg)$size.gene
 
-source("~/projects/rnaseq/src/functions.R")
+require(devtools)
+load_all("~/git/rmaize")
+
+if( f_cfg != 'none')
+    size.gene = readRDS(f_cfg)$gene %>% select(gid, size=size.exon)
 
 th = read_tsv(f_sam)
-t_rc = read_tsv(f_exp) %>%
-    gather(SampleID, ReadCount, -gid) %>%
-    filter(SampleID %in% th$SampleID)
+
+if(opt == 'mmquant') {
+    t_rc = readRDS(f_exp) %>%
+        rename(SampleID = 1, gid = 2, ReadCount = 3) %>%
+        filter(SampleID %in% th$SampleID) %>%
+        filter(!str_detect(gid, '--'))
+} else if (opt == 'featurecounts') {
+    t_rc = readRDS(f_exp) %>%
+        rename(SampleID = 1, gid = 2, ReadCount = 3) %>%
+        filter(SampleID %in% th$SampleID)
+}
+
 res = readcount_norm(t_rc, size.gene)
 
 ths = th %>% distinct(Tissue, Genotype, Treatment) %>%

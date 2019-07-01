@@ -1,5 +1,0 @@
-SampleID	Tissue	Genotype	Treatment	Replicate	paired	spots	avgLength
-SRR7970747	ear tip	B73	cle7	1	TRUE	15855665	288
-SRR7970748	ear tip	B73	cle7	2	TRUE	15014254	285
-SRR7970749	ear tip	B73	WT	1	TRUE	20189921	299
-SRR7970750	ear tip	B73	WT	2	TRUE	18309496	293

@@ -1,9 +1,9 @@
 source("functions.R")
 require(ape)
 require(ggtree)
-t_cfg
+t_cfg %>% print(n=40)
 
-yid = 'me99c'
+yid = 'rn17d'
 #{{{ config
 Sys.setenv(R_CONFIG_ACTIVE = yid)
 dirw = file.path(dird, '11_qc', yid)
@@ -12,52 +12,14 @@ if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 cfg = t_cfg %>% filter(yid == !!yid)
 stopifnot(nrow(cfg) == 1)
 study = cfg %>% pull(study)
-readtype = cfg %>% pull(readtype)
-mapper = cfg %>% pull(mapper)
 genome = cfg %>% pull(ref)
-meta = cfg %>% pull(meta)
 gcfg = read_genome_conf(genome)
 #}}}
 
 #{{{ [meta=F] mapping stats
-th = get_read_list(dird, yid)
-tiss = unique(th$Tissue); genos = unique(th$Genotype);
-treas = unique(th$Treatment); reps = unique(th$Replicate)
-paired = unique(th$paired)
-if(length(paired) == 2) paired = 'both'
-
-diri = file.path(dird, '08_raw_output', yid)
-fi = file.path(diri, 'trimming.tsv')
-tt1 = read_tsv(fi) %>%
-    separate(yid, c('SampleID','pe'), sep='[\\.]') %>%
-    mutate(passed=passed_filter_reads,
-    failed=low_quality_reads+too_many_N_reads+too_short_reads+too_long_reads) %>%
-    mutate(passed = ifelse(pe=='pe', passed/2, passed)) %>%
-    mutate(failed = ifelse(pe=='pe', failed/2, failed)) %>%
-    mutate(total = passed+failed) %>%
-    select(SampleID, total, passed, failed)
-fi = file.path(diri, 'bamstats.tsv')
-tt2 = read_tsv(fi) %>% select(SampleID=yid, everything())
-fi = file.path(diri, 'multiqc_data/multiqc_featureCounts.txt')
-tt3 = read_multiqc_featurecounts(fi)
-
-tt = th %>% select(-paired) %>%
-    left_join(tt1, by = 'SampleID') %>%
-    left_join(tt2, by = 'SampleID') %>%
-    left_join(tt3, by = 'SampleID')
-tt %>% mutate(nd = passed-pair-unpair) %>% pull(nd) %>% sum()
-tt %>% mutate(nd = pair-pair_map-pair_orphan-pair_unmap) %>% pull(nd) %>% sum()
-tt %>% mutate(nd = pair+unpair-Assigned-
-              Unassigned_MultiMapping-
-              Unassigned_NoFeatures-Unassigned_Ambiguity-Unassigned_Unmapped) %>% select(nd)#pull(nd) %>% sum()
-#
-tt %>% group_by(Tissue, Genotype, Treatment) %>%
-    summarise(total = sum(total), Assigned = sum(Assigned)) %>%
-    ungroup() %>% group_by(1) %>%
-    summarise(total_median = median(total/1e6),
-              total_mean = mean(total/1e6),
-              assigned_median = median(Assigned/1e6),
-              assigned_mean = mean(Assigned/1e6)) %>% print(n=1)
+th = rnaseq_sample_meta(yid)
+tt = read_mapping_stat(yid)
+sum_stat_tibble(tt)
 
 fo = file.path(dirw, '10.mapping.stat.tsv')
 write_tsv(tt, fo)
@@ -69,15 +31,15 @@ yids
 #
 th = tibble(); t_rc = tibble()
 for (yid1 in yids) {
-    diri = file.path(dird, '08_raw_output', yid1)
+    diri = file.path(dird, 'raw', yid1)
     th1 = rnaseq_sample_meta(yid1)
-    if(yid1 == 'me12a') {
+    if(yid1 == 'rn12a') {
         th1 = th1 %>% filter(Treatment == 'WT')
-    } else if(yid1 == 'me13b') {
+    } else if(yid1 == 'rn13b') {
         th1 = th1 #%>% filter(!str_detect(Treatment, "ET"))
-    } else if(yid1 == 'me17c') {
+    } else if(yid1 == 'rn17c') {
         th1 = th1 %>% filter(Treatment == 'con')
-    } else if(yid1 == 'me99b') {
+    } else if(yid1 == 'rn18g') {
         th1 = th1 %>% filter(Genotype == 'B73')
     }
     oyids = th1$SampleID
@@ -114,12 +76,11 @@ write_tsv(t_rc, fo)
 #}}}
 
 th = rnaseq_sample_meta(yid)
-tiss = unique(th$Tissue); genos = unique(th$Genotype)
-treas = unique(th$Treatment); reps = unique(th$Replicate)
-
-fi = file.path(dird, '08_raw_output', yid, 'cpm.rds')
+fi = file.path(dird, 'raw', yid, 'cpm.rds')
 res = readRDS(fi)
 tl = res$tl; tm = res$tm
+tiss = unique(th$Tissue); genos = unique(th$Genotype);
+treas = unique(th$Treatment); reps = unique(th$Replicate)
 
 #{{{ [optional] fix/remove mis-labelled samples, save to mexx.c.tsv
 #{{{ cut hc tree
@@ -148,7 +109,7 @@ if(yid == 'me13c') {
 } else if(yid == 'me14d') {
     th = th %>% filter(! SampleID %in% c("SRR1573518", 'SRR1573513'))
 } else if(yid == 'me16b') {
-    #{{{
+    #{{{ old
     th = th %>% filter(!SampleID %in% c("SRR1620930","SRR1620929","SRR1620927",
                                         "SRR1620908","SRR1620913"))
     #}}}
@@ -234,57 +195,60 @@ cols1 = c('gray80','black','red','seagreen3', pal_d3()(5))
 if(length(unique(tp$Tissue)) > 15) tp = tp %>% mutate(Tissue='')
 p1 = ggtree(tree, layout = 'rectangular') +
     #geom_tiplab(size = labsize, color = 'black') +
-    scale_x_continuous(expand = expand_scale(
-        mult=c(.02, config::get("hc.x.expand")))) +
-    scale_y_discrete(expand = c(.01,0)) +
-    theme_tree2()
+    scale_x_continuous(expand = expand_scale(.001,1)) +
+        #mult=c(.02, config::get("hc.x.expand")))) +
+    scale_y_discrete(expand = c(.01,0))
 p1 = p1 %<+% tp + geom_tiplab(
         #aes(label=lab, color = Tissue),
-        aes(label=lab, color = Genotype),
+        aes(label=lab, color = Genotype), size=2.5
         #aes(label=lab, color = Treatment),
-        size = config::get("hc.labsize"),
-        offset = config::get("hc.x.off"),
-        family='mono') +
+        #size = config::get("hc.labsize"),
+        #offset = config::get("hc.x.off"),
+        #family='mono'
+        ) +
     #scale_color_npg()
     scale_color_aaas()
 fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width=config::get("hc.wd"), height=config::get("hc.ht"))
+#ggsave(p1, filename = fo, width=config::get("hc.wd"), height=config::get("hc.ht"))
+ggsave(p1, filename = fo, width=8, height=12)
 #}}}
 
 #{{{ tSNE
 require(Rtsne)
 tw = tm %>% select(SampleID, gid, CPM) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
 tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
-              pca = T, max_iter = 500)
+              pca = T, max_iter = 1500)
 
 tp = as_tibble(tsne$Y) %>%
     add_column(SampleID = colnames(tt)[-1]) %>%
-    inner_join(th, by = 'SampleID') %>%
-    replace_na(list(Treatment='')) %>%
-    mutate(txt = sprintf("%s_%s", Treatment, Replicate))
+    inner_join(th, by = 'SampleID')
+    #replace_na(list(Treatment='')) %>%
+    #mutate(txt = sprintf("%s_%s", Treatment, Replicate))
     #mutate(txt = sprintf("%s_%s", Genotype, Replicate))
 if(length(unique(tp$Tissue)) > 15) tp = tp %>% mutate(Tissue='')
 p_tsne = ggplot(tp) +
-    geom_text_repel(data=tp, aes(x=V1,y=V2,label=txt), size=2, alpha=.8) +
+    geom_text_repel(data=tp, aes(x=V1,y=V2,label=Tissue), size=2.5, alpha=.99) +
     #geom_point(aes(x=V1, y=V2, color=Tissue), size=2) +
     #geom_point(aes(x=V1, y=V2, color=Tissue, shape=inbred), size=2) +
-    geom_point(aes(x=V1, y=V2, color=Genotype), size=2) +
+    geom_point(aes(x=V1, y=V2, color=hr, shape=Genotype), size=2) +
     #geom_point(aes(x=V1, y=V2, color=Treatment), size=2) +
     #stat_ellipse(aes(x=V1, y=V2, fill=Tissue), linetype=1, alpha=.4) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
-    scale_shape_manual(values = c(15,4,16)) +
-    #scale_color_npg() +
-    scale_color_aaas() +
+    scale_shape_manual(values = c(15,0,16,1)) +
+    #scale_color_simpsons() +
+    scale_color_viridis() +
+    #scale_color_gradientn(name='hours after day9', colors=pal_gradient()) +
     #scale_color_manual(values = pal_aaas()(10)) +
-    otheme(legend.pos = 'bottom.right', legend.dir = 'v',
+    otheme(legend.pos = 'top.left', legend.dir = 'v',
+           xtitle=T, ytitle=T,
            margin = c(.2,.2,.2,.2)) +
     theme(axis.ticks.length = unit(0, 'lines')) +
-    guides(color = guide_legend(ncol = 2, byrow = T))
+    guides(color = guide_legend(ncol=1, byrow = T))
 fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width = 8, height = 8)
 #}}}
@@ -364,5 +328,7 @@ fo = file.path(dirw, '25.pca.pdf')
 plot_pca(tp, fo, opt = config::get("pca.opt"), labsize = config::get("pca.labsize"),
          wd = config::get("pca.wd"), ht = config::get("pca.ht"))
 #}}}
+
+
 
 

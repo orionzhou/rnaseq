@@ -1,12 +1,25 @@
 require(devtools)
 load_all("~/git/rmaize")
+require(ape)
+require(ggtree)
 dirp = '~/projects/rnaseq'
 dird = file.path(dirp, 'data')
 dirc = '/scratch.global/zhoux379/rnaseq'
-f_cfg = file.path(dird, '01.cfg.xlsx')
-t_cfg = read_xlsx(f_cfg, sheet=1, col_names=T) %>% replace_na(list('meta'=F))
-f_yml = file.path(dird, '10.cfg.yaml')
-Sys.setenv("R_CONFIG_FILE" = f_yml)
+#require(googledrive)
+#require(googlesheets4)
+#cred='~/.config/google_service_account.json'
+#drive_auth(service_token=cred)
+#sheets_auth(path=cred)
+#book = drive_get("coding")
+#t_cfg = read_sheet(book, sheet='barn', col_names=T) %>%
+f_cfg = '~/projects/master.xlsx'
+t_cfg = read_xlsx(f_cfg, sheet='barn', col_names=T) %>%
+    filter(libtype == 'rnaseq') %>%
+    mutate(ase=as.logical(ase), stress=as.logical(stress)) %>%
+    select(yid,author,study,genotype,tissue,n,ref,ase,stress) %>%
+    replace_na(list(ref='Zmays_B73',ase=F,stress=F))
+#f_yml = file.path(dird, '10.cfg.yaml')
+#Sys.setenv("R_CONFIG_FILE" = f_yml)
 
 read_multiqc_trimmomatic <- function(fi, paired = T) {
     #{{{
@@ -112,7 +125,7 @@ read_multiqc_featurecounts <- function(fi) {
     types = c("Assigned", "Unassigned_MultiMapping", "Unassigned_Unmapped",
               "Unassigned_NoFeatures", "Unassigned_Ambiguity")
     to = ti2 %>% select(SampleID, Assigned, Unassigned_MultiMapping,
-                        Unassigned_NoFeatures, Unassigned_Ambiguity, 
+                        Unassigned_NoFeatures, Unassigned_Ambiguity,
                         Unassigned_Unmapped)
     to
     #}}}
