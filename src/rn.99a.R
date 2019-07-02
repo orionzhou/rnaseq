@@ -19,13 +19,14 @@ sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
 
 # fix th
 th2 = th %>% filter(SampleID %in% sids_keep) %>%
+    mutate(Genotype=str_replace(Genotype, 'xSelf$', '')) %>%
     mutate(Tissue=ifelse(Tissue=='unk', "U", Tissue)) %>%
     mutate(Tissue=ifelse(SampleID=='SRR8043188','L',Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR8043090','L', Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR5691250','U', Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR7975372','S', Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR7975402','S', Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR7975392','S', Tissue))
+    mutate(Tissue=ifelse(SampleID=='SRR8043090','L', Tissue))
+#    mutate(Tissue=ifelse(SampleID=='SRR5691250','U', Tissue)) %>%
+#    mutate(Tissue=ifelse(SampleID=='SRR7975372','S', Tissue)) %>%
+#    mutate(Tissue=ifelse(SampleID=='SRR7975402','S', Tissue)) %>%
+#    mutate(Tissue=ifelse(SampleID=='SRR7975392','S', Tissue))
     #mutate(Genotype=ifelse(SampleID=='SRR5691477', 'PHN11x?', Genotype)) %>%
     #mutate(inbred=ifelse(SampleID=='SRR5691477', F, inbred))
 th2 = complete_sample_list(th2)
@@ -49,8 +50,8 @@ gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 e = tw %>% filter(gid %in% gids) %>% select(-gid)
 dim(e)
 
-cor_opt = "spearman"
 cor_opt = "pearson"
+cor_opt = "spearman"
 hc_opt = "ward.D"
 hc_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
 edist <- as.dist(1-cor(e, method = cor_opt))
@@ -77,7 +78,7 @@ t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
+tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=9,
               pca = T, max_iter = 1500)
 
 tp = as_tibble(tsne$Y) %>%
@@ -85,8 +86,8 @@ tp = as_tibble(tsne$Y) %>%
     inner_join(th, by = 'SampleID')
 x.max=max(tp$V1)
 p_tsne = ggplot(tp) +
-    geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
-    geom_point(aes(x=V1, y=V2, color=Tissue), size=2) +
+#    geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
+    geom_point(aes(x=V1, y=V2, color=Tissue, shape=Tissue), size=2) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
     scale_shape_manual(values = c(0:8)) +

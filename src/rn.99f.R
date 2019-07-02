@@ -1,6 +1,6 @@
 source("functions.R")
 
-yid = 'rn18a'
+yid = 'rn99f'
 dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 
@@ -12,14 +12,11 @@ res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 sum_stat_tibble(tt)
 
-sids_keep = tt %>% filter(mapped>2) %>% pull(SampleID)
+sids_keep = tt %>% filter(mapped>10) %>% pull(SampleID)
 sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
 
 # fix th
-th2 = th %>% filter(SampleID %in% sids_keep) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR5911199','GShoot',Tissue)) %>%
-#    mutate(Tissue=ifelse(SampleID=='SRR5911095','GShoot',Tissue)) %>%
-    mutate(Tissue=ifelse(SampleID=='SRR5911187','GShoot',Tissue))
+th2 = th %>% filter(SampleID %in% sids_keep)
 th2 = complete_sample_list(th2)
 
 th = th2
@@ -32,12 +29,12 @@ write_tsv(th, fh, na='')
 
 res = rnaseq_cpm(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
-th = th %>% mutate(lab = sprintf("%s_%s", Tissue, Genotype))
+th = th %>% mutate(lab = sprintf("%s_%s", Genotype, Replicate))
 
 #{{{ hclust
 tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .8) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .6) %>% pull(gid)
 e = tw %>% filter(gid %in% gids) %>% select(-gid)
 dim(e)
 
@@ -53,23 +50,23 @@ lnames = ehc$labels[ehc$order]
 tp = th %>% mutate(taxa = SampleID) %>%
     select(taxa, everything())
 p1 = ggtree(tree, layout = 'rectangular') +
-    scale_x_continuous(expand = expand_scale(0,20)) +
+    scale_x_continuous(expand = expand_scale(0,.08)) +
     scale_y_discrete(expand = c(.01,0))
 p1 = p1 %<+%
-    tp + geom_tiplab(aes(label=lab, color=Tissue), size=1) +
+    tp + geom_tiplab(aes(label=lab, color=as.character(Replicate)), size=2.5) +
     scale_color_aaas()
 fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width=8, height=49)
+ggsave(p1, filename = fo, width=4, height=5)
 #}}}
 
 #{{{ tSNE
 require(Rtsne)
 tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
+gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .5) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
+tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=3,
               pca = T, max_iter = 1500)
 
 tp = as_tibble(tsne$Y) %>%
@@ -77,18 +74,22 @@ tp = as_tibble(tsne$Y) %>%
     inner_join(th, by = 'SampleID')
 x.max=max(tp$V1)
 p_tsne = ggplot(tp) +
-    #geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
-    geom_point(aes(x=V1, y=V2, color=Tissue, shape=Tissue), size=2) +
+    geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
+    geom_point(aes(x=V1, y=V2, color=Genotype, shape=as.character(Replicate)), size=2) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
-    scale_shape_manual(values = c(0:6)) +
-    scale_color_viridis_d() +
+    scale_shape_manual(values = c(0:5)) +
+    scale_color_aaas() +
     otheme(legend.pos='bottom.right', legend.dir='v', legend.title=T,
            xtitle=T, ytitle=T,
            margin = c(.2,.2,.2,.2)) +
-    theme(axis.ticks.length = unit(0, 'lines'))
+    theme(axis.ticks.length = unit(0, 'lines')) +
+    guides(color = F, shape = F)
 fp = file.path(dirw, "25.tsne.pdf")
-ggsave(p_tsne, filename = fp, width=10, height=10)
+ggsave(p_tsne, filename = fp, width=5, height=5)
 #}}}
+
+
+
 
 

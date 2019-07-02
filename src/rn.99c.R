@@ -16,7 +16,7 @@ sids_keep = tt %>% filter(mapped>5) %>% pull(SampleID)
 sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
 
 # fix th
-th2 = th %>% filter(SampleID %in% sids_keep) %>%
+th2 = th %>% #filter(SampleID %in% sids_keep) %>%
     mutate(Tissue = ifelse(SampleID == 'bm318', 'Leaf', Tissue))
 
 th = th2

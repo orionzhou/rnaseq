@@ -16,7 +16,8 @@ sids_keep = tt %>% filter(mapped>5) %>% pull(SampleID)
 sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
 
 # fix th
-th2 = th %>% filter(SampleID %in% sids_keep) #%>%
+th2 = th %>% filter(SampleID %in% sids_keep) %>%
+    mutate(Treatment=ifelse(SampleID=='SRR5786370','II',Treatment))
     #filter(!SampleID %in% c("SRR5786263", "SRR5786217")) %>%
     #mutate(Treatment=ifelse(SampleID=='SRR5786370','II',Treatment)) %>%
     #mutate(Treatment=ifelse(Genotype=='B73' & Treatment=='I' &
