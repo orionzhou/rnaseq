@@ -51,7 +51,7 @@ lnames = ehc$labels[ehc$order]
 tp = th %>% mutate(taxa = SampleID) %>%
     select(taxa, everything())
 p1 = ggtree(tree, layout = 'rectangular') +
-    scale_x_continuous(expand = expand_scale(0,2)) +
+    scale_x_continuous(expand = expand_scale(0,.15)) +
     scale_y_discrete(expand = c(.01,0))
 p1 = p1 %<+%
     tp + geom_tiplab(aes(label=lab, color=Genotype), size=2.5) +
@@ -67,7 +67,7 @@ t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=4,
+tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=3,
               pca = T, max_iter = 1500)
 
 tp = as_tibble(tsne$Y) %>%

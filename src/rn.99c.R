@@ -50,10 +50,10 @@ lnames = ehc$labels[ehc$order]
 tp = th %>% mutate(taxa = SampleID) %>%
     select(taxa, everything())
 p1 = ggtree(tree, layout = 'rectangular') +
-    scale_x_continuous(expand = expand_scale(0,5)) +
+    scale_x_continuous(expand = expand_scale(0,6)) +
     scale_y_discrete(expand = c(.01,0))
 p1 = p1 %<+%
-    tp + geom_tiplab(aes(label=lab, color=Tissue), size=2.5) +
+    tp + geom_tiplab(aes(label=lab, color=Tissue), size=2) +
     scale_color_aaas()
 fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
 ggsave(p1, filename = fo, width=8, height=30)
@@ -66,7 +66,7 @@ t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=7,
+tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
               pca = T, max_iter = 1500)
 
 tp = as_tibble(tsne$Y) %>%
@@ -74,19 +74,19 @@ tp = as_tibble(tsne$Y) %>%
     inner_join(th, by = 'SampleID')
 x.max=max(tp$V1)
 p_tsne = ggplot(tp) +
-    geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
-    geom_point(aes(x=V1, y=V2, color=Genotype), size=2) +
+#    geom_text_repel(aes(x=V1,y=V2,label=Genotype), size=2.5) +
+    geom_point(aes(x=V1, y=V2, color=Tissue, shape=Tissue), size=2) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
-    scale_shape_manual(values = c(15,0)) +
-    scale_color_viridis_d(name = 'Genotype',direction=-1) +
+    scale_shape_manual(values = c(0:6)) +
+    scale_color_aaas() +
     otheme(legend.pos='top.left', legend.dir='v', legend.title=T,
            xtitle=T, ytitle=T,
            margin = c(.2,.2,.2,.2)) +
     theme(axis.ticks.length = unit(0, 'lines')) +
     guides(color = F)
 fp = file.path(dirw, "25.tsne.pdf")
-ggsave(p_tsne, filename = fp, width=6, height=6)
+ggsave(p_tsne, filename = fp, width=8, height=8)
 #}}}
 
 
