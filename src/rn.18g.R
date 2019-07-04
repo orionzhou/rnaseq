@@ -38,9 +38,7 @@ write_tsv(th, fh, na='')
 
 res = rnaseq_cpm(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
-th = th %>% mutate(lab = str_c(Genotype, Tissue, Treatment, sep='_')) %>%
-    mutate(lab2 = str_c(Tissue,Treatment,sep="_")) %>%
-    mutate(lab2 = ifelse(Genotype=='B73' & Replicate==1, lab2, ''))
+th = th %>% mutate(lab = str_c(Genotype, Tissue, sep='_'))
 
 #{{{ hclust
 tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
@@ -49,8 +47,8 @@ gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 e = tw %>% filter(gid %in% gids) %>% select(-gid)
 dim(e)
 
-cor_opt = "spearman"
 cor_opt = "pearson"
+cor_opt = "spearman"
 hc_opt = "ward.D"
 hc_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
 edist <- as.dist(1-cor(e, method = cor_opt))
@@ -77,24 +75,29 @@ t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
 tt = tw %>% filter(gid %in% gids)
 dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=7,
-              pca = T, max_iter = 1500)
+tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=8,
+              pca = T, max_iter = 1200)
 
 tp = as_tibble(tsne$Y) %>%
     add_column(SampleID = colnames(tt)[-1]) %>%
     inner_join(th, by = 'SampleID')
 x.max=max(tp$V1)
-p_tsne = ggplot(tp) +
-    geom_text_repel(aes(x=V1,y=V2,label=lab2), size=2.5) +
-    geom_point(aes(x=V1, y=V2, color=Genotype), shape=0, size=2) +
+p_tsne = ggplot(tp, aes(x=V1,y=V2)) +
+    geom_mark_ellipse(aes(fill=Tissue,label=Tissue),
+        expand=unit(3,'mm'), alpha=0, size = .2,
+        con.type='none',label.fontsize=8,label.minwidth=unit(0,'mm'),
+        label.buffer=unit(0,'mm'),label.margin = margin(0,0,0,0,"mm")) +
+    geom_point(aes(color=Genotype,shape=Genotype), size=2) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
-    scale_shape_manual(values = c(15,0)) +
-    scale_color_aaas(name = 'Genotype') +
+    scale_shape_manual(values = c(0:5)) +
+    scale_color_aaas() +
+    scale_fill_viridis_d() +
     otheme(legend.pos='top.left', legend.dir='v', legend.title=T,
            xtitle=T, ytitle=T,
            margin = c(.2,.2,.2,.2)) +
-    theme(axis.ticks.length = unit(0, 'lines'))
+    theme(axis.ticks.length = unit(0, 'lines')) +
+    guides(fill=F)
 fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width=8, height=8)
 #}}}
