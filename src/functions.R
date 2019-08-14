@@ -18,10 +18,39 @@ t_cfg = read_xlsx(f_cfg, sheet='barn', col_names=T) %>%
     filter(libtype == 'rnaseq') %>%
     mutate(ase=as.logical(ase), stress=as.logical(stress)) %>%
     select(yid,author,study,genotype,tissue,n,ref,ase,stress) %>%
-    replace_na(list(ref='Zmays_B73',ase=F,stress=F))
+    replace_na(list(ref='Zmays_B73',ase=F,stress=F)) %>%
+    mutate(lgd = sprintf("%s %s [%d]", str_to_title(author),study,n))
 #f_yml = file.path(dird, '10.cfg.yaml')
 #Sys.setenv("R_CONFIG_FILE" = f_yml)
 
+read_rnaseq <- function(yid) {
+    #{{{
+    res = rnaseq_cpm(yid)
+    th = res$th; tm = res$tm
+    th = th %>% replace_na(list(Tissue='',Genotype='B73',Treatment='')) %>%
+        mutate(Tissue=as.character(Tissue)) %>%
+        mutate(Genotype=as.character(Genotype)) %>%
+        mutate(Treatment=as.character(Treatment))
+    yids_dev = c('rn10a','rn11a','rn13b','rn14b','rn14c','rn14e',"rn16b","rn16c","rn18g")
+    if(yid == 'rn12a') {
+        th = th %>% filter(Treatment == 'WT')
+    } else if(yid == 'rn17c') {
+        th = th %>% filter(Treatment == 'con')
+    } else if(yid %in% c(yids_dev,'rn19c')) {
+        if(yid == 'rn13b') th = th %>% filter(!str_detect(Treatment, "^ET"))
+        if(yid == 'rn18g') th = th %>% filter(Genotype == 'B73')
+        th = th %>% mutate(Tissue=str_c(Tissue,Treatment, sep="_")) %>%
+            mutate(Treatment=yid)
+    }
+    th = th %>% mutate(study = yid) %>%
+        mutate(SampleID = str_c(study, SampleID, sep='_')) %>%
+        replace_na(list(Treatment='')) %>%
+        select(SampleID, Tissue, Genotype, Treatment, Replicate, study)
+    tm = tm %>% mutate(SampleID = str_c(yid, SampleID, sep='_')) %>%
+        filter(SampleID %in% th$SampleID)
+    list(th=th, tm=tm)
+    #}}}
+}
 read_multiqc_trimmomatic <- function(fi, paired = T) {
     #{{{
     ti = read_tsv(fi)
