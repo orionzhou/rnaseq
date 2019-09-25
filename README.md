@@ -6,3 +6,4 @@ Raw sequencing reads were downloaded from [NCBI Sequence Read Archive (SRA)](htt
 
 See [this table](/data/01.cfg.tsv) for a list of collected datasets.
 
+[Check here](cpm.md) for a walk through of output files.
