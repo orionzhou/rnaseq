@@ -57,4 +57,4 @@
 - `cnt_ref`: ref allele-specific read count
 - `cnt_alt`: alt allele-specific read count
 - `genotype`: sample genotype at this site (either `0|1` or `1|0`)
-  - In the case of "`1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
+  - In the case of `1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
