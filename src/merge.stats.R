@@ -24,7 +24,8 @@ require(purrr)
 nfile = length(fis)
 ti = tibble(fi = fis) %>%
     mutate(fname = map_chr(fi, basename)) %>%
-    mutate(sid = str_replace(fname, '[\\.]\\w+$', ''))
+    mutate(sid = str_replace(fname, '[\\.]gz$', '')) %>%
+    mutate(sid = str_replace(sid, '[\\.]\\w+$', ''))
 
 read_featurecount <- function(fi)
     read_tsv(fi, skip = 1) %>%
@@ -58,6 +59,13 @@ if (opt == 'bam_stat') {
         mutate(data = map(fi, read_tsv)) %>%
         select(sid, data) %>%
         unnest()
+    saveRDS(to, file=fo)
+} else if (opt == 'ase_snp') {
+    to = ti %>%
+        mutate(data = map(fi, read_tsv)) %>%
+        select(sid, data) %>%
+        unnest() %>% select(sid,chr,pos,ref,alt,cnt_ref=refsupport,
+                            cnt_alt=altsupport, genotype=gt)
     saveRDS(to, file=fo)
 } else {
     stop("unknown option", opt, "\n")

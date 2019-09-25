@@ -53,6 +53,7 @@
 ### SNP-based allele specific read counts: `ase2.rds`
 - can be loaded into R using `x = readRDS("ase2.rds")`, contains the following columns:
 - `sid`: Sample ID
-- `chrom`, `pos`, `allele1`, `allele2`: SNP location and allele status
-- `cnt1`: allele1-specific read count
-- `cnt2`: allele2-specific read count
+- `chr`, `pos`, `ref`, `alt`: SNP information
+- `cnt_ref`: ref allele-specific read count
+- `cnt_alt`: alt allele-specific read count
+- `genotype`: sample genotype at this site: in cases of "1|0", allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
