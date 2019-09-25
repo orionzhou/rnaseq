@@ -24,10 +24,6 @@
 - `pair_map0`, `pair_orphan0`, `unpair_map0`: pairs/reads mapped with 0 mismatch
 - `pair_map_hq0`, `pair_orphan_hq0`, `unpair_map_hq0`: pairs/reads mapped 
   with high quality (i.e., unique) and with 0 mismatch
-  - read counting stats:
-    - `Assigned`: reads assigned to exonic regions and thus counted
-    - `Unassigned_MultiMapping`, `Unassigned_NoFeatures`, `Unassigned_Ambiguity`,
-      `Unassigned_Unmapped`: reads not counted due to various reasons
 
 ### Raw read count and normalized CPM / FPKM table: `cpm.rds`
 - can be loaded into R using `x = readRDS("cpm.rds")`, contains the following data frames:
@@ -48,8 +44,15 @@
 - `th_m`: replicate merged sample list / meta table
 - `tm_m`: replicate merged expression table
 
-### allele specific read counts: `ase.rds`
+### Gene-based allele specific read counts: `ase.rds`
 - can be loaded into R using `x = readRDS("ase.rds")`, contains the following columns:
 - `sid`: Sample ID, two for each sample ("Sample.1" and "Sample.2"). For example, in the case of B73xMo17, "Sample.1" represents the B73 (first) allele and "Sample.2" represents the Mo17 (second) allele
 - `gid`: gene ID
 - `cnt`: allele-specific read count
+
+### SNP-based allele specific read counts: `ase2.rds`
+- can be loaded into R using `x = readRDS("ase2.rds")`, contains the following columns:
+- `sid`: Sample ID
+- `chrom`, `pos`, `allele1`, `allele2`: SNP location and allele status
+- `cnt1`: allele1-specific read count
+- `cnt2`: allele2-specific read count
