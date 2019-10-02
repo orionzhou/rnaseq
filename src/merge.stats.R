@@ -56,16 +56,21 @@ if (opt == 'bam_stat') {
     saveRDS(to, file=fo)
 } else if (opt == 'ase') {
     to = ti %>%
-        mutate(data = map(fi, read_tsv)) %>%
+        mutate(data = map(fi, read_featurecount)) %>%
         select(sid, data) %>%
-        unnest()
+        unnest() %>%
+        separate(sid, c('sid','allele'), sep='[\\.]', extra='merge') %>%
+        mutate(allele=str_c("allele", allele, sep='')) %>%
+        spread(allele, cnt)
     saveRDS(to, file=fo)
 } else if (opt == 'ase_snp') {
     to = ti %>%
         mutate(data = map(fi, read_tsv)) %>%
         select(sid, data) %>%
-        unnest() %>% select(sid,chr,pos,ref,alt,cnt_ref=refsupport,
-                            cnt_alt=altsupport, genotype=gt)
+        unnest() %>%
+        mutate(allele1 = ifelse(gt=='1|0', altsupport, refsupport)) %>%
+        mutate(allele2 = ifelse(gt=='1|0', refsupport, altsupport)) %>%
+        select(sid,chr,pos,ref,alt,gt,allele1,allele2)
     saveRDS(to, file=fo)
 } else {
     stop("unknown option", opt, "\n")

@@ -1,8 +1,9 @@
 source("functions.R")
-size.gene = read_genome_conf()$gene %>% select(gid, size=size.exon)
-
-yids = c('rn10a','rn11a','rn13b','rn14b','rn14c','rn14e',"rn16b","rn16c","rn18g")
+gcfg = read_genome_conf()
+tsyn = read_syn(gcfg)
+size.gene = gcfg %>% select(gid, size=size.exon)
 yid = 'rnc01'
+yids = c('rn10a','rn11a','rn13b','rn14b','rn14c','rn14e',"rn16b","rn16c","rn18g")
 t_cfg %>% filter(yid %in% yids)
 dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
@@ -103,4 +104,52 @@ p_tsne = ggplot(tp) +
 fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width=9, height=9)
 #}}}
+
+
+#{{{ #genes expressed in 0-23 tissues
+tsh_e = tm %>% filter(gid %in% gcfg$gene$gid[gcfg$gene$ttype=='mRNA']) %>%
+    mutate(silent = CPM < 1) %>%
+    group_by(gid, silent) %>% summarise(n.tis = n()) %>% ungroup()
+tsh_es = tsh_e %>%
+    group_by(gid) %>% summarise(n.tis.tot = sum(n.tis)) %>% ungroup()
+tsh_es %>% count(n.tis.tot)
+etags = c('Silent', 'Tissue specific', 'Intermediate frequency', 'Constitutive')
+tsh_e = tsh_e %>% filter(!silent) %>%
+    right_join(tsh_es, by = 'gid') %>%
+    replace_na(list(n.tis = 0)) %>%
+    mutate(prop.tis = n.tis / n.tis.tot,
+           etag = ifelse(prop.tis == 0, etags[1],
+                  ifelse(prop.tis <= 0.2, etags[2],
+                  ifelse(prop.tis < 0.8, etags[3], etags[4])))) %>%
+    mutate(etag = factor(etag, levels = etags)) %>%
+    select(gid, n.tis, prop.tis, etag)
+tsh_e %>% count(etag)
+
+tp = tsh_e %>% count(n.tis, etag) %>% rename(num_genes = n)
+cat("genes expressed in >=1 tissues:\n")
+sum(tp %>% filter(n.tis > 0) %>% pull(num_genes))
+cat("prop. genes silent, constitutive. etc:\n")
+tp %>% group_by(etag) %>% summarise(n = sum(num_genes)) %>% mutate(p=n/sum(n))
+p = ggplot(tp) +
+    geom_bar(aes(x = n.tis, y = num_genes, fill = etag), stat = 'identity', width = .8) +
+    scale_x_continuous(name = 'Number Tissues with Expression', expand=expand_scale(mult=c(.03,.03))) +
+    scale_y_continuous(name = "Number Genes", expand=expand_scale(mult=c(0,.03))) +
+    scale_fill_npg() +
+    otheme(xtitle=T, ytitle=T, xtext=T, ytext=T, xtick=T, ytick=T,
+           margin = c(.3,1.3,.3,.3), "lines", legend.title=F) +
+    theme(legend.pos = c(.5,1), legend.justification = c(.5,1))
+#
+fo = file.path(dirw, '31.tis.expression.pdf')
+ggsave(fo, p, width=6, height=6)
+#}}}
+
+#{{{ synteny proportion
+tp  = tsh_e %>% inner_join(tsyn, by = 'gid') %>% group_by(ftype,etag) %>%
+    summarise(n = n()) %>%
+    mutate(ntot = sum(n), prop = n/ntot) %>%
+    ungroup() %>%
+    select(ftype, ntot, etag, n, prop)
+
+#}}}
+
 

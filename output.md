@@ -46,15 +46,14 @@
 
 ### Gene-based allele specific read counts: `ase.rds`
 - can be loaded into R using `x = readRDS("ase.rds")`, contains the following columns:
-- `sid`: Sample ID, two for each sample ("Sample.1" and "Sample.2"). For example, in the case of B73xMo17, "Sample.1" represents the B73 (first) allele and "Sample.2" represents the Mo17 (second) allele
+- `sid`: Sample ID
 - `gid`: gene ID
-- `cnt`: allele-specific read count
+- `allele1`, `allele2`: allele-specific read counts for each allele. For example, in the case of Mo17xB73, `allele1` represents the Mo17 (first) allele count while `allele2` represents the Mo17 (second) allele count
 
 ### SNP-based allele specific read counts: `ase2.rds`
 - can be loaded into R using `x = readRDS("ase2.rds")`, contains the following columns:
 - `sid`: Sample ID
 - `chr`, `pos`, `ref`, `alt`: SNP information
-- `cnt_ref`: ref allele-specific read count
-- `cnt_alt`: alt allele-specific read count
 - `genotype`: sample genotype at this site (either `0|1` or `1|0`)
   - In the case of `1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
+- `allele1`, `allele2`: read counts for the maternal (first) allele and paternal (second) allele
