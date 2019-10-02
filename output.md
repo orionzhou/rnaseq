@@ -54,6 +54,6 @@
 - can be loaded into R using `x = readRDS("ase2.rds")`, contains the following columns:
 - `sid`: Sample ID
 - `chr`, `pos`, `ref`, `alt`: SNP information
-- `genotype`: sample genotype at this site (either `0|1` or `1|0`)
+- `gt`: sample genotype at this site (either `0|1` or `1|0`)
   - In the case of `1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
 - `allele1`, `allele2`: read counts for the maternal (first) allele and paternal (second) allele
