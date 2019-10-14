@@ -88,6 +88,40 @@ fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width=5, height=5)
 #}}}
 
+#{{{ ase
+fi = file.path(dird, 'raw', yid, 'ase.rds')
+ti = readRDS(fi)
+fi = file.path(dird, 'raw', yid, 'ase2.rds')
+ti2 = readRDS(fi)
+
+tp = ti %>% filter(allele1 + allele2 >= 20) %>%
+    mutate(af = allele1/(allele1 + allele2)) %>%
+    inner_join(th, by=c('sid'='SampleID'))
+tp %>% group_by(Treatment,Genotype) %>%
+    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>% ungroup()
+p = ggplot(tp) +
+    geom_histogram(aes(af), binwidth=.02) +
+    geom_vline(xintercept = .5, color='red') +
+    scale_y_continuous(expand=expand_scale(mult=c(0,.03))) +
+    facet_grid(Treatment ~ Genotype) +
+    otheme(xtext=T, ytext=T, xtick=T, ytick=T)
+fo = file.path(dirw, 'afs_gene.pdf')
+ggsave(fo, p, width=8, height=6)
+
+tp2 = ti2 %>% filter(allele1 + allele2 >= 20) %>%
+    mutate(af = allele1/(allele1 + allele2)) %>%
+    inner_join(th, by=c('sid'='SampleID'))
+tp2 %>% group_by(Treatment,Genotype) %>%
+    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>% ungroup()
+p = ggplot(tp2) +
+    geom_histogram(aes(af), binwidth=.02) +
+    geom_vline(xintercept = .5, color='red') +
+    scale_y_continuous(expand=expand_scale(mult=c(0,.03))) +
+    facet_grid(Treatment ~ Genotype) +
+    otheme(xtext=T, ytext=T, xtick=T, ytick=T)
+fo = file.path(dirw, 'afs_site.pdf')
+ggsave(fo, p, width=8, height=6)
+#}}}
 
 
 

@@ -3,6 +3,7 @@ load_all("~/git/rmaize")
 require(ape)
 require(ggtree)
 require(ggforce)
+require(Rtsne)
 dirp = '~/projects/rnaseq'
 dird = file.path(dirp, 'data')
 dirc = '/scratch.global/zhoux379/rnaseq'

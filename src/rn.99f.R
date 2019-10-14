@@ -90,6 +90,30 @@ ggsave(p_tsne, filename = fp, width=5, height=5)
 #}}}
 
 
+fi = file.path(dird, 'raw', yid, 'ase.rds')
+ti = readRDS(fi)
+fi = file.path(dird, 'raw', yid, 'ase2.rds')
+ti2 = readRDS(fi)
 
+tp = ti %>% filter(allele1 + allele2 >= 20) %>%
+    mutate(af = allele1/(allele1 + allele2))
+p = ggplot(tp) +
+    geom_violin(aes(sid, af)) +
+    geom_hline(yintercept = 2/3, color='red') +
+    geom_hline(yintercept = 1/3, color='blue') +
+    otheme(xtext=T, ytext=T)
+fo = file.path(dirw, 'afs_gene.pdf')
+ggsave(fo, p, width=10, height=6)
+
+tp2 = ti2 %>% filter(allele1 + allele2 >= 10) %>%
+    mutate(af = allele1/(allele1 + allele2))
+tp2 %>% count(sid)
+p = ggplot(tp2) +
+    geom_violin(aes(sid, af)) +
+    geom_hline(yintercept = 2/3, color='red') +
+    geom_hline(yintercept = 1/3, color='blue') +
+    otheme(xtext=T, ytext=T)
+fo = file.path(dirw, 'afs_site.pdf')
+ggsave(fo, p, width=10, height=6)
 
 

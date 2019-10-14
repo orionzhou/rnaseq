@@ -61,7 +61,6 @@ ggsave(p1, filename = fo, width=6, height=8)
 #}}}
 
 #{{{ tSNE
-require(Rtsne)
 tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
 t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
 gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
@@ -80,7 +79,7 @@ p_tsne = ggplot(tp) +
     scale_x_continuous(name = 'tSNE-1') +
     scale_y_continuous(name = 'tSNE-2') +
     scale_color_aaas(name='Genotype') +
-    otheme(legend.pos='top.right', legend.dir='v', legend.title=T,
+    otheme(legend.pos='top.left', legend.dir='v', legend.title=T,
            xtitle=T, ytitle=T,
            margin = c(.2,.2,.2,.2)) +
     theme(axis.ticks.length = unit(0, 'lines'))
@@ -89,6 +88,43 @@ ggsave(p_tsne, filename = fp, width=6, height=6)
 #}}}
 
 
+#{{{ ase gene
+fi = file.path(dird, 'raw', yid, 'ase.rds')
+ti = readRDS(fi)
 
+tp = ti %>% filter(allele1 + allele2 >= 20) %>%
+    mutate(af = allele1/(allele1 + allele2)) %>%
+    inner_join(th, by=c('sid'='SampleID'))
+tp %>% group_by(lab) %>%
+    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>%
+    ungroup() %>% print(n=70)
+p = ggplot(tp) +
+    geom_histogram(aes(af), binwidth=.02) +
+    geom_vline(xintercept = .5, color='red') +
+    scale_y_continuous(expand=expand_scale(mult=c(0,.03))) +
+    facet_wrap(~lab, ncol=5, scale='free_y') +
+    otheme(xtext=T, ytext=T, xtick=T, ytick=T)
+fo = file.path(dirw, 'afs_gene.pdf')
+ggsave(fo, p, width=6, height=6)
+#}}}
+
+#{{{ ase SNP
+fi = file.path(dird, 'raw', yid, 'ase2.rds')
+ti2 = readRDS(fi)
+
+tp2 = ti2 %>% filter(allele1 + allele2 >= 20) %>%
+    mutate(af = allele1/(allele1 + allele2)) %>%
+    inner_join(th, by=c('sid'='SampleID'))
+tp2 %>% group_by(Treatment,Genotype) %>%
+    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>% ungroup()
+p = ggplot(tp2) +
+    geom_histogram(aes(af), binwidth=.02) +
+    geom_vline(xintercept = .5, color='red') +
+    scale_y_continuous(expand=expand_scale(mult=c(0,.03))) +
+    facet_grid(Treatment ~ Genotype) +
+    otheme(xtext=T, ytext=T, xtick=T, ytick=T)
+fo = file.path(dirw, 'afs_site.pdf')
+ggsave(fo, p, width=8, height=6)
+#}}}
 
 
