@@ -2,7 +2,7 @@
 
 - [9 previous studies](00.studies.tsv):
   - a total of 247 distinct tissue / developmental stages
-- [hierarchical clustering](data/11_qc/rnc01/21.cpm.hclust.pdf)
+- [hierarchical clustering](21.cpm.hclust.pdf)
 - [tSNE plot](25.tsne.pdf)
 - [Classification of 39,591 protein-coding genes based on expression broadness](31.tis.expression.pdf):
   - `Silent`: never expressed
