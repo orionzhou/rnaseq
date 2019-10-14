@@ -1,7 +1,7 @@
 source("functions.R")
 gcfg = read_genome_conf()
 tsyn = read_syn(gcfg)
-size.gene = gcfg %>% select(gid, size=size.exon)
+size.gene = gcfg$gene %>% select(gid, size=size.exon)
 yid = 'rnc01'
 yids = c('rn10a','rn11a','rn13b','rn14b','rn14c','rn14e',"rn16b","rn16c","rn18g")
 t_cfg %>% filter(yid %in% yids)
@@ -105,11 +105,17 @@ fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width=9, height=9)
 #}}}
 
+fo = file.path(dirw, '00.studies.tsv')
+to = th %>% distinct(author, study, tissue, n)
+write_tsv(to, fo, na='')
 
 #{{{ #genes expressed in 0-23 tissues
 tsh_e = tm %>% filter(gid %in% gcfg$gene$gid[gcfg$gene$ttype=='mRNA']) %>%
     mutate(silent = CPM < 1) %>%
-    group_by(gid, silent) %>% summarise(n.tis = n()) %>% ungroup()
+    inner_join(th[,c('SampleID','author','Tissue')], by=c('SampleID')) %>%
+    mutate(tis = str_c(author,Tissue, sep='|')) %>%
+    group_by(gid, silent) %>%
+    summarise(n.tis = n(), tiss=str_c(Tissue, collapse=',')) %>% ungroup()
 tsh_es = tsh_e %>%
     group_by(gid) %>% summarise(n.tis.tot = sum(n.tis)) %>% ungroup()
 tsh_es %>% count(n.tis.tot)
@@ -122,8 +128,12 @@ tsh_e = tsh_e %>% filter(!silent) %>%
                   ifelse(prop.tis <= 0.2, etags[2],
                   ifelse(prop.tis < 0.8, etags[3], etags[4])))) %>%
     mutate(etag = factor(etag, levels = etags)) %>%
-    select(gid, n.tis, prop.tis, etag)
+    select(gid, n.tis, prop.tis, etag, tiss)
 tsh_e %>% count(etag)
+
+fo = file.path(dirw, '30.tis.expression.tsv')
+to = tsh_e %>% select(-prop.tis)
+#write_tsv(to, fo, na='')
 
 tp = tsh_e %>% count(n.tis, etag) %>% rename(num_genes = n)
 cat("genes expressed in >=1 tissues:\n")
