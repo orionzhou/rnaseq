@@ -18,17 +18,20 @@ sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
 # fix th
 gts = c("B73", "Mo17", "B73xMo17")
 tissues = sort(unique(th$Tissue))
-th2 = th %>% filter(SampleID %in% sids_keep) %>%
-    #filter(Genotype %in% gts) %>%
-    filter(! SampleID %in% c('BR207', 'BR230', "BR235")) %>%
+th2 = th %>%
     mutate(Genotype = ifelse(SampleID=='BR003', 'Mo17', Genotype)) %>%
     mutate(Genotype = ifelse(SampleID=='BR004', 'B73', Genotype)) %>%
     mutate(Genotype = ifelse(SampleID=='BR006', 'B73xMo17', Genotype)) %>%
     mutate(Genotype = ifelse(SampleID=='BR007', 'Mo17', Genotype)) %>%
     mutate(Genotype = ifelse(SampleID=='BR029', 'B73', Genotype)) %>%
     mutate(Genotype = ifelse(SampleID=='BR032', 'Mo17', Genotype))
+fh2 = '~/projects/atlas/data/01_exp_design/01.BR0.meta.tsv'
+write_tsv(th2, fh2, na='')
 
-th = th2
+th = th2 %>%
+    filter(SampleID %in% sids_keep) %>%
+    filter(! SampleID %in% c('BR207', 'BR230', "BR235"))
+    #filter(Genotype %in% gts) %>%
 tt = tt %>% filter(SampleID %in% th$SampleID)
 
 fh = file.path(dirw, 'meta.tsv')

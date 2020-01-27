@@ -147,7 +147,7 @@ read_multiqc_featurecounts <- function(fi) {
     #{{{
     ti = read_tsv(fi)
     ti2 = ti %>% mutate(SampleID = Sample) %>%
-        select(SampleID, Total, Assigned, Unassigned_Unmapped, 
+        select(SampleID, Total, Assigned, Unassigned_Unmapped,
                Unassigned_MultiMapping,
                Unassigned_NoFeatures, Unassigned_Ambiguity) %>%
         mutate(nd = Total-Assigned-Unassigned_Unmapped-Unassigned_MultiMapping-Unassigned_NoFeatures-Unassigned_Ambiguity)

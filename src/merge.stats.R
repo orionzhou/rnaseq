@@ -15,11 +15,7 @@ fis = args$fi
 fo = args$fo
 opt = args$opt
 
-require(dplyr)
-require(readr)
-require(stringr)
-require(tidyr)
-require(purrr)
+require(tidyverse)
 
 nfile = length(fis)
 ti = tibble(fi = fis) %>%
@@ -34,6 +30,30 @@ read_featurecount <- function(fi)
 read_mmquant <- function(fi)
     read_tsv(fi, col_types = 'ci') %>%
         select(gid = 1, cnt = 2)
+
+read_snpbinner <- function(fi) {
+    #{{{
+    ti = read_csv(fi, col_names=F)
+    ti2 = tibble(start=as.integer(ti[1,-1]), end=as.integer(ti[2,-1]))
+    ti2b = t(column_to_rownames(ti[-c(1:3),], "X1")) %>% as_tibble()
+    ti3 = ti2 %>% bind_cols(ti2b) %>%
+        gather(SampleID, gt, -start, -end)
+    ti3
+    #}}}
+}
+
+bin2tib <- function(binstr) {
+    #{{{
+    parts = str_split(str_remove(binstr, ',$'), ',')[[1]]
+    sid = parts[1]
+    ps = parts[2:length(parts)]
+    np = length(parts)
+    gts = ps[seq(2, np-1, by=2)]
+    starts = as.integer(ps[seq(1, np-2, by=2)])
+    ends = as.integer(ps[seq(3, np, by=2)])
+    tibble(sid=sid, start=starts, end=ends, gt=gts)
+    #}}}
+}
 
 if (opt == 'bam_stat') {
     to = ti %>%
@@ -54,6 +74,18 @@ if (opt == 'bam_stat') {
         select(sid, data) %>%
         unnest()
     saveRDS(to, file=fo)
+} else if (opt == 'snpbinner') {
+    to = ti %>% rename(rid=sid) %>%
+        mutate(data = map(fi, read_snpbinner)) %>%
+        select(rid, data) %>%
+        unnest()
+    to2 = ti %>% rename(rid=sid) %>%
+        mutate(fi = str_replace(fi, ".csv", ".2.txt")) %>%
+        mutate(data = map(fi, read_tsv, col_names = F)) %>%
+        select(rid, data) %>% unnest() %>%
+        mutate(res = map(X1, bin2tib)) %>%
+        select(rid, res) %>% unnest()
+    saveRDS(list(cp=to2, bin=to), file=fo)
 } else if (opt == 'ase') {
     to = ti %>%
         mutate(data = map(fi, read_featurecount)) %>%

@@ -88,3 +88,48 @@ fp = file.path(dirw, "25.tsne.pdf")
 ggsave(p_tsne, filename = fp, width=8, height=8)
 #}}}
 
+#{{{ RIL
+fw = '~/projects/genome/data/Zmays_B73/15_intervals/20.win11.tsv'
+tw = read_tsv(fw)
+offs = c(0, cumsum(tw$size)[-nrow(tw)]) + 0:10 * 10e6
+tx = tw %>% mutate(off = offs) %>%
+    mutate(gstart=start+off, gend=end+off, gpos=(gstart+gend)/2) %>%
+    select(rid,chrom,gstart,gend,gpos,off) %>% filter(chrom!='B99')
+fi = file.path(dird, 'raw', yid, 'ril.rds')
+res = readRDS(fi)
+
+ti = res$cp
+tps = th %>% select(sid=SampleID,Genotype,Replicate) %>% arrange(Genotype) %>%
+    mutate(y = 1:n())
+tp = ti %>% inner_join(tx, by='rid') %>%
+    mutate(start=start+off, end=end+off) %>%
+    inner_join(tps, by='sid')
+tz = ti %>% mutate(size=end-start) %>% group_by(sid, gt) %>%
+    summarise(size = sum(size)) %>%
+    mutate(total_size = sum(size)) %>%
+    mutate(prop = size / total_size) %>% ungroup() %>%
+    select(sid, gt, prop) %>% spread(gt, prop) %>%
+    replace_na(list(a=0,b=0,h=0)) %>%
+    inner_join(tps, by='sid') %>% arrange(Genotype) %>%
+    filter(Replicate==1) %>% select(-y)
+
+xmax = max(tp$end)
+gts = c("B73","H99")
+tcol = pal_startrek()(1)
+ty = tps %>% group_by(Genotype) %>% summarise(y=mean(y)) %>% ungroup() %>%
+    mutate(col=ifelse(Genotype %in% gts, tcol, 'black')) %>%
+    inner_join(tz, by='Genotype') %>% mutate(lab=sprintf("%.1f", a*100))
+p = ggplot(tp) +
+    geom_rect(aes(xmin=start,xmax=end,ymin=y-.3,ymax=y+.4, fill=gt)) +
+    geom_text(data=ty, aes(x=xmax+5e6,y=y, label=lab), hjust=0, size=2.5, color=ty$col) +
+    scale_x_continuous(breaks=tx$gpos, labels=tx$chrom, expand=expand_scale(mult=c(.001,.03))) +
+    scale_y_continuous(breaks=ty$y, labels=ty$Genotype, expand=expand_scale(mult=c(.001,.001))) +
+    scale_fill_manual(values=pal_simpsons()(8)[c(1,2,5)], labels=c('B73','H99','het')) +
+    otheme(legend.pos='top.center.out', legend.dir='h',
+           xtext=T, xtick=T, ytext=T, ytick=T) +
+    theme(axis.text.y = element_text(color=ty$col))
+fo = file.path(dirw, 'ril_genotype.pdf')
+ggsave(fo, p, width=10, height=10)
+#}}}
+
+

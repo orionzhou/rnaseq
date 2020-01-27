@@ -46,7 +46,14 @@ th = res$th_m; tm = res$tm_m
 th = th %>% rename(yid = Treatment) %>%
     inner_join(t_cfg, by='yid') %>%
     mutate(lgd = ifelse(author=='zhou2018', 'Zhou2018 B&M atlas [23]', lgd)) %>%
-    mutate(lab = str_c(author,Tissue,sep="_"))
+    mutate(lab = str_c(author,Tissue,sep="_")) %>%
+    select(SampleID, Tissue, Tissue2=tissue, study, author, n, lgd, lab)
+
+#{{{ save as atlas cpm table
+ro = list(th=th, tm=tm)
+fo = file.path(dirw, 'cpm_combined.rds')
+saveRDS(ro, file=fo)
+#}}}
 
 #{{{ hclust
 tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
@@ -110,6 +117,16 @@ to = th %>% distinct(author, study, tissue, n)
 write_tsv(to, fo, na='')
 
 #{{{ #genes expressed in 0-23 tissues
+tus = tm %>% filter(gid %in% gcfg$gene$gid[gcfg$gene$ttype=='mRNA']) %>%
+    group_by(gid) %>%
+    summarise(cpm_max = max(CPM)) %>% ungroup() %>%
+    filter(cpm_max > 0)
+tu = tm %>% filter(gid %in% gcfg$gene$gid[gcfg$gene$ttype=='mRNA']) %>%
+    inner_join(tus, by='gid') %>%
+    mutate(cpm_prop = 1 - CPM / cpm_max) %>%
+    group_by(gid) %>%
+    summarise(tau = sum(cpm_prop) / (n() - 1)) %>% ungroup()
+
 tsh_e = tm %>% filter(gid %in% gcfg$gene$gid[gcfg$gene$ttype=='mRNA']) %>%
     mutate(silent = CPM < 1) %>%
     inner_join(th[,c('SampleID','author','Tissue')], by=c('SampleID')) %>%
@@ -125,10 +142,11 @@ tsh_e = tsh_e %>% filter(!silent) %>%
     replace_na(list(n.tis = 0)) %>%
     mutate(prop.tis = n.tis / n.tis.tot,
            etag = ifelse(prop.tis == 0, etags[1],
-                  ifelse(prop.tis <= 0.2, etags[2],
-                  ifelse(prop.tis < 0.8, etags[3], etags[4])))) %>%
+                  ifelse(prop.tis <= 0.1, etags[2],
+                  ifelse(prop.tis < 0.9, etags[3], etags[4])))) %>%
     mutate(etag = factor(etag, levels = etags)) %>%
-    select(gid, n.tis, prop.tis, etag, tiss)
+    select(gid, n.tis, prop.tis, etag, tiss) %>%
+    inner_join(tu, by='gid')
 tsh_e %>% count(etag)
 
 fo = file.path(dirw, '30.tis.expression.tsv')
@@ -153,13 +171,30 @@ fo = file.path(dirw, '31.tis.expression.pdf')
 ggsave(fo, p, width=6, height=6)
 #}}}
 
+tf = read_tf()
 #{{{ synteny proportion
-tp  = tsh_e %>% inner_join(tsyn, by = 'gid') %>% group_by(ftype,etag) %>%
-    summarise(n = n()) %>%
-    mutate(ntot = sum(n), prop = n/ntot) %>%
-    ungroup() %>%
-    select(ftype, ntot, etag, n, prop)
+tp = tsh_e %>% inner_join(tsyn, by='gid') %>%
+    select(gid, tag1=ftype, tag2=etag) %>% count(tag1, tag2)
+p1 = cmp_proportion(tp, xangle=10, legend.pos='left', legend.dir='v')
+fo = file.path(dirw, 'syn.tis.pdf')
+ggsave(p1, file=fo, width=6, height=6)
 
+tp = tsh_e %>% filter(gid %in% tf$gid) %>%
+    inner_join(tsyn, by='gid') %>%
+    select(gid, tag1=ftype, tag2=etag) %>% count(tag1, tag2)
+p1 = cmp_proportion(tp, xangle=10, legend.pos='left', legend.dir='v')
+fo = file.path(dirw, 'syn.tis.tf.pdf')
+ggsave(p1, file=fo, width=6, height=6)
+
+
+tp = tsh_e %>% inner_join(tsyn, by='gid')
+p1 = ggplot(tp) +
+    geom_density(aes(tau, color=ftype), alpha=1) +
+    scale_fill_npg() +
+    scale_color_npg() +
+    otheme(legend.pos='top.left')
+fo = file.path(dirw, 'syn.density.pdf')
+ggsave(p1, file=fo, width=6, height=6)
 #}}}
 
 
