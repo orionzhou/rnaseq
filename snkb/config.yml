@@ -1,0 +1,13 @@
+config_default: /home/springer/zhoux379/git/snk/configs/base.yml
+pid: rnaseq
+brbseq:
+  home: /home/springer/zhoux379/projects/rnaseq/data
+  idir: 01_raw
+  od02: 02_trim
+  od03: 03_demul
+  od04: 04_umi_cnt
+  od11: 11_hisat2
+  od12: 12_sort
+  od13: 13_stat
+  od21: 21_dge
+  od22: 22_fcnt
