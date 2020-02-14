@@ -114,14 +114,14 @@ read_multiqc_hisat2 <- function(fi, paired = T) {
     #{{{
     ti = read_tsv(fi)
     if(paired == F) {
-        ti2 = ti %>% 
+        ti2 = ti %>%
             transmute(SampleID = Sample,
                       total = unpaired_total,
                       uniquely_mapped = unpaired_aligned_one,
                       multimapped = unpaired_aligned_multi,
                       unmapped = unpaired_aligned_none)
     } else {
-        ti2 = ti %>% 
+        ti2 = ti %>%
             transmute(SampleID = Sample,
                       #total = paired_total + unpaired_total,
                       #uniquely_mapped = paired_aligned_one+paired_aligned_discord_one+unpaired_aligned_one,
