@@ -161,7 +161,7 @@ read_multiqc_featurecounts <- function(fi) {
     to
     #}}}
 }
-plot_pca <- function(tp, fo, opt = 'col=tis', labsize = 2.5, wd = 8, ht = 8) {
+plot_pca0 <- function(tp, fo, opt = 'col=tis', labsize = 2.5, wd = 8, ht = 8) {
     #{{{
     if(opt == 'col=tis,sha=rep') {
         #{{{

@@ -16,14 +16,21 @@ tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Genotype',
     expand.x=.25)
-fo = sprintf("%s/11.raw.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width=6, height=8)
+ggsave(file.path(dirw, '11.hclust.p.pdf'), p1, width=6, height=8)
 
-p2 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1500,
-    var.shape='Genotype', var.col='Treatment', var.lab='Timepoint',
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Genotype',
+    expand.x=.25)
+ggsave(file.path(dirw, '11.hclust.s.pdf', width=6, height=8)
+
+p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
+    var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
     legend.pos='top.left', legend.dir='v', pal.col='aaas')
-fp = sprintf("%s/11.raw.tsne.pdf", dirw)
-ggsave(p2, filename = fp, width=6, height=6)
+ggsave(file.path(dirw, '11.pca.pdf'), p2, width=6, height=6)
+
+p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=2,
+    var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
+    legend.pos='top.right', legend.dir='v', pal.col='aaas')
+ggsave(file.path(dirw, '11.tsne.pdf'), width=6, height=6)
 #}}}
 
 th2 = res$th %>% filter(SampleID != 'SRR1238724')
@@ -43,14 +50,21 @@ tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Genotype',
     expand.x=.25)
-fo = sprintf("%s/21.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width=6, height=8)
+ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=6, height=8)
 
-p2 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1000,
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Genotype',
+    expand.x=.25)
+ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=6, height=8)
+
+p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
     var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
     legend.pos='top.left', legend.dir='v', pal.col='aaas')
-fp = sprintf("%s/21.tsne.pdf", dirw)
-ggsave(p2, filename = fp, width=6, height=6)
+ggsave(file.path(dirw, '21.pca.pdf', p2, width=6, height=6)
+
+p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
+    var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
+    legend.pos='top.right', legend.dir='v', pal.col='aaas')
+ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
 #{{{ ase gene
