@@ -43,26 +43,26 @@ write_tsv(th2, fh, na='')
 res = rnaseq_cpm(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
-th = th %>% mutate(lab = str_c(Genotype, Treatment, Replicate, sep='_'))
+th = th %>% mutate(lab = str_c(Tissue, Treatment, Replicate, sep='_'))
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 
 #{{{ hclust & tSNE
-p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Genotype',
-    expand.x=.25)
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Tissue',
+    expand.x=.4)
 ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=6, height=8)
 
-p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Genotype',
-    expand.x=.25)
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Tissue',
+    expand.x=.4)
 ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=6, height=8)
 
 p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
-    var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
-    legend.pos='top.left', legend.dir='v', pal.col='aaas')
+    var.shape='Treatment', var.col='Tissue', var.lab='Replicate',
+    legend.pos='top.right', legend.dir='v', pal.col='aaas')
 ggsave(file.path(dirw, '21.pca.pdf'), p2, width=6, height=6)
 
 p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
-    var.shape='Treatment', var.col='Genotype', var.lab='Replicate',
+    var.shape='Treatment', var.col='Tissue', var.lab='Replicate',
     legend.pos='top.right', legend.dir='v', pal.col='aaas')
 ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=6, height=6)
 #}}}
