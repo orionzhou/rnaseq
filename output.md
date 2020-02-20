@@ -22,17 +22,31 @@
 - `pair_map_hq`, `pair_orphan_hq`, `unpair_map_hq`: pairs/reads mapped
   with high quality (i.e., unique)
 - `pair_map0`, `pair_orphan0`, `unpair_map0`: pairs/reads mapped with 0 mismatch
-- `pair_map_hq0`, `pair_orphan_hq0`, `unpair_map_hq0`: pairs/reads mapped 
+- `pair_map_hq0`, `pair_orphan_hq0`, `unpair_map_hq0`: pairs/reads mapped
   with high quality (i.e., unique) and with 0 mismatch
 
-### Raw read count and normalized CPM / FPKM table: `cpm.rds`
+### Raw read count and normalized CPM / FPKM table: `rc.norm.rds`
 - can be loaded into R using `x = readRDS("cpm.rds")`, contains the following data frames:
+- `th` - sample list / meta table, same with `meta.tsv`
+- `fcnts`: raw read counts from featureCounts
+  - `gid`: Gene ID (AGP_v4, Ensembl Plants v37, 46,117 in total)
+  - `SampleID`
+  - `ReadCount`: raw read count
+- `salmon`: raw read counts and normalized TPMs from salmon (gene-level)
+  - `gid`: Gene ID (AGP_v4, Ensembl Plants v37, 46,117 in total)
+  - `SampleID`
+  - `ReadCount`: raw read count
+  - `TPM`: salmon-normalized Transcript per Million values
+- `salmon_trasncript`: raw read counts and normalized TPMs from salmon (transcript-level)
+  - `tid`: Trascript ID (AGP_v4, Ensembl Plants v37)
+  - `SampleID`
+  - `ReadCount`: raw read count
+  - `TPM`: salmon-normalized Transcript per Million values
 - `tl` - library stats
   - `SampleID`, `libSize`
   - `sizeFactor`: DESeq2 library size factor
   - `normFactor`: edgeR library normalization factor
-- `th` - sample list / meta table, same with `meta.tsv`
-- `tm` - expression table
+- `tm` - normalized expression table
   - `gid`: Gene ID (AGP_v4, Ensembl Plants v37, 46,117 in total)
   - `SampleID`
   - `ReadCount`: raw read count
