@@ -1,0 +1,11 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	MergeID	paired	spots	avgLength
+ERR3322825	leaf_2		blue_light	1	m1	FALSE	54032275	50
+ERR3322826	leaf_2		red_light	1	m2	FALSE	53741391	50
+ERR3322827	leaf_2		blue_light	2	m1	FALSE	62424934	50
+ERR3322828	leaf_2		blue_light	3	m1	FALSE	72600041	50
+ERR3322829	leaf_2		red_light	2	m2	FALSE	71684161	50
+ERR3322830	leaf_2		control	1	m3	FALSE	64500061	50
+ERR3322831	leaf_2		control	2	m3	FALSE	63501808	50
+ERR3322832	leaf_2		control	3	m3	FALSE	38271114	50
+ERR3322833	leaf_2		red_light	3	m2	FALSE	27601035	50
+ERR3322834	leaf_2		red_light	4	m2	FALSE	67260177	50
