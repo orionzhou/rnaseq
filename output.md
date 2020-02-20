@@ -26,7 +26,7 @@
   with high quality (i.e., unique) and with 0 mismatch
 
 ### Raw read count and normalized CPM / FPKM table: `rc.norm.rds`
-- can be loaded into R using `x = readRDS("cpm.rds")`, contains the following data frames:
+- can be loaded into R using `x = readRDS("rc.norm.rds")`, contains the following data frames:
 - `th` - sample list / meta table, same with `meta.tsv`
 - `fcnts`: raw read counts from featureCounts
   - `gid`: Gene ID (AGP_v4, Ensembl Plants v37, 46,117 in total)
