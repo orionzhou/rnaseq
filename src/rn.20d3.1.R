@@ -91,39 +91,5 @@ ggsave(p_tsne, filename = fp, width=8, height=8)
 
 
 
-#{{{ make sup-table for PeteC
-th = rnaseq_sample_meta(yid)
-tt = rnaseq_mapping_stat(yid)
-th = th %>% inner_join(tt, by='SampleID') %>%
-    select(SampleID, paired, avgLength,
-        TotalReads=total, PassedTrimming=passed,
-        MappedReads=mapped, UniquelyMappedReads=mappedu)
-
-fi = '~/projects/barn/data/06_local_list/rn99c.tsv'
-ti = read_tsv(fi) %>% mutate(fname=basename(r0)) %>%
-    mutate(fname=str_replace(fname,'fastq','anqrpt.fastq')) %>%
-    select(SampleID,fname)
-fp = file.path(dirw, 'Supplemental_table_mRNA_libs_tmp.csv')
-tp = read_csv(fp) %>% inner_join(ti, by=c('fastq_file_ID'='fname')) %>%
-    inner_join(th, by='SampleID') %>% select(-SampleID)
-
-fo = file.path(dirw, 'sup.csv')
-write_csv(tp, fo)
-
-### sanity check
-fi = '~/projects/barn/data/06_local_list/rn99c.tsv'
-ti = read_tsv(fi) %>% mutate(fname=basename(r0)) %>%
-    mutate(fname=str_replace(fname,'fastq','anqrpt.fastq')) %>%
-    select(SampleID,tis=Tissue,gt=Genotype,fname)
-fp = file.path(dirw, 'Supplemental_table_mRNA_libs.csv')
-tp = read_csv(fp) %>% inner_join(ti, by=c('fastq_file_ID'='fname')) %>%
-    inner_join(th, by='SampleID')
-
-tx1 = tp %>% distinct(tis, gt)
-th0 = rnaseq_sample_meta(yid)
-th0 %>%
-    inner_join(tx1, by=c("Tissue"='tis','Genotype'='gt')) %>%
-    count(Tissue, Genotype) %>% filter(n>1)
-#}}}
 
 
