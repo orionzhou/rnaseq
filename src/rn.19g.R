@@ -40,7 +40,7 @@ th2 = res$th %>%
     mutate(Treatment=ifelse(SampleID=='ERR3322829', 'red_light', Treatment))
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 

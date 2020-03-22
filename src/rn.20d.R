@@ -43,7 +43,7 @@ th2 = res$th %>%
     mutate(Tissue=ifelse(SampleID=='SRR8043090','L', Tissue))
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
