@@ -45,7 +45,8 @@ write_tsv(th2, fh, na='')
 res = rnaseq_cpm(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
-th = th %>% mutate(lab = str_c(Genotype, Treatment, Replicate, sep='_'))
+th = th %>% mutate(lab = str_c(Genotype, Treatment, Replicate, sep='_')) %>%
+    arrange(Genotype, Treatment, Replicate)
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 
@@ -69,37 +70,14 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
 ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
-#{{{ ase gene
-tp = res$ase_gene %>% filter(allele1 + allele2 >= 20) %>%
-    mutate(af = allele1/(allele1 + allele2)) %>%
-    inner_join(th, by='SampleID')
-tp %>% group_by(lab) %>%
-    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>%
-    ungroup() %>% print(n=70)
-p = ggplot(tp) +
-    geom_histogram(aes(af), binwidth=.02) +
-    geom_vline(xintercept = .5, color='red') +
-    scale_y_continuous(name='% allele1',expand=expansion(mult=c(0,.03))) +
-    facet_wrap(~lab, ncol=5, scale='free_y') +
-    otheme(xtext=T, ytext=T, xtick=T, ytick=T, ytitle=T)
+#{{{ ase
+pa1 = plot_ase(res$ase_gene, th, val.col='Genotype', pal.col='aaas')
 fo = file.path(dirw, '31.afs_gene.pdf')
-ggsave(fo, p, width=7, height=7)
-#}}}
+ggsave(fo, pa1, width=7, height=7)
 
-#{{{ ase SNP
-tp2 = res$ase_snp %>% filter(allele1 + allele2 >= 20) %>%
-    mutate(af = allele1/(allele1 + allele2)) %>%
-    inner_join(th, by='SampleID')
-tp2 %>% group_by(Treatment,Genotype) %>%
-    summarise(q50=median(af), m50=sum(allele1)/sum(allele1+allele2)) %>% ungroup()
-p = ggplot(tp2) +
-    geom_histogram(aes(af), binwidth=.02) +
-    geom_vline(xintercept = .5, color='red') +
-    scale_y_continuous(name='% allele1',expand=expansion(mult=c(0,.03))) +
-    facet_wrap(~lab, ncol=5, scale='free_y') +
-    otheme(xtext=T, ytext=T, xtick=T, ytick=T)
+pa2 = plot_ase(res$ase_snp, th, val.col='Genotype', pal.col='aaas')
 fo = file.path(dirw, '32.afs_site.pdf')
-ggsave(fo, p, width=8, height=6)
+ggsave(fo, pa2, width=7, height=7)
 #}}}
 
 

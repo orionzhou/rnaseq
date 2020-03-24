@@ -38,7 +38,7 @@ ggsave(file.path(dirw, '11.tsne.pdf'), width=6, height=6)
 th2 = res$th
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
@@ -69,4 +69,13 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1000, seed=42,
 ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
+#{{{ ase
+pa1 = plot_ase(res$ase_gene, th, val.col='Genotype', pal.col='aaas')
+fo = file.path(dirw, '31.afs_gene.pdf')
+ggsave(fo, pa1, width=7, height=10)
+
+pa2 = plot_ase(res$ase_snp, th, val.col='Genotype', pal.col='aaas')
+fo = file.path(dirw, '32.afs_site.pdf')
+ggsave(fo, pa2, width=7, height=10)
+#}}}
 
