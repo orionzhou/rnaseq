@@ -36,7 +36,19 @@ ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=8, height=8)
 #}}}
 
 #{{{ raw: filter/fix samples
-th2 = res$th
+th2 = res$th %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791849', 'anther', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791850', 'anther', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791613', 'tip', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791640', 'tip', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791642', 'tip', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791634', 'tip', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791711', 'middle', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791715', 'base', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791663', 'base', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791560', 'embryo', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791717', 'shoot', Tissue)) %>%
+    mutate(Tissue = ifelse(SampleID=='ERR3791688', 'shoot', Tissue))
 th2 = complete_sample_list(th2)
 
 fh = file.path(dirw, '01.meta.tsv')
@@ -55,4 +67,23 @@ tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
 #}}}
 
 
+#{{{ hclust & tSNE
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Tissue',
+    expand.x=.3, pal.col='futurama')
+ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=8, height=35)
+
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Tissue',
+    expand.x=.3, pal.col='futurama')
+ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=8, height=35)
+
+p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
+    var.shape='', var.col='Genotype', var.lab='clab', var.ellipse='Tissue', leg.col=F,
+    legend.pos='top.left', legend.dir='v', pal.col='viridis_d')
+ggsave(file.path(dirw, '21.pca.pdf'), p2, width=8, height=8)
+
+p3 = plot_tsne(tm,th,pct.exp=.7,perp=7,iter=1500, seed=2,
+    var.shape='', var.col='Genotype', var.lab='clab', var.ellipse='Tissue', leg.col=F,
+    legend.pos='top.right', legend.dir='v', pal.col='viridis_d')
+ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=8, height=8)
+#}}}
 

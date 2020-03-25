@@ -5,6 +5,19 @@ dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 
 #{{{ read in, filter/fix samples
+res = rnaseq_cpm_raw(yid)
+th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
+
+th = res$th %>%
+    mutate(lab = str_c(Genotype, Replicate, sep='_'))
+tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
+    mutate(value=asinh(CPM))
+#}}}
+
+
+
+
+#{{{ read in, filter/fix samples
 ref = t_cfg %>% filter(yid == !!yid) %>% pull(ref)
 th = rnaseq_sample_meta(yid)
 tt = rnaseq_mapping_stat(yid)
