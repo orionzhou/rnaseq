@@ -10,7 +10,8 @@ th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
 th = res$th %>%
     mutate(lab = str_c(SampleID, Tissue, Genotype, Replicate, sep='_')) %>%
-    mutate(clab = ifelse(Genotype=='B73' & Replicate==1, Tissue, ''))
+    mutate(clab = ifelse(Genotype=='B73' & Replicate==1, Tissue, '')) %>%
+    arrange(Tissue, inbred, Genotype, Treatment)
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 #}}}
@@ -40,7 +41,7 @@ th2 = res$th %>%
     mutate(Tissue = ifelse(SampleID == 'bm318', 'Leaf', Tissue))
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
@@ -50,12 +51,13 @@ th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
 th = res$th %>%
     mutate(lab = str_c(Tissue, Genotype, Replicate, sep='_')) %>%
-    mutate(clab = ifelse(Genotype=='B73' & Replicate==1, Tissue, ''))
+    mutate(clab = ifelse(Genotype=='B73' & Replicate==1, Tissue, '')) %>%
+    arrange(Tissue, inbred, Genotype, Treatment)
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 #}}}
 
-#{{{ raw: hclust & tSNE
+#{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Tissue',
     expand.x=.2, lab.size=2)
 ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=8, height=30)
@@ -75,9 +77,19 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=8,iter=1500, seed=42,
 ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=8, height=8)
 #}}}
 
+#{{{ ase
+pa1 = plot_ase(res$ase_gene, th, val.col='Tissue', pal.col='aaas')
+fo = file.path(dirw, '31.afs_gene.pdf')
+ggsave(fo, pa1, width=7, height=35)
+
+pa2 = plot_ase(res$ase_snp, th, val.col='Tissue', pal.col='aaas')
+fo = file.path(dirw, '32.afs_site.pdf')
+ggsave(fo, pa2, width=7, height=35)
+#}}}
 
 
-#{{{ make sup-table for PeteC
+
+#{{{ # make sup-table for PeteC
 th = rnaseq_sample_meta(yid)
 tt = rnaseq_mapping_stat(yid)
 th = th %>% inner_join(tt, by='SampleID') %>%

@@ -4,105 +4,70 @@ yid = 'rn16b'
 dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 
-#{{{ read in, filter/fix samples
+#{{{ read in
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
-th = res$th %>%
-    mutate(lab = str_c(Genotype, Replicate, sep='_'))
+th = res$th %>% replace_na(list(Treatment='')) %>%
+    mutate(lab=str_c(Tissue,Treatment,Replicate,sep='_')) %>%
+    mutate(grp=str_c(Tissue,Treatment,sep='_')) %>%
+    mutate(grp = str_replace(grp, '_$', '')) %>%
+    mutate(clab = ifelse(Replicate==1, grp, ''))
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 #}}}
 
+#{{{ hclust & tSNE
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Tissue',
+    pal.col='simpsons', expand.x=.3)
+ggsave(file.path(dirw, '11.hclust.p.pdf'), p1, width=8, height=25)
+
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Tissue',
+    pal.col='simpsons', expand.x=.3)
+ggsave(file.path(dirw, '11.hclust.s.pdf'), p1, width=8, height=25)
+
+p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
+    var.shape='', var.col='Tissue', var.lab='clab', var.ellipse='grp', leg.col=F,
+    legend.pos='top.left', legend.dir='v', pal.col='simpsons')
+ggsave(file.path(dirw, '11.pca.pdf'), p2, width=8, height=8)
+
+p3 = plot_tsne(tm,th,pct.exp=.7,perp=10,iter=1500, seed=2,
+    var.shape='', var.col='Tissue', var.lab='clab', var.ellipse='grp', leg.col=F,
+    legend.pos='top.left', legend.dir='v', pal.col='simpsons')
+ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=8, height=8)
+#}}}
 
 
-
-#{{{ read in, filter/fix samples
-ref = t_cfg %>% filter(yid == !!yid) %>% pull(ref)
-th = rnaseq_sample_meta(yid)
-tt = rnaseq_mapping_stat(yid)
-res = rnaseq_cpm_raw(yid)
-th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
-sum_stat_tibble(tt)
-
-sids_keep = tt %>% filter(mapped>5) %>% pull(SampleID)
-sum_stat_tibble(tt %>% filter(SampleID %in% sids_keep))
-
-# fix th
-sids = c("SRR1620908","SRR1620913",'SRR1620838','SRR1620927')
-th2 = th %>% filter(SampleID %in% sids_keep) %>%
-    filter(!SampleID %in% sids) %>%
+#{{{ filter/fix
+sids_keep = res$bamstat %>% filter(pair_map+unpair_map>2e6) %>% pull(sid)
+sids_rm = c("SRR1620908","SRR1620913",'SRR1620838','SRR1620927')
+#
+th2 = res$th %>% filter(SampleID %in% sids_keep) %>%
+    filter(!SampleID %in% sids_rm) %>%
     mutate(Treatment=ifelse(str_detect(Treatment,"^3[\\.\\-]7\\.1"), 'TC_control', Treatment))
 th2 = complete_sample_list(th2)
 
-th = th2
-tt = tt %>% filter(SampleID %in% th$SampleID)
-
-fh = file.path(dirw, 'meta.tsv')
-write_tsv(th, fh, na='')
-# run snakemake again
-#}}}
-tm = tm %>% filter(SampleID %in% th$SampleID)
-
-res = rnaseq_cpm(yid)
-th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
-th = th %>% replace_na(list(Treatment='')) %>%
-    mutate(lab=str_c(Tissue,Treatment,Replicate,sep='_'))
-
-#{{{ hclust
-tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
-t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
-e = tw %>% filter(gid %in% gids) %>% select(-gid)
-dim(e)
-
-cor_opt = "pearson"
-cor_opt = "spearman"
-hc_opt = "ward.D"
-hc_title = sprintf("dist: %s\nhclust: %s", cor_opt, hc_opt)
-edist <- as.dist(1-cor(e, method = cor_opt))
-ehc <- hclust(edist, method = hc_opt)
-tree = as.phylo(ehc)
-lnames = ehc$labels[ehc$order]
-#
-tp = th %>% mutate(taxa = SampleID) %>%
-    select(taxa, everything())
-p1 = ggtree(tree, layout = 'rectangular') +
-    scale_x_continuous(expand = expand_scale(0,2)) +
-    scale_y_discrete(expand = c(.01,0))
-p1 = p1 %<+%
-    tp + geom_tiplab(aes(label=lab, color=Tissue), size=2) +
-    scale_color_viridis_d()
-fo = sprintf("%s/21.cpm.hclust.pdf", dirw)
-ggsave(p1, filename = fo, width=10, height=25)
+fh = file.path(dirw, '01.meta.tsv')
+write_tsv(th2, fh, na='')
 #}}}
 
-#{{{ tSNE
-require(Rtsne)
-tw = tm %>% select(SampleID, gid, CPM) %>% mutate(CPM=asinh(CPM)) %>% spread(SampleID, CPM)
-t_exp = tm %>% group_by(gid) %>% summarise(n.exp = sum(CPM>=1))
-gids = t_exp %>% filter(n.exp >= (ncol(tw)-1) * .7) %>% pull(gid)
-tt = tw %>% filter(gid %in% gids)
-dim(tt)
-tsne <- Rtsne(t(as.matrix(tt[-1])), dims=2, verbose=T, perplexity=10,
-              pca = T, max_iter = 1500)
+#{{{ hclust & tSNE
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Tissue',
+    pal.col='simpsons', expand.x=.3)
+ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=8, height=25)
 
-tp = as_tibble(tsne$Y) %>%
-    add_column(SampleID = colnames(tt)[-1]) %>%
-    inner_join(th, by = 'SampleID')
-x.max=max(tp$V1)
-p_tsne = ggplot(tp) +
-    #geom_text_repel(aes(x=V1,y=V2,label=str_c(Treatment,sep="_")), size=2.5) +
-    geom_point(aes(x=V1, y=V2, color=Tissue,shape=as.character(Replicate)), size=2) +
-    scale_x_continuous(name = 'tSNE-1') +
-    scale_y_continuous(name = 'tSNE-2') +
-    scale_shape_manual(values = 1:9) +
-    scale_color_ucscgb(name = 'Tissue') +
-    otheme(legend.pos='bottom.left', legend.dir='v', legend.title=T,
-           xtitle=T, ytitle=T,
-           margin = c(.2,.2,.2,.2)) +
-    theme(axis.ticks.length = unit(0, 'lines')) #+ guides(color=F)
-fp = file.path(dirw, "25.tsne.pdf")
-ggsave(p_tsne, filename = fp, width=8, height=8)
+p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Tissue',
+    pal.col='simpsons', expand.x=.3)
+ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=8, height=25)
+
+p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
+    var.shape='', var.col='Tissue', var.lab='clab', var.ellipse='grp', leg.col=F,
+    legend.pos='top.left', legend.dir='v', pal.col='simpsons')
+ggsave(file.path(dirw, '21.pca.pdf'), p2, width=8, height=8)
+
+p3 = plot_tsne(tm,th,pct.exp=.7,perp=10,iter=1500, seed=2,
+    var.shape='', var.col='Tissue', var.lab='clab', var.ellipse='grp', leg.col=F,
+    legend.pos='top.left', legend.dir='v', pal.col='simpsons')
+ggsave(file.path(dirw, '21.tsne.pdf'), p3, width=8, height=8)
 #}}}
 

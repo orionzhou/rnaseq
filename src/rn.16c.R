@@ -4,7 +4,7 @@ yid = 'rn16c'
 dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 
-#{{{ read in, filter/fix samples
+#{{{ read in
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
@@ -38,11 +38,11 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=6,iter=1200, seed=2,
 ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
-#{{{ filter
+#{{{ filter & fix
 th2 = res$th
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
