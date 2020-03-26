@@ -1,34 +1,32 @@
-### Sample list / meta table: `meta.tsv`
+### Sample list / meta table: `01.meta.tsv`
 - `SampleID`, `Tissue`, `Gentoype`, `Treatment`, `Replicate`
 - `paired`: paired end or not
 - `spots`: number of reads (single-end) or pairs (paired-end)
 - `avgLength`: average read length
 
-### Trimming statitics: `trimming.tsv`
-- `sid`: SampleID
-- `passed_filter_reads`, `low_quality_reads`, `too_many_N_reads`, `too_short_reads`, `too_long_reads`
-
-### Mapping statistics: `bamstats.tsv`
-- `sid`: SampleID
-- `pair`: read pairs
-  - `pair_bad`, `pair_dup`: pairs that failed QC or duplicates
-  - `pair_map`: mapped pairs (both ends)
-  - `pair_orphan`: pairs with one end mapped
-  - `pair_unmap`: unmapped pairs
-- `unpair`: singletons (single-end reads or pairs with one end failing QC)
-  - `unpair_bad`, `unpair_dup`: singletons that failed QC or duplicates
-  - `unpair_map`: mapped reads
-  - `unpair_unmap`: unmapped reads
-- `pair_map_hq`, `pair_orphan_hq`, `unpair_map_hq`: pairs/reads mapped
+### Result file including trimming and mapping QC stats, raw read count and normalized CPM / FPKM table: `01.rds`
+- can be loaded into R using `x = readRDS("01.rds")`, contains the following data frames:
+- `th`: sample list / meta table, same with `01.meta.tsv`
+- `trimming`: trimming statitics
+  - `sid`: SampleID
+  - `passed_filter_reads`, `low_quality_reads`, `too_many_N_reads`, `too_short_reads`, `too_long_reads`
+- `bamstat`: mapping statistics
+  - `sid`: SampleID
+  - `pair`: read pairs
+    - `pair_bad`, `pair_dup`: pairs that failed QC or duplicates
+    - `pair_map`: mapped pairs (both ends)
+    - `pair_orphan`: pairs with one end mapped
+    - `pair_unmap`: unmapped pairs
+  - `unpair`: singletons (single-end reads or pairs with one end failing QC)
+    - `unpair_bad`, `unpair_dup`: singletons that failed QC or duplicates
+    - `unpair_map`: mapped reads
+    - `unpair_unmap`: unmapped reads
+  - `pair_map_hq`, `pair_orphan_hq`, `unpair_map_hq`: pairs/reads mapped
   with high quality (i.e., unique)
-- `pair_map0`, `pair_orphan0`, `unpair_map0`: pairs/reads mapped with 0 mismatch
-- `pair_map_hq0`, `pair_orphan_hq0`, `unpair_map_hq0`: pairs/reads mapped
+  - `pair_map0`, `pair_orphan0`, `unpair_map0`: pairs/reads mapped with 0 mismatch
+  - `pair_map_hq0`, `pair_orphan_hq0`, `unpair_map_hq0`: pairs/reads mapped
   with high quality (i.e., unique) and with 0 mismatch
-
-### Raw read count and normalized CPM / FPKM table: `rc.norm.rds`
-- can be loaded into R using `x = readRDS("rc.norm.rds")`, contains the following data frames:
-- `th` - sample list / meta table, same with `meta.tsv`
-- `fcnts`: raw read counts from featureCounts
+- `fcnt`: raw read counts from featureCounts
   - `gid`: Gene ID (AGP_v4, Ensembl Plants v37, 46,117 in total)
   - `SampleID`
   - `ReadCount`: raw read count
@@ -37,7 +35,7 @@
   - `SampleID`
   - `ReadCount`: raw read count
   - `TPM`: salmon-normalized Transcript per Million values
-- `salmon_trasncript`: raw read counts and normalized TPMs from salmon (transcript-level)
+- `salmon_tx`: raw read counts and normalized TPMs from salmon (transcript-level)
   - `tid`: Trascript ID (AGP_v4, Ensembl Plants v37)
   - `SampleID`
   - `ReadCount`: raw read count
@@ -57,17 +55,14 @@
   - `FPKM`: FPKM calculated using CPM and gene exon length
 - `th_m`: replicate merged sample list / meta table
 - `tm_m`: replicate merged expression table
+- `ase_gene`: Gene-level allele specific read counts
+  - `sid`: Sample ID
+  - `gid`: gene ID
+  - `allele1`, `allele2`: allele-specific read counts for each allele. For example, in the case of Mo17xB73, `allele1` represents the Mo17 (first) allele count while `allele2` represents the Mo17 (second) allele count
+- `ase_snp`: SNP-level allele specific read counts
+  - `sid`: Sample ID
+  - `chr`, `pos`, `ref`, `alt`: SNP information
+  - `gt`: sample genotype at this site (either `0|1` or `1|0`)
+    - In the case of `1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
+  - `allele1`, `allele2`: read counts for the maternal (first) allele and paternal (second) allele
 
-### Gene-based allele specific read counts: `ase.rds`
-- can be loaded into R using `x = readRDS("ase.rds")`, contains the following columns:
-- `sid`: Sample ID
-- `gid`: gene ID
-- `allele1`, `allele2`: allele-specific read counts for each allele. For example, in the case of Mo17xB73, `allele1` represents the Mo17 (first) allele count while `allele2` represents the Mo17 (second) allele count
-
-### SNP-based allele specific read counts: `ase2.rds`
-- can be loaded into R using `x = readRDS("ase2.rds")`, contains the following columns:
-- `sid`: Sample ID
-- `chr`, `pos`, `ref`, `alt`: SNP information
-- `gt`: sample genotype at this site (either `0|1` or `1|0`)
-  - In the case of `1|0`, allele 1 (maternal allele) is in `alt` state while allele 2 (paternal allele) is the `ref` state
-- `allele1`, `allele2`: read counts for the maternal (first) allele and paternal (second) allele

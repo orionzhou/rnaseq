@@ -1,1 +1,1 @@
-../template.md
+../template.ase.md

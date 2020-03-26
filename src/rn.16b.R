@@ -37,7 +37,6 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=10,iter=1500, seed=2,
 ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=8, height=8)
 #}}}
 
-
 #{{{ filter/fix
 sids_keep = res$bamstat %>% filter(pair_map+unpair_map>2e6) %>% pull(sid)
 sids_rm = c("SRR1620908","SRR1620913",'SRR1620838','SRR1620927')
@@ -49,6 +48,19 @@ th2 = complete_sample_list(th2)
 
 fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
+#}}}
+
+#{{{ read in
+res = rnaseq_cpm(yid)
+th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
+
+th = res$th %>% replace_na(list(Treatment='')) %>%
+    mutate(lab=str_c(Tissue,Treatment,Replicate,sep='_')) %>%
+    mutate(grp=str_c(Tissue,Treatment,sep='_')) %>%
+    mutate(grp = str_replace(grp, '_$', '')) %>%
+    mutate(clab = ifelse(Replicate==1, grp, ''))
+tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
+    mutate(value=asinh(CPM))
 #}}}
 
 #{{{ hclust & tSNE
