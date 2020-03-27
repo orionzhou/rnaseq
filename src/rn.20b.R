@@ -96,7 +96,7 @@ ggsave(file.path(dirw, '21.pca.m.pdf'), p2, width=6, height=6)
 
 p3 = plot_tsne(tm,th[th$Treatment=='m',],pct.exp=.7,perp=4,iter=1000, seed=42,
     var.shape='Tissue', var.col='Genotype', var.lab='elab', var.ellipse='grp',
-    legend.pos='top.left', legend.dir='v', pal.col='aaas')
+    legend.pos='bottom.left', legend.dir='v', pal.col='aaas')
 ggsave(file.path(dirw, '21.tsne.m.pdf'), width=6, height=6)
 
 p2 = plot_pca(tm,th[th$Treatment=='t',],pct.exp=.7, pca.center=T, pca.scale=F,

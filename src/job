@@ -1,14 +1,19 @@
 ##PBS -l nodes=1:ppn=4,mem=30gb,walltime=5:00:00
 ##PBS -l nodes=1:ppn=24,mem=62gb,walltime=2:00:00
-#PBS -l nodes=1:ppn=1,mem=60gb,walltime=1:00:00
+#PBS -l nodes=1:ppn=1,mem=60gb,walltime=5:00:00
 #PBS -m ae
 #PBS -M zhoux379@umn.edu
 ##PBS -q ram256g
-#PBS -q small
+#PBS -q amdsmall
 
-cd ~/projects/maize.expression/src
-Rscript --no-init-file --no-restore me.run.r
-#Rscript --no-init-file --no-restore me.04.output.r
+#Rscript --no-init-file --no-restore me.run.r
 
 #genie3.R -p 12 11_input/n82.rda 12_output/n82.rda
+
+source activate r
+for yid  in ca20a3 rn14f rn16b rn16c rn17b rn17c rn18g rn18i rn19g rn20c rn20d rn20d3 rn20e
+do
+    cd $rn/data/11_qc/$yid
+    nf_rnaseq_norm.R --meta 01.meta.tsv 00.raw.rds 01.rds --rcfg $ref/55.rds
+done
 
