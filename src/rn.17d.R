@@ -12,14 +12,15 @@ th = res$th %>% mutate(Timepoint=as.character(Timepoint)) %>%
     mutate(lab = str_c(Treatment, Timepoint, sep='_'))
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
+#}}}
 
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Treatment',
-    expand.x=.05)
+    expand.x=.2)
 ggsave(file.path(dirw, '11.hclust.p.pdf'), p1, width=5, height=6)
 
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Treatment',
-    expand.x=.05)
+    expand.x=.2)
 ggsave(file.path(dirw, '11.hclust.s.pdf'), p1, width=5, height=6)
 
 p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
@@ -33,13 +34,15 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=2,iter=1200, seed=2,
 ggsave(file.path(dirw, '11.tsne.pdf'), width=6, height=6)
 #}}}
 
+#{{{ fix
 th2 = res$th
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
+#{{{ read
 res = rnaseq_cpm(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
@@ -47,14 +50,15 @@ th = res$th %>% mutate(Timepoint=as.character(Timepoint)) %>%
     mutate(lab = str_c(Treatment, Timepoint, sep='_'))
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
+#}}}
 
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Treatment',
-    expand.x=.05)
+    expand.x=.2)
 ggsave(file.path(dirw, '21.hclust.p.pdf'), p1, width=5, height=6)
 
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='spearman',var.col='Treatment',
-    expand.x=.05)
+    expand.x=.2)
 ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=5, height=6)
 
 p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,

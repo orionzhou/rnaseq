@@ -12,6 +12,7 @@ th = res$th %>%
     mutate(lab = str_c(Treatment, Replicate, sep='_'))
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
+#}}}
 
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Treatment',
@@ -33,10 +34,11 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
 ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
+#{{{ fix
 th2 = res$th
 th2 = complete_sample_list(th2)
 
-fh = file.path(dirw, 'meta.tsv')
+fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
 #}}}
 
