@@ -7,7 +7,7 @@ require(Rtsne)
 dirp = '~/projects/rnaseq'
 dird = file.path(dirp, 'data')
 dirc = '/scratch.global/zhoux379/rnaseq'
-t_cfg = read_gspread(lib='rnaseq')
+t_cfg = read_gspread_master(lib='rnaseq')
 #f_yml = file.path(dird, '10.cfg.yaml')
 #Sys.setenv("R_CONFIG_FILE" = f_yml)
 
