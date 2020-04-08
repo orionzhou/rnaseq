@@ -1,1 +1,1 @@
-../template.md
+../template.ril.md
