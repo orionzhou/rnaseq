@@ -36,6 +36,7 @@ data/*
 *.rda
 *.rds
 *.bak
+*.phy*
 
 # Compiled source #
 *.com
