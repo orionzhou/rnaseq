@@ -85,6 +85,28 @@ fo = file.path(dirw, '41.ril.genotype.pdf')
 ggsave(fo, p, width=8, height=15)
 #}}}
 
+#{{{ write RIL haplotype block coordinates
+fw = '~/projects/genome/data/Zmays_B73/15_intervals/20.win11.tsv'
+tw = read_tsv(fw)
+offs = c(0, cumsum(tw$size)[-nrow(tw)]) + 0:10 * 10e6
+tx = tw %>% mutate(off = offs) %>%
+    mutate(gstart=start+off, gend=end+off, gpos=(gstart+gend)/2) %>%
+    select(rid,chrom,gstart,gend,gpos,off) %>% filter(chrom!='B99')
+#
+tps = th %>% select(sid=SampleID,Genotype,Replicate) %>% arrange(Genotype) %>%
+    mutate(y = 1:n())
+tp = res$ril$cp %>% inner_join(tx, by='rid') %>%
+    mutate(gstart=start+off, gend=end+off) %>%
+    inner_join(tps, by='sid')
+#
+to = tp %>%
+    mutate(sid=str_c(Genotype, Replicate, sep='_')) %>%
+    select(sid, chrom,start,end, gt)
+
+fo = file.path(dirw, '42.ril.genotype.tsv')
+write_tsv(to, fo)
+#}}}
+
 
 #{{{ convert RIL genotype to phylip
 fi = file.path(dird, 'raw', yid, 'ril.rds')
