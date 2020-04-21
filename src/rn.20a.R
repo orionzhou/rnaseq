@@ -1,4 +1,10 @@
 source("functions.R")
+gts3 = c("B73",'Mo17','W22')
+gts6 = c("B73",'Mo17','W22','B73xMo17','W22xB73','W22xMo17')
+gts25 = c("B73", "B97", "CML322", "CML333", "CML52", "CML69", "DK105",
+    "EP1", "F7", "Il14H", "Ki11", "Ki3", "M162W", "M37W",
+    "Mo17", "Mo18W", "MS71", "NC350", "NC358", "Oh43", "Oh7B",
+    "P39", "PH207", "Tx303", "W22")
 
 yid = 'rn20a'
 dirw = file.path(dird, '11_qc', yid)
@@ -7,12 +13,6 @@ if(!dir.exists(dirw)) dir.create(dirw)
 #{{{ read in
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
-gts3 = c("B73",'Mo17','W22')
-gts6 = c("B73",'Mo17','W22','B73xMo17','W22xB73','W22xMo17')
-gts25 = c("B73", "B97", "CML322", "CML333", "CML52", "CML69", "DK105",
-    "EP1", "F7", "Il14H", "Ki11", "Ki3", "M162W", "M37W",
-    "Mo17", "Mo18W", "MS71", "NC350", "NC358", "Oh43", "Oh7B",
-    "P39", "PH207", "Tx303", "W22")
 
 th = res$th %>%
     arrange(Experiment, Genotype, Treatment, Timepoint) %>%
@@ -111,15 +111,28 @@ ggsave(sprintf("%s/12.tsne.%s.pdf", dirw, ex), p2, width=6, height=6)
 #}}}
 
 #{{{ fix samples
-#TC19 and TC20 genotype
+# TC19 and TC20 genotype
 th2 = res$th %>%
     mutate(Genotype=ifelse(SampleID=='TC19', 'Mo17', Genotype)) %>%
     mutate(Genotype=ifelse(SampleID=='TC20', 'B73', Genotype))
 th2 %>% filter(SampleID %in% c("TC19",'TC20')) %>% print(width=Inf)
 
-#th2 = complete_sample_list(th2)
+# fix HY samples
+sids_y = c('NM76','NM100','TC64','TC66')
+sids_n = c('HY93','HY91')
+th3b = th2 %>% filter(SampleID %in% sids_y) %>% mutate(Experiment="HY")
+th3 = th2 %>% filter(!SampleID %in% sids_n) %>%
+    bind_rows(th3b)
+
+# remove TC - time8 samples
+sids8 = th3 %>% filter(Experiment=='TC', Timepoint == 8) %>% pull(SampleID)
+sids8
+th4 = th3 %>% filter(!SampleID %in% sids8)
+
+th4 %>% count(Experiment)
+#th4 = complete_sample_list(th4)
 fh = file.path(dirw, '01.meta.tsv')
-write_tsv(th2, fh, na='')
+write_tsv(th4, fh, na='')
 #}}}
 
 #{{{ read in again
@@ -129,16 +142,6 @@ th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 th = res$th
 tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
-
-# fix HY experiment
-sids_y = c('NM76','NM100','TC64','TC66')
-sids_n = c('HY93','HY91')
-th2b = th %>% filter(SampleID %in% sids_y) %>% mutate(Experiment="HY")
-th2 = th %>% filter(!SampleID %in% sids_n) %>%
-    bind_rows(th2b)
-th2 = th2 %>% arrange(Experiment,Treatment,Timepoint,Genotype)
-th2 %>% count(Experiment)
-th = th2
 #}}}
 
 #{{{ sample clustering
@@ -164,7 +167,7 @@ p1 = plot_hclust(tm1,th1,pct.exp=.7,cor.opt='spearman',var.col='Genotype',
     expand.x=.3)
 ggsave(sprintf("%s/21.hclust.%s.s.pdf",dirw,ex), p1, width=6, height=8)
 
-p2 = plot_tsne(tm1,th1,pct.exp=.5,perp=4,iter=900, seed=12,
+p2 = plot_tsne(tm1,th1,pct.exp=.6,perp=4,iter=1000, seed=12,
     var.shape='Treatment',var.col='Genotype',var.lab='has',#var.ellipse='grp',
     legend.pos='top.center.out', legend.dir='h', legend.box='h',legend.title=F,
     shapes=c(0,1,2), pal.col='aaas')
@@ -172,7 +175,7 @@ ggsave(sprintf("%s/22.tsne.%s.pdf", dirw, ex), p2, width=6, height=6)
 
 th2 = th1 %>% filter(Genotype=='B73')
 tm2 = tm1 %>% filter(SampleID %in% th2$SampleID)
-p2 = plot_tsne(tm2,th2,pct.exp=.5,perp=3,iter=800, seed=12,
+p2 = plot_tsne(tm2,th2,pct.exp=.7,perp=3,iter=800, seed=12,
     var.shape='Treatment',var.col='Treatment',var.lab='has',
     legend.pos='top.center.out', legend.dir='h', legend.box='h',legend.title=F,
     shapes=c(0,1,2), pal.col='aaas')
@@ -180,11 +183,19 @@ ggsave(sprintf("%s/22.tsne.%s.B73.pdf", dirw, ex), p2, width=6, height=6)
 
 th2 = th1 %>% filter(Genotype=='Mo17')
 tm2 = tm1 %>% filter(SampleID %in% th2$SampleID)
-p2 = plot_tsne(tm2,th2,pct.exp=.5,perp=3,iter=800, seed=12,
+p2 = plot_tsne(tm2,th2,pct.exp=.7,perp=3,iter=800, seed=12,
     var.shape='Treatment',var.col='Treatment',var.lab='has',
     legend.pos='top.center.out', legend.dir='h', legend.box='h',legend.title=F,
     shapes=c(0,1,2), pal.col='aaas')
 ggsave(sprintf("%s/22.tsne.%s.Mo17.pdf", dirw, ex), p2, width=6, height=6)
+
+th2 = th1 %>% filter(Genotype=='W22')
+tm2 = tm1 %>% filter(SampleID %in% th2$SampleID)
+p2 = plot_tsne(tm2,th2,pct.exp=.8,perp=4,iter=800, seed=12,
+    var.shape='Treatment',var.col='Treatment',var.lab='has',
+    legend.pos='top.center.out', legend.dir='h', legend.box='h',legend.title=F,
+    shapes=c(0,1,2), pal.col='aaas')
+ggsave(sprintf("%s/22.tsne.%s.W22.pdf", dirw, ex), p2, width=6, height=6)
 #}}}
 
 #{{{ HY
@@ -201,11 +212,11 @@ th1 = th %>% filter(Experiment==ex) %>%
 tm1 = tm %>% filter(SampleID %in% th1$SampleID) %>%
     mutate(value=asinh(CPM))
 
-p1 = plot_hclust(tm1,th1,pct.exp=.7,cor.opt='pearson',var.col='Experiment',
+p1 = plot_hclust(tm1,th1,pct.exp=.7,cor.opt='pearson',var.col='Treatment',
     expand.x=.2)
 ggsave(sprintf("%s/21.hclust.%s.p.pdf",dirw,ex), p1, width=8, height=10)
 
-p1 = plot_hclust(tm1,th1,pct.exp=.7,cor.opt='spearman',var.col='Experiment',
+p1 = plot_hclust(tm1,th1,pct.exp=.7,cor.opt='spearman',var.col='Treatment',
     expand.x=.2)
 ggsave(sprintf("%s/21.hclust.%s.s.pdf",dirw,ex), p1, width=8, height=10)
 
@@ -216,7 +227,7 @@ p2 = plot_tsne(tm1,th1,pct.exp=.6,perp=6,iter=800, seed=12,
 ggsave(sprintf("%s/22.tsne.%s.pdf", dirw, ex), p2, width=6, height=6)
 
 th2 = th1 %>% filter(Genotype %in% gts3)
-p2 = plot_tsne(tm1,th2,pct.exp=.7,perp=3,iter=1000, seed=12,
+p2 = plot_tsne(tm1,th2,pct.exp=.7,perp=4,iter=1000, seed=12,
     var.shape='Genotype',var.col='Genotype',var.lab='clab',var.ellipse='grp',
     legend.pos='top.center.out', legend.dir='h', legend.box='h',legend.title=F,
     shapes=c(0:3,5,6), pal.col='aaas')
