@@ -29,7 +29,7 @@ p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
     legend.pos='top.left', legend.dir='v',legend.box='v', pal.col='aaas')
 ggsave(file.path(dirw, '11.pca.pdf'), p2, width=6, height=6)
 
-p3 = plot_tsne(tm,th,pct.exp=.7,perp=4,iter=1200, seed=2,
+p3 = plot_tsne(tm,th,pct.exp=.6,perp=4,iter=1200, seed=2,
     var.shape='Genotype', var.col='Genotype', var.lab='clab',
     legend.pos='top.left', legend.dir='v', pal.col='aaas')
 ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=6, height=6)
