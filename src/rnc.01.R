@@ -3,9 +3,9 @@ gcfg = read_genome_conf()
 tsyn = read_syn(gcfg)
 size.gene = gcfg$gene %>% select(gid, size=size.exon)
 yid = 'rnc01'
+dirw = file.path(dird, '11_qc', yid)
 yids = c('rn10a','rn11a','rn13b','rn14b','rn14c','rn14e',"rn16b","rn16c","rn18g")
 t_cfg %>% filter(yid %in% yids)
-dirw = file.path(dird, '11_qc', yid)
 if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
 
 #{{{ merge datasets
@@ -114,6 +114,12 @@ ggsave(p_tsne, filename = fp, width=9, height=9)
 
 fo = file.path(dirw, '00.studies.tsv')
 to = th %>% distinct(author, study, tissue, n)
+write_tsv(to, fo, na='')
+fo = file.path(dirw, '00.tissues.tsv')
+tc = t_cfg %>% mutate(study=sprintf("%s et al %s", author, year)) %>%
+    select(yid, study)
+to = res$th %>% distinct(study, Tissue) %>% rename(yid=study) %>%
+    inner_join(tc, by='yid') %>% select(Tissue, Study=study)
 write_tsv(to, fo, na='')
 
 #{{{ #genes expressed in 0-23 tissues
