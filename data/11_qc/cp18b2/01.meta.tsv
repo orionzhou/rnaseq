@@ -1,0 +1,7 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	MergeID	paired	spots	avgLength
+SRR6988694	kernel	WT		3	m1	TRUE	22245106	300
+SRR6988695	kernel	WT		2	m1	TRUE	16916200	300
+SRR6988696	kernel	WT		1	m1	TRUE	21638143	300
+SRR6988697	kernel	bzip22		3	m2	TRUE	21857213	300
+SRR6988698	kernel	bzip22		2	m2	TRUE	23403259	300
+SRR6988699	kernel	bzip22		1	m2	TRUE	20137505	300

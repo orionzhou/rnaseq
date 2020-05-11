@@ -36,7 +36,7 @@ ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=6, height=6)
 
 #{{{ raw: filter/fix samples
 th2 = res$th
-th2 = complete_sample_list(th2)
+#th2 = complete_sample_list(th2)
 
 fh = file.path(dirw, '01.meta.tsv')
 write_tsv(th2, fh, na='')
