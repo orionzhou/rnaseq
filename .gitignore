@@ -1,6 +1,7 @@
 # Project directories
 cache
 logs
+nf
 
 # data folder
 data/*

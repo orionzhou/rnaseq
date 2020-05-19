@@ -2,7 +2,7 @@ source("functions.R")
 
 yid = 'rn13a'
 dirw = file.path(dird, '11_qc', yid)
-if(!dir.exists(dirw)) system(sprintf("mkdir -p %s", dirw))
+if(!dir.exists(dirw)) dir.create(dirw)
 
 #{{{ read in
 res = rnaseq_cpm_raw(yid)

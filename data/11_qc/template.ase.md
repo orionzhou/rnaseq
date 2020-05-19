@@ -1,5 +1,5 @@
 ## Raw samples:
-* [sample meta](https://github.com/orionzhou/barn/tree/master/data/15_read_list)
+* [sample meta](00.meta.tsv)
 * [hierarchical clustering w. pearson correlation](11.hclust.p.pdf)
 * [hierarchical clustering w. spearman correlation](11.hclust.s.pdf)
 * [PCA clustering](11.pca.pdf)
