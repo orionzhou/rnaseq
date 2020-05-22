@@ -1,0 +1,43 @@
+yid	author	year	source	accession	study	genotype	tissue	n	ASE	stress	RIL	Run
+ca20a3	Anderson	2020	local	sp068a				59	T	T		C
+cp12a2	Bolduc	2012	sra	PRJNA168086								C
+cp12b2	Morohashi	2012	sra	PRJNA167802 PRJNA167803								C
+cp14g2	Eveland	2014	sra									C
+cp15a2	Pautler	2015	sra									C
+cp15b2	Li	2015	sra									C
+cp16a2	Yang	2016	sra									C
+cp16b2	Gontarek	2016	sra	PRJNA260183								C
+cp18a2	Zhan	2018	sra									C
+cp18b2	Li	2018	sra									C
+cp19c2	Dong	2019	sra			Zm00001d033673 Zm00001d028129						C
+rn10a	Li	2010	sra	PRJNA79627	leaf 6 zones	B73	leaf	6				C
+rn11a	Davidson	2011	sra	PRJNA80041	reproductive 12	B73	reproductive	12				C
+rn13a	Li	2013	sra	PRJNA179160	eQTL	105 RILs + 2 parents	SAM	107			T	C
+rn14f	Makarevitch	2014	sra	PRJNA244661	stress	B73, B37, Oh43	seedling	27	T	T		C
+rn15d	Baute	2015	sra	PRJEB9918	B73 x H99 RIL	104 RILs + 2 parents	leaf_4	106			T	C
+rn16b	Stelpflug	2016	sra	PRJNA171684 SRP010680	atlas	B73	dev atlas	94				C
+rn16c	Walley	2016	sra	PRJNA217053	proteome	B73	23 tissues	23				C
+rn17b	Waters	2017	local	sp033	cold and heat stress	B, M, P, BxM, BxP	seedling_leaf3	15	T	T		C
+rn17c	Marcon	2017	sra	PRJNA284670	drought stress	B, M, BxM	root	8	T	T		C
+rn17d	Zhang	2017	sra	PRJNA343268 PRJNA344653	cold stress	maize, sorghum	10d whole plant	6		T		C
+rn18g	Zhou	2018	local	sp052	B73 Mo17 atlas	B, M, BxM	23 tissues	90	T			C
+rn18i	Patrick	2020	local	ch001	gene fusion	B, P, W	10 tissues	30				C
+rn18j	Cao	2018	sra	PRJNA477643	drought stress	Yu882	leaf	6		T		C
+rn18k	Meng	2018	sra	PRJNA377057	sequential imprinting	BxM, MxB	embryo		T			C
+rn19a	Mazaheri	2019	sra	PRJNA437324	widiv biomass	453 inbreds	whole seedlings	453				C
+rn19d	He	2019	sra	PRJNA520822	heat stress	B73	7 tisues	21		T		C
+rn19f	Anderson	2019	local	rn19f	submergence	B73	leaf, coleoptile, root	18		T		C
+rn19g	Hendron	2019	sra	PRJEB32558	light exposure		leaf_2	10				C
+rn19h	Chang	2019	sra	PRJNA450300	comparative leaf GRN	B73	leaf	12				C
+rn20a	Zhou	2020	local	sp069	cold and heat stress time series	30 genotypes	leaf	291		T		C
+rn20a2	Zhou	2020	local	rn20a2	BRB-Seq					T		C
+rn20b	Zhou	2020	local	sp065	heterosis	4 inbred + 6 hybrids	3 tissues		T			C
+rn20b2			local	sp068a	RIL	B, M, BxM, MxB, 4 RILs	leaf				T	C
+rn20c		2020	sra	PRJEB36014	NAM25	25 NAM parents	10 tissues	250				C
+rn20d	Li	2019	sra		biomAP	202 inbreds + 96 hybrids	6 tissues	636				C
+rn20d3	Li	2019	local	bmr	biomAP	35 inbreds + 96 hybrids	5 tissues	467	T			C
+rn20e	Anderson	2020	local	sp064	imprinting	BxW, BxP, WxP	endosperm	6	T			C
+rn20f	Doll	2020	sra	PRJNA432713	embryo interface	B	embryo, endosperm					C
+rn20g	Warman	2020	sra	PRJNA394743	pollen TE	B	4 gametophyte tissues	4				C
+rn20h	Magnusson	2020	local	sp073	TF mutant	W						C
+rn20i	Qiao	2020	sra	PRJNA400334	leaf cuticle development	B	leaf cuticle					C
