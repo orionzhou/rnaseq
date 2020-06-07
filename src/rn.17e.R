@@ -34,6 +34,13 @@ p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
 ggsave(file.path(dirw, '11.tsne.pdf'), p3, width=6, height=6)
 #}}}
 
+#{{{ raw: filter/fix samples
+th2 = res$th
+
+fh = file.path(dirw, '01.meta.tsv')
+write_tsv(th2, fh, na='')
+#}}}
+
 #{{{ hclust & tSNE
 p1 = plot_hclust(tm,th,pct.exp=.7,cor.opt='pearson',var.col='Genotype',
     expand.x=.3)
@@ -45,7 +52,7 @@ ggsave(file.path(dirw, '21.hclust.s.pdf'), p1, width=6, height=8)
 
 p2 = plot_pca(tm,th,pct.exp=.7, pca.center=T, pca.scale=F,
     var.shape='Treatment', var.col='Tissue', var.lab='Genotype',
-    legend.pos='bottom.left', legend.dir='v', pal.col='aaas')
+    legend.pos='top.left', legend.dir='v', pal.col='aaas')
 ggsave(file.path(dirw, '21.pca.pdf'), p2, width=6, height=6)
 
 p3 = plot_tsne(tm,th,pct.exp=.7,perp=3,iter=1200, seed=42,
