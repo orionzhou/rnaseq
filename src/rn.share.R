@@ -73,4 +73,20 @@ to = tc2 %>% count(yid) %>% rename(n_total=n) %>%
     inner_join(tc, by='yid')
 #}}}
 
+#{{{ jackie ASE
+dirw = file.path(dird, '91_share')
+yid = 'rn18g'
+res = rnaseq_cpm(yid)
+th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
+gids = c("Zm00001d051166", "Zm00001d046632", "Zm00001d023985", "Zm00001d051525", "Zm00001d002079", "Zm00001d015268", "Zm00001d035283", "Zm00001d052530")
+
+th1 = th %>% select(SampleID, Tissue, Genotype, Replicate)
+to = res$ase_gene %>% filter(gid %in% gids) %>%
+    inner_join(th1, by='SampleID') %>%
+    filter(Genotype == 'B73xMo17') %>%
+    select(Tissue, Genotype, Replicate, gid, allele1, allele2)
+
+fo = file.path(dirw, 'ase_8genes.tsv')
+write_tsv(to, fo)
+#}}}
 

@@ -13,6 +13,8 @@ cp19c2	Dong	2019	sra			Zm00001d033673 Zm00001d028129						C
 rn10a	Li	2010	sra	PRJNA79627	leaf 6 zones	B73	leaf	6				C
 rn11a	Davidson	2011	sra	PRJNA80041	reproductive 12	B73	reproductive	12				C
 rn13a	Li	2013	sra	PRJNA179160	eQTL	105 RILs + 2 parents	SAM	107			T	C
+rn13b	Liu & Yu	2013	sra	PRJNA179196 PRJNA253977	leaf time-series 13t + 9t	B73	early and late leaf	22				C
+rn13c	Eichten	2013	sra	PRJNA173886	diverse inbreds	62 inbreds	seedling_leaf3	62				C
 rn14f	Makarevitch	2014	sra	PRJNA244661	stress	B73, B37, Oh43	seedling	27	T	T		C
 rn15d	Baute	2015	sra	PRJEB9918	B73 x H99 RIL	104 RILs + 2 parents	leaf_4	106			T	C
 rn16b	Stelpflug	2016	sra	PRJNA171684 SRP010680	atlas	B73	dev atlas	94				C
@@ -20,6 +22,7 @@ rn16c	Walley	2016	sra	PRJNA217053	proteome	B73	23 tissues	23				C
 rn17b	Waters	2017	local	sp033	cold and heat stress	B, M, P, BxM, BxP	seedling_leaf3	15	T	T		C
 rn17c	Marcon	2017	sra	PRJNA284670	drought stress	B, M, BxM	root	8	T	T		C
 rn17d	Zhang	2017	sra	PRJNA343268 PRJNA344653	cold stress	maize, sorghum	10d whole plant	6		T		C
+rn17e	Anderson	2017	local	sp060	4 stresses	B, M, P, W, O and 4 others	leaf, root	50		T		C
 rn18g	Zhou	2018	local	sp052	B73 Mo17 atlas	B, M, BxM	23 tissues	90	T			C
 rn18i	Patrick	2020	local	ch001	gene fusion	B, P, W	10 tissues	30				C
 rn18j	Cao	2018	sra	PRJNA477643	drought stress	Yu882	leaf	6		T		C
