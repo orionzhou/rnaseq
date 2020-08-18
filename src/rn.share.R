@@ -88,5 +88,48 @@ to = res$ase_gene %>% filter(gid %in% gids) %>%
 
 fo = file.path(dirw, 'ase_8genes.tsv')
 write_tsv(to, fo)
+
+th1 = th %>% select(SampleID, Tissue, Genotype, Replicate)
+to = res$ase_gene %>%
+    inner_join(th1, by='SampleID') %>%
+    filter(Genotype == 'B73xMo17') %>%
+    select(Tissue, Replicate, gid, allele1, allele2)
+fo = file.path(dirw, 'ase_all.tsv')
+write_tsv(to, fo)
+#}}}
+
+#{{{ rn18g - maize1-maize2 correlation w. jackie & Erika
+ts = read_syn(opt=3) %>% filter(!is.na(maize1), !is.na(maize2)) %>%
+    select(maize1,maize2)
+yid = 'rn18g'
+res = rnaseq_cpm(yid)
+th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
+
+tiss23 = c("radicle_root", "seedling_root", "seedling_leaf", "seedling_meristem", "coleoptile", "auricle", "blade_leaf", "internode", "tassel", "sheath", "ear", "flag_leaf", "floret", "husk", "root", "silk", "spikelet", "tassel_stem", "endosperm14D", "kernel", "embryo", "seed_imbibed", "endosperm27D")
+ths = th_m %>% filter(Genotype=='B73') %>% select(SampleID, Tissue) %>%
+    mutate(Tissue=factor(Tissue, levels=tiss23))
+to = tm_m %>%
+    inner_join(ths, by='SampleID') %>%
+    select(gid, Tissue, CPM) %>%
+    arrange(gid, Tissue) %>%
+    group_by(gid) %>% summarise(cpm = list(CPM)) %>% ungroup()
+
+calc_cor <- function(v1, v2) {
+    #{{{
+    r = cor.test(v1, v2)
+    list(pcc=as.double(r$estimate), pcc.pval=r$p.value)
+    #}}}
+}
+
+to2 = ts %>% inner_join(to, by=c('maize1'='gid')) %>% rename(cpm1=cpm) %>%
+    inner_join(to, by=c('maize2'='gid')) %>% rename(cpm2=cpm) %>%
+    mutate(r = map2(cpm1, cpm2, calc_cor)) %>%
+    mutate(pcc = map_dbl(r, 'pcc')) %>%
+    mutate(pcc.pval = map_dbl(r, 'pcc.pval')) %>%
+    select(-cpm1, -cpm2, -r)
+
+dirw = file.path(dird, "91_share")
+fo = file.path(dirw, "cor_maize1_maize2.tsv")
+write_tsv(to2, fo)
 #}}}
 
