@@ -4,6 +4,7 @@ require(ape)
 require(ggtree)
 require(ggforce)
 require(Rtsne)
+require(skimr)
 dirp = '~/projects/rnaseq'
 dird = file.path(dirp, 'data')
 dirc = '/scratch.global/zhoux379/rnaseq'
