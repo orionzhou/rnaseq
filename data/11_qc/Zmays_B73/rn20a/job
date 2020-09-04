@@ -1,0 +1,8 @@
+#PBS -l nodes=1:ppn=1,mem=45gb,walltime=5:00:00
+#PBS -m ae
+#PBS -M zhoux379@umn.edu
+#PBS -q amdsmall
+
+source activate r
+cd $rn/data/11_qc/rn20a
+nf_rnaseq_norm.R --meta 01.meta.tsv 00.raw.rds 01.rds --rcfg $ref/55.rds

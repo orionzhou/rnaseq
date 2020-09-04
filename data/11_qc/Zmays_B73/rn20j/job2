@@ -1,0 +1,9 @@
+#PBS -l nodes=1:ppn=1,mem=30gb,walltime=5:00:00
+#PBS -m ae
+#PBS -M zhoux379@umn.edu
+#PBS -q amdsmall
+
+cd $rn/data/11_qc/rn20j
+
+source activate rnaseq
+bcftools stats -s - vnt.vcf.gz > vnt.vcf.txt

@@ -1,0 +1,12 @@
+#PBS -l nodes=1:ppn=1,mem=30gb,walltime=30:00:00
+#PBS -m ae
+#PBS -M zhoux379@umn.edu
+#PBS -q amdsmall
+
+cd $rn/data/11_qc/rn20j
+
+source activate rnaseq
+bcftools gtcheck -g $re/data/variants/11.vcf.gz vnt.vcf.gz -G 1 --homs-only -s s07 > s07.txt
+bcftools gtcheck -g $re/data/variants/11.vcf.gz vnt.vcf.gz -G 1 --homs-only -s s08 > s08.txt
+bcftools gtcheck -g $re/data/variants/11.vcf.gz vnt.vcf.gz -G 1 --homs-only -s s09 > s09.txt
+
