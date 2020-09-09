@@ -16,6 +16,6 @@
 * [haplotype block distribution](41.ril.genotype.pdf)
 
 File location on MSI:
-`/home/springer/zhoux379/projects/rnaseq/data/11_qc/rn**/01.rds`
+`/home/springer/zhoux379/projects/rnaseq/data/11_qc/[genome]/[study]/01.rds`
 
 [Result file walk through](https://github.com/orionzhou/rnaseq/blob/master/output.md)

@@ -17,6 +17,6 @@
 * [gene-level allele frequency distribution](31.afs_gene.pdf)
 
 File location on MSI:
-`/home/springer/zhoux379/projects/rnaseq/data/11_qc/rn**/01.rds`
+`/home/springer/zhoux379/projects/rnaseq/data/11_qc/[genome]/[study]/01.rds`
 
 [Result file walk through](https://github.com/orionzhou/rnaseq/blob/master/output.md)
