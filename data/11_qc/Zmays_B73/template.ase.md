@@ -16,7 +16,12 @@
 * [SNP-level allele frequency distribution](32.afs_site.pdf)
 * [gene-level allele frequency distribution](31.afs_gene.pdf)
 
+Preliminary QC:
+
+`https://s3.msi.umn.edu/zhoup-multiqc/[[genome]]/[[study]].html`
+
 File location on MSI:
-`/home/springer/zhoux379/projects/rnaseq/data/11_qc/[genome]/[study]/01.rds`
+
+`/home/springer/zhoux379/projects/rnaseq/data/11_qc/[[genome]]/[[study]]/01.rds`
 
 [Result file walk through](https://github.com/orionzhou/rnaseq/blob/master/output.md)
