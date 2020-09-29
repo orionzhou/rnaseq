@@ -141,3 +141,10 @@ fo = file.path(dirw, "cor_maize1_maize2.tsv")
 write_tsv(to2, fo)
 #}}}
 
+#{{{ rn19i2 - widiv
+yid = 'rn19i2'
+res = rnaseq_cpm_raw(yid)
+th = res$th; tm = res$tm
+
+to1 = tm %>% select(gid, SampleID, )
+#}}}

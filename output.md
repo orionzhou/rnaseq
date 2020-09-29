@@ -51,8 +51,10 @@
   - `nRC`: normalized read count (`nRC = ReadCount / sizeFactor`)
   - `rCPM`: raw CPM (adds up to 1,000,000 for each sample/library)
   - `rFPKM`: raw FPKM calculated using rCPM and gene exon length
+  - `rTPM`: raw TPM (adds up to 1,000,000 for each sample/library)
   - `CPM`: CPM calculated by edgeR (`CPM = rCPM / normFactor`)
   - `FPKM`: FPKM calculated using CPM and gene exon length
+  - `TPM`: normalized TPM (`TPM = rTPM / normFactor`)
 - `th_m`: replicate merged sample list / meta table
 - `tm_m`: replicate merged expression table
 - `ase_gene`: Gene-level allele specific read counts
