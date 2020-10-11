@@ -141,10 +141,32 @@ fo = file.path(dirw, "cor_maize1_maize2.tsv")
 write_tsv(to2, fo)
 #}}}
 
+#{{{ rn19i - widiv
+yid = 'rn19i'
+res = rnaseq_cpm_raw(yid)
+th = res$th; tm = res$tm
+
+to1 = tm %>% select(gid, SampleID, rTPM) %>% spread(SampleID, rTPM)
+to2 = tm %>% select(gid, SampleID, TPM) %>% spread(SampleID, TPM)
+
+diro = "/home/springer/zhoux379/projects/s3/zhoup-share/rnaseq/rn19i"
+fo = file.path(diro, "widiv942_rTPM.tsv.gz")
+write_tsv(to1, fo)
+fo = file.path(diro, "widiv942_TPM.tsv.gz")
+write_tsv(to2, fo)
+#}}}
+
 #{{{ rn19i2 - widiv
 yid = 'rn19i2'
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm
 
-to1 = tm %>% select(gid, SampleID, )
+to1 = tm %>% select(gid, SampleID, rTPM) %>% spread(SampleID, rTPM)
+to2 = tm %>% select(gid, SampleID, TPM) %>% spread(SampleID, TPM)
+
+diro = "/home/springer/zhoux379/projects/s3/zhoup-share/rnaseq/rn19i2"
+fo = file.path(diro, "widiv304_rTPM.tsv.gz")
+write_tsv(to1, fo)
+fo = file.path(diro, "widiv304_TPM.tsv.gz")
+write_tsv(to2, fo)
 #}}}
