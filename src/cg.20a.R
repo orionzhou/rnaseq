@@ -1,7 +1,9 @@
 source("functions.R")
+genome = 'Zmays_B73'
+t_cfg = read_projects(genome)
 
 yid = 'cg20a'
-dirw = file.path(dird, '11_qc', yid)
+dirw = glue("{dird}/11_qc/{genome}/{yid}")
 if(!dir.exists(dirw)) dir.create(dirw)
 
 #{{{ raw: read in
@@ -15,7 +17,7 @@ th = res$th %>%
     mutate(grp = str_c(Tissue,Genotype,Treatment, sep='_')) %>%
     mutate(clab = ifelse(Replicate==1, Treatment, '')) %>%
     mutate(lab = str_c(SampleID, Tissue, Genotype, Treatment, Replicate, sep=' '))
-tm = res$tm %>% filter(SampleID %in% th$SampleID) %>%
+tm1 = res$tm %>% filter(SampleID %in% th$SampleID) %>%
     mutate(value=asinh(CPM))
 #}}}
 
@@ -94,5 +96,24 @@ ggsave(fo, pa2, width=7, height=10)
 #}}}
 
 
+yid = 'cg20a2'
 
+#{{{ raw: read in
+res = rnaseq_cpm_raw(yid)
+th = res$th; tm = res$tm; tl = res$tl; th_m = res$th_m; tm_m = res$tm_m
 
+th = res$th %>%
+    mutate(lab = str_c(SampleID, Tissue, Genotype, sep=' '))
+tm1 = res$tm %>% filter(SampleID %in% th$SampleID) %>%
+    mutate(value=asinh(CPM))
+#}}}
+
+#{{{ ase
+pa1 = plot_ase(res$ase_gene, th, min_rc=10, val.col='SampleID', pal.col='aaas')
+fo = file.path(dirw, '36.afs_gene.pdf')
+ggsave(fo, pa1, width=7, height=4)
+
+pa2 = plot_ase(res$ase_snp, th, min_rc=10, val.col='SampleID', pal.col='aaas')
+fo = file.path(dirw, '36.afs_site.pdf')
+ggsave(fo, pa2, width=7, height=4)
+#}}}

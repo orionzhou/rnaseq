@@ -1,4 +1,6 @@
 source("functions.R")
+genome = 'Zmays_B73'
+t_cfg = read_projects(genome)
 gts3 = c("B73",'Mo17','W22')
 gts6 = c("B73",'Mo17','W22','B73xMo17','W22xB73','W22xMo17')
 gts25 = c("B73", "B97", "CML322", "CML333", "CML52", "CML69", "DK105",
@@ -7,7 +9,7 @@ gts25 = c("B73", "B97", "CML322", "CML333", "CML52", "CML69", "DK105",
     "P39", "PH207", "Tx303", "W22")
 
 yid = 'rn20a'
-dirw = file.path(dird, '11_qc', yid)
+dirw = glue("{dird}/11_qc/{genome}/{yid}")
 if(!dir.exists(dirw)) dir.create(dirw)
 
 #{{{ read in
@@ -127,7 +129,7 @@ th3 = th2 %>% filter(!SampleID %in% sids_n) %>%
 # remove TC - time8 samples
 sids8 = th3 %>% filter(Experiment=='TC', Timepoint == 8) %>% pull(SampleID)
 sids8
-th4 = th3 %>% filter(!SampleID %in% sids8)
+th4 = th3# %>% filter(!SampleID %in% sids8)
 
 th4 %>% count(Experiment)
 #th4 = complete_sample_list(th4)

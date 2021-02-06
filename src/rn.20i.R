@@ -1,7 +1,9 @@
 source("functions.R")
+genome = 'Zmays_B73'
+t_cfg = read_projects(genome)
 
 yid = 'rn20i'
-dirw = file.path(dird, '11_qc', yid)
+dirw = glue("{dird}/11_qc/{genome}/{yid}")
 if(!dir.exists(dirw)) dir.create(dirw)
 
 #{{{ raw: read in
