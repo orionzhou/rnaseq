@@ -1,7 +1,0 @@
-SampleID	Tissue	Genotype	Treatment	Replicate	MergeID	paired	spots	avgLength
-SRR7153126	endosperm	wt		3	m1	TRUE	28438096	200
-SRR7153127	endosperm	wt		2	m1	TRUE	28433700	200
-SRR7153128	endosperm	wt		1	m1	TRUE	26453242	200
-SRR7153129	endosperm	o2		3	m2	TRUE	33397557	200
-SRR7153130	endosperm	o2		2	m2	TRUE	29628718	200
-SRR7153131	endosperm	o2		1	m2	TRUE	30956288	200
