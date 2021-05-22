@@ -141,23 +141,26 @@ fo = file.path(dirw, "cor_maize1_maize2.tsv")
 write_tsv(to2, fo)
 #}}}
 
-#{{{ rn19i - widiv
-yid = 'rn19i'
+#{{{ zm.rn19i - widiv
+yid = 'zm.rn19i'
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm
 
 to1 = tm %>% select(gid, SampleID, rTPM) %>% spread(SampleID, rTPM)
 to2 = tm %>% select(gid, SampleID, TPM) %>% spread(SampleID, TPM)
+to3 = tm %>% select(gid, SampleID, ReadCount) %>% spread(SampleID, ReadCount)
 
-diro = "/home/springer/zhoux379/projects/s3/zhoup-share/rnaseq/rn19i"
+diro = "~/projects/s3/zhoup-share/rnaseq/rn19i"
 fo = file.path(diro, "widiv942_rTPM.tsv.gz")
 write_tsv(to1, fo)
 fo = file.path(diro, "widiv942_TPM.tsv.gz")
 write_tsv(to2, fo)
+fo = glue("{diro}/widiv942_ReadCount.tsv.gz")
+write_tsv(to3, fo)
 #}}}
 
-#{{{ rn19i2 - widiv
-yid = 'rn19i2'
+#{{{ zm.rn19i2 - widiv
+yid = 'zm.rn19i2'
 res = rnaseq_cpm_raw(yid)
 th = res$th; tm = res$tm
 
