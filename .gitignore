@@ -1,7 +1,6 @@
 # Project directories
 cache
 logs
-nf
 
 # data folder
 data/*
@@ -14,6 +13,13 @@ data/*
 *Rplots.pdf
 *.swp
 .panfs*
+
+# nextflow
+.nextflow*
+raw
+results
+work
+pipeline_info
 
 # Large data files
 *.gff

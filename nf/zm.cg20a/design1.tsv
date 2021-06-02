@@ -1,0 +1,11 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	picked	r0	r1	r2
+s12	shoot	B73		1	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r1.fq.gz		
+s13	shoot	B73		2	SE	N	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r2.fq.gz		
+s14	shoot	B73		3	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r3.fq.gz		
+s15	shoot	B73		4	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r4.fq.gz		
+s19	shoot	A632		1	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r1.fq.gz		
+s20	shoot	A632		2	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r2.fq.gz		
+s21	shoot	A632		3	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r3.fq.gz		
+s26	shoot	B73xA632		1	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r1.fq.gz		
+s27	shoot	B73xA632		2	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r2.fq.gz		
+s28	shoot	B73xA632		3	SE	Y	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r3.fq.gz		
