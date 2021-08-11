@@ -1,3 +1,43 @@
 SampleID	Tissue	Genotype	Treatment	Replicate	paired	picked	r0	r1	r2
-s01	root	B73	2015	1	SE	N	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_root_SRR2078287.fq.gz		
-s02	root	B73	2015	2	SE	N	/datalus/weiyu/projects/s3/zhoup-barn/zm.cg20a/B73_root_SRR2078288.fq.gz		
+s09	root	B73		1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_root_r1.fq.gz		
+s10	root	B73		2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_root_r2.fq.gz		
+s11	root	B73		3	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_root_r3.fq.gz		
+s12	shoot	B73		1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r1.fq.gz		
+s13	shoot	B73		2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r2.fq.gz		
+s14	shoot	B73		3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r3.fq.gz		
+s15	shoot	B73		4	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_r4.fq.gz		
+s16	root	A632		1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_root_r1.fq.gz		
+s17	root	A632		2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_root_r2.fq.gz		
+s18	root	A632		3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_root_r3.fq.gz		
+s19	shoot	A632		1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r1.fq.gz		
+s20	shoot	A632		2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r2.fq.gz		
+s21	shoot	A632		3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_shoot_r3.fq.gz		
+s22	root	B73xA632		1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_root_r1.fq.gz		
+s23	root	B73xA632		2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_root_r2.fq.gz		
+s24	root	B73xA632		3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_root_r3.fq.gz		
+s25	root	B73xA632		4	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_root_r4.fq.gz		
+s26	shoot	B73xA632		1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r1.fq.gz		
+s27	shoot	B73xA632		2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r2.fq.gz		
+s28	shoot	B73xA632		3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73Mo17_shoot_r3.fq.gz		
+s29	shoot	A632	cold_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Sctrl_r1.fq.gz		
+s30	shoot	A632	cold_control	2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Sctrl_r2.fq.gz		
+s31	shoot	A632	cold_control	3	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Sctrl_r3.fq.gz		
+s35	shoot	B73	cold_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Sctrl_r1.fq.gz		
+s36	shoot	B73	cold_control	2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Sctrl_r2.fq.gz		
+s37	shoot	B73	cold_control	3	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Sctrl_r3.fq.gz		
+s38	root	B73	cold_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Rctrl_r1.fq.gz		
+s39	root	B73	cold_control	2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Rctrl_r2.fq.gz		
+s40	root	B73	cold_control	3	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Rctrl_r3.fq.gz		
+s50	root	A632	cold_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Rctrl_r1.fq.gz		
+s51	root	A632	cold_control	2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Rctrl_r2.fq.gz		
+s52	root	A632	cold_control	3	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Rctrl_r3.fq.gz		
+s58	shoot	A632	drought_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Sdctrl_r1.fq.gz		
+s59	shoot	A632	drought_control	2	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/Mo17_Sdctrl_r2.fq.gz		
+s60	shoot	B73	drought_control	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Sdctrl_r1.fq.gz		
+s62	shoot	B73	AMG	1	SE	N	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_shoot_AMG.fq.gz		
+s63	husk	B73	Maike	1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Husk_1.fq.gz		
+s64	husk	B73	Maike	2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Husk_2.fq.gz		
+s65	husk	B73	Maike	3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_Husk_3.fq.gz		
+s66	stem	B73	Maike	1	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_V2_1.fq.gz		
+s67	stem	B73	Maike	2	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_V2_2.fq.gz		
+s68	stem	B73	Maike	3	SE	Y	/home/springer/zhoux379/projects/s3/zhoup-barn/zm.cg20a/B73_V2_3.fq.gz		
