@@ -1,0 +1,69 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	r0	r1	r2
+s01	root	B73	2015	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s01.fq.gz		
+s02	root	B73	2015	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s02.fq.gz		
+s03	shoot	B73	2015	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s03.fq.gz		
+s04	shoot	B73	2015	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s04.fq.gz		
+s05	root	A632	2015	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s05.fq.gz		
+s06	root	A632	2015	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s06.fq.gz		
+s07	shoot	A632	2015	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s07.fq.gz		
+s08	shoot	A632	2015	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s08.fq.gz		
+s09	root	B73		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s09.fq.gz		
+s10	root	B73		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s10.fq.gz		
+s11	root	B73		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s11.fq.gz		
+s12	shoot	B73		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s12.fq.gz		
+s13	shoot	B73		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s13.fq.gz		
+s14	shoot	B73		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s14.fq.gz		
+s15	shoot	B73		4	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s15.fq.gz		
+s16	root	A632		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s16.fq.gz		
+s17	root	A632		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s17.fq.gz		
+s18	root	A632		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s18.fq.gz		
+s19	shoot	A632		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s19.fq.gz		
+s20	shoot	A632		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s20.fq.gz		
+s21	shoot	A632		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s21.fq.gz		
+s22	root	B73xA632		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s22.fq.gz		
+s23	root	B73xA632		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s23.fq.gz		
+s24	root	B73xA632		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s24.fq.gz		
+s25	root	B73xA632		4	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s25.fq.gz		
+s26	shoot	B73xA632		1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s26.fq.gz		
+s27	shoot	B73xA632		2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s27.fq.gz		
+s28	shoot	B73xA632		3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s28.fq.gz		
+s29	shoot	A632	cold_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s29.fq.gz		
+s30	shoot	A632	cold_control	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s30.fq.gz		
+s31	shoot	A632	cold_control	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s31.fq.gz		
+s32	root	A632	cold	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s32.fq.gz		
+s33	root	A632	cold	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s33.fq.gz		
+s34	root	A632	cold	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s34.fq.gz		
+s35	shoot	B73	cold_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s35.fq.gz		
+s36	shoot	B73	cold_control	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s36.fq.gz		
+s37	shoot	B73	cold_control	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s37.fq.gz		
+s38	root	B73	cold_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s38.fq.gz		
+s39	root	B73	cold_control	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s39.fq.gz		
+s40	root	B73	cold_control	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s40.fq.gz		
+s41	root	B73	cold	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s41.fq.gz		
+s42	root	B73	cold	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s42.fq.gz		
+s43	root	B73	cold	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s43.fq.gz		
+s44	shoot	B73	cold	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s44.fq.gz		
+s45	shoot	B73	cold	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s45.fq.gz		
+s46	shoot	B73	cold	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s46.fq.gz		
+s47	shoot	A632	cold	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s47.fq.gz		
+s48	shoot	A632	cold	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s48.fq.gz		
+s49	shoot	A632	cold	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s49.fq.gz		
+s50	root	A632	cold_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s50.fq.gz		
+s51	root	A632	cold_control	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s51.fq.gz		
+s52	root	A632	cold_control	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s52.fq.gz		
+s53	shoot	B73	drought	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s53.fq.gz		
+s54	shoot	B73	drought	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s54.fq.gz		
+s55	shoot	A632	drought	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s55.fq.gz		
+s56	shoot	A632	drought	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s56.fq.gz		
+s57	shoot	A632	drought	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s57.fq.gz		
+s58	shoot	A632	drought_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s58.fq.gz		
+s59	shoot	A632	drought_control	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s59.fq.gz		
+s60	shoot	B73	drought_control	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s60.fq.gz		
+s61	root	B73	drought	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s61.fq.gz		
+s62	shoot	B73	AMG	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s62.fq.gz		
+s63	husk	B73	Maike	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s63.fq.gz		
+s64	husk	B73	Maike	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s64.fq.gz		
+s65	husk	B73	Maike	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s65.fq.gz		
+s66	stem	B73	Maike	1	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s66.fq.gz		
+s67	stem	B73	Maike	2	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s67.fq.gz		
+s68	stem	B73	Maike	3	SE	/datalus/weiyu//projects/s3/zhoup-barn/zm.cg20a.2/s68.fq.gz		
