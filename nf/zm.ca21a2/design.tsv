@@ -1,0 +1,11 @@
+SampleID	Tissue	Genotype	Treatment	Replicate	paired	r0	r1	r2
+r001	seedling	Chang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_1a_BRRB210005065-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_1a_BRRB210005065-1A_2.fq.gz
+r002	seedling	Chang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_2a_BRRB210005066-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_2a_BRRB210005066-1A_2.fq.gz
+r003	seedling	Chang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_3a_BRRB210005120-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/C_seedling_3a_BRRB210005120-1A_2.fq.gz
+r004	seedling	Zheng58xChang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_1a_BRRB210005121-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_1a_BRRB210005121-1A_2.fq.gz
+r005	seedling	Zheng58xChang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_2a_BRRB210005122-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_2a_BRRB210005122-1A_2.fq.gz
+r006	seedling	Zheng58xChang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_3a_BRRB210005123-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_3a_BRRB210005123-1A_2.fq.gz
+r007	seedling	Zheng58xChang7-2			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_4a_BRRB210005124-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/F_seedling_4a_BRRB210005124-1A_2.fq.gz
+r008	seedling	Zheng58			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_1a_BRRB210005062-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_1a_BRRB210005062-1A_2.fq.gz
+r009	seedling	Zheng58			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_2a_BRRB210005063-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_2a_BRRB210005063-1A_2.fq.gz
+r010	seedling	Zheng58			PE		/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_3a_BRRB210005064-1A_1.fq.gz	/datalus/weiyu//projects/s3/zhoup-barn/zm.ca21a2/Z_seedling_3a_BRRB210005064-1A_2.fq.gz
